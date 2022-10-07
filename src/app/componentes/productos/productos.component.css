@@ -4,3 +4,10 @@
     justify-content: flex-end;
 }
 
+.celda {
+    display: flex;
+    width: max-content;
+    height: min-content;
+    flex-direction: row;
+    justify-content: center;
+}

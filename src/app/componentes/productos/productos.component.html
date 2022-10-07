@@ -7,17 +7,18 @@
 
 <div class="Tabla ">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
-    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden">
+    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
-        <tr>
-          <th scope="col" *ngFor="let header of headers">
+        <tr style="display: inline-flex;">
+          <th class="celda" scope="col" *ngFor="let header of headers">
+
             {{ header }}
           </th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr style="width:60px; height: 20px" *ngFor="let row of productos">
-          <td *ngFor="let cell of objectKeys(row)">
+        <tr  *ngFor="let row of productos">
+          <td style="overflow-x: hidden; " *ngFor="let cell of objectKeys(row)">
             {{ row[cell] }}
           </td>
         </tr>
