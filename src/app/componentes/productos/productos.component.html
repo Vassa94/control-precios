@@ -1,32 +1,27 @@
-<div style="display: flex; justify-content: flex-end;">
+<!--<div style="display: flex; justify-content: flex-end;">
   <form class="search" role="search">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
   </form>
-</div>
+</div>-->
 
-<div class="Tabla">
-    <table class="table table-bordered table-striped table-hover"  >
+<div class="Tabla ">
+  <div class="table-responsive" style=" margin: 8px; height: 550px; ">
+    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Codigo</th>
-          <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
+          <th scope="col" *ngFor="let header of headers">
+            {{ header }}
+          </th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let producto of productos; index as i">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>
-            {{ producto.Codigo }}
+        <tr style="width:60px; height: 20px" *ngFor="let row of productos">
+          <td *ngFor="let cell of objectKeys(row)">
+            {{ row[cell] }}
           </td>
-          <td>{{ producto.Producto }}</td>
-          <td>{{ producto.Precio}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  
-  
-    
+</div>
