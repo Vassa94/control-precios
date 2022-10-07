@@ -1,0 +1,12 @@
+.search{
+    display: flex!important;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.Tabla{
+    display: flex !important;
+    justify-content: flex-end;
+    width: 66.66666667%;
+    right: auto!important;
+}

@@ -1,0 +1,70 @@
+{
+	"name": "Ignacio",
+	"apellido":"Vassallo",
+	"image": "url",
+	"position": "Desarrollador Full Stack",
+	"about": "Desarrollador Full Stacks principiante enfocado en capacitarme en nuevos lenguajes y tecnología. Estoy buscando incursionar en el mundo laboral del Desarrollo. Orientado a objetivos y comprometido con la búsqueda de soluciones a cualquier problema. Soy autodidacta y siempre intento afianzar el conocimiento que  ya tengo e implementar nuevo, ya que pienso que es bueno para un mejor desempeño",
+	"jobs": [{
+			"name": "Ser Com",
+			"position": "Electricista",
+			"dates": {
+				"start": "Diciembre 2012",
+				"finish": "Enero 2016"
+			},
+			"description": "Trabajos como empleado electricista e instalador de cámaras y alarmas con Ser Com. Planificación y realización de tendido eléctrico y de datos. Colocación de cámaras CCTV e IP."
+		},
+		{
+			"name": "Oxi-Mercedes S.A",
+			"position": "Operador Ecommerce / Mantenimiento Web",
+			"dates": {
+				"start": "Agosto 2015",
+				"finish": "Actualmente"
+			},
+			"description": "Trabajos de mantenimiento web, carga de contenido y productos. Publicidad y manejo de redes. Venta digital, facturación y procesamiento de envíos"
+		},
+		{
+			"name": "Centro de Formación Laboral Nº402",
+			"position": "Instructor",
+			"dates": {
+				"start": "Marzo 2019",
+				"finish": "Actualmente"
+			},
+			"description": "Clases de Diseño 3D. SolidWorks y Fusion 360. herramientas básicas, croquis, evaluación de diseño, Test de resistencia, Prototipado de pieza en 3D"
+		}
+	],
+	"education": [{
+			"name": "Universidad Nacional de Lujan",
+			"dates": {
+				"start": "Marzo 2013",
+				"finish": "Septiembre 2016"
+			},
+			"career": "Licenciatura en Sistemas",
+			"observations": "Hasta Tercer año. titulo incompleto"
+		},
+		{
+			"name": "CFP Nº402",
+			"dates": {
+				"start": "Marzo 2017",
+				"finish": "Noviembre 2017"
+			},
+			"career": "Programación de Arduino",
+			"observations": ""
+		},
+		{
+			"name": "Argentina Programa",
+			"dates": {
+				"start": "Agosto 2021",
+				"finish": "Actualmente"
+			},
+			"career": "Desarrollador Full Stack",
+			"observations": ""
+		}
+	],
+	"projects": [{
+		"name": "Zona 3D",
+		"image": "https://scontent-eze1-1.xx.fbcdn.net/v/t31.18172-8/14570576_1716486228677592_3813187134920779111_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHnlMjY604Occ7Ym1V2iG3yBQgFHkfj3psFCAUeR-PemzvA9VrUcKXG-lG3XxU2YqNi9-68I3ph8qVaot8BzwDu&_nc_ohc=PoW533nJueEAX_O_sqW&_nc_ht=scontent-eze1-1.xx&oh=00_AT8B4_-qbB5cj6Y9Rl6JgxQTFKHWt4kYDiI9q30wtA2ftQ&oe=630C9F3D",
+		"description": "Emprendimiento de Impresión y diseño 3D de piezas, Técnicas y artísticas. Diseño e impresión de repuestos para maquinaria",
+		"link": "https://www.facebook.com/Z3DMercedes"
+	}],
+	"habilities": ["html", "javascript", "CSS", "MySQL", "Illustrator", "Photoshop", "MongoDB", "JAVA"]
+}
