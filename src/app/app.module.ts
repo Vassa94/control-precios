@@ -10,6 +10,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { ControlComponent } from './componentes/control/control.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotFoundComponent } from './componentes/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductosComponent,
     NavbarComponent,
     LoginComponent,
-    ControlComponent
+    ControlComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
