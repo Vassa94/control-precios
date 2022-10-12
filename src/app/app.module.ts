@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
+import {TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ControlComponent } from './componentes/control/control.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
+import { ExpImpComponent } from './componentes/exp-imp/exp-imp.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
     NavbarComponent,
     LoginComponent,
     ControlComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ExpImpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    MatTableModule
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

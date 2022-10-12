@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { Oximercedes } from 'src/app/interface/inter';
-import {TableModule} from 'primeng/table';
+import {TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-productos',
