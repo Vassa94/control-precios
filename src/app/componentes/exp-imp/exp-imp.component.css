@@ -4,3 +4,7 @@
 .card {
     margin: 5px;
 }
+
+.file-input {
+    display: none;
+  }

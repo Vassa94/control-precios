@@ -1,0 +1,25 @@
+.boton {
+    /*float: right;
+    display: fixed;
+    margin-top: 20px;
+    margin-right: 20px;
+    z-index: 20;
+    flex-direction: row;
+    justify-content: flex-end;*/
+    
+    position: fixed;
+    top:90px;
+   
+    float: right;
+    width: 110px;
+    padding: 5px;
+    border-radius: 3px;
+    right: -40px;
+    animation: ScrollUpButton__fadein--3nYOh 2s;
+    -moz-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -webkit-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -o-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    z-index: 20;
+}
