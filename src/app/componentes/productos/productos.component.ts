@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { Oximercedes } from 'src/app/interface/inter';
-import {TableModule } from 'primeng/table';
+import { DataTablesModule, DataTableDirective } from 'angular-datatables';
+
 
 @Component({
   selector: 'app-productos',
@@ -13,7 +14,7 @@ export class ProductosComponent implements OnInit {
   productos:any;
   headers:any;
   objectKeys: any;
-  
+  dtOptions: DataTables.Settings = {};
 
 
   constructor(private datosSis: BDService) { 
@@ -23,6 +24,10 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
+
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
 
   }
  

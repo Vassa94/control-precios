@@ -8,7 +8,7 @@
     justify-content: flex-end;*/
     
     position: fixed;
-    top:90px;
+    top:100px;
    
     float: right;
     width: 110px;
@@ -22,4 +22,15 @@
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     z-index: 20;
+}
+
+.btn{
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    background: #212529;
+    border: 0px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
 }

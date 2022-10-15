@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule} from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DataTablesModule } from 'angular-datatables'; 
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { ExpImpComponent } from './componentes/exp-imp/exp-imp.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
+import { ProgresoComponent } from './componentes/file-upload/progreso/progreso.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FileUploadComponent } from './componentes/file-upload/file-upload.compo
     NotFoundComponent,
     ExpImpComponent,
     ReclamosComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ProgresoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { FileUploadComponent } from './componentes/file-upload/file-upload.compo
     TableModule,
     MatIconModule,
     MatProgressBarModule,
+    DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
