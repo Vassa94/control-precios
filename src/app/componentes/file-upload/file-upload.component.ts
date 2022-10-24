@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { finalize, Subscription } from 'rxjs';
 import { ProgresoComponent } from './progreso/progreso.component';
+import { Papa } from 'ngx-papaparse';
+
 
 
 @Component({
@@ -20,7 +22,16 @@ export class FileUploadComponent  {
     uploadProgress:number = 0;
     uploadSub: Subscription = new Subscription();
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private papa: Papa) {
+      const csvData = '"Identificador de URL WEB","Codigo Oxi","Marca","Cod. Fabrica","Nombre","Cant.","Precio actual","Precio nuevo","Peso (kg)","Alto (cm)","Ancho (cm)","Profundidad (cm)","Stock","Código de barras","QR","Mostrar","Tags"';
+      
+      let options = {
+        complete: (results, file) => {
+            console.log('Parsed: ', results, file);
+        }
+      };
+      this.papa.parse(csvData,options);
+    }
 /*
     onFileDropped($event) {
       this.prepareFilesList($event);
@@ -87,4 +98,8 @@ export class FileUploadComponent  {
       const i = Math.floor(Math.log(bytes) / Math.log(k));
       return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }*/
+
+    
+
+
 }
