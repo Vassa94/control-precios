@@ -1,44 +1,63 @@
-<!--<div class="Tabla ">
+<div class="Tabla ">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
-        <tr >
-          <th class="celda" scope="col" *ngFor="let header of headers">
+        <tr style="height:20px ;overflow: hidden;" >
+          <th class="celda" scope="col" *ngFor="let header of headers;">
 
             {{ header }}
+            
           </th>
+          
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr  *ngFor="let row of productos">
-          <td style="overflow-x: hidden; " *ngFor="let cell of objectKeys(row)">
+        <tr  *ngFor="let row of productos; let i = index">
+          <td style="overflow-x: hidden; " *ngFor="let cell of headers" (click)="view(content)">
             {{ row[cell] }}
           </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>-->
-
-
-<div class="Tabla ">
-  <div class="table-responsive" style=" margin: 8px; height: 550px; ">
-    <table datatable [dtOptions]="dtOptions" class="row table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-      <thead>
-        <tr >
-          <th class="celda" scope="col" *ngFor="let header of headers">
-
-            {{ header }}
-          </th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr  *ngFor="let row of productos">
-          <td style="overflow-x: hidden; " *ngFor="let cell of objectKeys(row)">
-            {{ row[cell] }}
-          </td>
+          
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">Datos personales</h2>
+    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h3 >Hola mundo</h3>
+    
+  </div>
+</ng-template>
+
+<!--<div class="Tabla ">
+  <div class="table-responsive" style=" margin: 8px; height: 550px; ">
+    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+      <thead>
+        <tr style="height:20px ;overflow: hidden;" >
+          <th class="celda" scope="col" *ngFor="let header of headers; let i = index">
+
+            {{ header }}
+            
+          </th>
+          
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr  *ngFor="let row of productos">
+          <td style="overflow-x: hidden; " *ngFor="let cell of objectKeys(row)">
+            {{ row[cell] }}
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>-->

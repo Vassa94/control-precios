@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
-import { Oximercedes } from 'src/app/interface/inter';
-import { DataTablesModule, DataTableDirective } from 'angular-datatables';
-
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-productos',
@@ -14,7 +12,6 @@ export class ProductosComponent implements OnInit {
   productos:any;
   headers:any;
   objectKeys: any;
-  dtOptions: DataTables.Settings = {};
 
 
   constructor(private datosSis: BDService) { 
@@ -25,19 +22,22 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.getProductos();
 
-    this.dtOptions = {
-      pagingType: 'full_numbers'
-    };
+    
 
   }
  
   getProductos():void {
     this.datosSis.obtenerDatos().subscribe((data) => {
         this.productos = data;
-        this.headers = Object.keys(data[0]);
+        this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Cant.","Precio actual","Stock"]
+        //
         
    
       });
+    }
+
+    view(cont){
+
     }
   
 

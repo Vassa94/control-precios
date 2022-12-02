@@ -5,7 +5,10 @@ import { TableModule } from 'primeng/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule} from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { DataTablesModule } from 'angular-datatables'; 
+import { DataTablesModule } from 'angular-datatables';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +45,8 @@ import { ProgresoComponent } from './componentes/file-upload/progreso/progreso.c
     MatIconModule,
     MatProgressBarModule,
     DataTablesModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
