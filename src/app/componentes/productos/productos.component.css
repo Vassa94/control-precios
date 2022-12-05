@@ -17,6 +17,7 @@ tbody {
   display:block;
   height:450px;
   overflow:auto;
+  font-size: small;
 }
 thead, tbody tr {
   display:table;
@@ -26,13 +27,29 @@ thead, tbody tr {
 td{
     /*word-wrap: break-word;*/
     overflow-x: hidden;
-    height: min-content;
+    height:fit-content;
     
 }
 thead {
   width: calc( 100% - 1em ); /*scrollbar is average 1em/16px width, remove it from thead width */
   -ms-flex-item-align: center;
+  font-size: medium;
 }
 table {
-  width:1500px;
+  width:fit-content;
+}
+
+th {
+  width: fit-content;
+}
+
+.modalImg {
+  
+  height: 300px;
+}
+
+.imgub{
+  float: right;
+  display: absolute;
+  margin-right:40px ;
 }

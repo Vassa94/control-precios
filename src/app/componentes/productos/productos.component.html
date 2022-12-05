@@ -1,3 +1,22 @@
+<div>
+  <div style="margin:5px ;margin-left:10px">
+    <span >
+      <button class="btn">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <p style="display:inline-block ;">Cargar CSV</p>
+    </span>
+    <span style="margin-right:5px ; ">
+      <button class="btn">
+        <i class="fa-solid fa-download"></i>
+      </button>
+      <p style="display:inline-block ;" >Descargar CSV</p>
+    </span>
+    
+  </div>
+  
+</div>
+
 <div class="Tabla ">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
@@ -13,7 +32,7 @@
       </thead>
       <tbody class="table-group-divider">
         <tr  *ngFor="let row of productos; let i = index">
-          <td style="overflow-x: hidden; " *ngFor="let cell of headers" (click)="view(content)">
+          <td style="overflow-x: hidden; " *ngFor="let cell of headers2" (click)="view(content,i)">
             {{ row[cell] }}
           </td>
           
@@ -25,16 +44,46 @@
 
 
 <ng-template #content let-modal>
-  <div class="modal-header">
-    <h2 class="modal-title">Datos personales</h2>
-    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
-      <i class="fa fa-times"></i>
-    </button>
+  <div  class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" style="margin:10px ;">{{productos[index].nombre}}</h2>
+        <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="float:right;  display:absolute ;">
+          <button class="btn btn-primary " >
+            <i class="fa-solid fa-pen-to-square"></i> Editar ficha
+          </button>
+        </div>
+        <p>Identificador web: {{ productos[index].URLWEB }}</p>
+        <p>Marca: {{productos[index].marca}}</p>
+        <div class="imgub">
+          <a href="../assets/img/prod/{{productos[index].codigoOxi}}.jpg" target="_blank">
+        
+            <img class="modalImg" src="../assets/img/prod/{{productos[index].codigoOxi}}.jpg" alt="{{productos[index].codFabrica}}">
+          </a>
+        </div>
+        <p>Codigo de Oxi: {{ productos[index].codigoOxi }} </p>
+        <p>Codigo de Fabrica: {{ productos[index].codFabrica }}</p>
+        <p>Cantidad por venta: {{ productos[index].cant }} </p>
+        <p>Precio actual: ${{ productos[index].precioAct }}</p>
+        <p>Peso: {{ productos[index].peso }}Kg</p>
+        <p>Alto: {{ productos[index].alto }}cm</p>
+        <p>Ancho: {{ productos[index].ancho }}cm</p>
+        <p>Profundidad: {{ productos[index].profundidad }}cm</p>
+        <p>Stock publicado: {{ productos[index].stock }}</p>
+        <p>Etiquetas de productos: {{ productos[index].tags }}</p>
+        
+
+        
+        
+      </div>
+    </div>
   </div>
-  <div class="modal-body">
-    <h3 >Hola mundo</h3>
-    
-  </div>
+  
 </ng-template>
 
 <!--<div class="Tabla ">
