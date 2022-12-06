@@ -50,6 +50,7 @@ export class ProductosComponent implements OnInit {
         this.productos = data;
         this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Cant.","Precio actual","Stock"]
         this.headers2 = ["codigoOxi","nombre","marca","codFabrica","cant","precioAct","stock"]
+        console.log(this.headers2);
         
    
       });

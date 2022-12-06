@@ -4,15 +4,54 @@
     justify-content: flex-end;
 }
 
-/*.celda {
-    display: flex;
-    width: max-content;
-    height: min-content;
-    flex-direction: row;
-    justify-content: center;
-    table-layout:fixed
-}*/
 
+.headers {
+  text-align: center;
+}
+
+.precioAct {
+  text-align: right;
+  width: 90px;
+}
+
+.nombre {
+  width: 340px;
+}
+
+.codigoOxi {
+  text-align: center;
+  width: 100px;
+}
+
+.marca {
+  text-align: center;
+  width: 80px;
+}
+
+.codFabrica{
+  text-align: center;
+  width: 100px;
+}
+
+.cant {
+  text-align: center;
+  width: 30px;
+}
+
+.stock{
+  text-align: center;
+  width: 50px;
+}
+
+.opciones {
+  text-align: center;
+  width: 70px;
+}
+
+
+
+
+/*
 tbody {
   display:block;
   height:450px;
@@ -22,19 +61,24 @@ tbody {
 thead, tbody tr {
   display:table;
   width:100%;
-  table-layout:fixed;/* even columns width , fix width of table too*/
+  table-layout:fixed;/* even columns width , fix width of table too
 }
+
+/*
 td{
-    /*word-wrap: break-word;*/
+    /*word-wrap: break-word;
     overflow-x: hidden;
     height:fit-content;
     
 }
+
+/*
 thead {
-  width: calc( 100% - 1em ); /*scrollbar is average 1em/16px width, remove it from thead width */
+  width: calc( 100% - 1em ); /*scrollbar is average 1em/16px width, remove it from thead width 
   -ms-flex-item-align: center;
   font-size: medium;
 }
+/*
 table {
   width:fit-content;
 }
@@ -42,7 +86,7 @@ table {
 th {
   width: fit-content;
 }
-
+*/
 .modalImg {
   
   height: 300px;

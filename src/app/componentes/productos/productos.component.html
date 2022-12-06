@@ -1,41 +1,44 @@
 <div>
-  <div style="margin:5px ;margin-left:10px">
-    <span >
+  <div style="margin-left:10px">
+    <span>
       <button class="btn">
         <i class="fa-solid fa-pen-to-square"></i>
+        <p style="display:inline-block;margin-left: 4px;">Cargar CSV</p>
       </button>
-      <p style="display:inline-block ;">Cargar CSV</p>
+      
     </span>
     <span style="margin-right:5px ; ">
       <button class="btn">
         <i class="fa-solid fa-download"></i>
+        <p style="display:inline-block ;margin-left: 4px;">Descargar CSV</p>
       </button>
-      <p style="display:inline-block ;" >Descargar CSV</p>
+      
     </span>
-    
   </div>
-  
 </div>
 
-<div class="Tabla ">
+<div class="Tabla " data-toggle="table">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
-        <tr style="height:20px ;overflow: hidden;" >
-          <th class="celda" scope="col" *ngFor="let header of headers;">
-
+        <tr style="height:20px ;overflow: hidden;">
+          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index">
             {{ header }}
+          </th>
+          <th  class="opciones">
             
           </th>
-          
         </tr>
+        
       </thead>
       <tbody class="table-group-divider">
-        <tr  *ngFor="let row of productos; let i = index">
-          <td style="overflow-x: hidden; " *ngFor="let cell of headers2" (click)="view(content,i)">
+        <tr *ngFor="let row of productos; let i = index">
+          <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2" >
             {{ row[cell] }}
           </td>
-          
+          <td class="opciones" style="cursor: pointer" (click)="view(content,i)">
+              Ver ficha
+          </td>
         </tr>
       </tbody>
     </table>
@@ -44,17 +47,16 @@
 
 
 <ng-template #content let-modal>
-  <div  class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title" style="margin:10px ;">{{productos[index].nombre}}</h2>
-        <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="close btn" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
           <i class="fa fa-times"></i>
         </button>
       </div>
       <div class="modal-body">
         <div style="float:right;  display:absolute ;">
-          <button class="btn btn-primary " >
+          <button class="btn btn-primary ">
             <i class="fa-solid fa-pen-to-square"></i> Editar ficha
           </button>
         </div>
@@ -62,8 +64,8 @@
         <p>Marca: {{productos[index].marca}}</p>
         <div class="imgub">
           <a href="../assets/img/prod/{{productos[index].codigoOxi}}.jpg" target="_blank">
-        
-            <img class="modalImg" src="../assets/img/prod/{{productos[index].codigoOxi}}.jpg" alt="{{productos[index].codFabrica}}">
+            <img class="modalImg" src="../assets/img/prod/{{productos[index].codigoOxi}}.jpg"
+              alt="{{productos[index].codFabrica}}">
           </a>
         </div>
         <p>Codigo de Oxi: {{ productos[index].codigoOxi }} </p>
@@ -75,15 +77,10 @@
         <p>Ancho: {{ productos[index].ancho }}cm</p>
         <p>Profundidad: {{ productos[index].profundidad }}cm</p>
         <p>Stock publicado: {{ productos[index].stock }}</p>
+        <p>Activo en web: {{productos[index].mostrar}}</p>
         <p>Etiquetas de productos: {{ productos[index].tags }}</p>
-        
-
-        
-        
       </div>
     </div>
-  </div>
-  
 </ng-template>
 
 <!--<div class="Tabla ">
