@@ -14,8 +14,8 @@ export class BDService {
 
 obtenerDatos(): Observable<any> {
 
-  
-  return this.http.get('../assets/datos.json');
+  return this.http.get('http://localhost:8080/producto/traer')
+  //return this.http.get('../assets/datos.json');
   
   
 }
