@@ -1,43 +1,57 @@
-<div>
-  <div style="margin-left:10px">
-    <span>
-      <button class="btn">
-        <i class="fa-solid fa-pen-to-square"></i>
-        <p style="display:inline-block;margin-left: 4px;">Cargar CSV</p>
-      </button>
-      
-    </span>
-    <span style="margin-right:5px ; ">
-      <button class="btn">
-        <i class="fa-solid fa-download"></i>
-        <p style="display:inline-block ;margin-left: 4px;">Descargar CSV</p>
-      </button>
-      
-    </span>
+<div style="display: flex; margin:5px 0px ">
+  <div style="margin: 0px 5px;">
+    <button>
+      <i class="fa-solid fa-pen-to-square"></i>
+      <label> Cargar CSV</label>
+    </button>
   </div>
+
+  <div style="margin-right: 5px;">
+    <button>
+      <i class="fa-solid fa-download"></i>
+      <label> Descargar CSV</label>
+    </button>
+  </div>
+
+  <div style="margin-right: 5px;">
+    <button (click)="form(productNew)">
+      <i class="fa-solid fa-plus"></i>
+      <label>Crear</label>
+    </button>
+  </div>
+  <div style="margin-left: auto;align-items: center">
+    <input style="margin: 0px 5px;width:400px"  placeholder="Buscar" type="text" class="form-control" [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
+    
+
+  </div>
+
 </div>
+
 
 <div class="Tabla " data-toggle="table">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
-          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index">
+          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index" (sort)="sort($event)">
             {{ header }}
           </th>
-          <th  class="opciones">
-            
+          <!--<th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index">
+            {{ header }}
+          </th>-->
+          <th class="opciones">
+
           </th>
         </tr>
-        
+
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of productos; let i = index">
-          <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2" >
-            {{ row[cell] }}
+        <tr *ngFor="let row of productos| filter: search; let i = index">
+          <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2">
+            {{ cell === 'precioPublico' ? '$' + row[cell] : row[cell] }}
           </td>
-          <td class="opciones" style="cursor: pointer" (click)="view(content,i)">
-              Ver ficha
+          <td class="opciones" style="cursor: pointer" (click)="view(content,row)">
+            Ver ficha
           </td>
         </tr>
       </tbody>
@@ -46,64 +60,122 @@
 </div>
 
 
+
+
+
+
 <ng-template #content let-modal>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" style="margin:10px ;">{{productos[index].nombre}}</h2>
-        <button type="button" class="close btn" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
-          <i class="fa fa-times"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div style="float:right;  display:absolute ;">
+  <div class="card">
+    <div class="card-img">
+      <a href="../assets/img/prod/{{producto.value.codigo}}.jpg" target="_blank">
+        <img class="modalImg" src="../assets/img/prod/{{producto.value.codigo}}.jpg"
+          alt="{{producto.value.cod_Fabrica}}">
+      </a>
+    </div>
+    <div class="card-info">
+      <p class="text-title">{{producto.value.descripcion}}</p>
+      <p class="text-body">Marca: {{producto.value.marca}}</p>      
+      <p class="text-body">Codigo de Oxi: {{ producto.value.codigo }} </p>
+      <p class="text-body">Codigo de Fabrica: {{ producto.value.cod_Fabrica }}</p>
+      <p class="text-body">Precio actual: ${{ producto.value.precioPublico }}</p>
+      <p class="text-body">Stock publicado: {{ producto.value.stock }}</p>
+    </div>
+    <div class="card-footer">
+    <div >
+      <button class="btn btn-primary ">
+        <i class="fa-solid fa-pen-to-square"></i> Editar ficha
+      </button>
+    </div>
+  </div></div>
+</ng-template>
+
+<ng-template #productNew let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" style="margin:10px ;">Nuevo Producto</h2>
+      <button type="button" class="close btn" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="producto" (ngSubmit)="agregarProducto()">
+        <div class="mb-3">
+          <label class="mb-2">
+            Codigo (SKU)
+          </label>
+          <input class="input form-control" type="text" formControlName="codigo">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">
+            Descripción del producto
+          </label>
+          <input class="inputs form-control" type="text" formControlName="descripcion">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">
+            Marca
+          </label>
+          <input class="input form-control" type="text" formControlName="marca">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">
+            Código de Fabrica
+          </label>
+          <input class="input form-control" type="text" formControlName="cod_fabrica">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">
+            Precio al publico
+          </label>
+          <div class="input-group">
+            <span class="input input-group-text" id="basic-addon1">$</span>
+            <input class="input form-control" type="text" formControlName="precioPublico">
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label>
+            Cantidad de stock (general)
+          </label>
+          <input class="input form-control" type="text" formControlName="stock">
+        </div>
+        <div class="modal-footer input-group">
+          <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+            Guardar cambios
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<!--
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" style="margin:10px ;">{{producto.value.descripcion}}</h2>
+      <button type="button" class="close btn" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="contenedorof">
+        <div class="edicion" >
           <button class="btn btn-primary ">
             <i class="fa-solid fa-pen-to-square"></i> Editar ficha
           </button>
-        </div>
-        <p>Identificador web: {{ productos[index].URLWEB }}</p>
-        <p>Marca: {{productos[index].marca}}</p>
+        </div>        
         <div class="imgub">
-          <a href="../assets/img/prod/{{productos[index].codigoOxi}}.jpg" target="_blank">
-            <img class="modalImg" src="../assets/img/prod/{{productos[index].codigoOxi}}.jpg"
-              alt="{{productos[index].codFabrica}}">
+          <a href="../assets/img/prod/{{producto.value.codigo}}.jpg" target="_blank">
+            <img class="modalImg" src="../assets/img/prod/{{producto.value.codigo}}.jpg"
+              alt="{{producto.value.cod_Fabrica}}">
           </a>
         </div>
-        <p>Codigo de Oxi: {{ productos[index].codigoOxi }} </p>
-        <p>Codigo de Fabrica: {{ productos[index].codFabrica }}</p>
-        <p>Cantidad por venta: {{ productos[index].cant }} </p>
-        <p>Precio actual: ${{ productos[index].precioAct }}</p>
-        <p>Peso: {{ productos[index].peso }}Kg</p>
-        <p>Alto: {{ productos[index].alto }}cm</p>
-        <p>Ancho: {{ productos[index].ancho }}cm</p>
-        <p>Profundidad: {{ productos[index].profundidad }}cm</p>
-        <p>Stock publicado: {{ productos[index].stock }}</p>
-        <p>Activo en web: {{productos[index].mostrar}}</p>
-        <p>Etiquetas de productos: {{ productos[index].tags }}</p>
       </div>
+      <p>Marca: {{producto.value.marca}}</p>      
+      <p>Codigo de Oxi: {{ producto.value.codigo }} </p>
+      <p>Codigo de Fabrica: {{ producto.value.cod_Fabrica }}</p>
+      <p>Precio actual: ${{ producto.value.precioPublico }}</p>
+      <p>Stock publicado: {{ producto.value.stock }}</p>
     </div>
-</ng-template>
-
-<!--<div class="Tabla ">
-  <div class="table-responsive" style=" margin: 8px; height: 550px; ">
-    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-      <thead>
-        <tr style="height:20px ;overflow: hidden;" >
-          <th class="celda" scope="col" *ngFor="let header of headers; let i = index">
-
-            {{ header }}
-            
-          </th>
-          
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr  *ngFor="let row of productos">
-          <td style="overflow-x: hidden; " *ngFor="let cell of objectKeys(row)">
-            {{ row[cell] }}
-          </td>
-          
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>-->
+-->

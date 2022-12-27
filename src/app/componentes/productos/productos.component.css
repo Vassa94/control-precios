@@ -9,16 +9,17 @@
   text-align: center;
 }
 
-.precioAct {
+.precioPublico {
   text-align: right;
   width: 90px;
 }
 
-.nombre {
+.descripcion {
   width: 340px;
+  overflow: hidden;
 }
 
-.codigoOxi {
+.codigo {
   text-align: center;
   width: 100px;
 }
@@ -28,7 +29,7 @@
   width: 80px;
 }
 
-.codFabrica{
+.cod_Fabrica{
   text-align: center;
   width: 100px;
 }
@@ -87,13 +88,217 @@ th {
   width: fit-content;
 }
 */
+
+.contenedorof{
+  float: right;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.edicion {
+  margin-bottom: 10px;
+}
+
 .modalImg {
-  
   height: 300px;
+  
 }
 
 .imgub{
   float: right;
-  display: absolute;
-  margin-right:40px ;
+  display: flex;
+  flex-direction: column;
 }
+
+.toggler{
+  bottom: 0;
+  right: 10;
+  display: inline-block;
+  
+}
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #3a393b;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: #3a393b;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff
+  ;
+}
+
+.input {
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #e8e8e8;
+  box-shadow: 6px 6px 12px #ffffff,
+              -6px -6px 12px #c5c5c5;
+  font-size: medium;
+  font-weight: bold;
+  max-width: 200px;
+ }
+
+ .inputs {
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #e8e8e8;
+  box-shadow: 6px 6px 12px #ffffff,
+              -6px -6px 12px #c5c5c5;
+  font-size: medium;
+  font-weight: bold;
+  max-width: 500px;
+ }
+ 
+ .input:focus {
+  outline-color: white;
+  place-content: "Enter your message!";
+ }
+
+ button {
+  padding: 8px 15px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 900;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+ }
+ 
+ button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms
+ }
+ 
+ button:hover {
+  color: #e8e8e8;
+ }
+ 
+ button:hover::before {
+  width: 100%;
+ }
+
+
+ .card {
+  width: 100%;
+  
+  padding: .8em;
+  background: #fff;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ }
+ 
+ .card-img {
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  height: 40%;
+  width: 100%;
+  border-radius: .5rem;
+  transition: .3s ease;
+ }
+ 
+ .card-info {
+  padding-top: 10%;
+ }
+ 
+ svg {
+  width: 20px;
+  height: 20px;
+ }
+ 
+ .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #fff;
+ }
+ 
+ /*Text*/
+ .text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+ }
+ 
+ .text-body {
+  font-size: 1em;
+  padding-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 0rem;
+  
+ }
+ 
+ 
+ 
+ /*Hover*/
+ .card-img:hover {
+  transform: translateY(-10%);
+  box-shadow: rgba(117, 117, 116, 0.25) 0px 13px 47px -5px, rgba(139, 138, 138, 0.3) 0px 8px 16px -8px;
+ }
+ 
+ 
+ 

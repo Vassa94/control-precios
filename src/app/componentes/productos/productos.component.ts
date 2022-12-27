@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
+import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { debounceTime, map, Observable, Subject } from 'rxjs';
+import { FilterPipe } from 'src/app/pipe/filter.pipe';
 
 @Component({
   selector: 'app-productos',
@@ -14,70 +18,104 @@ export class ProductosComponent implements OnInit {
   headers:any;
   headers2:any;
   index:number = 0;
+  search: string;
+  filteredProductos: Record<string, any>[]  = [];
+  
 
 
-  constructor(private datosSis: BDService, private modalService: NgbModal,) { 
-    
+  constructor(private datosSis: BDService, private modalService: NgbModal,private formModule:NgbModule) { 
+    this.search = '';
 
   }
 
-  fichaProducto = new FormGroup({
-    identificador: new FormControl(),
+  
+
+  producto= new FormGroup ({
     codigo: new FormControl(),
+    cod_Fabrica: new FormControl(),
+    descripcion: new FormControl(),
     marca: new FormControl(),
-    codFabrica: new FormControl(),
-    nombre: new FormControl(),
-    cant: new FormControl(),
-    precioAct: new FormControl(),
-    peso: new FormControl(),
-    alto: new FormControl(),
-    ancho: new FormControl(),
-    prof: new FormControl(),
-    stock: new FormControl(),
-    mostrar: new FormControl(),
-    tags: new FormControl()
-  });
+    precioPublico: new FormControl(),
+    stock: new FormControl()
+  })
 
   ngOnInit(): void {
+    const search$ = new Subject<string>();
     this.getProductos();
-
-    
+    this.searchProduct(search$).subscribe(productos => this.filteredProductos = productos);
 
   }
  
   getProductos():void {
     this.datosSis.obtenerDatos().subscribe((data) => {
         this.productos = data;
-        this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Cant.","Precio actual","Stock"]
-        this.headers2 = ["codigoOxi","nombre","marca","codFabrica","cant","precioAct","stock"]
+        this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Precio actual","Stock"];
+        this.headers2 = ["codigo","descripcion","marca","cod_Fabrica","precioPublico","stock"];
+        console.table(this.productos);
         console.log(this.headers2);
+        
+        
         
    
       });
     }
 
-    view(cont,i){
-      this.index = i;
-      /*this.fichaProducto.setValue({
-        identificador: this.productos[i].identificador,
-        codigo: this.productos[i].identificador,
-        marca: this.productos[i].identificador,
-        codFabrica: this.productos[i].identificador,
-        nombre: this.productos[i].identificador,
-        cant: this.productos[i].identificador,
-        precioAct: this.productos[i].identificador,
-        peso: this.productos[i].identificador,
-        alto: this.productos[i].identificador,
-        ancho: this.productos[i].identificador,
-        prof: this.productos[i].identificador,
-        stock: this.productos[i].identificador,
-        mostrar: this.productos[i].identificador,
-        tags: this.productos[i].identificador
-      });*/
-      console.log(this.productos[this.index]);
-      
-      this.modalService.open(cont, { centered: true , size: 'lg'});
+    view(cont,row){
+      this.producto.setValue({
+        codigo: row.codigo,
+        marca: row.marca,
+        cod_Fabrica: row.cod_Fabrica,
+        descripcion: row.descripcion,
+        stock: row.stock,
+        precioPublico: row.precioPublico,
+      })
+      this.modalService.open(cont, { centered: true });
     }
+
+  new() {
+    this.producto.setValue({
+      codigo: " ",
+      marca: " ",
+      cod_Fabrica: " ",
+      descripcion: " ",
+      stock: " ",
+      precioPublico: " ",
+    })
+  }
+
+
+    form(productNew){
+      this.new();
+      this.modalService.open(productNew,{centered: true}) ;
+    }
+
+    agregarProducto(){
+
+    }
+
+    searchProduct = (text$: Observable<string>) =>
+    text$.pipe(
+      
+      debounceTime(200),
+      map((term: string) => term === '' ? []
+        : this.productos.filter(v => v.descripcion.toLowerCase().includes(term.toLowerCase()) ||
+                                    v.marca.toLowerCase().includes(term.toLowerCase()) ||
+                                    v.codigo.toString().toLowerCase().includes(term.toLowerCase()) ||
+                                    v.cod_Fabrica.toString().toLowerCase().includes(term.toLowerCase()))
+                                    .slice(0, 10))
+    )
+
+
+  sort(event) {
+    this.productos.sort((a, b) => {
+      if (a[event.column] < b[event.column]) {
+        return event.order === 'asc' ? -1 : 1;
+      } else if (a[event.column] > b[event.column]) {
+        return event.order === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  }
   
 
 }
