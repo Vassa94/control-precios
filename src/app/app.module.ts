@@ -20,6 +20,9 @@ import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
 import { ProgresoComponent } from './componentes/file-upload/progreso/progreso.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { WebComponent } from './componentes/web/web.component';
+import { TruefalseComponent } from './componentes/truefalse/truefalse.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { FilterPipe } from './pipe/filter.pipe';
     ReclamosComponent,
     FileUploadComponent,
     ProgresoComponent,
-    FilterPipe
+    FilterPipe,
+    WebComponent,
+    TruefalseComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    CommonModule
     
   ],
   providers: [],

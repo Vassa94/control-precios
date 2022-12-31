@@ -15,3 +15,5 @@ import { Pipe, PipeTransform } from '@angular/core';
                                   item.cod_Fabrica.toString().toLowerCase().includes(search.toLowerCase()));
     }
   }
+
+  

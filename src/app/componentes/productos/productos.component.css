@@ -15,7 +15,7 @@
 }
 
 .descripcion {
-  width: 340px;
+  width: 240px;
   overflow: hidden;
 }
 
@@ -170,73 +170,7 @@ input:checked + .slider:before {
   ;
 }
 
-.input {
-  border: none;
-  border-radius: 15px;
-  padding: 15px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 12px #ffffff,
-              -6px -6px 12px #c5c5c5;
-  font-size: medium;
-  font-weight: bold;
-  max-width: 200px;
- }
 
- .inputs {
-  border: none;
-  border-radius: 15px;
-  padding: 15px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 12px #ffffff,
-              -6px -6px 12px #c5c5c5;
-  font-size: medium;
-  font-weight: bold;
-  max-width: 500px;
- }
- 
- .input:focus {
-  outline-color: white;
-  place-content: "Enter your message!";
- }
-
- button {
-  padding: 8px 15px;
-  border: unset;
-  border-radius: 15px;
-  color: #212121;
-  z-index: 1;
-  background: #e8e8e8;
-  position: relative;
-  font-weight: 900;
-  font-size: 17px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  transition: all 250ms;
-  overflow: hidden;
- }
- 
- button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  border-radius: 15px;
-  background-color: #212121;
-  z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  transition: all 250ms
- }
- 
- button:hover {
-  color: #e8e8e8;
- }
- 
- button:hover::before {
-  width: 100%;
- }
 
 
  .card {

@@ -1,4 +1,5 @@
 <div style="display: flex; margin:5px 0px ">
+  <!-- Un botón que permite al usuario cargar un archivo CSV. -->
   <div style="margin: 0px 5px;">
     <button>
       <i class="fa-solid fa-pen-to-square"></i>
@@ -6,6 +7,7 @@
     </button>
   </div>
 
+  <!-- Un botón que permite al usuario descargar un archivo CSV. -->
   <div style="margin-right: 5px;">
     <button>
       <i class="fa-solid fa-download"></i>
@@ -13,34 +15,33 @@
     </button>
   </div>
 
+  <!-- Un botón que abre un modal para crear un Producto. -->
   <div style="margin-right: 5px;">
     <button (click)="form(productNew)">
       <i class="fa-solid fa-plus"></i>
       <label>Crear</label>
     </button>
   </div>
+
+  <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
-    <input style="margin: 0px 5px;width:400px"  placeholder="Buscar" type="text" class="form-control" [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
-    
-
+    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+      [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
   </div>
-
 </div>
 
 
+<!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table">
   <div class="table-responsive" style=" margin: 8px; height: 550px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
-          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index" (sort)="sort($event)">
+          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index"
+            (sort)="sort($event)">
             {{ header }}
           </th>
-          <!--<th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index">
-            {{ header }}
-          </th>-->
           <th class="opciones">
-
           </th>
         </tr>
 
@@ -60,10 +61,8 @@
 </div>
 
 
-
-
-
-
+<!-- Una plantilla para el modal que se mostrará cuando el 
+  usuario haga clic en el botón "Ver ficha". -->
 <ng-template #content let-modal>
   <div class="card">
     <div class="card-img">
@@ -74,21 +73,24 @@
     </div>
     <div class="card-info">
       <p class="text-title">{{producto.value.descripcion}}</p>
-      <p class="text-body">Marca: {{producto.value.marca}}</p>      
+      <p class="text-body">Marca: {{producto.value.marca}}</p>
       <p class="text-body">Codigo de Oxi: {{ producto.value.codigo }} </p>
       <p class="text-body">Codigo de Fabrica: {{ producto.value.cod_Fabrica }}</p>
       <p class="text-body">Precio actual: ${{ producto.value.precioPublico }}</p>
       <p class="text-body">Stock publicado: {{ producto.value.stock }}</p>
     </div>
     <div class="card-footer">
-    <div >
-      <button class="btn btn-primary ">
-        <i class="fa-solid fa-pen-to-square"></i> Editar ficha
-      </button>
+      <div>
+        <button class="btn btn-primary ">
+          <i class="fa-solid fa-pen-to-square"></i> Editar ficha
+        </button>
+      </div>
     </div>
-  </div></div>
+  </div>
 </ng-template>
 
+<!-- Una plantilla para el modal que se mostrará cuando el 
+  usuario haga clic en el botón "Crear" o "editar ficha". -->
 <ng-template #productNew let-modal>
   <div class="modal-content">
     <div class="modal-header">
@@ -99,31 +101,31 @@
     </div>
     <div class="modal-body">
       <form [formGroup]="producto" (ngSubmit)="agregarProducto()">
-        <div class="mb-3">
+        <div class="mb-2">
           <label class="mb-2">
             Codigo (SKU)
           </label>
           <input class="input form-control" type="text" formControlName="codigo">
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <label class="mb-2">
             Descripción del producto
           </label>
           <input class="inputs form-control" type="text" formControlName="descripcion">
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <label class="mb-2">
             Marca
           </label>
           <input class="input form-control" type="text" formControlName="marca">
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <label class="mb-2">
             Código de Fabrica
           </label>
-          <input class="input form-control" type="text" formControlName="cod_fabrica">
+          <input class="input form-control" type="text" formControlName="cod_Fabrica">
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <label class="mb-2">
             Precio al publico
           </label>
@@ -133,8 +135,8 @@
           </div>
 
         </div>
-        <div class="mb-3">
-          <label>
+        <div class="mb-2">
+          <label class="mb-2">
             Cantidad de stock (general)
           </label>
           <input class="input form-control" type="text" formControlName="stock">
@@ -148,34 +150,3 @@
     </div>
   </div>
 </ng-template>
-
-<!--
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 class="modal-title" style="margin:10px ;">{{producto.value.descripcion}}</h2>
-      <button type="button" class="close btn" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
-        <i class="fa fa-times"></i>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="contenedorof">
-        <div class="edicion" >
-          <button class="btn btn-primary ">
-            <i class="fa-solid fa-pen-to-square"></i> Editar ficha
-          </button>
-        </div>        
-        <div class="imgub">
-          <a href="../assets/img/prod/{{producto.value.codigo}}.jpg" target="_blank">
-            <img class="modalImg" src="../assets/img/prod/{{producto.value.codigo}}.jpg"
-              alt="{{producto.value.cod_Fabrica}}">
-          </a>
-        </div>
-      </div>
-      <p>Marca: {{producto.value.marca}}</p>      
-      <p>Codigo de Oxi: {{ producto.value.codigo }} </p>
-      <p>Codigo de Fabrica: {{ producto.value.cod_Fabrica }}</p>
-      <p>Precio actual: ${{ producto.value.precioPublico }}</p>
-      <p>Stock publicado: {{ producto.value.stock }}</p>
-    </div>
-  </div>
--->

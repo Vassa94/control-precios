@@ -1,0 +1,80 @@
+<div style="display: flex; margin:5px 0px ">
+    <div style="margin-right: 5px;">
+        <button >
+          <i class="fa-solid fa-plus"></i>
+          <label>Crear</label>
+        </button>
+      </div>
+    
+      <!-- Una barra de búsqueda que filtra la tabla. -->
+      <div style="margin-left: auto;align-items: center">
+        <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+          [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
+      </div>
+</div>
+
+<div class="Tabla " data-toggle="table" *ngIf="!cargando">
+    <div class="table-responsive" style=" margin: 8px; height: 550px; ">
+      <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+        <thead>
+          <tr style="height:20px ;overflow: hidden;">
+            <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index"
+              (sort)="sort($event)">
+              {{ header }}
+            </th>
+            <th class="opciones">
+            </th>
+          </tr>
+  
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let row of web; let i = index">
+            <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
+                <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
+                <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">{{ row[cell] }}</span>
+                <!--{{ cell === 'precio' ? '$' + row[cell] : row[cell] }}-->
+            </td>
+            <td class="opciones" style="cursor: pointer" (click)="view(content,row)">
+              Ver ficha
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="spinner-container" *ngIf="cargando">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>      
+    </div>
+    <div class="texto-cargando" *ngIf="cargando">
+        Cargando
+      </div>
+  </div>
+
+
+  <ng-template #content let-modal>
+    <div class="card">
+      <div class="card-img">
+        <a href="../assets/img/prod/'codigo'.jpg" target="_blank">
+          <img class="modalImg" src="../assets/img/prod/'codigo'.jpg"
+            alt="codigo fab">
+        </a>
+      </div>
+      <div class="card-info">
+        <p class="text-title">nombre</p>
+        <p class="text-body">Marca: marca</p>
+        <p class="text-body">Codigo de Oxi: codigo </p>
+        <p class="text-body">Codigo de Fabrica: cod fabrica</p>
+        <p class="text-body">Precio actual: $precio</p>
+        <p class="text-body">Stock publicado: stock</p>
+      </div>
+      <div class="card-footer">
+        <div>
+          <button class="btn btn-primary ">
+            <i class="fa-solid fa-pen-to-square"></i> Editar ficha
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>

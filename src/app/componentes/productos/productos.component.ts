@@ -17,7 +17,6 @@ export class ProductosComponent implements OnInit {
   productos:any;
   headers:any;
   headers2:any;
-  index:number = 0;
   search: string;
   filteredProductos: Record<string, any>[]  = [];
   
@@ -31,12 +30,12 @@ export class ProductosComponent implements OnInit {
   
 
   producto= new FormGroup ({
-    codigo: new FormControl(),
-    cod_Fabrica: new FormControl(),
-    descripcion: new FormControl(),
-    marca: new FormControl(),
-    precioPublico: new FormControl(),
-    stock: new FormControl()
+    codigo: new FormControl('',[Validators.required, Validators.min(111111) ,Validators.max(999999)]),
+    cod_Fabrica: new FormControl('',Validators.required),
+    descripcion: new FormControl('',[Validators.required, Validators.maxLength(60)]),
+    marca: new FormControl('',Validators.required),
+    precioPublico: new FormControl('',Validators.required),
+    stock: new FormControl('',Validators.required)
   })
 
   ngOnInit(): void {
@@ -46,20 +45,23 @@ export class ProductosComponent implements OnInit {
 
   }
  
+  /* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
   getProductos():void {
     this.datosSis.obtenerDatos().subscribe((data) => {
         this.productos = data;
         this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Precio actual","Stock"];
         this.headers2 = ["codigo","descripcion","marca","cod_Fabrica","precioPublico","stock"];
-        console.table(this.productos);
-        console.log(this.headers2);
-        
-        
-        
-   
+        //console.table(this.productos);
+        //console.log(this.headers2);
       });
     }
 
+    /**
+     * La función toma dos parámetros, el primero es el id del modal y el segundo es la fila de la
+     * tabla
+     * @param cont - es el id del modal
+     * @param row - es la fila que se está editando.
+     */
     view(cont,row){
       this.producto.setValue({
         codigo: row.codigo,
@@ -72,6 +74,10 @@ export class ProductosComponent implements OnInit {
       this.modalService.open(cont, { centered: true });
     }
 
+  /**
+   * La función se llama cuando el usuario hace clic en el botón "Nuevo". Establece los valores del
+   * formulario en cadenas vacías.
+   */
   new() {
     this.producto.setValue({
       codigo: " ",
@@ -84,15 +90,23 @@ export class ProductosComponent implements OnInit {
   }
 
 
+    /**
+     * Abre una ventana modal.
+     * @param productNew - El nombre del modal que desea abrir.
+     */
     form(productNew){
       this.new();
       this.modalService.open(productNew,{centered: true}) ;
     }
 
     agregarProducto(){
-
+      console.log(this.producto.value);
+      this.datosSis.guardar(this.producto.value)
+      
     }
 
+    /* Una función que se llama cuando el usuario escribe en la barra de búsqueda. Filtra los productos
+    por nombre, marca, código o código de fábrica. */
     searchProduct = (text$: Observable<string>) =>
     text$.pipe(
       
@@ -106,6 +120,11 @@ export class ProductosComponent implements OnInit {
     )
 
 
+  /**
+   * Si la columna es la misma, no haga nada. Si la columna es diferente, ordene la matriz por columna
+   * y ordene
+   * @param event - El objeto de evento que desencadenó la ordenación.
+   */
   sort(event) {
     this.productos.sort((a, b) => {
       if (a[event.column] < b[event.column]) {
