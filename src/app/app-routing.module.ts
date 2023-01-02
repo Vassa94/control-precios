@@ -10,7 +10,7 @@ import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { WebComponent } from './componentes/web/web.component';
 
 const routes: Routes = [
-  { path: "control", component: ProductosComponent },
+  { path: "productos", component: ProductosComponent },
   { path: "web", component: WebComponent },
   { path: "login", component: LoginComponent },  
   { path: "control", component: ControlComponent },

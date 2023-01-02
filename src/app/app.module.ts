@@ -23,6 +23,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { WebComponent } from './componentes/web/web.component';
 import { TruefalseComponent } from './componentes/truefalse/truefalse.component';
 import { CommonModule } from '@angular/common';
+import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CommonModule } from '@angular/common';
     ProgresoComponent,
     FilterPipe,
     WebComponent,
-    TruefalseComponent
+    TruefalseComponent,
+    MercadolibreComponent
   ],
   imports: [
     BrowserModule,
