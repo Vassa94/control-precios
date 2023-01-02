@@ -19,6 +19,7 @@ export class ProductosComponent implements OnInit {
   headers2:any;
   search: string;
   filteredProductos: Record<string, any>[]  = [];
+  cargando: boolean = true;
   
 
 
@@ -51,8 +52,7 @@ export class ProductosComponent implements OnInit {
         this.productos = data;
         this.headers = ["Codigo Oxi","Nombre","Marca","Cod. Fabrica","Precio actual","Stock"];
         this.headers2 = ["codigo","descripcion","marca","cod_Fabrica","precioPublico","stock"];
-        //console.table(this.productos);
-        //console.log(this.headers2);
+        this.cargando = false;
       });
     }
 
