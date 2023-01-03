@@ -1,44 +1,38 @@
-.boton {
-    position: fixed;
-    top:100px;
-    float: right;
-    width: 110px;
-    padding: 5px;
-    border-radius: 3px;
-    right: 40px;
-    animation: ScrollUpButton__fadein--3nYOh 2s;
-    -moz-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -webkit-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -o-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    z-index: 20;
-}
-
-.boton2 {
-    position: fixed;
-    top:180px;
-    float: right;
-    width: 110px;
-    padding: 5px;
-    border-radius: 3px;
-    right: 40px;
-    animation: ScrollUpButton__fadein--3nYOh 2s;
-    -moz-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -webkit-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -o-animation: ScrollUpButton__fadein--3nYOh 2s;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    z-index: 20;
-}
-
-.btn{
-    width: 40px;
-    height: 40px;
-    color: #FFF;
-    background: #212529;
-    border: 0px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-}
+button {
+    padding: 8px 15px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 900;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   button:hover {
+    color: #e8e8e8;
+   }
+   
+   button:hover::before {
+    width: 100%;
+   }
