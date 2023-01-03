@@ -8,10 +8,12 @@ import { ControlComponent } from './componentes/control/control.component';
 import { ExpImpComponent } from './componentes/exp-imp/exp-imp.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { WebComponent } from './componentes/web/web.component';
+import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 
 const routes: Routes = [
   { path: "productos", component: ProductosComponent },
   { path: "web", component: WebComponent },
+  { path: "mercadolibre", component: MercadolibreComponent },
   { path: "login", component: LoginComponent },  
   { path: "control", component: ControlComponent },
   { path: "import", component: ExpImpComponent },
