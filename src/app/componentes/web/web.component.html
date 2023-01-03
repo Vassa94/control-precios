@@ -1,42 +1,45 @@
-<div style="display: flex; margin:5px 0px ">
+<div style="display: flex; margin:5px 5px ">
     <div style="margin-right: 5px;">
         <button >
-          <i class="fa-solid fa-plus"></i>
+          <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
           <label>Crear</label>
         </button>
       </div>
     
       <!-- Una barra de búsqueda que filtra la tabla. -->
       <div style="margin-left: auto;align-items: center">
-        <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
-          [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
+        <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control" 
+        (input)="filtrarTabla($event)">
       </div>
 </div>
 
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-    <div class="table-responsive" style=" margin: 8px; height: 550px; ">
+    <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
       <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
         <thead>
-          <tr style="height:20px ;overflow: hidden;">
-            <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index"
-              (sort)="sort($event)">
-              {{ header }}
-            </th>
+          
+          <tr style="height:20px ;">
             <th class="opciones">
+              URL
             </th>
+            <th class=" {{headers2[i]}}" scope="col" *ngFor="let header of headers;let i = index"
+              >
+              {{ header }}
+            </th>            
           </tr>
   
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let row of web; let i = index">
+            <td class="opciones" style="cursor: pointer">
+              <a href="https://oximercedes.com.ar/productos/{{row['url']}}" target="_blank">Ver</a>
+            </td>
             <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
                 <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-                <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">{{ row[cell] }}</span>
-                <!--{{ cell === 'precio' ? '$' + row[cell] : row[cell] }}-->
-            </td>
-            <td class="opciones" style="cursor: pointer" (click)="view(content,row)">
-              Ver ficha
-            </td>
+                <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+                  {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'precio' ? '$' + row[cell] : (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' : row[cell])) }}
+                </span>
+            </td>            
           </tr>
         </tbody>
       </table>

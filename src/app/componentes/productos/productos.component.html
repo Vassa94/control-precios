@@ -2,7 +2,7 @@
   <!-- Un botón que permite al usuario cargar un archivo CSV. -->
   <div style="margin: 0px 5px;">
     <button>
-      <i class="fa-solid fa-pen-to-square"></i>
+      <i class="fa-solid fa-pen-to-square" style="padding-right: 3px;"></i>
       <label> Cargar CSV</label>
     </button>
   </div>
@@ -10,7 +10,7 @@
   <!-- Un botón que permite al usuario descargar un archivo CSV. -->
   <div style="margin-right: 5px;">
     <button>
-      <i class="fa-solid fa-download"></i>
+      <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
       <label> Descargar CSV</label>
     </button>
   </div>
@@ -18,7 +18,7 @@
   <!-- Un botón que abre un modal para crear un Producto. -->
   <div style="margin-right: 5px;">
     <button (click)="form(productNew)">
-      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
       <label>Crear</label>
     </button>
   </div>
@@ -33,7 +33,7 @@
 
 <!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-  <div class="table-responsive" style=" margin: 8px; height: 550px; ">
+  <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px;">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
