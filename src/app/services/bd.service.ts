@@ -24,6 +24,10 @@ obtenerWeb(): Observable<any> {
   return this.http.get('../assets/pubWeb.json');
 }
 
+obtenerMl(): Observable<any> {
+  return this.http.get('../assets/pubMl.json');
+}
+
 
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
