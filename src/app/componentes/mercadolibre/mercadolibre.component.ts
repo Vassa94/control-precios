@@ -13,6 +13,7 @@ export class MercadolibreComponent implements OnInit {
   headers2: any;
   search: string = '';
   cargando: boolean = true;
+  imagen: any;
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -23,25 +24,23 @@ export class MercadolibreComponent implements OnInit {
   obtenerDatos(){
     this.datosSis.obtenerMl().subscribe((data) =>{
       this.ml = data;
-      this.headers = ["itemid",
-                      "itemsku",
-                      "categoryid",
-                      "listingtypeid",
-                      "title",
-                      "availablequantity",
-                      "price",
-                      "condition",
-                      "status",
-                      "freeshipping",
-                      "full",
-                      "localpickup",
-                      "warrantytime",
-                      "cataloglisting",
-                      "shipping",
-                      "picture1",
-                      "marca",
-                      "modelo",
-                      "peso"]
+      this.headers = ["ML Id",
+                      "Codigo oxi",
+                      "Id Categoria",
+                      "Tipo pub",
+                      "Titulo",
+                      "Stock",
+                      "Precio",
+                      "Condición",
+                      "Status",
+                      "Envio gratis",
+                      "Full",
+                      "Retiro",
+                      "Garantia",
+                      "Es catalogo?",
+                      "Marca",
+                      "Modelo",
+                      "Peso"]
       this.headers2 = ["itemid",
                       "itemsku",
                       "categoryid",
@@ -56,13 +55,18 @@ export class MercadolibreComponent implements OnInit {
                       "localpickup",
                       "warrantytime",
                       "cataloglisting",
-                      "shipping",
-                      "picture1",
                       "marca",
                       "modelo",
                       "peso"]
       this.cargando = false;
     });
   }
+
+
+  abrirPreview(preview,img){
+    this.imagen = "https://http2.mlstatic.com/D_NQ_NP_" + img + "-O.jpg";
+    this.modalService.open(preview, { centered: true });
+  }
+
 
 }

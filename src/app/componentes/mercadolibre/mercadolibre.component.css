@@ -1,3 +1,7 @@
+.header{
+    text-align: center;
+}
+
 button {
     padding: 8px 15px;
     border: unset;
@@ -36,3 +40,82 @@ button {
    button:hover::before {
     width: 100%;
    }
+
+
+
+   .itemid{
+       text-align: left;
+       white-space: nowrap;
+       overflow-x: auto;
+       max-width: 130px
+   }
+
+   .itemsku{
+        text-align: center;
+        white-space: nowrap;
+        overflow-x: auto;
+        max-width: 100px
+   }
+
+   .categoryid{
+        text-align: center;
+        white-space: nowrap;
+        overflow-x: auto;
+        min-width: 140px
+   }
+
+   .title{
+    text-align: left;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 380px
+}
+
+.warrantytime{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 120px
+}
+
+.peso{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 120px
+}
+
+.price{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100px
+}
+
+.availablequantity{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100px
+}
+
+.freeshipping{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 120px
+}
+
+.cataloglisting{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 120px
+}
+
+.listingtypeid{
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 120px
+}

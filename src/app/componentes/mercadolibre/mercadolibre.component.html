@@ -14,7 +14,7 @@
         </a>        
       </div>
       <div style="margin-right: 5px;">
-        <a href="/control-precios/reclamos" >
+        <a href="/reclamos" >
           <button >
             <i class="fa-solid fa-inbox" style="padding-right: 3px;"></i>
             <label style="cursor: pointer;"> Cargar Reclamos</label>
@@ -38,7 +38,7 @@
           <th class="opciones">
             URL
           </th>
-          <th class=" {{headers2[i]}}" scope="col" *ngFor="let header of headers;let i = index"
+          <th class="header " scope="col" *ngFor="let header of headers;let i = index"
             >
             {{ header }}
           </th>            
@@ -48,12 +48,12 @@
       <tbody class="table-group-divider">
         <tr *ngFor="let row of ml; let i = index">
           <td class="opciones" style="cursor: pointer">
-            <a href="https://http2.mlstatic.com/D_NQ_NP_{{row['picture1']}}-O.jpg" target="_blank">Ver</a>
+            <p (click)="abrirPreview(preview, row['picture1'])">Ver</p>
           </td>
           <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
               <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-              <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
-                {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'price' ? '$' + row[cell] : row[cell]) }}
+              <span class="{{cell}}" *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+                {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'price' ? '$' + row[cell] : (row[cell] === 'gold_special' ? 'Clasica' :(row[cell] === 'gold_pro' ? 'Premium' :row[cell]))) }}
               </span>
           </td>            
         </tr>
@@ -87,3 +87,10 @@
 </div>
 </div>
 
+<ng-template #preview let-modal>
+  <div class="card">
+    <img [src]="imagen" alt="" style="height:400px ;">
+  </div>
+</ng-template>
+
+<!--https://http2.mlstatic.com/D_NQ_NP_{{row['picture1']}}-O.jpg-->

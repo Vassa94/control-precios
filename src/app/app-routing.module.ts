@@ -11,13 +11,13 @@ import { WebComponent } from './componentes/web/web.component';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 
 const routes: Routes = [
-  { path: "control-precios/productos", component: ProductosComponent },
-  { path: "control-precios/web", component: WebComponent },
-  { path: "control-precios/mercadolibre", component: MercadolibreComponent },
-  { path: "control-precios/login", component: LoginComponent },  
-  { path: "control-precios/control", component: ControlComponent },
-  { path: "control-precios/import", component: ExpImpComponent },
-  { path: "control-precios/reclamos", component: ReclamosComponent},
+  { path: "productos", component: ProductosComponent },
+  { path: "web", component: WebComponent },
+  { path: "mercadolibre", component: MercadolibreComponent },
+  { path: "login", component: LoginComponent },  
+  { path: "control", component: ControlComponent },
+  { path: "import", component: ExpImpComponent },
+  { path: "reclamos", component: ReclamosComponent},
   //{ path: "",   redirectTo: "productos", pathMatch: "full" },
   { path: "#",   redirectTo: 'productos', pathMatch: 'full' },
   { path: "**", component: NotFoundComponent },
