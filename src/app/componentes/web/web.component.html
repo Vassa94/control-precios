@@ -31,13 +31,26 @@
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let row of web; let i = index">
-            <td class="opciones" style="cursor: pointer">
-              <a href="https://oximercedes.com.ar/productos/{{row['url']}}" target="_blank">Ver</a>
+            <td class="opciones" 
+                style="cursor: pointer"
+                >
+              <a href="https://oximercedes.com.ar/productos/{{row['url']}}" 
+                 target="_blank">
+                 Ver
+                </a>
             </td>
-            <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
-                <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
+            <td class="{{cell}}" 
+                style="overflow-x: hidden;" 
+                *ngFor="let cell of headers2"
+                >
+                <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" 
+                              [verde]="row[cell]"></app-circulo
+                              >
                 <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
-                  {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'precio' ? '$' + row[cell] : (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' : row[cell])) }}
+                  {{ cell === 'peso' ? row[cell] + ' Kg' :
+                    (cell === 'precio' ? '$' + row[cell] : 
+                    (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' :
+                     row[cell])) }}
                 </span>
             </td>            
           </tr>

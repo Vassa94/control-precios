@@ -1,61 +1,59 @@
-<div style="display: flex; margin:5px 0px ">    
-      <div style="margin-right: 5px;">
-        <button >
-          <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
-          <label style="cursor: pointer;">Crear</label>
-        </button>
-      </div>
-      <div style="margin-right: 5px;">
-        <a href="https://www.mercadolibre.com.ar/ventas/listado?actions&encryptSelect&filters=CLAIMS_OPEN|MEDIATION_OPEN&fromCurrent=&page=1&search=&sort=DATE_CLOSED_DESC&startPeriod=&toCurrent=" target="_blank">
-          <button >
-            <i class="fa-solid fa-triangle-exclamation" style="padding-right: 3px;"></i>
-            <label style="cursor: pointer;">Reclamos</label>
-          </button>
-        </a>        
-      </div>
-      <div style="margin-right: 5px;">
-        <a href="/reclamos" >
-          <button >
-            <i class="fa-solid fa-inbox" style="padding-right: 3px;"></i>
-            <label style="cursor: pointer;"> Cargar Reclamos</label>
-          </button>
-        </a>        
-      </div>
-    
-      <!-- Una barra de búsqueda que filtra la tabla. -->
-      <div style="margin-left: auto;align-items: center">
-        <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
-          >
-      </div>
+<div style="display: flex; margin:5px 0px ">
+  <div style="margin-right: 5px;">
+    <button>
+      <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
+      <label style="cursor: pointer;">Crear</label>
+    </button>
+  </div>
+  <div style="margin-right: 5px;">
+    <a href="https://www.mercadolibre.com.ar/ventas/listado?actions&encryptSelect&filters=CLAIMS_OPEN|MEDIATION_OPEN&fromCurrent=&page=1&search=&sort=DATE_CLOSED_DESC&startPeriod=&toCurrent="
+      target="_blank">
+      <button>
+        <i class="fa-solid fa-triangle-exclamation" style="padding-right: 3px;"></i>
+        <label style="cursor: pointer;">Reclamos</label>
+      </button>
+    </a>
+  </div>
+  <div style="margin-right: 5px;">
+    <a href="/reclamos">
+      <button>
+        <i class="fa-solid fa-inbox" style="padding-right: 3px;"></i>
+        <label style="cursor: pointer;"> Cargar Reclamos</label>
+      </button>
+    </a>
+  </div>
+
+  <!-- Una barra de búsqueda que filtra la tabla. -->
+  <div style="margin-left: auto;align-items: center">
+    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
+  </div>
 </div>
 
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
   <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
-        
         <tr style="height:20px ;">
           <th class="opciones">
             URL
           </th>
-          <th class="header " scope="col" *ngFor="let header of headers;let i = index"
-            >
+          <th class="header " scope="col" *ngFor="let header of headers;let i = index">
             {{ header }}
-          </th>            
+          </th>
         </tr>
-
-      </thead>
+      </thead>      
       <tbody class="table-group-divider">
         <tr *ngFor="let row of ml; let i = index">
           <td class="opciones" style="cursor: pointer">
             <p (click)="abrirPreview(preview, row['picture1'])">Ver</p>
           </td>
           <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
-              <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-              <span class="{{cell}}" *ngIf="cell !== 'mostrar' && cell !== 'envio'">
-                {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'price' ? '$' + row[cell] : (row[cell] === 'gold_special' ? 'Clasica' :(row[cell] === 'gold_pro' ? 'Premium' :row[cell]))) }}
-              </span>
-          </td>            
+            <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
+            <span class="{{cell}}" *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+              {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'price' ? '$' + row[cell] : (row[cell] ===
+              'gold_special' ? 'Clasica' :(row[cell] === 'gold_pro' ? 'Premium' :row[cell]))) }}
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -63,28 +61,28 @@
 </div>
 
 <div class="spinner-container" *ngIf="cargando">
-<div class="loader">
-  <span style="--i:1"></span>
-  <span style="--i:2"></span>
-  <span style="--i:3"></span>
-  <span style="--i:4"></span>
-  <span style="--i:5"></span>
-  <span style="--i:6"></span>
-  <span style="--i:7"></span>
-  <span style="--i:8"></span>
-  <span style="--i:9"></span>
-  <span style="--i:10"></span>
-  <span style="--i:11"></span>
-  <span style="--i:12"></span>
-  <span style="--i:13"></span>
-  <span style="--i:14"></span>
-  <span style="--i:15"></span>
-  <span style="--i:16"></span>
-  <span style="--i:17"></span>
-  <span style="--i:18"></span>
-  <span style="--i:19"></span>
-  <span style="--i:20"></span>
-</div>
+  <div class="loader">
+    <span style="--i:1"></span>
+    <span style="--i:2"></span>
+    <span style="--i:3"></span>
+    <span style="--i:4"></span>
+    <span style="--i:5"></span>
+    <span style="--i:6"></span>
+    <span style="--i:7"></span>
+    <span style="--i:8"></span>
+    <span style="--i:9"></span>
+    <span style="--i:10"></span>
+    <span style="--i:11"></span>
+    <span style="--i:12"></span>
+    <span style="--i:13"></span>
+    <span style="--i:14"></span>
+    <span style="--i:15"></span>
+    <span style="--i:16"></span>
+    <span style="--i:17"></span>
+    <span style="--i:18"></span>
+    <span style="--i:19"></span>
+    <span style="--i:20"></span>
+  </div>
 </div>
 
 <ng-template #preview let-modal>
@@ -93,4 +91,3 @@
   </div>
 </ng-template>
 
-<!--https://http2.mlstatic.com/D_NQ_NP_{{row['picture1']}}-O.jpg-->
