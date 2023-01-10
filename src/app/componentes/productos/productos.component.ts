@@ -4,8 +4,9 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { debounceTime, map, Observable, Subject } from 'rxjs';
+import { debounceTime, map, Observable, Subject, } from 'rxjs';
 import { FilterPipe } from 'src/app/pipe/filter.pipe';
+import * as Papa from 'papaparse';
 
 @Component({
   selector: 'app-productos',
@@ -20,6 +21,8 @@ export class ProductosComponent implements OnInit {
   search: string;
   filteredProductos: Record<string, any>[]  = [];
   cargando: boolean = true;
+  actualizador: any;
+  csvFile: any;
   
 
 
@@ -37,6 +40,10 @@ export class ProductosComponent implements OnInit {
     marca: new FormControl('',Validators.required),
     precioPublico: new FormControl('',Validators.required),
     stock: new FormControl('',Validators.required)
+  })
+
+  file= new FormGroup({
+    csv: new FormControl('')
   })
 
   ngOnInit(): void {
@@ -78,17 +85,34 @@ export class ProductosComponent implements OnInit {
    * La función se llama cuando el usuario hace clic en el botón "Nuevo". Establece los valores del
    * formulario en cadenas vacías.
    */
-  new() {
-    this.producto.setValue({
-      codigo: " ",
-      marca: " ",
-      cod_Fabrica: " ",
-      descripcion: " ",
-      stock: " ",
-      precioPublico: " ",
-    })
-  }
+    new() {
+      this.producto.setValue({
+        codigo: " ",
+        marca: " ",
+        cod_Fabrica: " ",
+        descripcion: " ",
+        stock: " ",
+        precioPublico: " ",
+      })
+    }
 
+  parser() {
+    const csvContent = '1,2,3\n4,5,6';
+    console.log("paso2");
+    const config = {
+      header: true,
+      transformHeader: (header: string) => header.toLowerCase()
+    
+    };
+    console.log("paso3");
+    console.log(csvContent);
+    
+    const result = Papa.parse(csvContent);
+    console.log("paso4");
+    this.actualizador = result.data;
+    console.log(this.actualizador);
+    
+  }
 
     /**
      * Abre una ventana modal.
@@ -99,9 +123,32 @@ export class ProductosComponent implements OnInit {
       this.modalService.open(productNew,{centered: true}) ;
     }
 
+    act(actualizar) {
+      
+        this.modalService.open(actualizar, {centered: true}).result.then((result) => {  
+          console.log("paso1");          
+          this.parser();
+        }, (reason) => {
+          // maneja el motivo por el que se cerró el modal
+        });
+      };
+      
+    
+
+    
+    
+
     agregarProducto(){
-      console.log(this.producto.value);
-      this.datosSis.guardar(this.producto.value)
+      const body= {
+        codigo: this.producto.value.codigo,
+        marca: this.producto.value.marca,
+        cod_Fabrica: this.producto.value.cod_Fabrica,
+        descripcion: this.producto.value.descripcion,
+        stock: this.producto.value.stock,
+        precioPublico:this.producto.value.precioPublico
+      };
+      console.table(body)
+      this.datosSis.crearProducto(body);
       
     }
 

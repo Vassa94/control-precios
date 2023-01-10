@@ -1,9 +1,9 @@
 <div style="display: flex; margin:5px 0px ">
   <!-- Un botón que permite al usuario cargar un archivo CSV. -->
   <div style="margin: 0px 5px;">
-    <button>
-      <i class="fa-solid fa-pen-to-square" style="padding-right: 3px;"></i>
-      <label> Cargar CSV</label>
+    <button (click)="act(actualizar)">
+      <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
+      <label> Actualizar precios</label>
     </button>
   </div>
 
@@ -37,7 +37,7 @@
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
-          <th class=" {{headers2[i]}} headers" scope="col" *ngFor="let header of headers;let i = index"
+          <th class="headers" scope="col" *ngFor="let header of headers;let i = index"
             (sort)="sort($event)">
             {{ header }}
           </th>
@@ -174,5 +174,26 @@
         </div>
       </form>
     </div>
+  </div>
+</ng-template>
+
+<!-- modal que se abrira para actualizar -->
+<ng-template #actualizar let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Actualizar precios</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="file">
+      <div class="form-group">        
+        <input type="file" class="inputfile" id="csvFile" accept=".csv" formControlName="csv">
+        <label for="csvFile">Seleccionar archivo CSV</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cargar</button>
   </div>
 </ng-template>
