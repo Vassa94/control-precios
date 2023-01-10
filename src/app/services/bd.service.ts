@@ -11,21 +11,27 @@ import { Observable, Subject, tap } from 'rxjs';
 export class BDService {
 
   constructor(private http: HttpClient) { }
-
+API='http://localhost:8080'
 
 obtenerDatos(): Observable<any> {
 
-  //return this.http.get('http://localhost:8080/producto/traer')
-  //return this.http.get('../assets/datos.json');
-  return this.http.get('../assets/productos.json');
+  return this.http.get(this.API+'/producto/traer');
+  //return this.http.get('../assets/productos.json');
 }
 
 obtenerWeb(): Observable<any> {
-  return this.http.get('../assets/pubWeb.json');
+  return this.http.get(this.API+'/web/traer');
+  //return this.http.get('../assets/pubWeb.json');
 }
 
 obtenerMl(): Observable<any> {
   return this.http.get('../assets/pubMl.json');
+  //return this.http.get('http://localhost:8080/producto/traer')
+}
+
+crearProducto(body){
+  this.http.post(this.API+'/productos/crear', body);
+  return "Producto cargado"
 }
 
 

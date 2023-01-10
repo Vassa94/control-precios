@@ -50,7 +50,8 @@ import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.c
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    CommonModule
+    CommonModule,
+    
     
   ],
   providers: [],

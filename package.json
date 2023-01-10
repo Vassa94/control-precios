@@ -39,6 +39,7 @@
     "ng-table": "^3.0.1",
     "ngx-bootstrap": "^9.0.0",
     "ngx-papaparse": "^6.0.2",
+    "papaparse": "^5.3.2",
     "popper.js": "^1.16.1",
     "primeicons": "^6.0.1",
     "primeng": "^14.1.2",
