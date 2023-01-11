@@ -8,6 +8,7 @@ import { debounceTime, map, Observable, Subject, } from 'rxjs';
 import { FilterPipe } from 'src/app/pipe/filter.pipe';
 import * as Papa from 'papaparse';
 
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -96,8 +97,8 @@ export class ProductosComponent implements OnInit {
       })
     }
 
-  parser() {
-    const csvContent = '1,2,3\n4,5,6';
+  parser(csvContent) {
+    //const csvContent = '1,2,3\n4,5,6';
     console.log("paso2");
     const config = {
       header: true,
@@ -113,7 +114,19 @@ export class ProductosComponent implements OnInit {
     console.log(this.actualizador);
     
   }
+   
+  
 
+   act(actualizar) {
+      
+        this.modalService.open(actualizar, {centered: true}).result.then((result) => {  
+          console.log("paso1");          
+          this.parser(this.file.value.csv);
+        }, (reason) => {
+          // maneja el motivo por el que se cerró el modal
+        });
+      };
+      
     /**
      * Abre una ventana modal.
      * @param productNew - El nombre del modal que desea abrir.
@@ -122,18 +135,6 @@ export class ProductosComponent implements OnInit {
       this.new();
       this.modalService.open(productNew,{centered: true}) ;
     }
-
-    act(actualizar) {
-      
-        this.modalService.open(actualizar, {centered: true}).result.then((result) => {  
-          console.log("paso1");          
-          this.parser();
-        }, (reason) => {
-          // maneja el motivo por el que se cerró el modal
-        });
-      };
-      
-    
 
     
     
