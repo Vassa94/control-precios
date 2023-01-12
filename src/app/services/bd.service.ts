@@ -29,9 +29,12 @@ obtenerMl(): Observable<any> {
   //return this.http.get('http://localhost:8080/producto/traer')
 }
 
-crearProducto(body){
-  this.http.post(this.API+'/productos/crear', body);
-  return "Producto cargado"
+crearProducto(body): Observable<any>{
+  return this.http.post('http://localhost:8080/productos/crear', body);   
+  
+}
+borrarProducto(id): Observable<any>{
+  return this.http.delete(this.API+'/productos/borrar/'+id);
 }
 
 
