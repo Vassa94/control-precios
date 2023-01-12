@@ -4,9 +4,10 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { debounceTime, map, Observable, Subject, } from 'rxjs';
+import { debounceTime, map, Observable, Subject, Subscription } from 'rxjs';
 import { FilterPipe } from 'src/app/pipe/filter.pipe';
 import * as Papa from 'papaparse';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -149,9 +150,39 @@ export class ProductosComponent implements OnInit {
         precioPublico:this.producto.value.precioPublico
       };
       console.table(body)
-      this.datosSis.crearProducto(body);
+      this.datosSis.crearProducto(body).subscribe((data) => {
+        Swal.fire({
+          title: '¡Genial!',
+          text: 'Producto Agregado',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+
+      /* Swal.fire({
+        title: '¡Genial!',
+        text: 'Producto Agregado',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500,
+      }); */
       
     }
+
+    borrarProducto(id){
+       this.datosSis.borrarProducto(id).subscribe((data)=>{})
+       for (let i=0; i<this.productos.length; i++) {
+        if (this.productos[i].codigo === id) {
+          this.productos.splice(i,1);
+        }
+    }
+  }
+
+  actualizarProducto(id){
+    
+  }
+  
 
     /* Una función que se llama cuando el usuario escribe en la barra de búsqueda. Filtra los productos
     por nombre, marca, código o código de fábrica. */

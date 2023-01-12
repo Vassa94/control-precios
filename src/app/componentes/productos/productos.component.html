@@ -111,6 +111,11 @@
           <i class="fa-solid fa-pen-to-square"></i> Editar ficha
         </button>
       </div>
+      <div>
+        <button type="submit" class="btn btn-danger " (click)="borrarProducto(producto.value.codigo);modal.close()">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
     </div>
   </div>
 </ng-template>
