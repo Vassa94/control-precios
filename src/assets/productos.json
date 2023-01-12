@@ -52,7 +52,7 @@
         "cod_Fabrica": "EPYB-16F",
         "descripcion": "Barovo Elevador De Placas Yeso 4.6 Mts",
         "marca": "Barovo",
-        "precioPublico": 109056,
+        "precioPublico": 121506,
         "stock": 4
     },
     {
@@ -60,7 +60,7 @@
         "cod_Fabrica": "EPYB-11F",
         "descripcion": "Barovo Elevador De Placas Yeso 3.35 Mts",
         "marca": "Barovo",
-        "precioPublico": 73624,
+        "precioPublico": 81526,
         "stock": 0
     },
     {
@@ -412,7 +412,7 @@
         "cod_Fabrica": "A-138",
         "descripcion": "Panther Aerografo Economico",
         "marca": "Black Panther",
-        "precioPublico": 4923,
+        "precioPublico": 5002,
         "stock": 180
     },
     {
@@ -420,7 +420,7 @@
         "cod_Fabrica": "BP-PMT7032",
         "descripcion": "Panther Mini Torno Neum Kit 16Pzas",
         "marca": "Black Panther",
-        "precioPublico": 4880,
+        "precioPublico": 4958,
         "stock": 112
     },
     {
@@ -428,7 +428,7 @@
         "cod_Fabrica": "A-180",
         "descripcion": "Panther Aerografo Profesional",
         "marca": "Black Panther",
-        "precioPublico": 17852,
+        "precioPublico": 18137,
         "stock": 31
     },
     {
@@ -468,7 +468,7 @@
         "cod_Fabrica": "BP-MF2S02",
         "descripcion": "Panther Mascara Fotosen Bp-Mf2S02 S-",
         "marca": "Black Panther",
-        "precioPublico": 8074,
+        "precioPublico": 8203,
         "stock": 578
     },
     {
@@ -484,7 +484,7 @@
         "cod_Fabrica": "K-3B",
         "descripcion": "Panther Mini Pistola -17- K-3B",
         "marca": "Black Panther",
-        "precioPublico": 4615,
+        "precioPublico": 4689,
         "stock": 74
     },
     {
@@ -492,7 +492,7 @@
         "cod_Fabrica": "BP-MT45A",
         "descripcion": "Panther Motosierra 18Pul 45Cm Esp Oregon-",
         "marca": "Black Panther",
-        "precioPublico": 27820,
+        "precioPublico": 28264,
         "stock": 50
     },
     {
@@ -500,7 +500,7 @@
         "cod_Fabrica": "EPS-FMT600",
         "descripcion": "Panther Equipo P/Pintar A Soplete 600W -18-",
         "marca": "Black Panther",
-        "precioPublico": 10110,
+        "precioPublico": 10271,
         "stock": 0
     },
     {
@@ -508,7 +508,7 @@
         "cod_Fabrica": "BP8000P",
         "descripcion": "Panther Gene 6.5Kv E/E 4T-15Hp Mono -Sin",
         "marca": "Black Panther",
-        "precioPublico": 199249,
+        "precioPublico": 202429,
         "stock": 1
     },
     {
@@ -516,7 +516,7 @@
         "cod_Fabrica": "BP-CB16T",
         "descripcion": "Panther Crique Botella 16Tn -17-",
         "marca": "Black Panther",
-        "precioPublico": 16171,
+        "precioPublico": 16429,
         "stock": 0
     },
     {
@@ -524,7 +524,7 @@
         "cod_Fabrica": "BP-D520",
         "descripcion": "Panther Desmalezadora Bp-D520 -22-",
         "marca": "Black Panther",
-        "precioPublico": 46488,
+        "precioPublico": 47230,
         "stock": 149
     },
     {
@@ -532,7 +532,7 @@
         "cod_Fabrica": "BP-INV150",
         "descripcion": "Panther Soldadora Inv150 150Amp -17-",
         "marca": "Black Panther",
-        "precioPublico": 54907,
+        "precioPublico": 55783,
         "stock": 6
     },
     {
@@ -540,7 +540,7 @@
         "cod_Fabrica": "BP-MN150E",
         "descripcion": "Panther Motor Eje Conico 15Hp C/Encend.-22-",
         "marca": "Black Panther",
-        "precioPublico": 99485,
+        "precioPublico": 101073,
         "stock": 8
     },
     {
@@ -556,7 +556,7 @@
         "cod_Fabrica": "BP-JT12PCS1/2",
         "descripcion": "Panther Jgo Tubos 1/2 X 12Pzas -22-",
         "marca": "Black Panther",
-        "precioPublico": 9770,
+        "precioPublico": 9926,
         "stock": 27
     },
     {
@@ -564,7 +564,7 @@
         "cod_Fabrica": "FP-141",
         "descripcion": "Panther Motosierra 16Pulg 40Cc 2Hp",
         "marca": "Black Panther",
-        "precioPublico": 22426,
+        "precioPublico": 22784,
         "stock": 3
     },
     {
@@ -572,7 +572,7 @@
         "cod_Fabrica": "BP-100GS-30",
         "descripcion": "Panther Aspiradora 30Lts Bp-100Gs-30 -18-",
         "marca": "Black Panther",
-        "precioPublico": 51162,
+        "precioPublico": 51978,
         "stock": 18
     },
     {
@@ -580,7 +580,7 @@
         "cod_Fabrica": "2227-0102-100",
         "descripcion": "Panther Cepillo Circular 100Mm",
         "marca": "Black Panther",
-        "precioPublico": 1378,
+        "precioPublico": 1400,
         "stock": 20
     },
     {
@@ -588,7 +588,7 @@
         "cod_Fabrica": "2227-0102-125",
         "descripcion": "Panther Cepillo Circular 125Mm",
         "marca": "Black Panther",
-        "precioPublico": 1441,
+        "precioPublico": 1464,
         "stock": 31
     },
     {
@@ -596,7 +596,7 @@
         "cod_Fabrica": "2227-0102-150",
         "descripcion": "Panther Cepillo Circular 150Mm",
         "marca": "Black Panther",
-        "precioPublico": 1663,
+        "precioPublico": 1690,
         "stock": 7
     },
     {
@@ -604,7 +604,7 @@
         "cod_Fabrica": "2227-0102-175",
         "descripcion": "Panther Cepillo Circular Rizado 175Mm",
         "marca": "Black Panther",
-        "precioPublico": 2925,
+        "precioPublico": 2971,
         "stock": 530
     },
     {
@@ -612,7 +612,7 @@
         "cod_Fabrica": "2227-0102-200",
         "descripcion": "Panther Cepillo Circular 200Mm",
         "marca": "Black Panther",
-        "precioPublico": 2146,
+        "precioPublico": 2181,
         "stock": 352
     },
     {
@@ -620,7 +620,7 @@
         "cod_Fabrica": "BP-TB13",
         "descripcion": "Panther Perforadora Banco 13Mm 350W -21-",
         "marca": "Black Panther",
-        "precioPublico": 36180,
+        "precioPublico": 36757,
         "stock": 106
     },
     {
@@ -628,7 +628,7 @@
         "cod_Fabrica": "BP-MB5065",
         "descripcion": "Panther Motobomba 4T 6.5Hp Ent/Sal 50Mm -",
         "marca": "Black Panther",
-        "precioPublico": 51589,
+        "precioPublico": 52412,
         "stock": 16
     },
     {
@@ -636,7 +636,7 @@
         "cod_Fabrica": "BP-MB8065-8070",
         "descripcion": "Panther Motobomba 4T 6.5Hp Ent/Sal 80Mm -",
         "marca": "Black Panther",
-        "precioPublico": 55191,
+        "precioPublico": 56071,
         "stock": 52
     },
     {
@@ -644,7 +644,7 @@
         "cod_Fabrica": "BP-5PCS3",
         "descripcion": "Panther Kit P/Compresor 5 Pzs -Rosca G1/4",
         "marca": "Black Panther",
-        "precioPublico": 7501,
+        "precioPublico": 7620,
         "stock": 202
     },
     {
@@ -652,7 +652,7 @@
         "cod_Fabrica": "BP-JT25PCS1/4",
         "descripcion": "Panther Jgo Tubos 1/4 X 25Pzas -22-",
         "marca": "Black Panther",
-        "precioPublico": 15290,
+        "precioPublico": 15534,
         "stock": 20
     },
     {
@@ -660,7 +660,7 @@
         "cod_Fabrica": "KIT-6PZAS",
         "descripcion": "Panther Kit De Cepillos Circ. Y Copa C/ Vast",
         "marca": "Black Panther",
-        "precioPublico": 1701,
+        "precioPublico": 1728,
         "stock": 152
     },
     {
@@ -668,7 +668,7 @@
         "cod_Fabrica": "KIT-3PZAS",
         "descripcion": "Panther Kit Cepillos Copa,Circ,Descarb",
         "marca": "Black Panther",
-        "precioPublico": 872,
+        "precioPublico": 886,
         "stock": 93
     },
     {
@@ -676,7 +676,7 @@
         "cod_Fabrica": "KIT-CIRC-3P",
         "descripcion": "Panther Kit Cepillos Circulares C/ Vastago",
         "marca": "Black Panther",
-        "precioPublico": 1349,
+        "precioPublico": 1371,
         "stock": 164
     },
     {
@@ -684,7 +684,7 @@
         "cod_Fabrica": "KIT-5PZAS",
         "descripcion": "Panther Kit Cepillos Copa,Circ,Descarb C/",
         "marca": "Black Panther",
-        "precioPublico": 1573,
+        "precioPublico": 1598,
         "stock": 81
     },
     {
@@ -692,7 +692,7 @@
         "cod_Fabrica": "FMT-KIT 6 A",
         "descripcion": "Panther Llave Combinada 6 Pzas Mm",
         "marca": "Black Panther",
-        "precioPublico": 3908,
+        "precioPublico": 3970,
         "stock": 14
     },
     {
@@ -700,7 +700,7 @@
         "cod_Fabrica": "FMT-KIT 8 B",
         "descripcion": "Panther Llave Combinada 8 Pzas Mm (Juego)",
         "marca": "Black Panther",
-        "precioPublico": 6085,
+        "precioPublico": 6182,
         "stock": 21
     },
     {
@@ -708,7 +708,7 @@
         "cod_Fabrica": "FMT-KIT-11",
         "descripcion": "Panther Llave Combinada 11 Pzas",
         "marca": "Black Panther",
-        "precioPublico": 11674,
+        "precioPublico": 11861,
         "stock": 1
     },
     {
@@ -716,7 +716,7 @@
         "cod_Fabrica": "BP-CP25",
         "descripcion": "Panther Candado Bronce 25Mm -21-",
         "marca": "Black Panther",
-        "precioPublico": 453,
+        "precioPublico": 460,
         "stock": 1236
     },
     {
@@ -724,7 +724,7 @@
         "cod_Fabrica": "BP-6PCS",
         "descripcion": "Panther Kit P/Compresor 6 Pzas",
         "marca": "Black Panther",
-        "precioPublico": 5173,
+        "precioPublico": 5256,
         "stock": 357
     },
     {
@@ -732,7 +732,7 @@
         "cod_Fabrica": "H-827P-1.4--1.7PANT",
         "descripcion": "Panther Pistola Pintar Hvlp - H827-1.4-1.7",
         "marca": "Black Panther",
-        "precioPublico": 4427,
+        "precioPublico": 4498,
         "stock": 0
     },
     {
@@ -740,7 +740,7 @@
         "cod_Fabrica": "W188F-13",
         "descripcion": "Panther Motor 4T 13Hp 389Cc -21-",
         "marca": "Black Panther",
-        "precioPublico": 64049,
+        "precioPublico": 65071,
         "stock": 7
     },
     {
@@ -748,7 +748,7 @@
         "cod_Fabrica": "BP-200GS-80",
         "descripcion": "Panther Aspiradora 80Lts Bp-200Gs-80 -18-",
         "marca": "Black Panther",
-        "precioPublico": 89826,
+        "precioPublico": 91259,
         "stock": 4
     },
     {
@@ -756,7 +756,7 @@
         "cod_Fabrica": "BP-AB8750",
         "descripcion": "Panther Amoladora De Banco 220V -750W 1",
         "marca": "Black Panther",
-        "precioPublico": 33926,
+        "precioPublico": 34467,
         "stock": 42
     },
     {
@@ -764,7 +764,7 @@
         "cod_Fabrica": "BP-AL6",
         "descripcion": "Panther Alicate Oblicuo 6 -22-",
         "marca": "Black Panther",
-        "precioPublico": 846,
+        "precioPublico": 859,
         "stock": 6
     },
     {
@@ -772,7 +772,7 @@
         "cod_Fabrica": "BP-PP6",
         "descripcion": "Panther Pinza Punta 6 -19-\"",
         "marca": "Black Panther",
-        "precioPublico": 815,
+        "precioPublico": 828,
         "stock": 8
     },
     {
@@ -780,7 +780,7 @@
         "cod_Fabrica": "BP-PP8",
         "descripcion": "Panther Pinza Punta 8 -19-\"",
         "marca": "Black Panther",
-        "precioPublico": 1131,
+        "precioPublico": 1149,
         "stock": 9
     },
     {
@@ -788,7 +788,7 @@
         "cod_Fabrica": "BP-MN130E",
         "descripcion": "Panther Motor Eje Conico 13Hp C/Encend.-22-",
         "marca": "Black Panther",
-        "precioPublico": 88361,
+        "precioPublico": 89771,
         "stock": 6
     },
     {
@@ -796,7 +796,7 @@
         "cod_Fabrica": "BP-C2550B",
         "descripcion": "Panther Compresor 50Lts 2.5Hp Monof -21-",
         "marca": "Black Panther",
-        "precioPublico": 49741,
+        "precioPublico": 50534,
         "stock": 16
     },
     {
@@ -804,7 +804,7 @@
         "cod_Fabrica": "BP-PH30L",
         "descripcion": "Panther Pulverizador Hombro 3 Lts -22-",
         "marca": "Black Panther",
-        "precioPublico": 6273,
+        "precioPublico": 6373,
         "stock": 54
     },
     {
@@ -812,7 +812,7 @@
         "cod_Fabrica": "BP-PH50L",
         "descripcion": "Panther Pulverizador Hombro 5 Lts -22-",
         "marca": "Black Panther",
-        "precioPublico": 7409,
+        "precioPublico": 7527,
         "stock": 367
     },
     {
@@ -820,7 +820,7 @@
         "cod_Fabrica": "BP-EA112A",
         "descripcion": "Panther Escalera Alum Mult 4 X 3 Sin",
         "marca": "Black Panther",
-        "precioPublico": 29570,
+        "precioPublico": 30042,
         "stock": 2
     },
     {
@@ -828,7 +828,7 @@
         "cod_Fabrica": "BP-EA116A",
         "descripcion": "Panther Escalera Alum Mult 4 X 4 -Sin",
         "marca": "Black Panther",
-        "precioPublico": 36669,
+        "precioPublico": 37254,
         "stock": 59
     },
     {
@@ -836,7 +836,7 @@
         "cod_Fabrica": "BP-MN70MM",
         "descripcion": "Panther Motor 4T 7.0Hp196Cc -22-",
         "marca": "Black Panther",
-        "precioPublico": 33366,
+        "precioPublico": 33898,
         "stock": 20
     },
     {
@@ -844,7 +844,7 @@
         "cod_Fabrica": "BP-C2025",
         "descripcion": "Panther Compresor 25Lts 2.0Hp Monof -21-",
         "marca": "Black Panther",
-        "precioPublico": 37825,
+        "precioPublico": 38429,
         "stock": 14
     },
     {
@@ -852,7 +852,7 @@
         "cod_Fabrica": "BP-AE250",
         "descripcion": "Panther Aparejo De 125-250Kg 220V-500W -",
         "marca": "Black Panther",
-        "precioPublico": 37175,
+        "precioPublico": 37768,
         "stock": 3
     },
     {
@@ -860,7 +860,7 @@
         "cod_Fabrica": "BP-AE500",
         "descripcion": "Panther Aparejo De 250-500Kg 220V-900W -",
         "marca": "Black Panther",
-        "precioPublico": 45465,
+        "precioPublico": 46191,
         "stock": 46
     },
     {
@@ -868,7 +868,7 @@
         "cod_Fabrica": "BP-AE1000",
         "descripcion": "Panther Aparejo De 500-1000Kg 220V-1600W -",
         "marca": "Black Panther",
-        "precioPublico": 76647,
+        "precioPublico": 77870,
         "stock": 0
     },
     {
@@ -876,7 +876,7 @@
         "cod_Fabrica": "0",
         "descripcion": "Panther Alambre Tub.Autopr.S/Gas Diam 0.9",
         "marca": "Black Panther",
-        "precioPublico": 1720,
+        "precioPublico": 1747,
         "stock": 601
     },
     {
@@ -884,7 +884,7 @@
         "cod_Fabrica": "BP-EF3ESC",
         "descripcion": "Panther Escalera Familiar 3 Esc. 0.62 Mts-",
         "marca": "Black Panther",
-        "precioPublico": 8809,
+        "precioPublico": 8950,
         "stock": 2
     },
     {
@@ -892,7 +892,7 @@
         "cod_Fabrica": "BP-EA116APLA",
         "descripcion": "Panther Chapones Base P/Escalera-Bp-",
         "marca": "Black Panther",
-        "precioPublico": 8132,
+        "precioPublico": 8262,
         "stock": 6
     },
     {
@@ -900,7 +900,7 @@
         "cod_Fabrica": "BP-EA116AESC",
         "descripcion": "Panther Soporte Escalon P/Esc Multip -19-",
         "marca": "Black Panther",
-        "precioPublico": 2391,
+        "precioPublico": 2429,
         "stock": 5
     },
     {
@@ -908,7 +908,7 @@
         "cod_Fabrica": "BP-MP3",
         "descripcion": "Panther Morsa Plana 3 Pulg -21-",
         "marca": "Black Panther",
-        "precioPublico": 4536,
+        "precioPublico": 4608,
         "stock": 48
     },
     {
@@ -916,7 +916,7 @@
         "cod_Fabrica": "BP-MP4",
         "descripcion": "Panther Morsa Plana 4 Pulg -21-",
         "marca": "Black Panther",
-        "precioPublico": 5843,
+        "precioPublico": 5936,
         "stock": 50
     },
     {
@@ -924,7 +924,7 @@
         "cod_Fabrica": "BP-180I",
         "descripcion": "Panther Soldadora Inv180I Mma/120Amp -",
         "marca": "Black Panther",
-        "precioPublico": 49177,
+        "precioPublico": 49961,
         "stock": 53
     },
     {
@@ -932,7 +932,7 @@
         "cod_Fabrica": "BP-250I",
         "descripcion": "Panther Soldadora Inv250I Mma/160Amp -22-",
         "marca": "Black Panther",
-        "precioPublico": 54467,
+        "precioPublico": 55336,
         "stock": 73
     },
     {
@@ -940,7 +940,7 @@
         "cod_Fabrica": "BP-JT32PCS1/2",
         "descripcion": "Panther Jgo Tubos 1/2 X 32Pzas -22-",
         "marca": "Black Panther",
-        "precioPublico": 24750,
+        "precioPublico": 25145,
         "stock": 75
     },
     {
@@ -948,7 +948,7 @@
         "cod_Fabrica": "BP-MF2S01",
         "descripcion": "Panther Mascara Fotosen Bp-Mf2S01 -22-",
         "marca": "Black Panther",
-        "precioPublico": 8760,
+        "precioPublico": 8900,
         "stock": 722
     },
     {
@@ -956,7 +956,7 @@
         "cod_Fabrica": "BP-PM15L",
         "descripcion": "Panther Pulverizador Mano 1.5 Litros -22-",
         "marca": "Black Panther",
-        "precioPublico": 2353,
+        "precioPublico": 2391,
         "stock": 628
     },
     {
@@ -964,7 +964,7 @@
         "cod_Fabrica": "BP-PH80L",
         "descripcion": "Panther Pulverizador Hombro 8 Lts -22-",
         "marca": "Black Panther",
-        "precioPublico": 7557,
+        "precioPublico": 7678,
         "stock": 10
     },
     {
@@ -972,7 +972,7 @@
         "cod_Fabrica": "BP-PM160L",
         "descripcion": "Panther Pulverizador Mochila 16 Lts -22-",
         "marca": "Black Panther",
-        "precioPublico": 8390,
+        "precioPublico": 8524,
         "stock": 87
     },
     {
@@ -980,7 +980,7 @@
         "cod_Fabrica": "BP-CH16M",
         "descripcion": "Panther Caja Herram.16Pulg T/Met C/Band-",
         "marca": "Black Panther",
-        "precioPublico": 4502,
+        "precioPublico": 4574,
         "stock": 98
     },
     {
@@ -988,7 +988,7 @@
         "cod_Fabrica": "BP-CH180P",
         "descripcion": "Panther Caja Herram Organ.18Pulg T/Plas",
         "marca": "Black Panther",
-        "precioPublico": 2690,
+        "precioPublico": 2733,
         "stock": 101
     },
     {
@@ -996,7 +996,7 @@
         "cod_Fabrica": "BP-EA112A-TAB",
         "descripcion": "Panther Escalera Alum Mult 4 X 3 Con",
         "marca": "Black Panther",
-        "precioPublico": 33943,
+        "precioPublico": 34485,
         "stock": 9
     },
     {
@@ -1004,7 +1004,7 @@
         "cod_Fabrica": "BP-ET108A",
         "descripcion": "Panther Escalera Telescopica 8 Esc -19-",
         "marca": "Black Panther",
-        "precioPublico": 14690,
+        "precioPublico": 14924,
         "stock": 3
     },
     {
@@ -1012,7 +1012,7 @@
         "cod_Fabrica": "BP-ET112A",
         "descripcion": "Panther Escalera Telescopica 12 Esc -19-",
         "marca": "Black Panther",
-        "precioPublico": 21781,
+        "precioPublico": 22129,
         "stock": 0
     },
     {
@@ -1020,7 +1020,7 @@
         "cod_Fabrica": "BP-MIG200I",
         "descripcion": "Panther Soldadora Mig Dual Inver Mig200I -",
         "marca": "Black Panther",
-        "precioPublico": 174311,
+        "precioPublico": 177093,
         "stock": 57
     },
     {
@@ -1028,7 +1028,7 @@
         "cod_Fabrica": "BP-MIG250I",
         "descripcion": "Panther Soldadora Mig Inverter Mig250I -22-",
         "marca": "Black Panther",
-        "precioPublico": 281857,
+        "precioPublico": 286354,
         "stock": 31
     },
     {
@@ -1036,7 +1036,7 @@
         "cod_Fabrica": "BP-CH20MA",
         "descripcion": "Panther Caja Herram.20Pulg T/Met Manija",
         "marca": "Black Panther",
-        "precioPublico": 13457,
+        "precioPublico": 13671,
         "stock": 88
     },
     {
@@ -1044,7 +1044,7 @@
         "cod_Fabrica": "BP-120I",
         "descripcion": "Panther Soldadora Inv120I Mma/100Amp -",
         "marca": "Black Panther",
-        "precioPublico": 41512,
+        "precioPublico": 42174,
         "stock": 113
     },
     {
@@ -1052,7 +1052,7 @@
         "cod_Fabrica": "BP-EA116A-TAB",
         "descripcion": "Panther Escalera Alum Mult 4 X 4 Con",
         "marca": "Black Panther",
-        "precioPublico": 42948,
+        "precioPublico": 43633,
         "stock": 55
     },
     {
@@ -1060,7 +1060,7 @@
         "cod_Fabrica": "BPLD02-3AAA",
         "descripcion": "Panther Linterna Tactica - 223Mt",
         "marca": "Black Panther",
-        "precioPublico": 3090,
+        "precioPublico": 3140,
         "stock": 2
     },
     {
@@ -1068,7 +1068,7 @@
         "cod_Fabrica": "BPLD02-3D",
         "descripcion": "Panther Linterna Tactica - 450Mt",
         "marca": "Black Panther",
-        "precioPublico": 6012,
+        "precioPublico": 6108,
         "stock": 1
     },
     {
@@ -1076,7 +1076,7 @@
         "cod_Fabrica": "BP-M52CC",
         "descripcion": "Panther Motosierra 20 52Cc \"",
         "marca": "Black Panther",
-        "precioPublico": 52264,
+        "precioPublico": 53098,
         "stock": 74
     },
     {
@@ -1084,7 +1084,7 @@
         "cod_Fabrica": "2607225941",
         "descripcion": "Bosch Cargador 8Ah Gal1880 Asa",
         "marca": "Bosch",
-        "precioPublico": 13225,
+        "precioPublico": 13220,
         "stock": 3
     },
     {
@@ -1092,7 +1092,7 @@
         "cod_Fabrica": "06013775H2",
         "descripcion": "Bosch Amolad Ang 4.5 Gws 850 850W C-3",
         "marca": "Bosch",
-        "precioPublico": 19007,
+        "precioPublico": 18999,
         "stock": 10
     },
     {
@@ -1100,7 +1100,7 @@
         "cod_Fabrica": "0601.6B7.0H0",
         "descripcion": "Bosch Fresadora Gof 130 -1300W-",
         "marca": "Bosch",
-        "precioPublico": 40585,
+        "precioPublico": 48682,
         "stock": 6
     },
     {
@@ -1108,7 +1108,7 @@
         "cod_Fabrica": "06112A00H0-000",
         "descripcion": "Bosch Martillo Perforador Gbh 2-24 D",
         "marca": "Bosch",
-        "precioPublico": 42115,
+        "precioPublico": 50517,
         "stock": 5
     },
     {
@@ -1116,7 +1116,7 @@
         "cod_Fabrica": "06019F83H0-000",
         "descripcion": "Bosch Taladro Atorn. A Bat. Gsb 180 Li -",
         "marca": "Bosch",
-        "precioPublico": 74476,
+        "precioPublico": 89336,
         "stock": 2
     },
     {
@@ -1124,7 +1124,7 @@
         "cod_Fabrica": "06018F61H0",
         "descripcion": "Bosch Amolad Ang 9 Gws 28-230 Dm",
         "marca": "Bosch",
-        "precioPublico": 62054,
+        "precioPublico": 74435,
         "stock": 3
     },
     {
@@ -1132,7 +1132,7 @@
         "cod_Fabrica": "0601081000-000",
         "descripcion": "Bosch Detectores De Materiales Gms 120",
         "marca": "Bosch",
-        "precioPublico": 18888,
+        "precioPublico": 22657,
         "stock": 1
     },
     {
@@ -1140,7 +1140,7 @@
         "cod_Fabrica": "0601163679-000",
         "descripcion": "Bosch Taladro 13Mm 750W Gbm 13 Re Disc",
         "marca": "Bosch",
-        "precioPublico": 54970,
+        "precioPublico": 54943,
         "stock": 1
     },
     {
@@ -1156,7 +1156,7 @@
         "cod_Fabrica": "06013965H2-BOS1",
         "descripcion": "Bosch Amoladora Gws 9-125P -900W - 125Mm",
         "marca": "Bosch",
-        "precioPublico": 26958,
+        "precioPublico": 32337,
         "stock": 4
     },
     {
@@ -1164,7 +1164,7 @@
         "cod_Fabrica": "06012A80H0",
         "descripcion": "Bosch Lijadora Orbital Gss 140-Std",
         "marca": "Bosch",
-        "precioPublico": 15834,
+        "precioPublico": 18997,
         "stock": 9
     },
     {
@@ -1172,7 +1172,7 @@
         "cod_Fabrica": "06010707H0-000",
         "descripcion": "Bosch Lijadora Orbital Gss 23Ae",
         "marca": "Bosch",
-        "precioPublico": 31429,
+        "precioPublico": 37699,
         "stock": 6
     },
     {
@@ -1180,7 +1180,7 @@
         "cod_Fabrica": "06018F41H0",
         "descripcion": "Bosch Amolad Ang 9 Gws 25-230 Dm",
         "marca": "Bosch",
-        "precioPublico": 57457,
+        "precioPublico": 68920,
         "stock": 10
     },
     {
@@ -1188,7 +1188,7 @@
         "cod_Fabrica": "0601072C00-000",
         "descripcion": "Bosch Medidor De Dist Laser Glm 50 C-",
         "marca": "Bosch",
-        "precioPublico": 23181,
+        "precioPublico": 29685,
         "stock": 0
     },
     {
@@ -1196,7 +1196,7 @@
         "cod_Fabrica": "06013875H0-000",
         "descripcion": "Bosch Lijadora Excentrica Gex 125-1Ae",
         "marca": "Bosch",
-        "precioPublico": 35471,
+        "precioPublico": 42548,
         "stock": 2
     },
     {
@@ -1204,7 +1204,7 @@
         "cod_Fabrica": "06014A20H0",
         "descripcion": "Bosch Atornillador Gtb 650",
         "marca": "Bosch",
-        "precioPublico": 43705,
+        "precioPublico": 52425,
         "stock": 4
     },
     {
@@ -1228,7 +1228,7 @@
         "cod_Fabrica": "06011B60H0",
         "descripcion": "Bosch Taladro Percusion Gsb 550 Re 550W",
         "marca": "Bosch",
-        "precioPublico": 16832,
+        "precioPublico": 20195,
         "stock": 7
     },
     {
@@ -1236,7 +1236,7 @@
         "cod_Fabrica": "06018F51H0",
         "descripcion": "Bosch Amolad Ang 7 Gws 28-180 Dm",
         "marca": "Bosch",
-        "precioPublico": 62054,
+        "precioPublico": 74435,
         "stock": 13
     },
     {
@@ -1244,7 +1244,7 @@
         "cod_Fabrica": "06014470H0-000",
         "descripcion": "Bosch Atornillador Gsr 7-14 E",
         "marca": "Bosch",
-        "precioPublico": 23112,
+        "precioPublico": 27723,
         "stock": 0
     },
     {
@@ -1252,7 +1252,7 @@
         "cod_Fabrica": "060123D5H0-000",
         "descripcion": "Bosch Taladro Percusion Gsb 13 Re",
         "marca": "Bosch",
-        "precioPublico": 20111,
+        "precioPublico": 24123,
         "stock": 6
     },
     {
@@ -1260,7 +1260,7 @@
         "cod_Fabrica": "06015943H0-000",
         "descripcion": "Bosch Cepillo 710W Gho 26-82 Profesional",
         "marca": "Bosch",
-        "precioPublico": 71115,
+        "precioPublico": 71087,
         "stock": 7
     },
     {
@@ -1268,7 +1268,7 @@
         "cod_Fabrica": "06016240H0-000",
         "descripcion": "Bosch Fresadora 1600W Gof 1600 Ce",
         "marca": "Bosch",
-        "precioPublico": 139740,
+        "precioPublico": 167621,
         "stock": 3
     },
     {
@@ -1276,7 +1276,7 @@
         "cod_Fabrica": "061125A4H1-000",
         "descripcion": "Bosch Martillo Perforador Gbh 2-20 D",
         "marca": "Bosch",
-        "precioPublico": 41610,
+        "precioPublico": 41594,
         "stock": 7
     },
     {
@@ -1284,7 +1284,7 @@
         "cod_Fabrica": "0601072200-000",
         "descripcion": "Bosch Medidor De Distan Laser Glm 50",
         "marca": "Bosch",
-        "precioPublico": 32041,
+        "precioPublico": 32028,
         "stock": 1
     },
     {
@@ -1292,7 +1292,7 @@
         "cod_Fabrica": "06012281H4-000",
         "descripcion": "Bosch Taladro Percusion Gsb 16 Re C/Male",
         "marca": "Bosch",
-        "precioPublico": 27495,
+        "precioPublico": 37810,
         "stock": 2
     },
     {
@@ -1300,7 +1300,7 @@
         "cod_Fabrica": "060123D5H1-000",
         "descripcion": "Bosch Taladro Percusion Gsb 13 Re",
         "marca": "Bosch",
-        "precioPublico": 22650,
+        "precioPublico": 27169,
         "stock": 6
     },
     {
@@ -1308,7 +1308,7 @@
         "cod_Fabrica": "0601072EG0-000",
         "descripcion": "Bosch Medidor De Distancia Laser Glm 20",
         "marca": "Bosch",
-        "precioPublico": 11375,
+        "precioPublico": 14581,
         "stock": 0
     },
     {
@@ -1316,7 +1316,7 @@
         "cod_Fabrica": "2607226299",
         "descripcion": "Bosch Cargador Rapido 2Ah -Gal 1820 Asa",
         "marca": "Bosch",
-        "precioPublico": 9772,
+        "precioPublico": 9768,
         "stock": 1
     },
     {
@@ -1324,7 +1324,7 @@
         "cod_Fabrica": "06013756H0-000",
         "descripcion": "Bosch Amolad Ang 4.5 Gws 670 -Disc-",
         "marca": "Bosch",
-        "precioPublico": 16249,
+        "precioPublico": 16243,
         "stock": 8
     },
     {
@@ -1332,7 +1332,7 @@
         "cod_Fabrica": "06012A70H0-000",
         "descripcion": "Bosch Sierra Caladora Gst 700",
         "marca": "Bosch",
-        "precioPublico": 33262,
+        "precioPublico": 39898,
         "stock": 8
     },
     {
@@ -1340,7 +1340,7 @@
         "cod_Fabrica": "06015A80H0",
         "descripcion": "Bosch Sierra Caladora Gst 650",
         "marca": "Bosch",
-        "precioPublico": 17595,
+        "precioPublico": 21106,
         "stock": 2
     },
     {
@@ -1348,7 +1348,7 @@
         "cod_Fabrica": "2608623012-000",
         "descripcion": "Bosch Disco Diam P/Madera 115Mm",
         "marca": "Bosch",
-        "precioPublico": 1775,
+        "precioPublico": 2129,
         "stock": 32
     },
     {
@@ -1356,7 +1356,7 @@
         "cod_Fabrica": "06016A00H0-000",
         "descripcion": "Bosch Fresadora De Mano Gkf 550 - 220V-",
         "marca": "Bosch",
-        "precioPublico": 33045,
+        "precioPublico": 39639,
         "stock": 3
     },
     {
@@ -1364,7 +1364,7 @@
         "cod_Fabrica": "2607017359-000",
         "descripcion": "Bosch Set Puntas X 32Pcs",
         "marca": "Bosch",
-        "precioPublico": 3614,
+        "precioPublico": 4335,
         "stock": 9
     },
     {
@@ -1372,7 +1372,7 @@
         "cod_Fabrica": "2607019461-000",
         "descripcion": "Bosch Set Hojas De Calar T X 10Pcs",
         "marca": "Bosch",
-        "precioPublico": 1951,
+        "precioPublico": 2340,
         "stock": 12
     },
     {
@@ -1380,7 +1380,7 @@
         "cod_Fabrica": "06016B30H0-000",
         "descripcion": "Bosch Sierra Circular Gks-150 1500W",
         "marca": "Bosch",
-        "precioPublico": 32097,
+        "precioPublico": 38508,
         "stock": 5
     },
     {
@@ -1388,7 +1388,7 @@
         "cod_Fabrica": "06013775H0-000",
         "descripcion": "Bosch Amolad Ang 4.5 Gws 850 850W",
         "marca": "Bosch",
-        "precioPublico": 18833,
+        "precioPublico": 22591,
         "stock": 26
     },
     {
@@ -1396,7 +1396,7 @@
         "cod_Fabrica": "06012A21H0",
         "descripcion": "Bosch Lijadora Orbital Gss 140 - 1A",
         "marca": "Bosch",
-        "precioPublico": 23112,
+        "precioPublico": 27723,
         "stock": 6
     },
     {
@@ -1404,7 +1404,7 @@
         "cod_Fabrica": "060194D0H0-000",
         "descripcion": "Bosch Pistola De Calor Ghg 180 1800W",
         "marca": "Bosch",
-        "precioPublico": 23398,
+        "precioPublico": 28067,
         "stock": 3
     },
     {
@@ -1412,7 +1412,7 @@
         "cod_Fabrica": "0601B370H0-000",
         "descripcion": "Bosch Sierra Sensitiva Gco 14-24",
         "marca": "Bosch",
-        "precioPublico": 69460,
+        "precioPublico": 83319,
         "stock": 3
     },
     {
@@ -1420,7 +1420,7 @@
         "cod_Fabrica": "06019H51H0",
         "descripcion": "Bosch Atornillador Gsb 18V-50 +2 Bat+L-",
         "marca": "Bosch",
-        "precioPublico": 88169,
+        "precioPublico": 105761,
         "stock": 5
     },
     {
@@ -1428,7 +1428,7 @@
         "cod_Fabrica": "06019G80H1-000",
         "descripcion": "Bosch Taladro A Bateria Gsr 120-Li",
         "marca": "Bosch",
-        "precioPublico": 38769,
+        "precioPublico": 46504,
         "stock": 3
     },
     {
@@ -1436,7 +1436,7 @@
         "cod_Fabrica": "06013961H0",
         "descripcion": "Bosch Amolad Ang Mini 5 Gws 9-125 S",
         "marca": "Bosch",
-        "precioPublico": 28139,
+        "precioPublico": 33753,
         "stock": 9
     },
     {
@@ -1444,7 +1444,7 @@
         "cod_Fabrica": "NUB6516",
         "descripcion": "Chaleco Naranja Fluo C/Ref- Dp Nub6516",
         "marca": "Chaleco",
-        "precioPublico": 1534,
+        "precioPublico": 1568,
         "stock": 32
     },
     {
@@ -1452,7 +1452,7 @@
         "cod_Fabrica": "NUB6514",
         "descripcion": "Chaleco Amarillo Fluo C/Ref- Dp T.Xxl",
         "marca": "Chaleco",
-        "precioPublico": 1534,
+        "precioPublico": 1568,
         "stock": 46
     },
     {
@@ -1460,7 +1460,7 @@
         "cod_Fabrica": "LU-C4",
         "descripcion": "Linterna De Cabeza Cob Recargable",
         "marca": "Cob",
-        "precioPublico": 3658,
+        "precioPublico": 4598,
         "stock": 1
     },
     {
@@ -1468,7 +1468,7 @@
         "cod_Fabrica": "303535-CON",
         "descripcion": "Conarco 18 4.00Mm",
         "marca": "Conarco",
-        "precioPublico": 2007,
+        "precioPublico": 2051,
         "stock": 1004
     },
     {
@@ -1476,7 +1476,7 @@
         "cod_Fabrica": "304002-CON",
         "descripcion": "Electrodo O.K 6013 De 2.5Mm",
         "marca": "Conarco",
-        "precioPublico": 1598,
+        "precioPublico": 1633,
         "stock": 4435
     },
     {
@@ -1484,7 +1484,7 @@
         "cod_Fabrica": "304005-CON",
         "descripcion": "Electrodo O.K 6013 De 3.25Mm",
         "marca": "Conarco",
-        "precioPublico": 1435,
+        "precioPublico": 1467,
         "stock": 3651
     },
     {
@@ -2012,7 +2012,7 @@
         "cod_Fabrica": "F0132200AA-000",
         "descripcion": "Dremel Versaflame Soplete A Gas Butano",
         "marca": "Dremel",
-        "precioPublico": 15856,
+        "precioPublico": 19028,
         "stock": 5
     },
     {
@@ -2020,7 +2020,7 @@
         "cod_Fabrica": "F013MS20ND-000",
         "descripcion": "Dremel Caladora Motosaw 10Cc.",
         "marca": "Dremel",
-        "precioPublico": 31126,
+        "precioPublico": 37352,
         "stock": 7
     },
     {
@@ -2028,7 +2028,7 @@
         "cod_Fabrica": "F0136800ND-000",
         "descripcion": "Dremel Trio 6800 -Cortar-Lijar-Fresar",
         "marca": "Dremel",
-        "precioPublico": 33549,
+        "precioPublico": 40259,
         "stock": 0
     },
     {
@@ -2036,7 +2036,7 @@
         "cod_Fabrica": "26150670AC-000",
         "descripcion": "Dremel Mini Sierra Circular",
         "marca": "Dremel",
-        "precioPublico": 7082,
+        "precioPublico": 8498,
         "stock": 2
     },
     {
@@ -2044,7 +2044,7 @@
         "cod_Fabrica": "26150225AB-000",
         "descripcion": "Dremel Eje Flexible Mod.225",
         "marca": "Dremel",
-        "precioPublico": 6677,
+        "precioPublico": 8012,
         "stock": 5
     },
     {
@@ -2052,7 +2052,7 @@
         "cod_Fabrica": "26150231AA-000",
         "descripcion": "Dremel Mesa Para Fresado",
         "marca": "Dremel",
-        "precioPublico": 13005,
+        "precioPublico": 15607,
         "stock": 5
     },
     {
@@ -2060,7 +2060,7 @@
         "cod_Fabrica": "F0134000NE-000",
         "descripcion": "Dremel 4000 Kit Con 36 Acc.",
         "marca": "Dremel",
-        "precioPublico": 33854,
+        "precioPublico": 40625,
         "stock": 6
     },
     {
@@ -2068,7 +2068,7 @@
         "cod_Fabrica": "F0130200NE",
         "descripcion": "Dremel Serie 200 Con Kit",
         "marca": "Dremel",
-        "precioPublico": 10812,
+        "precioPublico": 12975,
         "stock": 2
     },
     {
@@ -2076,7 +2076,7 @@
         "cod_Fabrica": "F0133000PL-000",
         "descripcion": "Dremel Minitorno 3000 Kit Con 26 Acc",
         "marca": "Dremel",
-        "precioPublico": 18561,
+        "precioPublico": 22274,
         "stock": 0
     },
     {
@@ -2084,7 +2084,7 @@
         "cod_Fabrica": "F0134000NT",
         "descripcion": "Dremel 4000 Kit Con 26 Acc.",
         "marca": "Dremel",
-        "precioPublico": 22657,
+        "precioPublico": 27188,
         "stock": 5
     },
     {
@@ -2092,7 +2092,7 @@
         "cod_Fabrica": "F0133000PE-000",
         "descripcion": "Dremel 3000 Kit Con 10 Acc.",
         "marca": "Dremel",
-        "precioPublico": 15022,
+        "precioPublico": 18026,
         "stock": 8
     },
     {
@@ -2100,7 +2100,7 @@
         "cod_Fabrica": "26150710AK-000",
         "descripcion": "Dremel Kit Con 160 Accesorios Multiuso",
         "marca": "Dremel",
-        "precioPublico": 8545,
+        "precioPublico": 10254,
         "stock": 5
     },
     {
@@ -2108,7 +2108,7 @@
         "cod_Fabrica": "F0133000PU-000",
         "descripcion": "Dremel 3000 Kit Con 30 Acc.",
         "marca": "Dremel",
-        "precioPublico": 23605,
+        "precioPublico": 28326,
         "stock": 10
     },
     {
@@ -2124,7 +2124,7 @@
         "cod_Fabrica": "F0138220AH-000",
         "descripcion": "Dremel Minitorno 8220 Inalambrico",
         "marca": "Dremel",
-        "precioPublico": 35872,
+        "precioPublico": 43047,
         "stock": 1
     },
     {
@@ -2132,7 +2132,7 @@
         "cod_Fabrica": "727888-CON",
         "descripcion": "Conarco Careta Warrior Tech 9-13",
         "marca": "ESAB",
-        "precioPublico": 27772,
+        "precioPublico": 28386,
         "stock": 0
     },
     {
@@ -2140,7 +2140,7 @@
         "cod_Fabrica": "0742754-CON",
         "descripcion": "Conarco Careta Savage A40 9-13 Amarilla",
         "marca": "ESAB",
-        "precioPublico": 23177,
+        "precioPublico": 23689,
         "stock": 1
     },
     {
@@ -2148,7 +2148,7 @@
         "cod_Fabrica": "0719964-CON",
         "descripcion": "Esab Guante Soldador Heavy Duty Black",
         "marca": "ESAB",
-        "precioPublico": 2331,
+        "precioPublico": 2382,
         "stock": 0
     },
     {
@@ -2156,7 +2156,7 @@
         "cod_Fabrica": "0407460-ESAB",
         "descripcion": "Esab Buddy Tig 160",
         "marca": "ESAB",
-        "precioPublico": 158069,
+        "precioPublico": 161562,
         "stock": 1
     },
     {
@@ -2164,7 +2164,7 @@
         "cod_Fabrica": "727887-CON",
         "descripcion": "Conarco Careta Warrior Tech 9-13 Negro",
         "marca": "ESAB",
-        "precioPublico": 27776,
+        "precioPublico": 28390,
         "stock": 0
     },
     {
@@ -2172,7 +2172,7 @@
         "cod_Fabrica": "742917-CON",
         "descripcion": "Esab Lhn 202I Con Funcion Tig Liftarc -3.25Mm",
         "marca": "ESAB",
-        "precioPublico": 96056,
+        "precioPublico": 98179,
         "stock": 5
     },
     {
@@ -2180,7 +2180,7 @@
         "cod_Fabrica": "409615-CON",
         "descripcion": "Esab Handy Arc 142I",
         "marca": "ESAB",
-        "precioPublico": 43611,
+        "precioPublico": 44575,
         "stock": 3
     },
     {
@@ -2188,7 +2188,7 @@
         "cod_Fabrica": "407080-ESAB",
         "descripcion": "Esab Buddy Arc 145",
         "marca": "ESAB",
-        "precioPublico": 104496,
+        "precioPublico": 106806,
         "stock": 4
     },
     {
@@ -2196,7 +2196,7 @@
         "cod_Fabrica": "1206617-ESAB",
         "descripcion": "Esab Mig 200 Sin Cilindro G2 Con Reg",
         "marca": "ESAB",
-        "precioPublico": 281216,
+        "precioPublico": 287430,
         "stock": 1
     },
     {
@@ -2204,7 +2204,7 @@
         "cod_Fabrica": "0407823-CON",
         "descripcion": "Esab Handy Arc 160I",
         "marca": "ESAB",
-        "precioPublico": 53836,
+        "precioPublico": 55026,
         "stock": 0
     },
     {
@@ -2212,7 +2212,7 @@
         "cod_Fabrica": "733670",
         "descripcion": "Esab Bantam 180I",
         "marca": "ESAB",
-        "precioPublico": 65020,
+        "precioPublico": 66457,
         "stock": 0
     },
     {
@@ -2220,7 +2220,7 @@
         "cod_Fabrica": "0407822-CON",
         "descripcion": "Esab Handy Arc 140I",
         "marca": "ESAB",
-        "precioPublico": 43611,
+        "precioPublico": 44575,
         "stock": 1
     },
     {
@@ -2228,7 +2228,7 @@
         "cod_Fabrica": "734215-CON",
         "descripcion": "Esab Lhn 240I Plus",
         "marca": "ESAB",
-        "precioPublico": 123890,
+        "precioPublico": 126628,
         "stock": 0
     },
     {
@@ -2236,7 +2236,7 @@
         "cod_Fabrica": "1206714-CON",
         "descripcion": "Esab Mig 160I Sin Cilindro Con Regulador",
         "marca": "ESAB",
-        "precioPublico": 192810,
+        "precioPublico": 197071,
         "stock": 0
     },
     {
@@ -2244,7 +2244,7 @@
         "cod_Fabrica": "735620",
         "descripcion": "Conarco Careta Fotosensible A-20",
         "marca": "ESAB",
-        "precioPublico": 8700,
+        "precioPublico": 8892,
         "stock": 41
     },
     {
@@ -2252,7 +2252,7 @@
         "cod_Fabrica": "409617-CON",
         "descripcion": "Esab Lhn 242I",
         "marca": "ESAB",
-        "precioPublico": 123939,
+        "precioPublico": 126678,
         "stock": 13
     },
     {
@@ -2260,7 +2260,7 @@
         "cod_Fabrica": "737870-CON",
         "descripcion": "Esab Lhn 200I Plus",
         "marca": "ESAB",
-        "precioPublico": 97540,
+        "precioPublico": 99696,
         "stock": 1
     },
     {
@@ -2268,7 +2268,7 @@
         "cod_Fabrica": "409616-CON",
         "descripcion": "Esab Handy Arc 162 I -Monof-",
         "marca": "ESAB",
-        "precioPublico": 53858,
+        "precioPublico": 55048,
         "stock": 1
     },
     {
@@ -2276,7 +2276,7 @@
         "cod_Fabrica": "0742753-CON",
         "descripcion": "Conarco Careta Savage A40 9-13 Negro",
         "marca": "ESAB",
-        "precioPublico": 23177,
+        "precioPublico": 23689,
         "stock": 0
     },
     {
@@ -2644,7 +2644,7 @@
         "cod_Fabrica": "3469G-SIM",
         "descripcion": "Gamma Soldadora Inverter Jet 160",
         "marca": "Gamma",
-        "precioPublico": 56589,
+        "precioPublico": 57637,
         "stock": 1
     },
     {
@@ -2652,7 +2652,7 @@
         "cod_Fabrica": "9028-SIM",
         "descripcion": "Gamma Motosierra 52Cc 20Pulg C/Freno",
         "marca": "Gamma",
-        "precioPublico": 58877,
+        "precioPublico": 59967,
         "stock": 0
     },
     {
@@ -2660,7 +2660,7 @@
         "cod_Fabrica": "G1821-SIM",
         "descripcion": "Gamma Cortacerco Explos.26Cc -20Pulg-",
         "marca": "Gamma",
-        "precioPublico": 69143,
+        "precioPublico": 70424,
         "stock": 0
     },
     {
@@ -2668,7 +2668,7 @@
         "cod_Fabrica": "3465G-SIM",
         "descripcion": "Gamma Soldadora Jet 155 50-150Amp",
         "marca": "Gamma",
-        "precioPublico": 21489,
+        "precioPublico": 21887,
         "stock": 2
     },
     {
@@ -2676,7 +2676,7 @@
         "cod_Fabrica": "3694-SIM",
         "descripcion": "Gamma Bomba Sumergible 250 1/4Hp A/Limp",
         "marca": "Gamma",
-        "precioPublico": 26511,
+        "precioPublico": 27002,
         "stock": 14
     },
     {
@@ -2684,7 +2684,7 @@
         "cod_Fabrica": "G2509-SIM",
         "descripcion": "Gamma Hidrolavadora Red Line 127",
         "marca": "Gamma",
-        "precioPublico": 32592,
+        "precioPublico": 33195,
         "stock": 3
     },
     {
@@ -2692,7 +2692,7 @@
         "cod_Fabrica": "G1182AR",
         "descripcion": "Gamma Pistola Engrasadora Neum. G1182",
         "marca": "Gamma",
-        "precioPublico": 9670,
+        "precioPublico": 9849,
         "stock": 3
     },
     {
@@ -2708,7 +2708,7 @@
         "cod_Fabrica": "GZRF3X3",
         "descripcion": "Gazebo De Rafia 3 X 3 M",
         "marca": "Gazebo",
-        "precioPublico": 18802,
+        "precioPublico": 20178,
         "stock": 23
     },
     {
@@ -2900,7 +2900,7 @@
         "cod_Fabrica": "ESC001",
         "descripcion": "Kuest Scooter Electrico De Aluminio",
         "marca": "KUEST",
-        "precioPublico": 124760,
+        "precioPublico": 174240,
         "stock": 0
     },
     {
@@ -2908,7 +2908,7 @@
         "cod_Fabrica": "APD-001",
         "descripcion": "Kushiro Limpiafondo Medialuna Liviano",
         "marca": "Kushiro",
-        "precioPublico": 2188,
+        "precioPublico": 2080,
         "stock": 43
     },
     {
@@ -2916,7 +2916,7 @@
         "cod_Fabrica": "APD-006",
         "descripcion": "Kushiro Sacahojas Prof Con Bolsa",
         "marca": "Kushiro",
-        "precioPublico": 3020,
+        "precioPublico": 2872,
         "stock": 32
     },
     {
@@ -2924,7 +2924,7 @@
         "cod_Fabrica": "APD-016",
         "descripcion": "Kushiro Boya Dosificadora Cloro 9\",Uni\"",
         "marca": "Kushiro",
-        "precioPublico": 2176,
+        "precioPublico": 2178,
         "stock": 34
     },
     {
@@ -2932,7 +2932,7 @@
         "cod_Fabrica": "902660-LIB",
         "descripcion": "Libus Kit Mecanizado Liviano 902660",
         "marca": "Libus",
-        "precioPublico": 10277,
+        "precioPublico": 10504,
         "stock": 13
     },
     {
@@ -2940,7 +2940,7 @@
         "cod_Fabrica": "904371-LIB",
         "descripcion": "Libus Prot.Facial Cronos 904371",
         "marca": "Libus",
-        "precioPublico": 995,
+        "precioPublico": 1017,
         "stock": 1673
     },
     {
@@ -2948,7 +2948,7 @@
         "cod_Fabrica": "900564-LIB",
         "descripcion": "Libus Anteojo Ecoline Verde H/C 900564",
         "marca": "Libus",
-        "precioPublico": 410,
+        "precioPublico": 419,
         "stock": 139
     },
     {
@@ -2956,7 +2956,7 @@
         "cod_Fabrica": "900500-LIB",
         "descripcion": "Libus Anteojo Argon Out Door 900500",
         "marca": "Libus",
-        "precioPublico": 2939,
+        "precioPublico": 3004,
         "stock": 279
     },
     {
@@ -2964,7 +2964,7 @@
         "cod_Fabrica": "900556-LIB",
         "descripcion": "Libus Anteojo Gris A/F Ecoline 900556",
         "marca": "Libus",
-        "precioPublico": 528,
+        "precioPublico": 540,
         "stock": 608
     },
     {
@@ -2972,7 +2972,7 @@
         "cod_Fabrica": "902023-LIB",
         "descripcion": "Libus Anteojo Neon Transp Hc 902023",
         "marca": "Libus",
-        "precioPublico": 973,
+        "precioPublico": 995,
         "stock": 71
     },
     {
@@ -2980,7 +2980,7 @@
         "cod_Fabrica": "900566-LIB",
         "descripcion": "Libus Anteojo Ecoline Out-Door/In-Door",
         "marca": "Libus",
-        "precioPublico": 2372,
+        "precioPublico": 2425,
         "stock": 416
     },
     {
@@ -2988,7 +2988,7 @@
         "cod_Fabrica": "901410-LIB",
         "descripcion": "Libus Anteojo Argon Amarillo A/F 901410",
         "marca": "Libus",
-        "precioPublico": 590,
+        "precioPublico": 603,
         "stock": 0
     },
     {
@@ -2996,7 +2996,7 @@
         "cod_Fabrica": "901925-LIB",
         "descripcion": "Libus Anteojo Eco Plus Transp. Af 901925",
         "marca": "Libus",
-        "precioPublico": 2318,
+        "precioPublico": 2369,
         "stock": 199
     },
     {
@@ -3004,7 +3004,7 @@
         "cod_Fabrica": "901372-LIB",
         "descripcion": "Libus Anteojo Eco-Sport Incol A/F 901372",
         "marca": "Libus",
-        "precioPublico": 2412,
+        "precioPublico": 2466,
         "stock": 600
     },
     {
@@ -3012,7 +3012,7 @@
         "cod_Fabrica": "901446-LIB",
         "descripcion": "Libus Anteojo Eco-Sport Gris A/F 901446",
         "marca": "Libus",
-        "precioPublico": 2412,
+        "precioPublico": 2466,
         "stock": 478
     },
     {
@@ -3020,7 +3020,7 @@
         "cod_Fabrica": "902109-LIB",
         "descripcion": "Libus Antiparra New Clas Tran Hc 902109",
         "marca": "Libus",
-        "precioPublico": 3048,
+        "precioPublico": 3115,
         "stock": 113
     },
     {
@@ -3028,7 +3028,7 @@
         "cod_Fabrica": "903394-LIB",
         "descripcion": "Libus Kit Visita 903394",
         "marca": "Libus",
-        "precioPublico": 2188,
+        "precioPublico": 2236,
         "stock": 78
     },
     {
@@ -3036,7 +3036,7 @@
         "cod_Fabrica": "GP255A",
         "descripcion": "Lusqtoff Bomba Autoceb. C/Trampa De",
         "marca": "Lusqtoff",
-        "precioPublico": 56872,
+        "precioPublico": 57309,
         "stock": 26
     },
     {
@@ -3044,7 +3044,7 @@
         "cod_Fabrica": "EVO MIG-220",
         "descripcion": "Lusqtoff Sold. Inverter Dual 220A 50Hz",
         "marca": "Lusqtoff",
-        "precioPublico": 171932,
+        "precioPublico": 173255,
         "stock": 3
     },
     {
@@ -3052,7 +3052,7 @@
         "cod_Fabrica": "LJ-C23",
         "descripcion": "Lusqtoff Cortacerco 23Cc 60Cm Lj-C23",
         "marca": "Lusqtoff",
-        "precioPublico": 51937,
+        "precioPublico": 52337,
         "stock": 5
     },
     {
@@ -3060,7 +3060,7 @@
         "cod_Fabrica": "SNL-9-8",
         "descripcion": "Lusqtoff Soporte Para Notebook",
         "marca": "Lusqtoff",
-        "precioPublico": 5730,
+        "precioPublico": 5774,
         "stock": 2
     },
     {
@@ -3068,7 +3068,7 @@
         "cod_Fabrica": "LRL300-8",
         "descripcion": "Lusqtoff Lijadora Roto Orbital",
         "marca": "Lusqtoff",
-        "precioPublico": 13728,
+        "precioPublico": 13833,
         "stock": 19
     },
     {
@@ -3076,7 +3076,7 @@
         "cod_Fabrica": "MMS-8",
         "descripcion": "Lusqtoff Jgo Megacamping Mesa Y 4 Sillas -",
         "marca": "Lusqtoff",
-        "precioPublico": 68057,
+        "precioPublico": 68581,
         "stock": 18
     },
     {
@@ -3084,7 +3084,7 @@
         "cod_Fabrica": "PCL2000-9",
         "descripcion": "Lusqtoff Pistola De Calor",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 13
     },
     {
@@ -3092,7 +3092,7 @@
         "cod_Fabrica": "BL1000-8",
         "descripcion": "Lusqtoff Bordeadora Elect.Pro 1000W",
         "marca": "Lusqtoff",
-        "precioPublico": 23283,
+        "precioPublico": 23462,
         "stock": 6
     },
     {
@@ -3100,7 +3100,7 @@
         "cod_Fabrica": "11002-B",
         "descripcion": "Lusqtoff Afilador Cadena Motosierra 220V",
         "marca": "Lusqtoff",
-        "precioPublico": 15043,
+        "precioPublico": 15159,
         "stock": 20
     },
     {
@@ -3108,7 +3108,7 @@
         "cod_Fabrica": "CGL1500-8",
         "descripcion": "Lusqtoff Cepillo Garlopa 1500W",
         "marca": "Lusqtoff",
-        "precioPublico": 118203,
+        "precioPublico": 119113,
         "stock": 4
     },
     {
@@ -3116,7 +3116,7 @@
         "cod_Fabrica": "LC-30150T",
         "descripcion": "Lusqtoff Compresor 3Hp-150Lt Lc-30150T",
         "marca": "Lusqtoff",
-        "precioPublico": 247153,
+        "precioPublico": 249054,
         "stock": 3
     },
     {
@@ -3124,7 +3124,7 @@
         "cod_Fabrica": "ATL18-9B",
         "descripcion": "Lusqtoff Taladro A Bat.C/Percusion 13Mm",
         "marca": "Lusqtoff",
-        "precioPublico": 34028,
+        "precioPublico": 34290,
         "stock": 21
     },
     {
@@ -3132,7 +3132,7 @@
         "cod_Fabrica": "ST-1",
         "descripcion": "Lusqtoff Mascara Soldar Fotosen Din9-13",
         "marca": "Lusqtoff",
-        "precioPublico": 7342,
+        "precioPublico": 7398,
         "stock": 10
     },
     {
@@ -3140,7 +3140,7 @@
         "cod_Fabrica": "LSA-26",
         "descripcion": "Lusqtoff Sopla-Aspirador 26Cc",
         "marca": "Lusqtoff",
-        "precioPublico": 84175,
+        "precioPublico": 84822,
         "stock": 4
     },
     {
@@ -3148,7 +3148,7 @@
         "cod_Fabrica": "EIGL4-8",
         "descripcion": "Lusqtoff Estufa Garrafera",
         "marca": "Lusqtoff",
-        "precioPublico": 50988,
+        "precioPublico": 51380,
         "stock": 10
     },
     {
@@ -3156,7 +3156,7 @@
         "cod_Fabrica": "SAL600-8",
         "descripcion": "Lusqtoff Soplador 600W Sal600-8",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 9
     },
     {
@@ -3164,7 +3164,7 @@
         "cod_Fabrica": "LQ6013-250",
         "descripcion": "Lusqtoff Electrodo Oferta Diam 2.50Mm",
         "marca": "Lusqtoff",
-        "precioPublico": 1695,
+        "precioPublico": 1708,
         "stock": 36
     },
     {
@@ -3172,7 +3172,7 @@
         "cod_Fabrica": "N2",
         "descripcion": "Lusqtoff Aparejo Elect. 250/500Kg 12M Mon",
         "marca": "Lusqtoff",
-        "precioPublico": 63757,
+        "precioPublico": 64247,
         "stock": 11
     },
     {
@@ -3180,7 +3180,7 @@
         "cod_Fabrica": "TB-13",
         "descripcion": "Lusqtoff Taladro Banco 13Mm C/Morsa",
         "marca": "Lusqtoff",
-        "precioPublico": 27939,
+        "precioPublico": 28154,
         "stock": 11
     },
     {
@@ -3188,7 +3188,7 @@
         "cod_Fabrica": "LQ-C2",
         "descripcion": "Lusqtoff Crique Carrito Gato 2Tn",
         "marca": "Lusqtoff",
-        "precioPublico": 16117,
+        "precioPublico": 16241,
         "stock": 0
     },
     {
@@ -3196,7 +3196,7 @@
         "cod_Fabrica": "LC-2550B",
         "descripcion": "Lusqtoff Compresor 2.5Hp 50Lts M/Direc Lc-",
         "marca": "Lusqtoff",
-        "precioPublico": 50146,
+        "precioPublico": 50531,
         "stock": 1
     },
     {
@@ -3204,7 +3204,7 @@
         "cod_Fabrica": "LTL20-8",
         "descripcion": "Lusqtoff Aspiradora Lavatapizado 20Lts",
         "marca": "Lusqtoff",
-        "precioPublico": 98056,
+        "precioPublico": 98810,
         "stock": 7
     },
     {
@@ -3212,7 +3212,7 @@
         "cod_Fabrica": "LMB-20",
         "descripcion": "Lusqtoff Motobomba Naftera 2 Pulg 5.5Hp",
         "marca": "Lusqtoff",
-        "precioPublico": 64474,
+        "precioPublico": 64970,
         "stock": 88
     },
     {
@@ -3220,7 +3220,7 @@
         "cod_Fabrica": "K300",
         "descripcion": "Lusqtoff Equipo Para Pintar K300 650W",
         "marca": "Lusqtoff",
-        "precioPublico": 96712,
+        "precioPublico": 97456,
         "stock": 9
     },
     {
@@ -3228,7 +3228,7 @@
         "cod_Fabrica": "EPYL335-8",
         "descripcion": "Lusqtoff Elevador De Placas De Yeso 3.35M",
         "marca": "Lusqtoff",
-        "precioPublico": 64716,
+        "precioPublico": 65214,
         "stock": 3
     },
     {
@@ -3236,7 +3236,7 @@
         "cod_Fabrica": "LQ4-PACK-120M",
         "descripcion": "Lusqtoff Bomba Sumergible 1Hp 220V 50Mts",
         "marca": "Lusqtoff",
-        "precioPublico": 62756,
+        "precioPublico": 63238,
         "stock": 3
     },
     {
@@ -3244,7 +3244,7 @@
         "cod_Fabrica": "LCA-40",
         "descripcion": "Lusqtoff Camilla Para Mecanico",
         "marca": "Lusqtoff",
-        "precioPublico": 17908,
+        "precioPublico": 18046,
         "stock": 4
     },
     {
@@ -3252,7 +3252,7 @@
         "cod_Fabrica": "PDL600-8",
         "descripcion": "Lusqtoff Pulidora De 5 -600W\"",
         "marca": "Lusqtoff",
-        "precioPublico": 41184,
+        "precioPublico": 41500,
         "stock": 18
     },
     {
@@ -3260,7 +3260,7 @@
         "cod_Fabrica": "BTCL7-8",
         "descripcion": "Lusqtoff Banco De Trabajo Convertible 7",
         "marca": "Lusqtoff",
-        "precioPublico": 54912,
+        "precioPublico": 55334,
         "stock": 5
     },
     {
@@ -3268,7 +3268,7 @@
         "cod_Fabrica": "AA-5000K",
         "descripcion": "Lusqtoff Kit 5 Pzs P/Compresor",
         "marca": "Lusqtoff",
-        "precioPublico": 7521,
+        "precioPublico": 7579,
         "stock": 21
     },
     {
@@ -3276,7 +3276,7 @@
         "cod_Fabrica": "TC-1350",
         "descripcion": "Lusqtoff Mesa P/Herram. 3 Estantes 3Ton",
         "marca": "Lusqtoff",
-        "precioPublico": 21491,
+        "precioPublico": 21656,
         "stock": 3
     },
     {
@@ -3284,7 +3284,7 @@
         "cod_Fabrica": "GC9040-50",
         "descripcion": "Lusqtoff Clavadora Engrampadora 2 En 1",
         "marca": "Lusqtoff",
-        "precioPublico": 8239,
+        "precioPublico": 8302,
         "stock": 8
     },
     {
@@ -3292,7 +3292,7 @@
         "cod_Fabrica": "N1",
         "descripcion": "Lusqtoff Aparejo Elect. 150/300Kg 12M Mon",
         "marca": "Lusqtoff",
-        "precioPublico": 48354,
+        "precioPublico": 48726,
         "stock": 21
     },
     {
@@ -3300,7 +3300,7 @@
         "cod_Fabrica": "ATL18-8B",
         "descripcion": "Lusqtoff Taladro A Bat.C/Percusion 10Mm",
         "marca": "Lusqtoff",
-        "precioPublico": 29372,
+        "precioPublico": 29598,
         "stock": 26
     },
     {
@@ -3308,7 +3308,7 @@
         "cod_Fabrica": "LPS15-8.5Z",
         "descripcion": "Lusqtoff Bomba Presuriz. 8.5 220V 30L/Min",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 1
     },
     {
@@ -3316,7 +3316,7 @@
         "cod_Fabrica": "AB-550",
         "descripcion": "Lusqtoff Amoladora De Banco 550W -",
         "marca": "Lusqtoff",
-        "precioPublico": 22209,
+        "precioPublico": 22380,
         "stock": 11
     },
     {
@@ -3324,7 +3324,7 @@
         "cod_Fabrica": "HL-150",
         "descripcion": "Lusqtoff Hidrolavadora Elec.Semi-Prof",
         "marca": "Lusqtoff",
-        "precioPublico": 39044,
+        "precioPublico": 39344,
         "stock": 3
     },
     {
@@ -3332,7 +3332,7 @@
         "cod_Fabrica": "HL-1000",
         "descripcion": "Lusqtoff Hidrolavadora Elec.225Bar",
         "marca": "Lusqtoff",
-        "precioPublico": 78800,
+        "precioPublico": 79406,
         "stock": 3
     },
     {
@@ -3340,7 +3340,7 @@
         "cod_Fabrica": "SET108LQ",
         "descripcion": "Lusqtoff Maletin De Herramientas Boxes",
         "marca": "Lusqtoff",
-        "precioPublico": 36085,
+        "precioPublico": 36362,
         "stock": 0
     },
     {
@@ -3348,7 +3348,7 @@
         "cod_Fabrica": "JK-1008",
         "descripcion": "Lusqtoff Calefactor Sombrilla Para",
         "marca": "Lusqtoff",
-        "precioPublico": 75220,
+        "precioPublico": 75799,
         "stock": 0
     },
     {
@@ -3356,7 +3356,7 @@
         "cod_Fabrica": "CM14K-9",
         "descripcion": "Lusqtoff Sierra Cortadora Sensitiva",
         "marca": "Lusqtoff",
-        "precioPublico": 42983,
+        "precioPublico": 43313,
         "stock": 15
     },
     {
@@ -3364,7 +3364,7 @@
         "cod_Fabrica": "LQC-250",
         "descripcion": "Lusqtoff Carro Multifuncion Carga V/H",
         "marca": "Lusqtoff",
-        "precioPublico": 21491,
+        "precioPublico": 21656,
         "stock": 11
     },
     {
@@ -3372,7 +3372,7 @@
         "cod_Fabrica": "HTEP1004",
         "descripcion": "Lusqtoff Equipo P/Pintar 600W Htep1004",
         "marca": "Lusqtoff",
-        "precioPublico": 11819,
+        "precioPublico": 11910,
         "stock": 66
     },
     {
@@ -3380,7 +3380,7 @@
         "cod_Fabrica": "P800K",
         "descripcion": "Lusqtoff Pistola De Pintar +Trampa De",
         "marca": "Lusqtoff",
-        "precioPublico": 8239,
+        "precioPublico": 8302,
         "stock": 11
     },
     {
@@ -3388,7 +3388,7 @@
         "cod_Fabrica": "JK-1010",
         "descripcion": "Lusqtoff Calefactor Gas P/Garrafa 6M",
         "marca": "Lusqtoff",
-        "precioPublico": 118203,
+        "precioPublico": 119113,
         "stock": 3
     },
     {
@@ -3396,7 +3396,7 @@
         "cod_Fabrica": "IRON-250",
         "descripcion": "Lusqtoff Sold. Inverter Iron 250 Mma 50Hz -",
         "marca": "Lusqtoff",
-        "precioPublico": 56235,
+        "precioPublico": 56667,
         "stock": 1
     },
     {
@@ -3404,7 +3404,7 @@
         "cod_Fabrica": "LCT-2000",
         "descripcion": "Lusqtoff Cargador Bateria Smart",
         "marca": "Lusqtoff",
-        "precioPublico": 18826,
+        "precioPublico": 18971,
         "stock": 2
     },
     {
@@ -3412,7 +3412,7 @@
         "cod_Fabrica": "LCT-7000",
         "descripcion": "Lusqtoff Cargador Bateria Smart",
         "marca": "Lusqtoff",
-        "precioPublico": 25103,
+        "precioPublico": 25296,
         "stock": 10
     },
     {
@@ -3420,7 +3420,7 @@
         "cod_Fabrica": "PB-100",
         "descripcion": "Lusqtoff Cargador Bateria Multif. Pb-100",
         "marca": "Lusqtoff",
-        "precioPublico": 22750,
+        "precioPublico": 22925,
         "stock": 5
     },
     {
@@ -3428,7 +3428,7 @@
         "cod_Fabrica": "PI-300",
         "descripcion": "Lusqtoff Cargador Bateria Multif. Pi-300",
         "marca": "Lusqtoff",
-        "precioPublico": 29809,
+        "precioPublico": 30038,
         "stock": 6
     },
     {
@@ -3436,7 +3436,7 @@
         "cod_Fabrica": "PQ-500",
         "descripcion": "Lusqtoff Cargador Bateria Multif. Pq-500",
         "marca": "Lusqtoff",
-        "precioPublico": 34515,
+        "precioPublico": 34780,
         "stock": 9
     },
     {
@@ -3444,7 +3444,7 @@
         "cod_Fabrica": "TPL710-8",
         "descripcion": "Lusqtoff Taladro Percutor 710W",
         "marca": "Lusqtoff",
-        "precioPublico": 23142,
+        "precioPublico": 23320,
         "stock": 23
     },
     {
@@ -3452,7 +3452,7 @@
         "cod_Fabrica": "LM621",
         "descripcion": "Lusqtoff Motor Naftero F/Borda 2T 62Cc",
         "marca": "Lusqtoff",
-        "precioPublico": 67854,
+        "precioPublico": 68376,
         "stock": 1
     },
     {
@@ -3460,7 +3460,7 @@
         "cod_Fabrica": "AR193",
         "descripcion": "Lusqtoff Pala Revocadora Neumatica -",
         "marca": "Lusqtoff",
-        "precioPublico": 14328,
+        "precioPublico": 14438,
         "stock": 8
     },
     {
@@ -3468,7 +3468,7 @@
         "cod_Fabrica": "LLEXT20-8",
         "descripcion": "Lusqtoff Latex Int/ Ext Profesional 20 Lts",
         "marca": "Lusqtoff",
-        "precioPublico": 8408,
+        "precioPublico": 8473,
         "stock": 14
     },
     {
@@ -3476,7 +3476,7 @@
         "cod_Fabrica": "T1.3-9",
         "descripcion": "Lusqtoff Termo Verde S/Logo",
         "marca": "Lusqtoff",
-        "precioPublico": 14513,
+        "precioPublico": 14624,
         "stock": 3
     },
     {
@@ -3484,7 +3484,7 @@
         "cod_Fabrica": "LQH120201R",
         "descripcion": "Lusqtoff Conservadora 80Lts -Roja",
         "marca": "Lusqtoff",
-        "precioPublico": 60403,
+        "precioPublico": 60867,
         "stock": 14
     },
     {
@@ -3492,7 +3492,7 @@
         "cod_Fabrica": "LQH120201B",
         "descripcion": "Lusqtoff Conservadora 80Lts -Negra",
         "marca": "Lusqtoff",
-        "precioPublico": 62756,
+        "precioPublico": 63238,
         "stock": 3
     },
     {
@@ -3500,7 +3500,7 @@
         "cod_Fabrica": "JK-1009",
         "descripcion": "Lusqtoff Calefactor Gas Garrafa-6M",
         "marca": "Lusqtoff",
-        "precioPublico": 94920,
+        "precioPublico": 95650,
         "stock": 1
     },
     {
@@ -3508,7 +3508,7 @@
         "cod_Fabrica": "RML850-9",
         "descripcion": "Lusqtoff Roto Martillo 850",
         "marca": "Lusqtoff",
-        "precioPublico": 27939,
+        "precioPublico": 28154,
         "stock": 7
     },
     {
@@ -3516,7 +3516,7 @@
         "cod_Fabrica": "LTF-6308R",
         "descripcion": "Lusqtoff Termofusora 220V-50Hz 800W Ltf-",
         "marca": "Lusqtoff",
-        "precioPublico": 11463,
+        "precioPublico": 11551,
         "stock": 114
     },
     {
@@ -3524,7 +3524,7 @@
         "cod_Fabrica": "LTF-6315",
         "descripcion": "Lusqtoff Termofusora 220V-50Hz 1500W",
         "marca": "Lusqtoff",
-        "precioPublico": 16117,
+        "precioPublico": 16241,
         "stock": 113
     },
     {
@@ -3532,7 +3532,7 @@
         "cod_Fabrica": "LQMOP",
         "descripcion": "Lusqtoff Escurridor/Limpiador Lqmop",
         "marca": "Lusqtoff",
-        "precioPublico": 14903,
+        "precioPublico": 15017,
         "stock": 75
     },
     {
@@ -3540,7 +3540,7 @@
         "cod_Fabrica": "IRON-300",
         "descripcion": "Lusqtoff Sold. Inverter Iron 300 Mma 50Hz",
         "marca": "Lusqtoff",
-        "precioPublico": 71637,
+        "precioPublico": 72188,
         "stock": 5
     },
     {
@@ -3548,7 +3548,7 @@
         "cod_Fabrica": "LQI-1800",
         "descripcion": "Lusqtoff Ingletadora 1800W-220V-50Hz Lqi-",
         "marca": "Lusqtoff",
-        "precioPublico": 81309,
+        "precioPublico": 81935,
         "stock": 3
     },
     {
@@ -3556,7 +3556,7 @@
         "cod_Fabrica": "LQI-1650",
         "descripcion": "Lusqtoff Ingletadora 1650W-220V-50Hz Lqi-",
         "marca": "Lusqtoff",
-        "precioPublico": 51937,
+        "precioPublico": 52337,
         "stock": 6
     },
     {
@@ -3564,7 +3564,7 @@
         "cod_Fabrica": "LQI-2000",
         "descripcion": "Lusqtoff Ingletadora 2000W-220V-50Hz Lqi-",
         "marca": "Lusqtoff",
-        "precioPublico": 107458,
+        "precioPublico": 108284,
         "stock": 4
     },
     {
@@ -3572,7 +3572,7 @@
         "cod_Fabrica": "CM-14K",
         "descripcion": "Lusqtoff Sierra Sensitiva 2000W-3800Rpm-",
         "marca": "Lusqtoff",
-        "precioPublico": 34028,
+        "precioPublico": 34290,
         "stock": 26
     },
     {
@@ -3580,7 +3580,7 @@
         "cod_Fabrica": "LQAP-220B",
         "descripcion": "Lusqtoff Alisador De Pared C/Bolso Rec Y",
         "marca": "Lusqtoff",
-        "precioPublico": 76484,
+        "precioPublico": 77072,
         "stock": 12
     },
     {
@@ -3588,7 +3588,7 @@
         "cod_Fabrica": "BVL1-8",
         "descripcion": "Lusqtoff Bolsa De Dormir",
         "marca": "Lusqtoff",
-        "precioPublico": 11767,
+        "precioPublico": 11858,
         "stock": 6
     },
     {
@@ -3596,7 +3596,7 @@
         "cod_Fabrica": "LQ90203S",
         "descripcion": "Lusqtoff Crique Botella 02Tn Lq90203S",
         "marca": "Lusqtoff",
-        "precioPublico": 8629,
+        "precioPublico": 8695,
         "stock": 5
     },
     {
@@ -3604,7 +3604,7 @@
         "cod_Fabrica": "LQH91204",
         "descripcion": "Lusqtoff Crique Botella 12Tn Lqh91204",
         "marca": "Lusqtoff",
-        "precioPublico": 13335,
+        "precioPublico": 13437,
         "stock": 0
     },
     {
@@ -3612,7 +3612,7 @@
         "cod_Fabrica": "LQH90804",
         "descripcion": "Lusqtoff Crique Botella 08Tn Lqh90804",
         "marca": "Lusqtoff",
-        "precioPublico": 10982,
+        "precioPublico": 11066,
         "stock": 0
     },
     {
@@ -3620,7 +3620,7 @@
         "cod_Fabrica": "LD-52",
         "descripcion": "Lusqtoff Desmalezadora 52Cc - Ld-52",
         "marca": "Lusqtoff",
-        "precioPublico": 42265,
+        "precioPublico": 42590,
         "stock": 40
     },
     {
@@ -3628,7 +3628,7 @@
         "cod_Fabrica": "LP-27",
         "descripcion": "Lusqtoff Podadora De Altura 26Mm Lp-27",
         "marca": "Lusqtoff",
-        "precioPublico": 97427,
+        "precioPublico": 98176,
         "stock": 2
     },
     {
@@ -3636,7 +3636,7 @@
         "cod_Fabrica": "LQ-510B",
         "descripcion": "Lusqtoff Cortadora Cesped 5.5Hp 20 C/B - \"",
         "marca": "Lusqtoff",
-        "precioPublico": 127472,
+        "precioPublico": 128453,
         "stock": 1
     },
     {
@@ -3644,7 +3644,7 @@
         "cod_Fabrica": "VTL430-8A",
         "descripcion": "Lusqtoff Vaso Termico Azul 430Ml",
         "marca": "Lusqtoff",
-        "precioPublico": 2353,
+        "precioPublico": 2371,
         "stock": 0
     },
     {
@@ -3652,7 +3652,7 @@
         "cod_Fabrica": "LLP-400",
         "descripcion": "Lusqtoff Bomba Sum.Plast. A/Limpia 400W",
         "marca": "Lusqtoff",
-        "precioPublico": 21179,
+        "precioPublico": 21342,
         "stock": 11
     },
     {
@@ -3660,7 +3660,7 @@
         "cod_Fabrica": "NC1-3",
         "descripcion": "Lusqtoff Aparejo Cadena 1 Tn X 3Mts Nc1-3",
         "marca": "Lusqtoff",
-        "precioPublico": 18434,
+        "precioPublico": 18575,
         "stock": 0
     },
     {
@@ -3668,7 +3668,7 @@
         "cod_Fabrica": "NC2-5",
         "descripcion": "Lusqtoff Aparejo Cadena 2 Tn X 5Mts Nc2-5",
         "marca": "Lusqtoff",
-        "precioPublico": 28633,
+        "precioPublico": 28854,
         "stock": 8
     },
     {
@@ -3676,7 +3676,7 @@
         "cod_Fabrica": "NC3-5",
         "descripcion": "Lusqtoff Aparejo Cadena 3 Tn X 5Mts Nc3-5",
         "marca": "Lusqtoff",
-        "precioPublico": 41184,
+        "precioPublico": 41500,
         "stock": 10
     },
     {
@@ -3684,7 +3684,7 @@
         "cod_Fabrica": "HL-120",
         "descripcion": "Lusqtoff Hidrolavadora Elect. Max Pres",
         "marca": "Lusqtoff",
-        "precioPublico": 21803,
+        "precioPublico": 21971,
         "stock": 136
     },
     {
@@ -3692,7 +3692,7 @@
         "cod_Fabrica": "LA-2501M",
         "descripcion": "Lusqtoff Aspiradora-Sopla Ind 25Lts La-",
         "marca": "Lusqtoff",
-        "precioPublico": 64716,
+        "precioPublico": 65214,
         "stock": 15
     },
     {
@@ -3700,7 +3700,7 @@
         "cod_Fabrica": "LA-1500MM",
         "descripcion": "Lusqtoff Aspiradora Industrial 1400W",
         "marca": "Lusqtoff",
-        "precioPublico": 41184,
+        "precioPublico": 45451,
         "stock": 44
     },
     {
@@ -3708,7 +3708,7 @@
         "cod_Fabrica": "LBL810-7",
         "descripcion": "Lusqtoff Lijadora De Banda 810W Lbl810-7",
         "marca": "Lusqtoff",
-        "precioPublico": 25495,
+        "precioPublico": 25691,
         "stock": 3
     },
     {
@@ -3716,7 +3716,7 @@
         "cod_Fabrica": "CPM146",
         "descripcion": "Lusqtoff Bomba Centrifuga 3/4Hp",
         "marca": "Lusqtoff",
-        "precioPublico": 41184,
+        "precioPublico": 41500,
         "stock": 26
     },
     {
@@ -3724,7 +3724,7 @@
         "cod_Fabrica": "CPM158",
         "descripcion": "Lusqtoff Bomba Centrifuga 1Hp",
         "marca": "Lusqtoff",
-        "precioPublico": 47067,
+        "precioPublico": 47429,
         "stock": 21
     },
     {
@@ -3732,7 +3732,7 @@
         "cod_Fabrica": "CPM150",
         "descripcion": "Lusqtoff Bomba Periferica 220V 0.5Hp",
         "marca": "Lusqtoff",
-        "precioPublico": 13335,
+        "precioPublico": 13437,
         "stock": 120
     },
     {
@@ -3740,7 +3740,7 @@
         "cod_Fabrica": "CML1500-8",
         "descripcion": "Lusqtoff Cepillo De Banco 1500W",
         "marca": "Lusqtoff",
-        "precioPublico": 179095,
+        "precioPublico": 180473,
         "stock": 3
     },
     {
@@ -3748,7 +3748,7 @@
         "cod_Fabrica": "LSB-11",
         "descripcion": "Lusqtoff Sacabollo Lsb-11",
         "marca": "Lusqtoff",
-        "precioPublico": 6445,
+        "precioPublico": 6494,
         "stock": 3
     },
     {
@@ -3756,7 +3756,7 @@
         "cod_Fabrica": "LQE6002",
         "descripcion": "Lusqtoff Escuadra Magnetica 4 Pulg",
         "marca": "Lusqtoff",
-        "precioPublico": 1372,
+        "precioPublico": 1383,
         "stock": 19
     },
     {
@@ -3764,7 +3764,7 @@
         "cod_Fabrica": "TGMPLI18",
         "descripcion": "Lusqtoff Pulidora Orbital 18V",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 3
     },
     {
@@ -3772,7 +3772,7 @@
         "cod_Fabrica": "TGMOLI18",
         "descripcion": "Lusqtoff Lijadora 1/4 De Hoja",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 8
     },
     {
@@ -3780,7 +3780,7 @@
         "cod_Fabrica": "TGMCA18",
         "descripcion": "Lusqtoff Cargador P/Baterias 18V",
         "marca": "Lusqtoff",
-        "precioPublico": 8629,
+        "precioPublico": 8695,
         "stock": 3
     },
     {
@@ -3788,7 +3788,7 @@
         "cod_Fabrica": "TGMCLI18K",
         "descripcion": "Lusqtoff Sierra Caladora Power Link",
         "marca": "Lusqtoff",
-        "precioPublico": 44714,
+        "precioPublico": 45058,
         "stock": 6
     },
     {
@@ -3796,7 +3796,7 @@
         "cod_Fabrica": "TGMELI18",
         "descripcion": "Lusqtoff Lijadora Orbital Power Link",
         "marca": "Lusqtoff",
-        "precioPublico": 22159,
+        "precioPublico": 22330,
         "stock": 15
     },
     {
@@ -3804,7 +3804,7 @@
         "cod_Fabrica": "TGMMCLI18",
         "descripcion": "Lusqtoff Multiherramienta 18V",
         "marca": "Lusqtoff",
-        "precioPublico": 22159,
+        "precioPublico": 22330,
         "stock": 9
     },
     {
@@ -3812,7 +3812,7 @@
         "cod_Fabrica": "TGMLLI18",
         "descripcion": "Lusqtoff Lampara De Trabajo 18V",
         "marca": "Lusqtoff",
-        "precioPublico": 22159,
+        "precioPublico": 22330,
         "stock": 8
     },
     {
@@ -3820,7 +3820,7 @@
         "cod_Fabrica": "TGMTPLI18K",
         "descripcion": "Lusqtoff Taladro De Percusion 13Mm C/Kit",
         "marca": "Lusqtoff",
-        "precioPublico": 59217,
+        "precioPublico": 59673,
         "stock": 3
     },
     {
@@ -3828,7 +3828,7 @@
         "cod_Fabrica": "AML850-8",
         "descripcion": "Lusqtoff Amoladora Angular 4.1/2-850W",
         "marca": "Lusqtoff",
-        "precioPublico": 14120,
+        "precioPublico": 14229,
         "stock": 305
     },
     {
@@ -3836,7 +3836,7 @@
         "cod_Fabrica": "TGMB1518",
         "descripcion": "Lusqtoff Bateria 18V Power Link 1,5Amp",
         "marca": "Lusqtoff",
-        "precioPublico": 10982,
+        "precioPublico": 11066,
         "stock": 1
     },
     {
@@ -3844,7 +3844,7 @@
         "cod_Fabrica": "TGMB418",
         "descripcion": "Lusqtoff Bateria 18V 4 Amp Power Link",
         "marca": "Lusqtoff",
-        "precioPublico": 26670,
+        "precioPublico": 26875,
         "stock": 1
     },
     {
@@ -3852,7 +3852,7 @@
         "cod_Fabrica": "SM250-1500",
         "descripcion": "Lusqtoff Sierra De Mesa 1500W 220V 50Hz",
         "marca": "Lusqtoff",
-        "precioPublico": 80951,
+        "precioPublico": 81573,
         "stock": 4
     },
     {
@@ -3860,7 +3860,7 @@
         "cod_Fabrica": "BSS-16A",
         "descripcion": "Lusqtoff Caladora Sen. 85W 220V-50Hz Bss-",
         "marca": "Lusqtoff",
-        "precioPublico": 35820,
+        "precioPublico": 36095,
         "stock": 3
     },
     {
@@ -3868,7 +3868,7 @@
         "cod_Fabrica": "LSP-400",
         "descripcion": "Lusqtoff Bomba Sumergible 3 En 1",
         "marca": "Lusqtoff",
-        "precioPublico": 21572,
+        "precioPublico": 21738,
         "stock": 5
     },
     {
@@ -3876,7 +3876,7 @@
         "cod_Fabrica": "IRON BLACK-300",
         "descripcion": "Lusqtoff Soldad Inv 220V 50Hz Iron-300",
         "marca": "Lusqtoff",
-        "precioPublico": 89549,
+        "precioPublico": 90238,
         "stock": 4
     },
     {
@@ -3884,7 +3884,7 @@
         "cod_Fabrica": "HTEP-1007",
         "descripcion": "Lusqtoff Equipo P/Pintar Hvlp 600W",
         "marca": "Lusqtoff",
-        "precioPublico": 21491,
+        "precioPublico": 21656,
         "stock": 9
     },
     {
@@ -3892,7 +3892,7 @@
         "cod_Fabrica": "LX-001",
         "descripcion": "Lusqtoff Llave Impacto Neumatica",
         "marca": "Lusqtoff",
-        "precioPublico": 17908,
+        "precioPublico": 18046,
         "stock": 5
     },
     {
@@ -3900,7 +3900,7 @@
         "cod_Fabrica": "LX-002",
         "descripcion": "Lusqtoff Amoladora Recta C/Acces",
         "marca": "Lusqtoff",
-        "precioPublico": 7163,
+        "precioPublico": 7218,
         "stock": 17
     },
     {
@@ -3908,7 +3908,7 @@
         "cod_Fabrica": "LR-02",
         "descripcion": "Lusqtoff Remachadora Neumatica",
         "marca": "Lusqtoff",
-        "precioPublico": 17193,
+        "precioPublico": 17326,
         "stock": 4
     },
     {
@@ -3916,7 +3916,7 @@
         "cod_Fabrica": "AB-375",
         "descripcion": "Lusqtoff Amoladora De Banco 375W",
         "marca": "Lusqtoff",
-        "precioPublico": 14328,
+        "precioPublico": 14438,
         "stock": 12
     },
     {
@@ -3924,7 +3924,7 @@
         "cod_Fabrica": "EVO MIG-175",
         "descripcion": "Lusqtoff Soldadora Inverter 30-160A",
         "marca": "Lusqtoff",
-        "precioPublico": 103875,
+        "precioPublico": 104674,
         "stock": 2
     },
     {
@@ -3932,7 +3932,7 @@
         "cod_Fabrica": "CPM190",
         "descripcion": "Lusqtoff Bomba Centrif 2Hp 110L/M 1500W",
         "marca": "Lusqtoff",
-        "precioPublico": 93350,
+        "precioPublico": 94068,
         "stock": 7
     },
     {
@@ -3940,7 +3940,7 @@
         "cod_Fabrica": "CPM180",
         "descripcion": "Lusqtoff Bomba Centrif 1.5Hp 1100W 100L/M",
         "marca": "Lusqtoff",
-        "precioPublico": 70600,
+        "precioPublico": 71143,
         "stock": 10
     },
     {
@@ -3948,7 +3948,7 @@
         "cod_Fabrica": "LHMG7.5",
         "descripcion": "Lusqtoff Manguera Universal",
         "marca": "Lusqtoff",
-        "precioPublico": 6674,
+        "precioPublico": 6725,
         "stock": 2
     },
     {
@@ -3956,7 +3956,7 @@
         "cod_Fabrica": "SET129RALLY",
         "descripcion": "Lusqtoff Kit Herramientas 129 Pzs",
         "marca": "Lusqtoff",
-        "precioPublico": 9022,
+        "precioPublico": 9091,
         "stock": 20
     },
     {
@@ -3964,7 +3964,7 @@
         "cod_Fabrica": "LQHELR",
         "descripcion": "Lusqtoff Conserv Frio-Calor 28L 12V-220",
         "marca": "Lusqtoff",
-        "precioPublico": 35692,
+        "precioPublico": 35967,
         "stock": 0
     },
     {
@@ -3972,7 +3972,7 @@
         "cod_Fabrica": "LQHELN",
         "descripcion": "Lusqtoff Conserv Frio-Calor 28L 12V-220",
         "marca": "Lusqtoff",
-        "precioPublico": 37653,
+        "precioPublico": 37942,
         "stock": 1
     },
     {
@@ -3980,7 +3980,7 @@
         "cod_Fabrica": "LQE6001",
         "descripcion": "Lusqtoff Escuadra Magnetica 3 Pulg",
         "marca": "Lusqtoff",
-        "precioPublico": 785,
+        "precioPublico": 791,
         "stock": 21
     },
     {
@@ -3988,7 +3988,7 @@
         "cod_Fabrica": "LAR-101",
         "descripcion": "Lusqtoff Aspiradora Robot 3 Func 220V-",
         "marca": "Lusqtoff",
-        "precioPublico": 51773,
+        "precioPublico": 52172,
         "stock": 8
     },
     {
@@ -3996,7 +3996,7 @@
         "cod_Fabrica": "LAR-102",
         "descripcion": "Lusqtoff Aspiradora Robot 2 Func 220V-",
         "marca": "Lusqtoff",
-        "precioPublico": 39223,
+        "precioPublico": 39525,
         "stock": 8
     },
     {
@@ -4004,7 +4004,7 @@
         "cod_Fabrica": "IRON MIG-100",
         "descripcion": "Lusqtoff Soldadora Iron Mig-100 220V",
         "marca": "Lusqtoff",
-        "precioPublico": 75220,
+        "precioPublico": 75799,
         "stock": 23
     },
     {
@@ -4012,7 +4012,7 @@
         "cod_Fabrica": "ST-1X",
         "descripcion": "Lusqtoff Mascara Fotosensible St-1X",
         "marca": "Lusqtoff",
-        "precioPublico": 3939,
+        "precioPublico": 3969,
         "stock": 1
     },
     {
@@ -4020,7 +4020,7 @@
         "cod_Fabrica": "LQ-IONSOL",
         "descripcion": "Lusqtoff Ionizador Solar P/Pileta",
         "marca": "Lusqtoff",
-        "precioPublico": 19341,
+        "precioPublico": 19490,
         "stock": 1
     },
     {
@@ -4028,7 +4028,7 @@
         "cod_Fabrica": "LE400",
         "descripcion": "Lusqtoff Escalera Plegable 4X4",
         "marca": "Lusqtoff",
-        "precioPublico": 47853,
+        "precioPublico": 48221,
         "stock": 39
     },
     {
@@ -4036,7 +4036,7 @@
         "cod_Fabrica": "ST-1L",
         "descripcion": "Lusqtoff Mascara Fotosensible St-1L",
         "marca": "Lusqtoff",
-        "precioPublico": 7163,
+        "precioPublico": 7218,
         "stock": 55
     },
     {
@@ -4044,7 +4044,7 @@
         "cod_Fabrica": "LTF-6308D",
         "descripcion": "Lusqtoff Termof C/Tablero Digital 220V-",
         "marca": "Lusqtoff",
-        "precioPublico": 10745,
+        "precioPublico": 10828,
         "stock": 7
     },
     {
@@ -4052,7 +4052,7 @@
         "cod_Fabrica": "LLEXT10-8",
         "descripcion": "Lusqtoff Latex Int/ Ext Profesional 10 Lts",
         "marca": "Lusqtoff",
-        "precioPublico": 4651,
+        "precioPublico": 4687,
         "stock": 3
     },
     {
@@ -4060,7 +4060,7 @@
         "cod_Fabrica": "LQTZ40",
         "descripcion": "Lusqtoff Tender Elect P/Calzado 40W",
         "marca": "Lusqtoff",
-        "precioPublico": 9022,
+        "precioPublico": 9091,
         "stock": 8
     },
     {
@@ -4068,7 +4068,7 @@
         "cod_Fabrica": "PAR61",
         "descripcion": "Lusqtoff Parrilla Portatil C/Ruedas",
         "marca": "Lusqtoff",
-        "precioPublico": 56087,
+        "precioPublico": 56518,
         "stock": 9
     },
     {
@@ -4076,7 +4076,7 @@
         "cod_Fabrica": "LRO-2",
         "descripcion": "Lusqtoff Roscadora De Caños Lro-2",
         "marca": "Lusqtoff",
-        "precioPublico": 171932,
+        "precioPublico": 173255,
         "stock": 3
     },
     {
@@ -4084,7 +4084,7 @@
         "cod_Fabrica": "LQ2007",
         "descripcion": "Lusqtoff Criquet Botella 20Tn",
         "marca": "Lusqtoff",
-        "precioPublico": 23532,
+        "precioPublico": 23713,
         "stock": 0
     },
     {
@@ -4092,7 +4092,7 @@
         "cod_Fabrica": "LA08",
         "descripcion": "Lusqtoff Maquina P/Atar Hierro A Bat 12.8V",
         "marca": "Lusqtoff",
-        "precioPublico": 109038,
+        "precioPublico": 109877,
         "stock": 1
     },
     {
@@ -4100,7 +4100,7 @@
         "cod_Fabrica": "LQAP-220",
         "descripcion": "Lusqtoff Alisador De Pared C/Caja-Plas Y",
         "marca": "Lusqtoff",
-        "precioPublico": 60795,
+        "precioPublico": 61263,
         "stock": 6
     },
     {
@@ -4108,7 +4108,7 @@
         "cod_Fabrica": "ESL118-73",
         "descripcion": "Lusqtoff Escalera Hogareña 3 Escalones",
         "marca": "Lusqtoff",
-        "precioPublico": 11767,
+        "precioPublico": 11858,
         "stock": 5
     },
     {
@@ -4116,7 +4116,7 @@
         "cod_Fabrica": "ESL129-74-143-74",
         "descripcion": "Lusqtoff Escalera Hogareña 4 Escalones",
         "marca": "Lusqtoff",
-        "precioPublico": 14903,
+        "precioPublico": 15017,
         "stock": 20
     },
     {
@@ -4124,7 +4124,7 @@
         "cod_Fabrica": "LQE6012",
         "descripcion": "Lusqtoff Escuadra Esquinera 3/11Kg\"",
         "marca": "Lusqtoff",
-        "precioPublico": 1765,
+        "precioPublico": 1778,
         "stock": 20
     },
     {
@@ -4132,7 +4132,7 @@
         "cod_Fabrica": "LSI-750",
         "descripcion": "Lusqtoff Bomba Sumergible Inoxidable",
         "marca": "Lusqtoff",
-        "precioPublico": 30594,
+        "precioPublico": 30829,
         "stock": 7
     },
     {
@@ -4140,7 +4140,7 @@
         "cod_Fabrica": "MEGAIRON100",
         "descripcion": "Lusqtoff Kit Sold.Iron-100+2 Lqe6001+ St-1X",
         "marca": "Lusqtoff",
-        "precioPublico": 27939,
+        "precioPublico": 28154,
         "stock": 32
     },
     {
@@ -4148,7 +4148,7 @@
         "cod_Fabrica": "LQE6001S4",
         "descripcion": "Lusqtoff Set 4 Esc Mag 3\",Set\"",
         "marca": "Lusqtoff",
-        "precioPublico": 3530,
+        "precioPublico": 3557,
         "stock": 11
     },
     {
@@ -4156,7 +4156,7 @@
         "cod_Fabrica": "LMO6",
         "descripcion": "Lusqtoff Morsa Banco C/Base Giratoria 6\",Uni\"",
         "marca": "Lusqtoff",
-        "precioPublico": 25495,
+        "precioPublico": 25691,
         "stock": 4
     },
     {
@@ -4164,7 +4164,7 @@
         "cod_Fabrica": "LMO8",
         "descripcion": "Lusqtoff Morsa Banco C/Base Giratoria 8\",Uni\"",
         "marca": "Lusqtoff",
-        "precioPublico": 41576,
+        "precioPublico": 41896,
         "stock": 1
     },
     {
@@ -4172,7 +4172,7 @@
         "cod_Fabrica": "ESL149-7//166-75",
         "descripcion": "Lusqtoff Escalera Hogareña 5 Escalones",
         "marca": "Lusqtoff",
-        "precioPublico": 15688,
+        "precioPublico": 15809,
         "stock": 8
     },
     {
@@ -4180,7 +4180,7 @@
         "cod_Fabrica": "ESL191-76",
         "descripcion": "Lusqtoff Escalera Hogareña 6 Escalones",
         "marca": "Lusqtoff",
-        "precioPublico": 16473,
+        "precioPublico": 16600,
         "stock": 28
     },
     {
@@ -4188,7 +4188,7 @@
         "cod_Fabrica": "LC-2550BK",
         "descripcion": "Lusqtoff Compresor 2.5Hp 50Lts+Kit Lc-",
         "marca": "Lusqtoff",
-        "precioPublico": 53729,
+        "precioPublico": 54142,
         "stock": 436
     },
     {
@@ -4196,7 +4196,7 @@
         "cod_Fabrica": "AML1010-8",
         "descripcion": "Lusqtoff Amoladora Angular 5 1010W\"",
         "marca": "Lusqtoff",
-        "precioPublico": 19611,
+        "precioPublico": 19762,
         "stock": 60
     },
     {
@@ -4204,7 +4204,7 @@
         "cod_Fabrica": "ATL710-8",
         "descripcion": "Lusqtoff Atornillador C/Tope",
         "marca": "Lusqtoff",
-        "precioPublico": 19611,
+        "precioPublico": 19762,
         "stock": 18
     },
     {
@@ -4212,7 +4212,7 @@
         "cod_Fabrica": "CSL1500-8",
         "descripcion": "Lusqtoff Sierra Circular 1500W Csl1500-8",
         "marca": "Lusqtoff",
-        "precioPublico": 19611,
+        "precioPublico": 19762,
         "stock": 5
     },
     {
@@ -4220,7 +4220,7 @@
         "cod_Fabrica": "LIL900-8",
         "descripcion": "Lusqtoff Llave De Impacto 900W",
         "marca": "Lusqtoff",
-        "precioPublico": 31379,
+        "precioPublico": 31620,
         "stock": 6
     },
     {
@@ -4228,7 +4228,7 @@
         "cod_Fabrica": "NVL5-8",
         "descripcion": "Lusqtoff Nivel Laser 15Mts",
         "marca": "Lusqtoff",
-        "precioPublico": 17908,
+        "precioPublico": 18046,
         "stock": 16
     },
     {
@@ -4236,7 +4236,7 @@
         "cod_Fabrica": "RML1500-8",
         "descripcion": "Lusqtoff Roto Martillo 1500W Rml1500-8",
         "marca": "Lusqtoff",
-        "precioPublico": 32237,
+        "precioPublico": 32485,
         "stock": 3
     },
     {
@@ -4244,7 +4244,7 @@
         "cod_Fabrica": "SCL2200-8",
         "descripcion": "Lusqtoff Sierra Circular 2200W 9\",Uni\"",
         "marca": "Lusqtoff",
-        "precioPublico": 47067,
+        "precioPublico": 47429,
         "stock": 10
     },
     {
@@ -4252,7 +4252,7 @@
         "cod_Fabrica": "SCL710-8",
         "descripcion": "Lusqtoff Sierra Caladora 710W",
         "marca": "Lusqtoff",
-        "precioPublico": 23532,
+        "precioPublico": 23713,
         "stock": 7
     },
     {
@@ -4260,7 +4260,7 @@
         "cod_Fabrica": "MEGAIRON250",
         "descripcion": "Lusqtoff Kit Sold.Iron-250+2Lqe6001",
         "marca": "Lusqtoff",
-        "precioPublico": 56594,
+        "precioPublico": 57029,
         "stock": 35
     },
     {
@@ -4268,7 +4268,7 @@
         "cod_Fabrica": "LQMOPR",
         "descripcion": "Lusqtoff Escurridor Con Ruedas Lqmopr",
         "marca": "Lusqtoff",
-        "precioPublico": 17651,
+        "precioPublico": 17787,
         "stock": 38
     },
     {
@@ -4276,7 +4276,7 @@
         "cod_Fabrica": "LQ12FT-4",
         "descripcion": "Lusqtoff Cama Elastica De 366Cm",
         "marca": "Lusqtoff",
-        "precioPublico": 105900,
+        "precioPublico": 106715,
         "stock": 0
     },
     {
@@ -4284,7 +4284,7 @@
         "cod_Fabrica": "CAR0659",
         "descripcion": "Lusqtoff Botafogo Carrito De Playa C/Acc",
         "marca": "Lusqtoff",
-        "precioPublico": 10745,
+        "precioPublico": 10828,
         "stock": 0
     },
     {
@@ -4292,7 +4292,7 @@
         "cod_Fabrica": "CAD0399",
         "descripcion": "Lusqtoff Reposera Azul Copacabana",
         "marca": "Lusqtoff",
-        "precioPublico": 11463,
+        "precioPublico": 11551,
         "stock": 1
     },
     {
@@ -4300,7 +4300,7 @@
         "cod_Fabrica": "AFL65-7",
         "descripcion": "Lusqtoff Afilador Multiuso 65W",
         "marca": "Lusqtoff",
-        "precioPublico": 15761,
+        "precioPublico": 15882,
         "stock": 10
     },
     {
@@ -4308,7 +4308,7 @@
         "cod_Fabrica": "ANL2000-72",
         "descripcion": "Lusqtoff Anafe Electronico 2H Portatil",
         "marca": "Lusqtoff",
-        "precioPublico": 9414,
+        "precioPublico": 9487,
         "stock": 12
     },
     {
@@ -4316,7 +4316,7 @@
         "cod_Fabrica": "EVO MIG-205",
         "descripcion": "Lusqtoff Soldadora Inv Mig/Mma Dual 180A",
         "marca": "Lusqtoff",
-        "precioPublico": 161187,
+        "precioPublico": 162426,
         "stock": 6
     },
     {
@@ -4324,7 +4324,7 @@
         "cod_Fabrica": "LG2500",
         "descripcion": "Lusqtoff Generador Naftero 2500W A/M",
         "marca": "Lusqtoff",
-        "precioPublico": 75220,
+        "precioPublico": 75799,
         "stock": 1
     },
     {
@@ -4332,7 +4332,7 @@
         "cod_Fabrica": "LD52-7",
         "descripcion": "Lusqtoff Desmalezadora 52Cc 2T",
         "marca": "Lusqtoff",
-        "precioPublico": 28654,
+        "precioPublico": 28875,
         "stock": 216
     },
     {
@@ -4340,7 +4340,7 @@
         "cod_Fabrica": "ST-46",
         "descripcion": "Lusqtoff Mascara Fotoensible Din 9-13",
         "marca": "Lusqtoff",
-        "precioPublico": 6448,
+        "precioPublico": 6497,
         "stock": 11
     },
     {
@@ -4348,7 +4348,7 @@
         "cod_Fabrica": "LH-5.5",
         "descripcion": "Lusqtoff Hidrolavadora A Explosion",
         "marca": "Lusqtoff",
-        "precioPublico": 90264,
+        "precioPublico": 90958,
         "stock": 4
     },
     {
@@ -4356,7 +4356,7 @@
         "cod_Fabrica": "NC2-3",
         "descripcion": "Lusqtoff Aparejo Cadena 2 Tn X 3Mts Nc2-3",
         "marca": "Lusqtoff",
-        "precioPublico": 18826,
+        "precioPublico": 18971,
         "stock": 21
     },
     {
@@ -4364,7 +4364,7 @@
         "cod_Fabrica": "CEL1050-9",
         "descripcion": "Lusqtoff Cepillo 1050W",
         "marca": "Lusqtoff",
-        "precioPublico": 35300,
+        "precioPublico": 35571,
         "stock": 10
     },
     {
@@ -4372,7 +4372,7 @@
         "cod_Fabrica": "CAD0047",
         "descripcion": "Lusqtoff Silla Balcon Alto",
         "marca": "Lusqtoff",
-        "precioPublico": 4297,
+        "precioPublico": 4330,
         "stock": 16
     },
     {
@@ -4380,7 +4380,7 @@
         "cod_Fabrica": "LOL260-8",
         "descripcion": "Lusqtoff Lijadora Obital 1/4 Hoja",
         "marca": "Lusqtoff",
-        "precioPublico": 11767,
+        "precioPublico": 11858,
         "stock": 8
     },
     {
@@ -4388,7 +4388,7 @@
         "cod_Fabrica": "LQ-810",
         "descripcion": "Lusqtoff Martillo Demoledor 220V",
         "marca": "Lusqtoff",
-        "precioPublico": 30446,
+        "precioPublico": 30680,
         "stock": 0
     },
     {
@@ -4396,7 +4396,7 @@
         "cod_Fabrica": "TAL300-8",
         "descripcion": "Lusqtoff Atornillador C/Torque",
         "marca": "Lusqtoff",
-        "precioPublico": 11767,
+        "precioPublico": 11858,
         "stock": 7
     },
     {
@@ -4404,7 +4404,7 @@
         "cod_Fabrica": "LMO3",
         "descripcion": "Lusqtoff Morsa Banco C/Bse Giratoria 3\",Uni\"",
         "marca": "Lusqtoff",
-        "precioPublico": 9804,
+        "precioPublico": 9880,
         "stock": 3
     },
     {
@@ -4412,7 +4412,7 @@
         "cod_Fabrica": "LMO4",
         "descripcion": "Lusqtoff Morsa Banco C/Base Giratoria 4\",Uni\"",
         "marca": "Lusqtoff",
-        "precioPublico": 13728,
+        "precioPublico": 13833,
         "stock": 3
     },
     {
@@ -4420,7 +4420,7 @@
         "cod_Fabrica": "SML130-7",
         "descripcion": "Lusqtoff Soldadora Mig Flux 130 + Rollo",
         "marca": "Lusqtoff",
-        "precioPublico": 50713,
+        "precioPublico": 51103,
         "stock": 20
     },
     {
@@ -4428,7 +4428,7 @@
         "cod_Fabrica": "ST-1N",
         "descripcion": "Lusqtoff Mascara Fotosensible St-1N",
         "marca": "Lusqtoff",
-        "precioPublico": 5015,
+        "precioPublico": 5053,
         "stock": 97
     },
     {
@@ -4436,7 +4436,7 @@
         "cod_Fabrica": "LE300",
         "descripcion": "Lusqtoff Escalera Plegable 3X4",
         "marca": "Lusqtoff",
-        "precioPublico": 29809,
+        "precioPublico": 30038,
         "stock": 0
     },
     {
@@ -4444,7 +4444,7 @@
         "cod_Fabrica": "LQCM132",
         "descripcion": "Lusqtoff Kit De Herrami.84 Pzs.Caja Metal",
         "marca": "Lusqtoff",
-        "precioPublico": 61188,
+        "precioPublico": 61659,
         "stock": 1
     },
     {
@@ -4452,7 +4452,7 @@
         "cod_Fabrica": "LQCP125",
         "descripcion": "Lusqtoff Kit De Herrami.64 Pzs Caja",
         "marca": "Lusqtoff",
-        "precioPublico": 40791,
+        "precioPublico": 41105,
         "stock": 4
     },
     {
@@ -4460,7 +4460,7 @@
         "cod_Fabrica": "ESL200-8",
         "descripcion": "Lusqtoff Electrosierra 2000W",
         "marca": "Lusqtoff",
-        "precioPublico": 30594,
+        "precioPublico": 30829,
         "stock": 20
     },
     {
@@ -4468,7 +4468,7 @@
         "cod_Fabrica": "SPL2400-8",
         "descripcion": "Lusqtoff Soplador Aspirador Electrico",
         "marca": "Lusqtoff",
-        "precioPublico": 21179,
+        "precioPublico": 21342,
         "stock": 8
     },
     {
@@ -4476,7 +4476,7 @@
         "cod_Fabrica": "TL750-9",
         "descripcion": "Lusqtoff Termo Inox 750 Ml",
         "marca": "Lusqtoff",
-        "precioPublico": 9804,
+        "precioPublico": 9880,
         "stock": 87
     },
     {
@@ -4484,7 +4484,7 @@
         "cod_Fabrica": "TL1-9",
         "descripcion": "Lusqtoff Termo Inox - 1 Lt C/Manija",
         "marca": "Lusqtoff",
-        "precioPublico": 12550,
+        "precioPublico": 12646,
         "stock": 131
     },
     {
@@ -4492,7 +4492,7 @@
         "cod_Fabrica": "SGL100-9",
         "descripcion": "Lusqtoff Sillon Gamer",
         "marca": "Lusqtoff",
-        "precioPublico": 53729,
+        "precioPublico": 54142,
         "stock": 1
     },
     {
@@ -4500,7 +4500,7 @@
         "cod_Fabrica": "PEL80-8",
         "descripcion": "Lusqtoff Prensa Esquinera 45° A 90°",
         "marca": "Lusqtoff",
-        "precioPublico": 4022,
+        "precioPublico": 4459,
         "stock": 15
     },
     {
@@ -4508,7 +4508,7 @@
         "cod_Fabrica": "LA-8003M",
         "descripcion": "Lusqtoff Aspiradora Industrial- 220V/50H",
         "marca": "Lusqtoff",
-        "precioPublico": 192192,
+        "precioPublico": 193670,
         "stock": 3
     },
     {
@@ -4516,7 +4516,7 @@
         "cod_Fabrica": "CRL2-8",
         "descripcion": "Lusqtoff Crique 2Tn Extra-Chato Crl2-8",
         "marca": "Lusqtoff",
-        "precioPublico": 69032,
+        "precioPublico": 69563,
         "stock": 0
     },
     {
@@ -4524,7 +4524,7 @@
         "cod_Fabrica": "LAR-100",
         "descripcion": "Lusqtoff Aspiradora Robot 3 Func 220V-",
         "marca": "Lusqtoff",
-        "precioPublico": 61971,
+        "precioPublico": 62447,
         "stock": 3
     },
     {
@@ -4532,7 +4532,7 @@
         "cod_Fabrica": "LVL5-7",
         "descripcion": "Lusqtoff Limpiador A Vapor Alta Presion 5-",
         "marca": "Lusqtoff",
-        "precioPublico": 14513,
+        "precioPublico": 14624,
         "stock": 2
     },
     {
@@ -4540,7 +4540,7 @@
         "cod_Fabrica": "LQSPI7101",
         "descripcion": "Lusqtoff Set Herramientas De Inspeccion",
         "marca": "Lusqtoff",
-        "precioPublico": 3138,
+        "precioPublico": 3162,
         "stock": 9
     },
     {
@@ -4548,7 +4548,7 @@
         "cod_Fabrica": "HTBGA-15A",
         "descripcion": "Lusqtoff Calefactor Cañon A Gas 15Kw-",
         "marca": "Lusqtoff",
-        "precioPublico": 37260,
+        "precioPublico": 37547,
         "stock": 0
     },
     {
@@ -4556,7 +4556,7 @@
         "cod_Fabrica": "SML100-7",
         "descripcion": "Lusqtoff Soldadora Mig Flux 100 + Rollo",
         "marca": "Lusqtoff",
-        "precioPublico": 46566,
+        "precioPublico": 46924,
         "stock": 18
     },
     {
@@ -4564,7 +4564,7 @@
         "cod_Fabrica": "CEL620-8",
         "descripcion": "Lusqtoff Cepillo 620W",
         "marca": "Lusqtoff",
-        "precioPublico": 21964,
+        "precioPublico": 22133,
         "stock": 8
     },
     {
@@ -4572,7 +4572,7 @@
         "cod_Fabrica": "COL550-8",
         "descripcion": "Lusqtoff Cortacerco 550W",
         "marca": "Lusqtoff",
-        "precioPublico": 21179,
+        "precioPublico": 21342,
         "stock": 8
     },
     {
@@ -4580,7 +4580,7 @@
         "cod_Fabrica": "FRL1400-9",
         "descripcion": "Lusqtoff Fresadora 1400W",
         "marca": "Lusqtoff",
-        "precioPublico": 29416,
+        "precioPublico": 29642,
         "stock": 18
     },
     {
@@ -4588,7 +4588,7 @@
         "cod_Fabrica": "LC-2025",
         "descripcion": "Lusqtoff Compresor De Aire 2Hp 25Lts",
         "marca": "Lusqtoff",
-        "precioPublico": 37967,
+        "precioPublico": 38259,
         "stock": 1
     },
     {
@@ -4596,7 +4596,7 @@
         "cod_Fabrica": "LG8500EX",
         "descripcion": "Lusqtoff Generador Naftero-8500W-220V-",
         "marca": "Lusqtoff",
-        "precioPublico": 318791,
+        "precioPublico": 321243,
         "stock": 2
     },
     {
@@ -4604,7 +4604,7 @@
         "cod_Fabrica": "LQMH550",
         "descripcion": "Lusqtoff Herramienta Multifuncion 550W",
         "marca": "Lusqtoff",
-        "precioPublico": 30594,
+        "precioPublico": 30829,
         "stock": 4
     },
     {
@@ -4612,7 +4612,7 @@
         "cod_Fabrica": "COMBO-300",
         "descripcion": "Lusqtoff Soldadora Iron-300 + Mascara",
         "marca": "Lusqtoff",
-        "precioPublico": 96215,
+        "precioPublico": 96955,
         "stock": 7
     },
     {
@@ -4620,7 +4620,7 @@
         "cod_Fabrica": "CAD0410",
         "descripcion": "Lusqtoff Silla Azul Copacabana",
         "marca": "Lusqtoff",
-        "precioPublico": 8954,
+        "precioPublico": 9023,
         "stock": 1
     },
     {
@@ -4628,7 +4628,7 @@
         "cod_Fabrica": "TAL12-8A",
         "descripcion": "Lusqtoff Atornillador Inalambrico 12V",
         "marca": "Lusqtoff",
-        "precioPublico": 19611,
+        "precioPublico": 19762,
         "stock": 72
     },
     {
@@ -4636,7 +4636,7 @@
         "cod_Fabrica": "AML2200-8",
         "descripcion": "Lusqtoff Amoladora Angular 180Mm 2200W",
         "marca": "Lusqtoff",
-        "precioPublico": 35300,
+        "precioPublico": 35571,
         "stock": 9
     },
     {
@@ -4644,7 +4644,7 @@
         "cod_Fabrica": "TL1-9A",
         "descripcion": "Lusqtoff Termo Inox 1Lt Azul",
         "marca": "Lusqtoff",
-        "precioPublico": 12160,
+        "precioPublico": 12253,
         "stock": 66
     },
     {
@@ -4652,7 +4652,7 @@
         "cod_Fabrica": "TL1-9N",
         "descripcion": "Lusqtoff Termo Inox 1Lt Negro",
         "marca": "Lusqtoff",
-        "precioPublico": 12160,
+        "precioPublico": 12253,
         "stock": 65
     },
     {
@@ -4660,7 +4660,7 @@
         "cod_Fabrica": "TL1.3-9",
         "descripcion": "Lusqtoff Termo Inox 1.3Lt Verde",
         "marca": "Lusqtoff",
-        "precioPublico": 14903,
+        "precioPublico": 15017,
         "stock": 25
     },
     {
@@ -4668,7 +4668,7 @@
         "cod_Fabrica": "TL1.3-9A",
         "descripcion": "Lusqtoff Termo Inox 1.3Lt Azul",
         "marca": "Lusqtoff",
-        "precioPublico": 14513,
+        "precioPublico": 14624,
         "stock": 26
     },
     {
@@ -4676,7 +4676,7 @@
         "cod_Fabrica": "DBL52-8",
         "descripcion": "Lusqtoff Carpidora 52Cc",
         "marca": "Lusqtoff",
-        "precioPublico": 51220,
+        "precioPublico": 51614,
         "stock": 5
     },
     {
@@ -4684,7 +4684,7 @@
         "cod_Fabrica": "FPL5",
         "descripcion": "Lusqtoff Fumigador Pulverizador Manual",
         "marca": "Lusqtoff",
-        "precioPublico": 7059,
+        "precioPublico": 7113,
         "stock": 6
     },
     {
@@ -4692,7 +4692,7 @@
         "cod_Fabrica": "FPL7",
         "descripcion": "Lusqtoff Fumigador Pulverizador Manual",
         "marca": "Lusqtoff",
-        "precioPublico": 7844,
+        "precioPublico": 7904,
         "stock": 5
     },
     {
@@ -4700,7 +4700,7 @@
         "cod_Fabrica": "HL110-9",
         "descripcion": "Lusqtoff Hidrolavadora Alta Presion",
         "marca": "Lusqtoff",
-        "precioPublico": 78800,
+        "precioPublico": 79406,
         "stock": 9
     },
     {
@@ -4708,7 +4708,7 @@
         "cod_Fabrica": "CAD0409",
         "descripcion": "Lusqtoff Silla Naranja Copacabana",
         "marca": "Lusqtoff",
-        "precioPublico": 11463,
+        "precioPublico": 11551,
         "stock": 0
     },
     {
@@ -4716,7 +4716,7 @@
         "cod_Fabrica": "HL100-8",
         "descripcion": "Lusqtoff Hidrolavadora De Alta Presión",
         "marca": "Lusqtoff",
-        "precioPublico": 39400,
+        "precioPublico": 39703,
         "stock": 8
     },
     {
@@ -4724,7 +4724,7 @@
         "cod_Fabrica": "RPL150-9",
         "descripcion": "Lusqtoff Robot Piscina Barracuda 150W",
         "marca": "Lusqtoff",
-        "precioPublico": 254948,
+        "precioPublico": 256909,
         "stock": 3
     },
     {
@@ -4732,7 +4732,7 @@
         "cod_Fabrica": "LIL530-8B",
         "descripcion": "Lusqtoff Llave De Impacto Racing",
         "marca": "Lusqtoff",
-        "precioPublico": 70600,
+        "precioPublico": 94859,
         "stock": 1
     },
     {
@@ -4740,7 +4740,7 @@
         "cod_Fabrica": "GRCL800-10",
         "descripcion": "Lusqtoff Guante De Aramida Proteccion Al",
         "marca": "Lusqtoff",
-        "precioPublico": 8629,
+        "precioPublico": 8695,
         "stock": 24
     },
     {
@@ -4748,7 +4748,7 @@
         "cod_Fabrica": "CCMR03",
         "descripcion": "Mor Conservadora 34 Lts 25108165",
         "marca": "MOR",
-        "precioPublico": 6756,
+        "precioPublico": 6428,
         "stock": 4
     },
     {
@@ -4756,7 +4756,7 @@
         "cod_Fabrica": "CCMR01",
         "descripcion": "Mor Conservadora 6 Litros 25108202 Rojo",
         "marca": "MOR",
-        "precioPublico": 2474,
+        "precioPublico": 2352,
         "stock": 3
     },
     {
@@ -5252,7 +5252,7 @@
         "cod_Fabrica": "PRIME400L",
         "descripcion": "Menegotti Hormig.400 Lts Sin Motor -22-",
         "marca": "Menegotti",
-        "precioPublico": 318054,
+        "precioPublico": 323129,
         "stock": 3
     },
     {
@@ -5260,7 +5260,7 @@
         "cod_Fabrica": "PRIME150L",
         "descripcion": "Menegotti Hormig.150 Lts Prof -Con Motor-",
         "marca": "Menegotti",
-        "precioPublico": 152535,
+        "precioPublico": 154969,
         "stock": 13
     },
     {
@@ -5572,7 +5572,7 @@
         "cod_Fabrica": "SYJ02-MOT",
         "descripcion": "Mota Jgo De Sierras Copa Syj02",
         "marca": "Mota",
-        "precioPublico": 8817,
+        "precioPublico": 8818,
         "stock": 0
     },
     {
@@ -5580,7 +5580,7 @@
         "cod_Fabrica": "NK-M52CC",
         "descripcion": "Nakama Motosierra 20Pulg-52Cc -3Hp",
         "marca": "Nakama",
-        "precioPublico": 28102,
+        "precioPublico": 28550,
         "stock": 58
     },
     {
@@ -5588,7 +5588,7 @@
         "cod_Fabrica": "NK-520CC",
         "descripcion": "Nakama Desmalezadora Nk-520 -22-",
         "marca": "Nakama",
-        "precioPublico": 31856,
+        "precioPublico": 32364,
         "stock": 46
     },
     {
@@ -6388,7 +6388,7 @@
         "cod_Fabrica": "15040",
         "descripcion": "Petrul Jgo Herramientas De Jardin",
         "marca": "Pretul",
-        "precioPublico": 7209,
+        "precioPublico": 7626,
         "stock": 12
     },
     {
@@ -6396,7 +6396,7 @@
         "cod_Fabrica": "49218",
         "descripcion": "Petrul Cartucho Para Purificador De Agua",
         "marca": "Pretul",
-        "precioPublico": 3868,
+        "precioPublico": 4092,
         "stock": 14
     },
     {
@@ -6404,7 +6404,7 @@
         "cod_Fabrica": "22703",
         "descripcion": "Pretul Carretilla 5Ft3 Plastica",
         "marca": "Pretul",
-        "precioPublico": 22893,
+        "precioPublico": 24221,
         "stock": 26
     },
     {
@@ -6412,7 +6412,7 @@
         "cod_Fabrica": "49217",
         "descripcion": "Petrul Purificador De Agua",
         "marca": "Pretul",
-        "precioPublico": 16114,
+        "precioPublico": 17050,
         "stock": 6
     },
     {
@@ -6420,7 +6420,7 @@
         "cod_Fabrica": "22980",
         "descripcion": "Petrul Jgo Herramientas 100Pzs C/Maletin",
         "marca": "Pretul",
-        "precioPublico": 17906,
+        "precioPublico": 18945,
         "stock": 20
     },
     {
@@ -6428,7 +6428,7 @@
         "cod_Fabrica": "22985-TRU",
         "descripcion": "Petrul Juego 66Pz Tubos- Acc Y Llaves",
         "marca": "Pretul",
-        "precioPublico": 11460,
+        "precioPublico": 12125,
         "stock": 10
     },
     {
@@ -6476,7 +6476,7 @@
         "cod_Fabrica": "V020102",
         "descripcion": "Bordeadora Schafer M2 340W 2Rul",
         "marca": "Schafer",
-        "precioPublico": 16839,
+        "precioPublico": 19533,
         "stock": 37
     },
     {
@@ -6524,7 +6524,7 @@
         "cod_Fabrica": "F0124550JB-000",
         "descripcion": "Skil 4550 Sierra Caladora 550W",
         "marca": "Skil",
-        "precioPublico": 14731,
+        "precioPublico": 17668,
         "stock": 21
     },
     {
@@ -6532,7 +6532,7 @@
         "cod_Fabrica": "F0127640JB-000",
         "descripcion": "Skil 7640 Lijadora Banda 900W",
         "marca": "Skil",
-        "precioPublico": 25649,
+        "precioPublico": 30764,
         "stock": 10
     },
     {
@@ -6540,7 +6540,7 @@
         "cod_Fabrica": "F0127351JB-000",
         "descripcion": "Skil 7351 Lijadora Orbital 1/3 200W",
         "marca": "Skil",
-        "precioPublico": 14161,
+        "precioPublico": 16984,
         "stock": 7
     },
     {
@@ -6548,7 +6548,7 @@
         "cod_Fabrica": "F0126060JB-000",
         "descripcion": "Skil 6060 Taladro Percusion 13Mm-600W",
         "marca": "Skil",
-        "precioPublico": 15623,
+        "precioPublico": 18738,
         "stock": 46
     },
     {
@@ -6564,7 +6564,7 @@
         "cod_Fabrica": "F0121859JB-0001",
         "descripcion": "Skil 1859 Martillo Sds-Plus 2.1J -750W",
         "marca": "Skil",
-        "precioPublico": 31878,
+        "precioPublico": 38234,
         "stock": 20
     },
     {
@@ -6572,7 +6572,7 @@
         "cod_Fabrica": "F0129051JB-000",
         "descripcion": "Skil 9051 Pulidora Angular 5Pulg 470W",
         "marca": "Skil",
-        "precioPublico": 21367,
+        "precioPublico": 25628,
         "stock": 7
     },
     {
@@ -6580,7 +6580,7 @@
         "cod_Fabrica": "F0121555JC-000",
         "descripcion": "Skil 1555 Cepillo 550W -16000Rpm",
         "marca": "Skil",
-        "precioPublico": 20636,
+        "precioPublico": 24751,
         "stock": 10
     },
     {
@@ -6588,7 +6588,7 @@
         "cod_Fabrica": "F0128003JF-000",
         "descripcion": "Skil 8003 Pistola De Calor 1800W Con",
         "marca": "Skil",
-        "precioPublico": 12221,
+        "precioPublico": 14658,
         "stock": 13
     },
     {
@@ -6596,7 +6596,7 @@
         "cod_Fabrica": "F0121831JB-000",
         "descripcion": "Skil 1831 Fresadora 1100W",
         "marca": "Skil",
-        "precioPublico": 26095,
+        "precioPublico": 31308,
         "stock": 50
     },
     {
@@ -6604,7 +6604,7 @@
         "cod_Fabrica": "F0124400JB-000",
         "descripcion": "Skil 4400 Sierra Caladora 400W",
         "marca": "Skil",
-        "precioPublico": 11368,
+        "precioPublico": 13635,
         "stock": 16
     },
     {
@@ -6612,7 +6612,7 @@
         "cod_Fabrica": "F0124380JB-000",
         "descripcion": "Skil 4380 Sierra Caladora 380W",
         "marca": "Skil",
-        "precioPublico": 9764,
+        "precioPublico": 11714,
         "stock": 23
     },
     {
@@ -6620,7 +6620,7 @@
         "cod_Fabrica": "F0125200JB-000",
         "descripcion": "Skil 5200 Sierra Circular 1200W",
         "marca": "Skil",
-        "precioPublico": 18787,
+        "precioPublico": 22533,
         "stock": 26
     },
     {
@@ -6628,7 +6628,7 @@
         "cod_Fabrica": "F0128003JB-000",
         "descripcion": "Skil 8003 Pistola De Calor -1800W- 3 Posic",
         "marca": "Skil",
-        "precioPublico": 8888,
+        "precioPublico": 10660,
         "stock": 21
     },
     {
@@ -6636,7 +6636,7 @@
         "cod_Fabrica": "F0126600JB",
         "descripcion": "Skil 6600 Taladro 10Mm 1 Vel.",
         "marca": "Skil",
-        "precioPublico": 11282,
+        "precioPublico": 13531,
         "stock": 10
     },
     {
@@ -6644,7 +6644,7 @@
         "cod_Fabrica": "F0127232JB-000",
         "descripcion": "Skil 7232 Lijadora Orbital",
         "marca": "Skil",
-        "precioPublico": 10251,
+        "precioPublico": 12299,
         "stock": 10
     },
     {
@@ -6652,7 +6652,7 @@
         "cod_Fabrica": "F0125402JB-000",
         "descripcion": "Skil 5402 Sierra Circular 1400W",
         "marca": "Skil",
-        "precioPublico": 24786,
+        "precioPublico": 29738,
         "stock": 25
     },
     {
@@ -6660,7 +6660,7 @@
         "cod_Fabrica": "F0129002JR-000",
         "descripcion": "Skil 9002 Amoladora Angular 4 1/2 700W",
         "marca": "Skil",
-        "precioPublico": 8829,
+        "precioPublico": 10589,
         "stock": 90
     },
     {
@@ -6668,7 +6668,7 @@
         "cod_Fabrica": "F0124550JF-000",
         "descripcion": "Skil 4550 Sierra Caladora Con Maletin",
         "marca": "Skil",
-        "precioPublico": 17295,
+        "precioPublico": 20744,
         "stock": 20
     },
     {
@@ -6684,7 +6684,7 @@
         "cod_Fabrica": "F0129004JR-000",
         "descripcion": "Skil 9004 Amoladora Angular 830W",
         "marca": "Skil",
-        "precioPublico": 10281,
+        "precioPublico": 12336,
         "stock": 68
     },
     {
@@ -6692,7 +6692,7 @@
         "cod_Fabrica": "F0126000JB-000",
         "descripcion": "Skil 6000 Taladro Sin Percusion Skil 6000",
         "marca": "Skil",
-        "precioPublico": 14397,
+        "precioPublico": 17267,
         "stock": 20
     },
     {
@@ -6708,7 +6708,7 @@
         "cod_Fabrica": "F0126604JB-0001",
         "descripcion": "Skil 6604 Taladro Perc 10Mm Re Vel Var",
         "marca": "Skil",
-        "precioPublico": 12787,
+        "precioPublico": 15337,
         "stock": 20
     },
     {
@@ -6716,7 +6716,7 @@
         "cod_Fabrica": "F0126555JB",
         "descripcion": "Skil 6555 Taladro Perc 13Mm-570W",
         "marca": "Skil",
-        "precioPublico": 13233,
+        "precioPublico": 15872,
         "stock": 43
     },
     {
@@ -7172,7 +7172,7 @@
         "cod_Fabrica": "4151-200-0033",
         "descripcion": "Stihl Motoguadaña Fs 235",
         "marca": "Stihl",
-        "precioPublico": 86243,
+        "precioPublico": 87619,
         "stock": 17
     },
     {
@@ -7180,7 +7180,7 @@
         "cod_Fabrica": "SE01-012-4406",
         "descripcion": "Stihl Aspiradora Se 33 Electrica 12Lts",
         "marca": "Stihl",
-        "precioPublico": 25793,
+        "precioPublico": 26205,
         "stock": 0
     },
     {
@@ -7188,7 +7188,7 @@
         "cod_Fabrica": "4511-405-7400",
         "descripcion": "Stihl Llave De Activacion 4511-405-7400",
         "marca": "Stihl",
-        "precioPublico": 697,
+        "precioPublico": 727,
         "stock": 9
     },
     {
@@ -7196,7 +7196,7 @@
         "cod_Fabrica": "GA01-011-6920",
         "descripcion": "Stihl Cortamatorrales A Bateria Gta 26",
         "marca": "Stihl",
-        "precioPublico": 50506,
+        "precioPublico": 51312,
         "stock": 0
     },
     {
@@ -7204,7 +7204,7 @@
         "cod_Fabrica": "4140-012-2300",
         "descripcion": "Stihl Motoguadaña Fs 38",
         "marca": "Stihl",
-        "precioPublico": 35772,
+        "precioPublico": 36343,
         "stock": 18
     },
     {
@@ -7212,7 +7212,7 @@
         "cod_Fabrica": "4134-200-0329",
         "descripcion": "Stihl Motoguadaña Fs 120 30.8Cc",
         "marca": "Stihl",
-        "precioPublico": 78606,
+        "precioPublico": 79860,
         "stock": 40
     },
     {
@@ -7220,7 +7220,7 @@
         "cod_Fabrica": "1130-200-0403",
         "descripcion": "Stihl Motosierra Ms 170 R35Cm",
         "marca": "Stihl",
-        "precioPublico": 42207,
+        "precioPublico": 42881,
         "stock": 21
     },
     {
@@ -7228,7 +7228,7 @@
         "cod_Fabrica": "1208-200-0325",
         "descripcion": "Stihl Motosierra Mse 141 Cq R35 Cm",
         "marca": "Stihl",
-        "precioPublico": 45732,
+        "precioPublico": 46462,
         "stock": 3
     },
     {
@@ -7236,7 +7236,7 @@
         "cod_Fabrica": "4140-200-0553-54",
         "descripcion": "Stihl Motoguadaña Fs 55",
         "marca": "Stihl",
-        "precioPublico": 46742,
+        "precioPublico": 47488,
         "stock": 22
     },
     {
@@ -7244,7 +7244,7 @@
         "cod_Fabrica": "4134-200-0436",
         "descripcion": "Stihl Motoguadaña Fs 120 R -Dm 250-",
         "marca": "Stihl",
-        "precioPublico": 73085,
+        "precioPublico": 74251,
         "stock": 6
     },
     {
@@ -7252,7 +7252,7 @@
         "cod_Fabrica": "4119-200-0052",
         "descripcion": "Stihl Motoguadaña Fs 160",
         "marca": "Stihl",
-        "precioPublico": 132444,
+        "precioPublico": 134557,
         "stock": 21
     },
     {
@@ -7260,7 +7260,7 @@
         "cod_Fabrica": "4119-200-0054",
         "descripcion": "Stihl Motoguadaña Fs 280",
         "marca": "Stihl",
-        "precioPublico": 159006,
+        "precioPublico": 161543,
         "stock": 12
     },
     {
@@ -7268,7 +7268,7 @@
         "cod_Fabrica": "4811-011-1508",
         "descripcion": "Stihl Soplador Bge 71 (Electrica)",
         "marca": "Stihl",
-        "precioPublico": 45723,
+        "precioPublico": 46453,
         "stock": 3
     },
     {
@@ -7276,7 +7276,7 @@
         "cod_Fabrica": "4229-011-1723",
         "descripcion": "Stihl Soplador Bg 50",
         "marca": "Stihl",
-        "precioPublico": 73564,
+        "precioPublico": 74738,
         "stock": 1
     },
     {
@@ -7284,7 +7284,7 @@
         "cod_Fabrica": "4255-019-4910",
         "descripcion": "Stihl Fumigador Sg 11",
         "marca": "Stihl",
-        "precioPublico": 5104,
+        "precioPublico": 5185,
         "stock": 0
     },
     {
@@ -7292,7 +7292,7 @@
         "cod_Fabrica": "4255-019-4930",
         "descripcion": "Stihl Fumigador Sg 31",
         "marca": "Stihl",
-        "precioPublico": 13866,
+        "precioPublico": 14088,
         "stock": 2
     },
     {
@@ -7300,7 +7300,7 @@
         "cod_Fabrica": "4512-011-5709",
         "descripcion": "Stihl Set Bordeadora Fsa 45 A Bateria",
         "marca": "Stihl",
-        "precioPublico": 31965,
+        "precioPublico": 32475,
         "stock": 2
     },
     {
@@ -7308,7 +7308,7 @@
         "cod_Fabrica": "0000-881-3671",
         "descripcion": "Stihl Cortasetos Ph 10",
         "marca": "Stihl",
-        "precioPublico": 24667,
+        "precioPublico": 27188,
         "stock": 2
     },
     {
@@ -7316,7 +7316,7 @@
         "cod_Fabrica": "0781-319-8401",
         "descripcion": "Stihl Aceite Hp 100Ml",
         "marca": "Stihl",
-        "precioPublico": 1143,
+        "precioPublico": 1161,
         "stock": 304
     },
     {
@@ -7324,7 +7324,7 @@
         "cod_Fabrica": "4511-011-3509",
         "descripcion": "Stihl Cortasetos Hsa 45 500Mm/20",
         "marca": "Stihl",
-        "precioPublico": 34667,
+        "precioPublico": 35220,
         "stock": 4
     },
     {
@@ -7332,7 +7332,7 @@
         "cod_Fabrica": "4816-011-4108",
         "descripcion": "Stihl Bordeadora Electrica Fse 52",
         "marca": "Stihl",
-        "precioPublico": 28901,
+        "precioPublico": 29362,
         "stock": 10
     },
     {
@@ -7340,7 +7340,7 @@
         "cod_Fabrica": "1254-011-5889",
         "descripcion": "Stihl Motosierra Msa 120C Set",
         "marca": "Stihl",
-        "precioPublico": 122709,
+        "precioPublico": 124667,
         "stock": 1
     },
     {
@@ -7348,7 +7348,7 @@
         "cod_Fabrica": "4791-012-4600",
         "descripcion": "Stihl Hidrolavadora Rb 600 Alta Presion",
         "marca": "Stihl",
-        "precioPublico": 413274,
+        "precioPublico": 419869,
         "stock": 0
     },
     {
@@ -7356,7 +7356,7 @@
         "cod_Fabrica": "4137-200-0334",
         "descripcion": "Stihl Motoguadaña Fs 85",
         "marca": "Stihl",
-        "precioPublico": 71377,
+        "precioPublico": 72516,
         "stock": 8
     },
     {
@@ -7364,7 +7364,7 @@
         "cod_Fabrica": "4950-012-4529",
         "descripcion": "Stihl Hidrolavadora Re 110",
         "marca": "Stihl",
-        "precioPublico": 64243,
+        "precioPublico": 65268,
         "stock": 25
     },
     {
@@ -7372,7 +7372,7 @@
         "cod_Fabrica": "4950-011-4544/45",
         "descripcion": "Stihl Hidrolavadora Re 120",
         "marca": "Stihl",
-        "precioPublico": 86558,
+        "precioPublico": 87940,
         "stock": 6
     },
     {
@@ -7380,7 +7380,7 @@
         "cod_Fabrica": "1292-000-064",
         "descripcion": "Stihl Motosierra Mse 170 C-Bq Cm Pm",
         "marca": "Stihl",
-        "precioPublico": 97436,
+        "precioPublico": 98991,
         "stock": 2
     },
     {
@@ -7388,7 +7388,7 @@
         "cod_Fabrica": "4149-200-0034",
         "descripcion": "Stihl Motoguadaña Fs 94",
         "marca": "Stihl",
-        "precioPublico": 56364,
+        "precioPublico": 57263,
         "stock": 0
     },
     {
@@ -7396,7 +7396,7 @@
         "cod_Fabrica": "4228-011-2938",
         "descripcion": "Stihl Cortacerco Hs 45 600Mm/24 Pulg",
         "marca": "Stihl",
-        "precioPublico": 90478,
+        "precioPublico": 91922,
         "stock": 7
     },
     {
@@ -7428,7 +7428,7 @@
         "cod_Fabrica": "79634/945",
         "descripcion": "Tram Bordeadora Ap1000T - 220V - 22-",
         "marca": "Tramontina",
-        "precioPublico": 12977,
+        "precioPublico": 13184,
         "stock": 15
     },
     {
@@ -7460,7 +7460,7 @@
         "cod_Fabrica": "78102/801",
         "descripcion": "Tram Kit Jardin X 3Pzas Mango Madera-",
         "marca": "Tramontina",
-        "precioPublico": 3521,
+        "precioPublico": 3577,
         "stock": 37
     },
     {
@@ -7468,7 +7468,7 @@
         "cod_Fabrica": "78592/000",
         "descripcion": "Tram Soporte Mural P/ Manguera 78592/000",
         "marca": "Tramontina",
-        "precioPublico": 413,
+        "precioPublico": 420,
         "stock": 4
     },
     {
@@ -7476,7 +7476,7 @@
         "cod_Fabrica": "78380/781",
         "descripcion": "Tram Serrucho P/Ramas Altas C/Mango",
         "marca": "Tramontina",
-        "precioPublico": 25806,
+        "precioPublico": 26218,
         "stock": 11
     },
     {
@@ -7484,7 +7484,7 @@
         "cod_Fabrica": "77855/264",
         "descripcion": "Tram Escoba Plastica 26 Dtes S/Mango",
         "marca": "Tramontina",
-        "precioPublico": 676,
+        "precioPublico": 687,
         "stock": 4
     },
     {
@@ -7492,7 +7492,7 @@
         "cod_Fabrica": "100796-TRUP",
         "descripcion": "Truper Pistola Elect.Pegam.220V -13Mm-",
         "marca": "Truper",
-        "precioPublico": 2329,
+        "precioPublico": 2462,
         "stock": 6
     },
     {
@@ -7500,7 +7500,7 @@
         "cod_Fabrica": "15687",
         "descripcion": "Truper Juego De Tubos Mm, 45 Pzas Enc 1/2",
         "marca": "Truper",
-        "precioPublico": 30797,
+        "precioPublico": 32587,
         "stock": 1
     },
     {
@@ -7508,7 +7508,7 @@
         "cod_Fabrica": "15685",
         "descripcion": "Truper Juego De Tubos Mm- 25 Pzas Enc 1/2",
         "marca": "Truper",
-        "precioPublico": 21130,
+        "precioPublico": 22356,
         "stock": 7
     },
     {
@@ -7516,7 +7516,7 @@
         "cod_Fabrica": "11777-TRU",
         "descripcion": "Truper Carretilla Plastica 120Lts Cat-60Pl",
         "marca": "Truper",
-        "precioPublico": 24200,
+        "precioPublico": 25607,
         "stock": 6
     },
     {
@@ -7524,7 +7524,7 @@
         "cod_Fabrica": "11442",
         "descripcion": "Truper Jgo Machos - Terrajas X 40Pzas",
         "marca": "Truper",
-        "precioPublico": 20014,
+        "precioPublico": 21177,
         "stock": 5
     },
     {
@@ -7532,7 +7532,7 @@
         "cod_Fabrica": "11443",
         "descripcion": "Truper Jgo Machos - Terrajas X 60Pzas",
         "marca": "Truper",
-        "precioPublico": 34470,
+        "precioPublico": 36473,
         "stock": 5
     },
     {
@@ -7540,7 +7540,7 @@
         "cod_Fabrica": "18081",
         "descripcion": "Truper Juego Sierras Copa X 5Pzas",
         "marca": "Truper",
-        "precioPublico": 1648,
+        "precioPublico": 1661,
         "stock": 23
     },
     {
@@ -7548,7 +7548,7 @@
         "cod_Fabrica": "14845",
         "descripcion": "Truper Torre P/Auto 6Tn 620Mm (2 Unidades)",
         "marca": "Truper",
-        "precioPublico": 41184,
+        "precioPublico": 43575,
         "stock": 2
     },
     {
@@ -7556,7 +7556,7 @@
         "cod_Fabrica": "14863-LQ",
         "descripcion": "Truper Inflador De Pie Bom-Tr",
         "marca": "Truper",
-        "precioPublico": 4573,
+        "precioPublico": 4839,
         "stock": 8
     },
     {
@@ -7564,7 +7564,7 @@
         "cod_Fabrica": "14958 TRUPER",
         "descripcion": "Truper Hacha Michigan De 1500 Grs M.",
         "marca": "Truper",
-        "precioPublico": 10090,
+        "precioPublico": 10679,
         "stock": 44
     },
     {
@@ -7572,7 +7572,7 @@
         "cod_Fabrica": "22090-TR",
         "descripcion": "Truper Aspiradora Para Auto De 12V",
         "marca": "Truper",
-        "precioPublico": 9061,
+        "precioPublico": 9586,
         "stock": 7
     },
     {
