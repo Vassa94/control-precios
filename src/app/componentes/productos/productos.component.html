@@ -9,7 +9,7 @@
 
   <!-- Un botón que permite al usuario descargar un archivo CSV. -->
   <div style="margin-right: 5px;">
-    <button>
+    <button (click)="descargarCSV()">
       <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
       <label> Descargar CSV</label>
     </button>
@@ -185,20 +185,18 @@
 <!-- modal que se abrira para actualizar -->
 <ng-template #actualizar let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Actualizar precios</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar precios</h4>
+    
   </div>
   <div class="modal-body">
     <form [formGroup]="file">
       <div class="form-group">        
-        <input type="file" class="inputfile" id="csvFile" accept=".csv" formControlName="csv">
+        <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()" #fileInput>
         <label for="csvFile">Seleccionar archivo CSV</label>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cargar</button>
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cargar</button>-->
   </div>
 </ng-template>
