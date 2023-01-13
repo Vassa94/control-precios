@@ -37,6 +37,13 @@ borrarProducto(id): Observable<any>{
   return this.http.delete(this.API+'/productos/borrar/'+id);
 }
 
+actuProductos(body): Observable<any>{
+  return this.http.put(this.API+'/productos/actualizar/precio', body); 
+}
+actuWeb(body): Observable<any>{
+  return this.http.put(this.API+'/web/actualizar/precio', body); 
+}
+
 
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
