@@ -34,7 +34,9 @@
     "bootstrap-table": "^1.21.1",
     "datatables.net": "^1.11.3",
     "datatables.net-bs5": "^1.11.3",
+    "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
+    "iconv-lite": "^0.6.3",
     "jquery": "^3.6.0",
     "ng-table": "^3.0.1",
     "ngx-bootstrap": "^9.0.0",
@@ -45,6 +47,7 @@
     "primeng": "^14.1.2",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.8",
+    "text-encoding": "^0.7.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
