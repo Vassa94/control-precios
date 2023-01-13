@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import *  as Papa  from 'papaparse';
+import * as FileSaver from 'file-saver';
+import * as iconv from 'iconv-lite';
 import { debounceTime, map, Observable } from 'rxjs';
 import { BDService } from 'src/app/services/bd.service';
 import { TruefalseComponent } from '../truefalse/truefalse.component';
@@ -54,7 +57,6 @@ export class WebComponent implements OnInit {
         "envio",
         "tags",
         "marca"];
-      console.log(this.headers2);
 
       this.cargando = false;
 
@@ -62,8 +64,6 @@ export class WebComponent implements OnInit {
 
 
   }
-
-
 
   view(cont, row) {
     /* this.web.setValue({
@@ -75,6 +75,22 @@ export class WebComponent implements OnInit {
       precioPublico: row.precioPublico,
     }) */
     this.modalService.open(cont, { centered: true });
+  }
+
+  descargarCSV() {
+
+    let data = this.web;
+    let dataUTF8 = data.map(element => {
+      for (let key in element) {
+          element[key] = new TextEncoder().encode(element[key]);
+      }
+      return element;
+    });
+    const csvData = Papa.unparse(dataUTF8);
+    let date = new Date().toLocaleString();
+    let fileName = 'web_' + date + '.csv';
+    let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+    FileSaver.saveAs(blob, fileName);
   }
 
 
