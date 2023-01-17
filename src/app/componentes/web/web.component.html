@@ -13,6 +13,13 @@
     </button>
   </div>
 
+  <div style="margin-right: 5px; align-items: center; ">
+    <button>
+      <i class="fa-solid fa-box" style="padding-right: 3px;"></i>
+      
+    </button>
+  </div>
+
 
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
@@ -29,7 +36,7 @@
           <th class="opciones">
             URL
           </th>
-          <th class=" {{headers2[i]}}" scope="col" *ngFor="let header of headers;let i = index">
+          <th class="headers" scope="col" *ngFor="let header of headers;let i = index">
             {{ header }}
           </th>
         </tr>
