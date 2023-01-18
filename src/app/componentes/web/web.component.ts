@@ -80,13 +80,13 @@ export class WebComponent implements OnInit {
   descargarCSV() {
 
     let data = this.web;
-    let dataUTF8 = data.map(element => {
+    /* let dataUTF8 = data.map(element => {
       for (let key in element) {
           element[key] = new TextEncoder().encode(element[key]);
       }
       return element;
-    });
-    const csvData = Papa.unparse(dataUTF8);
+    }); */
+    const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'web_' + date + '.csv';
     let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
