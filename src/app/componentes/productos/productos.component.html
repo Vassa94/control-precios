@@ -1,10 +1,29 @@
 <div style="display: flex; margin:5px 0px ">
   <!-- Un botón que permite al usuario cargar un archivo CSV. -->
-  <div style="margin: 0px 5px;">
-    <button (click)="act(actualizar)">
+
+  <div class="dropdown" style="margin: 0px 5px;">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
-      <label> Actualizar precios</label>
     </button>
+    <ul class="dropdown-menu" style="width: 250px;">
+      <li>
+        <div style="margin: 0px 5px;">
+          <label class="dropdown-item" (click)="act(actualizar)">
+            <i class="fa-solid fa-dollar" style="padding-right: 3px;"></i>
+            Actualizar precios
+          </label>
+        </div>
+      </li>
+
+      <li>
+        <div style="margin: 0px 5px;">
+          <label class="dropdown-item" (click)="actStock(actualizar)">
+            <i class="fa-solid fa-box" style="padding-right: 3px;"></i>
+            Actualizar stock
+          </label>
+        </div>
+      </li>
+    </ul>
   </div>
 
   <!-- Un botón que permite al usuario descargar un archivo CSV. -->
@@ -37,8 +56,7 @@
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
-          <th class="headers" scope="col" *ngFor="let header of headers;let i = index"
-            (sort)="sort($event)">
+          <th class="headers" scope="col" *ngFor="let header of headers;let i = index" (sort)="sort($event)">
             {{ header }}
           </th>
           <th class="opciones">
@@ -83,7 +101,7 @@
     <span style="--i:18"></span>
     <span style="--i:19"></span>
     <span style="--i:20"></span>
-</div>
+  </div>
 </div>
 
 
@@ -107,7 +125,7 @@
     </div>
     <div class="card-footer">
       <div>
-        <button class="btn btn-primary ">
+        <button class="btn btn-primary " (click)="edit(productNew)">
           <i class="fa-solid fa-pen-to-square"></i> Editar ficha
         </button>
       </div>
@@ -131,7 +149,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form [formGroup]="producto" (ngSubmit)="agregarProducto()">
+      <form [formGroup]="producto" (ngSubmit)="selector()">
         <div class="mb-2">
           <label class="mb-2">
             Codigo (SKU)
@@ -145,33 +163,40 @@
           <input class="inputs form-control" type="text" formControlName="descripcion">
         </div>
         <div class="mb-2">
-          <label class="mb-2">
-            Marca
-          </label>
-          <input class="input form-control" type="text" formControlName="marca">
-        </div>
-        <div class="mb-2">
-          <label class="mb-2">
-            Código de Fabrica
-          </label>
-          <input class="input form-control" type="text" formControlName="cod_Fabrica">
-        </div>
-        <div class="mb-2">
-          <label class="mb-2">
-            Precio al publico
-          </label>
-          <div class="input-group">
-            <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precioPublico">
+          <div style="display: inline-block; margin-right: 15px;">
+            <label class="mb-2">
+              Marca
+            </label>
+            <input class="input form-control" type="text" formControlName="marca">
           </div>
+          <div style="display: inline-block;">
+            <label class="mb-2">
+              Código de Fabrica
+            </label>
+            <input class="input form-control" type="text" formControlName="cod_Fabrica">
+          </div>
+        </div>
 
+        <div class="mb-2" style="display: flex;">
+          <div style="display: inline-block;margin-right: 15px;">
+            <label class="mb-2" >
+              Precio al publico
+            </label>
+            <div class="input-group" >
+              <span class="input input-group-text" id="basic-addon1">$</span>
+              <input class="input form-control"  type="text" formControlName="precioPublico">
+            </div>
+          </div>
+          <div>
+            <div style="display: inline-block;">
+              <label class="mb-2">
+                Cantidad de stock (general)
+              </label>
+              <input class="input form-control" type="text" formControlName="stock">
+            </div>
+          </div>
         </div>
-        <div class="mb-2">
-          <label class="mb-2">
-            Cantidad de stock (general)
-          </label>
-          <input class="input form-control" type="text" formControlName="stock">
-        </div>
+
         <div class="modal-footer input-group">
           <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
             Guardar cambios
@@ -186,12 +211,13 @@
 <ng-template #actualizar let-modal>
   <div class="modal-header">
     <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar precios</h4>
-    
+
   </div>
   <div class="modal-body">
     <form [formGroup]="file">
-      <div class="form-group">        
-        <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()" #fileInput>
+      <div class="form-group">
+        <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
+          #fileInput>
         <label for="csvFile">Seleccionar archivo CSV</label>
       </div>
     </form>

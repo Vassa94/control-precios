@@ -9,6 +9,7 @@ import { FilterPipe } from 'src/app/pipe/filter.pipe';
 import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
+import { HttpParams } from '@angular/common/http';
 
 
 
@@ -25,6 +26,7 @@ export class ProductosComponent implements OnInit {
   search: string;
   filteredProductos: Record<string, any>[] = [];
   cargando: boolean = true;
+  edt: boolean = false;
   actualizador: any;
   csvFile: any;
   reader = new FileReader();
@@ -39,12 +41,12 @@ export class ProductosComponent implements OnInit {
 
 
   producto = new FormGroup({
-    codigo: new FormControl('', [Validators.required, Validators.min(111111), Validators.max(999999)]),
-    cod_Fabrica: new FormControl('', Validators.required),
-    descripcion: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-    marca: new FormControl('', Validators.required),
-    precioPublico: new FormControl('', Validators.required),
-    stock: new FormControl('', Validators.required)
+    codigo: new FormControl(),
+    cod_Fabrica: new FormControl(),
+    descripcion: new FormControl(),
+    marca: new FormControl(),
+    precioPublico: new FormControl(),
+    stock: new FormControl()
   })
 
   file = new FormGroup({
@@ -93,53 +95,79 @@ export class ProductosComponent implements OnInit {
 
   parser(event: any) {
     let file: File = event.target.files[0];
-    if ( file ){
-    this.reader.readAsText(file);
-    this.reader.onload = (event: any) => {
-      let content = event.target.result;
-      Papa.parse(content, {
-        header: true,
-        complete: (results) => {
-          let data = results.data;
-          this.actualizarPrecios(data);
-          //console.log(data);
-          Swal.fire({
-            title: '¡Genial!',
-            text: 'Precios actualizados',
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          
-        }
-      });
+    if (file) {
+      this.reader.readAsText(file);
+      this.reader.onload = (event: any) => {
+        let content = event.target.result;
+        Papa.parse(content, {
+          header: true,
+          complete: (results) => {
+            let data = results.data;
+            if (this.file.value.csv === "precio") {
+              this.actualizarPrecios(data);
+            } else {
+              this.actualizarStock(data);
+            }
+            //console.log(data);
+
+          }
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes cargar un archivo!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
     }
-  } else{
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Debes cargar un archivo!',
-      footer: '<a href="">Why do I have this issue?</a>'
-    })
-  }
-  console.log("todo correcto");
-  
+    console.log("todo correcto");
+
   }
 
-  
+
 
   act(actualizar) {
-
-    this.modalService.open(actualizar, { centered: true }).result.then((result) => {
-      this.parser(this.file.value.csv);
-    }, (reason) => {
-      // maneja el motivo por el que se cerró el modal
-    });
+    this.file.value.csv = "precio";
+    this.modalService.open(actualizar, { centered: true })
   };
+
+  actStock(actualizar) {
+    this.file.value.csv = "stock";
+    this.modalService.open(actualizar, { centered: true })
+  }
 
   form(productNew) {
     this.new();
     this.modalService.open(productNew, { centered: true });
+  }
+  edit(product) {
+    this.edt = true;
+    this.producto.setValue({
+      codigo: this.producto.value.codigo,
+      marca: this.producto.value.marca,
+      cod_Fabrica: this.producto.value.cod_Fabrica,
+      descripcion: this.producto.value.descripcion,
+      stock: this.producto.value.stock,
+      precioPublico: this.producto.value.precioPublico
+    })
+    this.modalService.open(product, { centered: true });
+  }
+
+
+  actualizarProducto() {
+    const id = this.producto.value.codigo;
+    const params = new HttpParams()
+      .set('codFabrica', this.producto.value.cod_Fabrica)
+      .set('descripcion', this.producto.value.descripcion)
+      .set('marca', this.producto.value.marca)
+      .set('precioPub', this.producto.value.precioPublico)
+      .set('stock', this.producto.value.stock)
+    console.log(params);
+    console.log(id);
+    
+    
+    this.datosSis.actualizarProducto(id, params).subscribe((data) => { });
   }
 
   agregarProducto() {
@@ -152,24 +180,26 @@ export class ProductosComponent implements OnInit {
       precioPublico: this.producto.value.precioPublico
     };
     console.table(body)
-    this.datosSis.crearProducto(body).subscribe((data) => {
-      Swal.fire({
-        title: '¡Genial!',
-        text: 'Producto Agregado',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    });
-
-    /* Swal.fire({
+    this.datosSis.crearProducto(body).subscribe((data) => { });
+    Swal.fire({
       title: '¡Genial!',
       text: 'Producto Agregado',
       icon: 'success',
       showConfirmButton: false,
       timer: 1500,
-    }); */
+    });
+  }
 
+  selector() {
+    if (this.edt) {
+      this.actualizarProducto();
+      console.log("edito");
+      
+    } else {
+      //this.agregarProducto();
+      console.log("nuevo");
+      
+    }
   }
 
   borrarProducto(id) {
@@ -181,26 +211,27 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  actualizarProducto(id) {
 
+
+  actualizarPrecios(body) {
+    this.datosSis.actuProductos(body).subscribe((data) => { });
+    this.datosSis.actuWeb(body).subscribe((data) => { });
   }
 
-  actualizarPrecios(body){
-    this.datosSis.actuProductos(body).subscribe((data) => {      
-    });
-    this.datosSis.actuWeb(body).subscribe((data) => {      
+  actualizarStock(body) {
+    this.datosSis.actuStock(body).subscribe((data) => { });
+    Swal.fire({
+      title: '¡Genial!',
+      text: 'Stock actualizado',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500,
     });
   }
 
   descargarCSV() {
     let data = this.productos;
-    let dataUTF8 = data.map(element => {
-      for (let key in element) {
-        element[key] = new TextEncoder().encode(element[key]);
-      }
-      return element;
-    });
-    const csvData = Papa.unparse(dataUTF8);
+    const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'productos_' + date + '.csv';
     let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
