@@ -40,6 +40,20 @@ borrarProducto(id): Observable<any>{
 actuProductos(body): Observable<any>{
   return this.http.put(this.API+'/productos/actualizar/precio', body); 
 }
+
+actualizarProducto(id,params): Observable<any>{
+  console.log("se ejecuto");
+  
+  return this.http.put<any>(this.API+'/productos/editar/'+id, params);
+  
+  
+  
+}
+
+actuStock(body): Observable<any>{
+  return this.http.put(this.API+'/productos/actualizar/stock', body); 
+}
+
 actuWeb(body): Observable<any>{
   return this.http.put(this.API+'/web/actualizar/precio', body); 
 }
