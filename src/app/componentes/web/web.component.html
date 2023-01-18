@@ -14,7 +14,7 @@
   </div>
 
   <div style="margin-right: 5px; align-items: center; ">
-    <button>
+    <button (click)="stock(actualizar)">
       <i class="fa-solid fa-box" style="padding-right: 3px;"></i>
       
     </button>
@@ -43,7 +43,7 @@
 
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of web; let i = index">
+        <tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0}">
           <td class="opciones" style="cursor: pointer">
             <a href="https://oximercedes.com.ar/productos/{{row['url']}}" target="_blank">
               Ver
@@ -51,7 +51,7 @@
           </td>
           <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
             <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-            <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+            <span *ngIf="cell !== 'mostrar' && cell !== 'envio'" >
               {{ cell === 'peso' ? row[cell] + ' Kg' :
               (cell === 'precio' ? '$' + row[cell] :
               (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' :
@@ -115,5 +115,23 @@
         </button>
       </div>
     </div>
+  </div>
+</ng-template>
+
+<ng-template #actualizar let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar precios</h4>
+
+  </div>
+  <div class="modal-body">
+    <form >
+      <div class="form-group">
+        <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
+          #fileInput>
+        <label for="csvFile">Seleccionar archivo CSV</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
   </div>
 </ng-template>
