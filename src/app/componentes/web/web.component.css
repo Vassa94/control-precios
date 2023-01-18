@@ -132,3 +132,12 @@ button:hover {
 button:hover::before {
     width: 100%;
 }
+
+.color-rojo {
+    background-color: rgb(218, 77, 77);
+}
+
+
+
+
+
