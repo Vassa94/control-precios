@@ -6,6 +6,7 @@ import * as iconv from 'iconv-lite';
 import { debounceTime, map, Observable } from 'rxjs';
 import { BDService } from 'src/app/services/bd.service';
 import { TruefalseComponent } from '../truefalse/truefalse.component';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class WebComponent implements OnInit {
   headers2: any;
   search: string = '';
   cargando: boolean = true;
+  reader = new FileReader();
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -79,18 +81,42 @@ export class WebComponent implements OnInit {
 
   descargarCSV() {
 
-    let data = this.web;
-    /* let dataUTF8 = data.map(element => {
-      for (let key in element) {
-          element[key] = new TextEncoder().encode(element[key]);
-      }
-      return element;
-    }); */
+    let data = this.web;    
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'web_' + date + '.csv';
     let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
     FileSaver.saveAs(blob, fileName);
+  }
+
+  parser(event: any) {
+    let file: File = event.target.files[0];
+    if (file) {
+      this.reader.readAsText(file);
+      this.reader.onload = (event: any) => {
+        let content = event.target.result;
+        Papa.parse(content, {
+          header: true,
+          complete: (results) => {
+            let data = results.data;
+            this.datosSis.stockWeb(data);
+            //console.log(data);
+
+          }
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes cargar un archivo!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+    }
+  }
+
+  stock(actualizar) {
+    this.modalService.open(actualizar, { centered: true })
   }
 
 

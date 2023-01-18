@@ -35,7 +35,6 @@ export class ProductosComponent implements OnInit {
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
     this.search = '';
-
   }
 
 
@@ -82,7 +81,7 @@ export class ProductosComponent implements OnInit {
     this.modalService.open(cont, { centered: true });
   }
 
-  new() {
+  newF() {
     this.producto.setValue({
       codigo: " ",
       marca: " ",
@@ -122,10 +121,7 @@ export class ProductosComponent implements OnInit {
       })
     }
     console.log("todo correcto");
-
   }
-
-
 
   act(actualizar) {
     this.file.value.csv = "precio";
@@ -138,9 +134,10 @@ export class ProductosComponent implements OnInit {
   }
 
   form(productNew) {
-    this.new();
+    this.newF();
     this.modalService.open(productNew, { centered: true });
   }
+
   edit(product) {
     this.edt = true;
     this.producto.setValue({
@@ -165,8 +162,8 @@ export class ProductosComponent implements OnInit {
       .set('stock', this.producto.value.stock)
     console.log(params);
     console.log(id);
-    
-    
+
+
     this.datosSis.actualizarProducto(id, params).subscribe((data) => { });
   }
 
@@ -194,11 +191,11 @@ export class ProductosComponent implements OnInit {
     if (this.edt) {
       this.actualizarProducto();
       console.log("edito");
-      
+
     } else {
       //this.agregarProducto();
       console.log("nuevo");
-      
+
     }
   }
 
