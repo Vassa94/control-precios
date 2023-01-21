@@ -149,7 +149,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form [formGroup]="producto" (ngSubmit)="selector()">
+      <form [formGroup]="producto" (ngSubmit)="select()">
         <div class="mb-2">
           <label class="mb-2">
             Codigo (SKU)
@@ -210,15 +210,15 @@
 <!-- modal que se abrira para actualizar -->
 <ng-template #actualizar let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar precios</h4>
+    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{selector}}</h4>
 
   </div>
   <div class="modal-body">
     <form [formGroup]="file">
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
         <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
           #fileInput>
-        <label for="csvFile">Seleccionar archivo CSV</label>
+        <label for="csvFile">Subir CSV</label>
       </div>
     </form>
   </div>

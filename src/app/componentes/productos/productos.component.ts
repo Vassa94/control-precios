@@ -30,6 +30,7 @@ export class ProductosComponent implements OnInit {
   actualizador: any;
   csvFile: any;
   reader = new FileReader();
+  selector: string = '';
 
 
 
@@ -102,7 +103,7 @@ export class ProductosComponent implements OnInit {
           header: true,
           complete: (results) => {
             let data = results.data;
-            if (this.file.value.csv === "precio") {
+            if (this.selector === "precio") {
               this.actualizarPrecios(data);
             } else {
               this.actualizarStock(data);
@@ -124,12 +125,12 @@ export class ProductosComponent implements OnInit {
   }
 
   act(actualizar) {
-    this.file.value.csv = "precio";
+    this.selector = "precio";
     this.modalService.open(actualizar, { centered: true })
   };
 
   actStock(actualizar) {
-    this.file.value.csv = "stock";
+    this.selector = "stock";
     this.modalService.open(actualizar, { centered: true })
   }
 
@@ -140,6 +141,7 @@ export class ProductosComponent implements OnInit {
 
   edit(product) {
     this.edt = true;
+
     this.producto.setValue({
       codigo: this.producto.value.codigo,
       marca: this.producto.value.marca,
@@ -187,7 +189,7 @@ export class ProductosComponent implements OnInit {
     });
   }
 
-  selector() {
+  select() {
     if (this.edt) {
       this.actualizarProducto();
       console.log("edito");
