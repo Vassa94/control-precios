@@ -43,7 +43,7 @@
         </tr>
       </thead>      
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of ml; let i = index">
+        <tr *ngFor="let row of ml; let i = index" [ngClass]="{'color-rojo': row['availablequantity'] === 0,'color-gris': row['status'] === 'paused'}">
           <td class="opciones" style="cursor: pointer">
             <p (click)="abrirPreview(preview, row['picture1'])">Ver</p>
           </td>

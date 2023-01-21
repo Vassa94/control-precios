@@ -43,7 +43,6 @@ export class MercadolibreComponent implements OnInit {
                       "Peso"]
       this.headers2 = ["itemid",
                       "itemsku",
-                      "categoryid",
                       "listingtypeid",
                       "title",
                       "availablequantity",

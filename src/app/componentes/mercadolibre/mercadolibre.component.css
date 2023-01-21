@@ -119,3 +119,10 @@ button {
     overflow-x: auto;
     min-width: 120px
 }
+
+.color-rojo {
+    background-color: rgba(194, 92, 92, 0.753);
+}
+.color-gris {
+    color: rgba(124, 124, 124, 0.133);
+}
