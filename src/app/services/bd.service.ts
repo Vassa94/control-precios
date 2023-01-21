@@ -57,6 +57,10 @@ stockWeb(body): Observable<any>{
   return this.http.put<any>(this.API+'/web/actualizar/stock', body); 
 }
 
+listaWeb(body): Observable<any>{
+  return this.http.put<any>(this.API+'/web/actualizar/batch', body); 
+}
+
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
   //fs.writeFileSync('http://localhost:8080/productos.json', JSON.stringify(body))
