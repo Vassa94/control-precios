@@ -32,7 +32,6 @@ export class WebComponent implements OnInit {
     this.datosSis.obtenerWeb().toPromise().then((data) => {
       this.web = data;
       this.headers = ["Nombre",
-        "Categorias",
         "Precio",
         "Oferta",
         "Peso",
@@ -46,7 +45,6 @@ export class WebComponent implements OnInit {
         "Tags",
         "Marca"];
       this.headers2 = ["nombre",
-        "categorias",
         "precio",
         "precioProm",
         "peso",
@@ -80,7 +78,6 @@ export class WebComponent implements OnInit {
   }
 
   descargarCSV() {
-
     let data = this.web;
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
