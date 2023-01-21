@@ -127,15 +127,18 @@
 
 <ng-template #actualizar let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar precios</h4>
+    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{selector}}</h4>
 
   </div>
   <div class="modal-body">
     <form >
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
         <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
           #fileInput>
-        <label for="csvFile">Seleccionar archivo CSV</label>
+        <label for="csvFile" >
+          <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
+          Subir CSV
+        </label>
       </div>
     </form>
   </div>
