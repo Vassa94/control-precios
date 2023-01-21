@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import *  as Papa  from 'papaparse';
+import *  as Papa from 'papaparse';
 import * as FileSaver from 'file-saver';
 import * as iconv from 'iconv-lite';
 import { debounceTime, map, Observable } from 'rxjs';
 import { BDService } from 'src/app/services/bd.service';
 import { TruefalseComponent } from '../truefalse/truefalse.component';
 import Swal from 'sweetalert2';
+import * as normalize from 'normalize-strings';
+
 
 
 @Component({
@@ -21,6 +23,7 @@ export class WebComponent implements OnInit {
   search: string = '';
   cargando: boolean = true;
   reader = new FileReader();
+  selector: boolean = false;
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -81,7 +84,7 @@ export class WebComponent implements OnInit {
 
   descargarCSV() {
 
-    let data = this.web;    
+    let data = this.web;
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'web_' + date + '.csv';
@@ -95,13 +98,25 @@ export class WebComponent implements OnInit {
       this.reader.readAsText(file);
       this.reader.onload = (event: any) => {
         let content = event.target.result;
+        content = normalize(content, { form: 'NFD' });
         Papa.parse(content, {
           header: true,
+          encoding: "UTF-8",
           complete: (results) => {
             let data = results.data;
-            this.datosSis.stockWeb(data);
-            //console.log(data);
+            if (!this.selector) {
+              this.datosSis.stockWeb(data);
+              //console.log(data);
+            } else {
+              for (let i = 0; i < data.length; i++) {
+                if (data[i]['Codigo'] !== undefined && data[i]['Codigo'] !== null) {
+                  data[i]['Codigo'] = data[i]['Codigo'].split(',');
+                }
+              }
+              this.datosSis.listaWeb(data);
+              //console.log(data);
 
+            }
           }
         });
       }
@@ -119,8 +134,13 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
+  lista(actualizar) {
+    this.selector = true;
+    this.modalService.open(actualizar, { centered: true })
+  }
 
 
-  
+
+
 }
 
