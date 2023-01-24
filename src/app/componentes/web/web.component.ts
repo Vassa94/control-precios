@@ -5,6 +5,7 @@ import * as FileSaver from 'file-saver';
 import { BDService } from 'src/app/services/bd.service';
 import Swal from 'sweetalert2';
 import * as normalize from 'normalize-strings';
+import { tap } from 'rxjs';
 
 
 
@@ -121,8 +122,11 @@ export class WebComponent implements OnInit {
       "url": data["Identificador de URL"],
       "ean": data["Código de barras"]
     }
-    console.log(body);
-    this.datosSis.crearPubli(body)
+    if (body.url.trim() !== '') {
+    this.datosSis.crearPubli(body).pipe(
+      tap(() => {}, error => { console.log(error) })
+      ).subscribe();
+    }
 
   }
 
@@ -157,9 +161,8 @@ export class WebComponent implements OnInit {
               }
               this.datosSis.listaWeb(data);
             } else {
-              this.export(data)
+              this.export(data);
             }
-
           }
         });
       }

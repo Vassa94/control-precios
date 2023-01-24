@@ -1,4 +1,4 @@
-<div style="display: flex; margin:5px 5px ">
+<section style="display: flex; margin:5px 5px "> <!-- Botones -->
   <div style="margin-right: 5px;">
     <button (click)="descargarCSV()">
       <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
@@ -34,14 +34,13 @@
     </button>
   </div>
 
-
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
     <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
   </div>
-</div>
+</section>
 
-<div class="Tabla " data-toggle="table" *ngIf="!cargando">
+<div class="Tabla " data-toggle="table" *ngIf="!cargando"> <!-- Tabla -->
   <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
@@ -78,7 +77,7 @@
   </div>
 </div>
 
-<div class="spinner-container" *ngIf="cargando">
+<div class="spinner-container" *ngIf="cargando"> <!-- Spiner de carga -->
   <div class="loader">
     <span style="--i:1"></span>
     <span style="--i:2"></span>
@@ -103,11 +102,7 @@
   </div>
 </div>
 
-
-
-
-
-<ng-template #content let-modal>
+<ng-template #content let-modal> <!-- Modal para visualizar producto -->
   <div class="card">
     <div class="card-img">
       <a href="../assets/img/prod/'codigo'.jpg" target="_blank">
@@ -132,7 +127,7 @@
   </div>
 </ng-template>
 
-<ng-template #actualizar let-modal>
+<ng-template #actualizar let-modal> <!-- Modal para cargar actualizaciones -->
   <div class="modal-header">
     <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{selector}}</h4>
 
