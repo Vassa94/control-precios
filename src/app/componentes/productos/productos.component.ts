@@ -96,20 +96,14 @@ export class ProductosComponent implements OnInit {
   parser(event: any) {
     let file: File = event.target.files[0];
     if (file) {
-      this.reader.readAsText(file);
+      this.reader.readAsText(file, 'ISO-8859-3');
       this.reader.onload = (event: any) => {
         let content = event.target.result;
         Papa.parse(content, {
           header: true,
           complete: (results) => {
             let data = results.data;
-            if (this.selector === "precio") {
-              this.actualizarPrecios(data);
-            } else {
-              this.actualizarStock(data);
-            }
-            //console.log(data);
-
+            this.estandarizador(data, this.selector);
           }
         });
       }
@@ -121,7 +115,6 @@ export class ProductosComponent implements OnInit {
         footer: '<a href="">Why do I have this issue?</a>'
       })
     }
-    console.log("todo correcto");
   }
 
   act(actualizar) {
@@ -141,7 +134,6 @@ export class ProductosComponent implements OnInit {
 
   edit(product) {
     this.edt = true;
-
     this.producto.setValue({
       codigo: this.producto.value.codigo,
       marca: this.producto.value.marca,
@@ -164,7 +156,6 @@ export class ProductosComponent implements OnInit {
       .set('stock', this.producto.value.stock)
     console.log(params);
     console.log(id);
-
 
     this.datosSis.actualizarProducto(id, params).subscribe((data) => { });
   }
@@ -213,19 +204,73 @@ export class ProductosComponent implements OnInit {
 
 
   actualizarPrecios(body) {
-    this.datosSis.actuProductos(body).subscribe((data) => { });
-    this.datosSis.actuWeb(body).subscribe((data) => { });
+    if (!body[0].codigo || !body[0].precio) {
+      console.table(body);
+      Swal.fire({
+        title: 'Oops...',
+        text: 'El CSV no tiene la estructura correcta',
+        icon: 'error',
+        footer: 'Revisa que el archivo subido sea el correcto'
+      });
+    } else {
+      this.datosSis.actuProductos(body).subscribe((data) => { });
+      this.datosSis.actuWeb(body).subscribe((data) => { });
+      Swal.fire({
+        title: '¡Genial!',
+        text: 'Precios actualizados',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
   }
 
   actualizarStock(body) {
-    this.datosSis.actuStock(body).subscribe((data) => { });
-    Swal.fire({
-      title: '¡Genial!',
-      text: 'Stock actualizado',
-      icon: 'success',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    if (!body[0].codigo || !body[0].stock) {
+      Swal.fire({
+        title: 'Oops...',
+        text: 'El CSV no tiene la estructura correcta',
+        icon: 'error',
+        footer: 'Revisa que el archivo subido sea el correcto'
+      });
+    } else {
+      this.datosSis.actuStock(body).subscribe((data) => { });
+      Swal.fire({
+        title: '¡Genial!',
+        text: 'Stock actualizado',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
+  }
+
+  estandarizador(data, destino) {
+    const body: any[] = [];
+    let aux = {};
+    let col = (destino === 'precio') ? "PUBLICO" : "Total";
+    for (let i = 0; i < data.length; i++) {
+      let valor = data[i][col];
+      if (valor) {
+        valor = parseFloat(valor);
+        valor = Math.floor(valor);
+        data[i][col] = valor;
+      }
+      if (destino === "precio" && data[i]['Código']) {
+        aux = { 'codigo': parseInt(data[i]['Código']), 'precio': data[i][col] };
+      } else if (destino === "stock" && data[i]['Código']) {
+        aux = { 'codigo': parseInt(data[i]['Código']), 'stock': data[i][col] };
+      }
+      body.push(aux);
+      
+    }
+    console.table(body);
+    if (destino === "precio") {
+      this.actualizarPrecios(body);
+    } else if (destino === "stock") {
+      this.actualizarStock(body);
+    }
+
   }
 
   descargarCSV() {
@@ -238,9 +283,6 @@ export class ProductosComponent implements OnInit {
 
   }
 
-
-  /* Una función que se llama cuando el usuario escribe en la barra de búsqueda. Filtra los productos
-  por nombre, marca, código o código de fábrica. */
   searchProduct = (text$: Observable<string>) =>
     text$.pipe(
 
@@ -253,11 +295,6 @@ export class ProductosComponent implements OnInit {
           .slice(0, 10))
     )
 
-  /**
-   * Si la columna es la misma, no haga nada. Si la columna es diferente, ordene la matriz por columna
-   * y ordene
-   * @param event - El objeto de evento que desencadenó la ordenación.
-   */
   sort(event) {
     this.productos.sort((a, b) => {
       if (a[event.column] < b[event.column]) {
