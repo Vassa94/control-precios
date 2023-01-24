@@ -61,6 +61,10 @@ listaWeb(body): Observable<any>{
   return this.http.put<any>(this.API+'/web/actualizar/batch', body); 
 }
 
+crearPubli(body): Observable<any>{
+  return this.http.post<any>(this.API+'/web/crear',body);
+}
+
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
   //fs.writeFileSync('http://localhost:8080/productos.json', JSON.stringify(body))
