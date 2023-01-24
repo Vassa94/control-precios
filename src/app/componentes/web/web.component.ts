@@ -80,6 +80,7 @@ export class WebComponent implements OnInit {
 
   estandarizador(data) {
     let cod: number[] = [];
+    let cont: number = 0;
 
     if (data.SKU) {
       let sku = data.SKU.split(',');
@@ -122,12 +123,9 @@ export class WebComponent implements OnInit {
       "url": data["Identificador de URL"],
       "ean": data["Código de barras"]
     }
-    if (body.url.trim() !== '') {
     this.datosSis.crearPubli(body).pipe(
-      tap(() => {}, error => { console.log(error) })
-      ).subscribe();
-    }
-
+      tap(() => { }, error => { console.log(error) })
+    ).subscribe();
   }
 
   descargarCSV() {
@@ -193,6 +191,7 @@ export class WebComponent implements OnInit {
 
   export(data) {
     let encontrado: boolean;
+    let cont: number = 0
     for (let i = 0; i < data.length; i++) {
       encontrado = false;
       for (let j = 0; j < this.web.length; j++) {
@@ -200,19 +199,25 @@ export class WebComponent implements OnInit {
           data[i].Precio = this.web[j].precio;
           encontrado = true;
         }
-
       }
-      if (!encontrado) {
-
+      if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
         this.estandarizador(data[i]);
-
+        cont++;
       }
     }
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
-    let fileName = 'web_' + date + '.csv';
+    let fileName = 'Subir-' + date + '.csv';
     let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
     FileSaver.saveAs(blob, fileName);
+
+    Swal.fire({
+      title: '¡Archivo generado!',
+      text: 'se cargaron ' + cont + ' publicaciones',
+      icon: 'success',
+      showConfirmButton: true,
+      //timer: 2500,
+    });
   }
 
 
