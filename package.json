@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "electron .",
     "build": "ng build",
+    "electron-build": "ng build — electron .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "description": "Oximercedes app!",
+  "main": "main.js",
+  "author": "Ignacio Vassallo",
+  "package-win": "electron-packager . electron-tutorial-app — overwrite — asar=true — platform=win32 — arch=ia32 — icon=assets/icons/win/icon.ico — prune=true — out=release-builds — version-string.CompanyName=CE — version-string.FileDescription=CE — version-string.ProductName=\"Controlador Ecommerce\"",
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
@@ -62,6 +67,7 @@
     "@types/jasmine": "~4.0.0",
     "@types/jquery": "^3.5.9",
     "angular-cli-ghpages": "^1.0.5",
+    "electron": "^22.0.3",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
