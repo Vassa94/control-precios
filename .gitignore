@@ -37,6 +37,7 @@ yarn-error.log
 testem.log
 /typings
 /src/assets/img/prod
+/Control de precios-win32-x64
 
 # System files
 .DS_Store

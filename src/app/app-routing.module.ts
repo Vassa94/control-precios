@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: "control", component: ControlComponent },
   { path: "import", component: ExpImpComponent },
   { path: "reclamos", component: ReclamosComponent},
-  //{ path: "",   redirectTo: "productos", pathMatch: "full" },
   { path: "#",   redirectTo: 'productos', pathMatch: 'full' },
   { path: "**", component: NotFoundComponent },
   
