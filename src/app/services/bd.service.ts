@@ -33,6 +33,11 @@ crearProducto(body): Observable<any>{
   return this.http.post('http://localhost:8080/productos/crear', body);   
   
 }
+
+crearProductos(body){
+  return this.http.post('http://localhost:8080/productos/batch', body);
+}
+
 borrarProducto(id): Observable<any>{
   return this.http.delete(this.API+'/productos/borrar/'+id);
 }
