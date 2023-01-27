@@ -80,7 +80,7 @@ export class WebComponent implements OnInit {
 
   estandarizador(data) {
     let cod: number[] = [];
-    let cont: number = 0;
+    
 
     if (data.SKU) {
       let sku = data.SKU.split(',');
@@ -189,6 +189,10 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
+  crearPublicacion(){
+    
+  }
+
   export(data) {
     let encontrado: boolean;
     let cont: number = 0
@@ -196,7 +200,10 @@ export class WebComponent implements OnInit {
       encontrado = false;
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
-          data[i].Precio = this.web[j].precio;
+          data[i]['Precio promocional'] = this.web[j].precioProm;
+          if (!(data[i]['Precio promocional'])){
+            data[i].Precio = this.web[j].precio;
+          }
           encontrado = true;
         }
       }
