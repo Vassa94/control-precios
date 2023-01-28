@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
 import *  as Papa from 'papaparse';
 import * as FileSaver from 'file-saver';
 import { BDService } from 'src/app/services/bd.service';
@@ -24,6 +25,24 @@ export class WebComponent implements OnInit {
   selector: string = '';
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
+
+  publicacion = new FormGroup ({
+    codigo: new FormControl(),
+		nombre: new FormControl(),
+		categoria: new FormControl(),
+		precio: new FormControl(),
+		precioProm: new FormControl(),
+		peso: new FormControl(),
+    alto: new FormControl(),
+    ancho: new FormControl(),
+    profundidad: new FormControl(),
+    stock: new FormControl(),
+    mostrar: new FormControl(),
+    envio: new FormControl(),
+    marca: new FormControl(),
+    ean: new FormControl(),
+    url: new FormControl(),
+  })
 
   ngOnInit(): void {
     this.getProductos();
@@ -67,14 +86,6 @@ export class WebComponent implements OnInit {
   }
 
   view(cont, row) {
-    /* this.web.setValue({
-      codigo: row.codigo,
-      marca: row.marca,
-      cod_Fabrica: row.cod_Fabrica,
-      descripcion: row.descripcion,
-      stock: row.stock,
-      precioPublico: row.precioPublico,
-    }) */
     this.modalService.open(cont, { centered: true });
   }
 
@@ -189,8 +200,8 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
-  crearPublicacion(){
-    
+  crearPublicacion(nuevo){
+    this.modalService.open(nuevo, { centered: true, size: 'xl'  });
   }
 
   export(data) {
@@ -200,7 +211,7 @@ export class WebComponent implements OnInit {
       encontrado = false;
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
-          data[i]['Precio promocional'] = this.web[j].precioProm;
+          //data[i]['Precio promocional'] = this.web[j].precioProm;
           if (!(data[i]['Precio promocional'])){
             data[i].Precio = this.web[j].precio;
           }

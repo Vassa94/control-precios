@@ -7,7 +7,7 @@
   </div>
 
   <div style="margin-right: 5px;">
-    <button>
+    <button (click)="crearPublicacion(nuevo)">
       <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
       <label>Crear</label>
     </button>
@@ -16,21 +16,21 @@
   <div style="margin-right: 5px; align-items: center; ">
     <button (click)="stock(actualizar)">
       <i class="fa-solid fa-box" style="padding-right: 3px;"></i>
-      
+
     </button>
   </div>
 
   <div style="margin-right: 5px; align-items: center; ">
     <button (click)="lista(actualizar)">
       <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
-      
+
     </button>
   </div>
 
   <div style="margin-right: 5px; align-items: center; ">
     <button (click)="exp(actualizar)">
       Prueba
-      
+
     </button>
   </div>
 
@@ -64,7 +64,7 @@
           </td>
           <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
             <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-            <span *ngIf="cell !== 'mostrar' && cell !== 'envio'" >
+            <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
               {{ cell === 'peso' ? row[cell] + ' Kg' :
               (cell === 'precio' ? '$' + row[cell] :
               (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' :
@@ -102,6 +102,150 @@
   </div>
 </div>
 
+<ng-template #nuevo let-modal> <!-- Modal para productos nuevos y ediciones -->
+  <div class="modal-header">
+    <h4 class="modal-title">{{publicacion.value.nombre}}</h4>
+    <!-- <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button> -->
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="publicacion">
+      <div>
+        <div class="mb-2" style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Codigo (SKU)
+          </label>
+          <input class="input form-control" type="text" formControlName="codigo">
+        </div>
+        <div class="mb-2" style="display: inline-block; margin-right: 15px; width: 400px;">
+          <label class="mb-2">
+            nombre
+          </label>
+          <input class="inputs form-control" type="text" formControlName="nombre">
+        </div>
+        <div class="mb-2" style="display: inline-block; margin-right: 15px;">
+          <div style="display: inline-block; margin-right: 15px;">
+            <label class="mb-2">
+              Categoria
+            </label>
+            <input class="input form-control" type="text" formControlName="categoria">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Precio
+          </label>
+          <div class="input-group">
+            <span class="input input-group-text" id="basic-addon1">$</span>
+            <input class="input form-control" type="text" formControlName="precio">
+          </div>
+        </div>
+        <div style="display: inline-block;margin-right: 15px;">
+          <label class="mb-2">
+            Precio Oferta
+          </label>
+          <div class="input-group">
+            <span class="input input-group-text" id="basic-addon1">$</span>
+            <input class="input form-control" type="text" formControlName="precioProm">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Peso
+          </label>
+          <div class="input-group">
+            <input class="input form-control" type="text" formControlName="peso">
+            <span class="input input-group-text" id="basic-addon1">Kg.</span>
+          </div>
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            alto
+          </label>
+          <div class="input-group">
+            <input class="input form-control" type="text" formControlName="alto">
+            <span class="input input-group-text" id="basic-addon1">Cm.</span>
+          </div>
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Ancho
+          </label>
+          <div class="input-group">
+            <input class="input form-control" type="text" formControlName="ancho">
+            <span class="input input-group-text" id="basic-addon1">Cm.</span>
+          </div>
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Profundidad
+          </label>
+          <div class="input-group">
+            <input class="input form-control" type="text" formControlName="profundidad">
+            <span class="input input-group-text" id="basic-addon1">Cm.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex;">
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Stock
+          </label>
+          <input class="input form-control" type="text" formControlName="stock">
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Mostrar
+          </label>
+          <input class="form-check-input input form-control" type="checkbox" formControlName="mostrar">
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Envio
+          </label>
+          <input class="form-check-input input form-control" type="checkbox" formControlName="envio">
+        </div>
+      </div>
+
+      <div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Marca
+          </label>
+          <input class="input form-control" type="text" formControlName="marca">
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2">
+            Codigo de barra
+          </label>
+          <input class="input form-control" type="text" formControlName="ean">
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <label class="mb-2 barra">
+            {{publicacion.value.ean}}
+          </label>
+        </div>
+        <div style="display: inline-block; margin-right: 15px;">
+          <p class="mb-2 btn">
+            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}">Ver en la web</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer input-group">
+        <button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
 <ng-template #content let-modal> <!-- Modal para visualizar producto -->
   <div class="card">
     <div class="card-img">
@@ -133,11 +277,11 @@
 
   </div>
   <div class="modal-body">
-    <form >
+    <form>
       <div class="form-group" style="display: flex;">
         <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
           #fileInput>
-        <label for="csvFile" >
+        <label for="csvFile">
           <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
           Subir CSV
         </label>
