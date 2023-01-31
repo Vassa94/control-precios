@@ -22,8 +22,7 @@
 
   <div style="margin-right: 5px; align-items: center; ">
     <button (click)="exp(actualizar)">
-      Prueba
-
+      Actualizar web
     </button>
   </div>
 
@@ -210,7 +209,7 @@
           <input class="form-check-input input form-control" type="checkbox" formControlName="envio">
         </div>
       </div>
-      <div>
+      <div style="position: relative; margin: 20px;">
         <div style="display: inline-block; margin-right: 15px;">
           <label class="mb-2">
             Marca
@@ -223,14 +222,14 @@
           </label>
           <input class="input form-control" type="text" formControlName="ean">
         </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2 barra">
+        <div style="position: absolute;right: 176px;bottom: -59px;">
+          <label class="mb-2 barcode">
             {{publicacion.value.ean}}
           </label>
         </div>
-        <div style="display: inline-block; margin-right: 15px;">
+        <div style="display: inline-block; margin-left: 50px;">
           <p class="mb-2 btn">
-            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}">Ver en la web</a>
+            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}"><i class="fa-solid fa-eye"></i> Ver en la web</a>
           </p>
         </div>
       </div>

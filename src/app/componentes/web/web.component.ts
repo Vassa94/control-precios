@@ -65,7 +65,6 @@ export class WebComponent implements OnInit {
         "Codigo",
         "Mostrar",
         "Envio g.",
-        "Tags",
         "Marca"];
       this.headers2 = ["nombre",
         "precio",
@@ -78,7 +77,6 @@ export class WebComponent implements OnInit {
         "codigo",
         "mostrar",
         "envio",
-        "tags",
         "marca"];
 
       this.cargando = false;
@@ -110,6 +108,7 @@ export class WebComponent implements OnInit {
       precio = parseFloat(precio);
       precio = Math.floor(precio);
       data.Precio = precio;
+      
     }
 
     const body = {
@@ -223,10 +222,10 @@ export class WebComponent implements OnInit {
       ean: fila.ean,
       url: fila.url,
     })
+    console.log(fila);
+    
+    
     this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
-      if (!(this.publicacion.value.ean)) {
-        this.publicacion.value.ean = 0;
-      }
       if (!(this.publicacion.value.precioProm)) {
         this.publicacion.value.precioProm = 0;
       }
@@ -245,7 +244,7 @@ export class WebComponent implements OnInit {
         .set("mostrar", this.publicacion.value.mostrar)
         .set("envio", this.publicacion.value.envio)
         .set("marca", this.publicacion.value.marca)
-        .set("ean", parseInt(this.publicacion.value.ean))
+        .set("ean", this.publicacion.value.ean)
         .set("identificador", this.publicacion.value.url)
 
       const id = this.publicacion.value.id;
@@ -267,7 +266,11 @@ export class WebComponent implements OnInit {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
           //data[i]['Precio promocional'] = this.web[j].precioProm;
           if (!(data[i]['Precio promocional'])) {
-            data[i].Precio = this.web[j].precio;
+            if(data[i]['Marca'] !== "Stihl"){
+              data[i].Precio = this.web[j].precio;
+            } else {
+              data[i].Precio = 0;
+            }
           }
           encontrado = true;
         }

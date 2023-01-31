@@ -7,14 +7,14 @@
     width: 90px;
     white-space: nowrap;
     overflow-x: auto;
-    max-width: 90px
+    max-width: 80px
 }
 
 .nombre {
     text-align: left;
     white-space: nowrap;
     overflow-x: auto;
-    max-width: 340px
+    max-width: 330px
 }
 
 .categorias {
@@ -36,18 +36,18 @@
 
 .peso {
     text-align: center;
-    min-width: 90px;
+    min-width: 80px;
 
 }
 
 .alto {
     text-align: center;
-    min-width: 90px;
+    min-width: 80px;
 }
 
 .ancho {
     text-align: center;
-    min-width: 90px;
+    min-width: 80px;
 }
 
 .profundidad {
@@ -94,6 +94,20 @@
     min-width: 90px;
 }
 
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "barcode";
+    src: url(src\assets\Font\BarcodeFont.ttf);
+}
+
+.barcode {
+    font-family: "barcode";
+    font-size: 153px;
+}
+
 button {
     padding: 8px 15px;
     border: unset;
@@ -138,16 +152,16 @@ button:hover::before {
 }
 
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
-.inputfile + label {
-    
+.inputfile+label {
+
     width: 39%;
     font-size: 1.25em;
     font-weight: 700;
@@ -160,19 +174,16 @@ button:hover::before {
     border-radius: 20px;
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
+.inputfile:focus+label,
+.inputfile+label:hover {
     background-color: rgb(206, 55, 55);
 }
 
-.inputfile:focus + label {
-	
-	outline: -webkit-focus-ring-color auto 5px;
+.inputfile:focus+label {
+
+    outline: -webkit-focus-ring-color auto 5px;
 }
 
 /* .barra {
     
 } */
-
-
-
