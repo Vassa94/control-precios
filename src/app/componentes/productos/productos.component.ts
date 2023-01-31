@@ -239,12 +239,8 @@ export class ProductosComponent implements OnInit {
 	select() {
 		if (this.edt) {
 			this.actualizarProducto();
-			console.log("edito");
-
 		} else {
-			//this.agregarProducto();
-			console.log("nuevo");
-
+			this.agregarProducto();
 		}
 	}
 
