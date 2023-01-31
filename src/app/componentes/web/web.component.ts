@@ -7,6 +7,7 @@ import { BDService } from 'src/app/services/bd.service';
 import Swal from 'sweetalert2';
 import * as normalize from 'normalize-strings';
 import { tap } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 
 
@@ -26,13 +27,15 @@ export class WebComponent implements OnInit {
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
-  publicacion = new FormGroup ({
+  publicacion = new FormGroup({
+    id: new FormControl(),
     codigo: new FormControl(),
-		nombre: new FormControl(),
-		categoria: new FormControl(),
-		precio: new FormControl(),
-		precioProm: new FormControl(),
-		peso: new FormControl(),
+    nombre: new FormControl(),
+    categoria: new FormControl(),
+    pack: new FormControl(),
+    precio: new FormControl(),
+    precioProm: new FormControl(),
+    peso: new FormControl(),
     alto: new FormControl(),
     ancho: new FormControl(),
     profundidad: new FormControl(),
@@ -91,7 +94,7 @@ export class WebComponent implements OnInit {
 
   estandarizador(data) {
     let cod: number[] = [];
-    
+
 
     if (data.SKU) {
       let sku = data.SKU.split(',');
@@ -200,8 +203,59 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
-  crearPublicacion(nuevo){
-    this.modalService.open(nuevo, { centered: true, size: 'xl'  });
+  editarPublicacion(editar, fila) {
+    this.publicacion.setValue({
+      id: fila.id,
+      codigo: fila.codigo,
+      nombre: fila.nombre,
+      categoria: fila.categorias,
+      pack: fila.pack,
+      precio: fila.precio,
+      precioProm: fila.precioProm,
+      peso: fila.peso,
+      alto: fila.alto,
+      ancho: fila.ancho,
+      profundidad: fila.profundidad,
+      stock: fila.stock,
+      mostrar: fila.mostrar,
+      envio: fila.envio,
+      marca: fila.marca,
+      ean: fila.ean,
+      url: fila.url,
+    })
+    this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
+      if (!(this.publicacion.value.ean)) {
+        this.publicacion.value.ean = 0;
+      }
+      if (!(this.publicacion.value.precioProm)) {
+        this.publicacion.value.precioProm = 0;
+      }
+      const params = new HttpParams()
+        .set("SKU", this.publicacion.value.codigo)
+        .set("nombre", this.publicacion.value.nombre)
+        .set("categoria", this.publicacion.value.categoria)
+        .set("pack", parseInt(this.publicacion.value.pack))
+        .set("precio", parseInt(this.publicacion.value.precio))
+        .set("precioProm", parseInt(this.publicacion.value.precioProm))
+        .set("peso", parseFloat(this.publicacion.value.peso))
+        .set("alto", parseFloat(this.publicacion.value.alto))
+        .set("ancho", parseFloat(this.publicacion.value.ancho))
+        .set("profundidad", parseFloat(this.publicacion.value.profundidad))
+        .set("stock", parseInt(this.publicacion.value.stock))
+        .set("mostrar", this.publicacion.value.mostrar)
+        .set("envio", this.publicacion.value.envio)
+        .set("marca", this.publicacion.value.marca)
+        .set("ean", parseInt(this.publicacion.value.ean))
+        .set("identificador", this.publicacion.value.url)
+
+      const id = this.publicacion.value.id;
+
+      console.log(params);
+      this.datosSis.editarPubli(id, params).pipe(
+        tap(() => { }, error => { console.log(error) })
+      ).subscribe();
+
+    });
   }
 
   export(data) {
@@ -212,7 +266,7 @@ export class WebComponent implements OnInit {
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
           //data[i]['Precio promocional'] = this.web[j].precioProm;
-          if (!(data[i]['Precio promocional'])){
+          if (!(data[i]['Precio promocional'])) {
             data[i].Precio = this.web[j].precio;
           }
           encontrado = true;

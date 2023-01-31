@@ -70,6 +70,10 @@ crearPubli(body): Observable<any>{
   return this.http.post<any>(this.API+'/web/crear',body);
 }
 
+editarPubli(id,params): Observable<any>{
+  return this.http.put<any>(this.API+'/web/editar/' +id , params);
+}
+
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
   //fs.writeFileSync('http://localhost:8080/productos.json', JSON.stringify(body))
