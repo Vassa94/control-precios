@@ -26,6 +26,13 @@
     </button>
   </div>
 
+  <div style="margin-left: 360px; display: flex; align-items: center;">
+    <label>
+      envios?
+    </label>
+    <input class="form-check-input input form-control" type="checkbox" name="envios" [(ngModel)]="modificaEnvio">
+  </div>
+
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
     <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
@@ -59,7 +66,7 @@
             <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
               {{ cell === 'peso' ? row[cell] + ' Kg' :
               (cell === 'precio' || cell === 'precioProm' ? (row[cell] ? '$' + row[cell] : '') :
-              (cell === 'alto' || cell === 'ancho' || cell === 'prof' ? row[cell] + ' cm' :
+              (cell === 'alto' || cell === 'ancho' || cell === 'profundidad' ? row[cell] + ' cm' :
               row[cell])) }}
             </span>
           </td>
@@ -121,7 +128,7 @@
             <label class="mb-2">
               Categoria
             </label>
-            <input class="input form-control" type="text" formControlName="categoria">
+            <input class="input form-control" type="text" formControlName="categoria" >
           </div>
         </div>
       </div>
@@ -138,7 +145,7 @@
           </label>
           <div class="input-group">
             <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precio">
+            <input class="input form-control" type="text" formControlName="precio" >
           </div>
         </div>
         <div style="display: inline-block;margin-right: 15px;">
@@ -147,7 +154,7 @@
           </label>
           <div class="input-group">
             <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precioProm">
+            <input class="input form-control" type="text" formControlName="precioProm" >
           </div>
         </div>
       </div>
@@ -157,7 +164,7 @@
             Peso
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="peso">
+            <input class="input form-control" type="text" formControlName="peso" >
             <span class="input input-group-text" id="basic-addon1">Kg.</span>
           </div>
         </div>
@@ -166,7 +173,7 @@
             alto
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="alto">
+            <input class="input form-control" type="text" formControlName="alto" >
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>
@@ -175,7 +182,7 @@
             Ancho
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="ancho">
+            <input class="input form-control" type="text" formControlName="ancho" >
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>
@@ -184,7 +191,7 @@
             Profundidad
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="profundidad">
+            <input class="input form-control" type="text" formControlName="profundidad" >
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>

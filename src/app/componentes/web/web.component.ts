@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import * as normalize from 'normalize-strings';
 import { tap } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import * as XLSX from 'xlsx';
 
 
 
@@ -24,6 +25,7 @@ export class WebComponent implements OnInit {
   cargando: boolean = true;
   reader = new FileReader();
   selector: string = '';
+  modificaEnvio: boolean = false;
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -108,7 +110,7 @@ export class WebComponent implements OnInit {
       precio = parseFloat(precio);
       precio = Math.floor(precio);
       data.Precio = precio;
-      
+
     }
 
     const body = {
@@ -223,8 +225,8 @@ export class WebComponent implements OnInit {
       url: fila.url,
     })
     console.log(fila);
-    
-    
+
+
     this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
       if (!(this.publicacion.value.precioProm)) {
         this.publicacion.value.precioProm = 0;
@@ -259,27 +261,45 @@ export class WebComponent implements OnInit {
 
   export(data) {
     let encontrado: boolean;
-    let cont: number = 0
+    let cont: number = 0;
+    let stock: any = [] ;
+    let id: number = 0;
     for (let i = 0; i < data.length; i++) {
       encontrado = false;
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
-          //data[i]['Precio promocional'] = this.web[j].precioProm;
           if (!(data[i]['Precio promocional'])) {
-            if(data[i]['Marca'] !== "Stihl"){
+            if (data[i]['Marca'] !== "Stihl") {
               data[i].Precio = this.web[j].precio;
             } else {
               data[i].Precio = 0;
             }
           }
+          data[i]['Envío sin cargo'] = (this.web[j].envio) ? "SI" : "NO";
+          data[i]['Código de barras'] = this.web[j].ean;
           encontrado = true;
+          id = this.web[j].id;
         }
       }
       if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
         this.estandarizador(data[i]);
         cont++;
+      } else {
+        stock.push({'id':id, 'stock':data[i]['Stock']});
       }
     }
+    console.log(stock);
+    
+    /* const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet);
+    const wopts = { bookType: 'xlsx' as XLSX.BookType, type: 'binary' };
+    const wbout = XLSX.write(workbook, wopts);
+    let date = new Date().toLocaleString();
+    let fileName = 'Subir-' + date + '.xlsx';
+    let blob = new Blob([wbout], { type: 'application/octet-stream' });
+    FileSaver.saveAs(blob, fileName); */
+
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'Subir-' + date + '.csv';
@@ -291,7 +311,6 @@ export class WebComponent implements OnInit {
       text: 'se cargaron ' + cont + ' publicaciones',
       icon: 'success',
       showConfirmButton: true,
-      //timer: 2500,
     });
   }
 
