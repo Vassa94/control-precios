@@ -55,6 +55,10 @@
     max-width: 200px;
 }
 
+.stock {
+    text-align: center;
+}
+
 .tags {
     white-space: nowrap;
     overflow-x: auto;
@@ -182,18 +186,6 @@ button:hover::before {
 .inputfile:focus+label {
 
     outline: -webkit-focus-ring-color auto 5px;
-}
-
-.categoria {
-    min-width: 426px;
-}
-
-.precios {
-    max-width: 120px;
-}
-
-.dimensiones {
-    max-width: 100px;
 }
 
 .form-check-input:checked {

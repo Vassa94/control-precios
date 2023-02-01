@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpParams } from '@angular/common/http';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
+import { BDService } from 'src/app/services/bd.service';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import * as normalize from 'normalize-strings';
+import Swal from 'sweetalert2';
 import *  as Papa from 'papaparse';
 import * as FileSaver from 'file-saver';
-import { BDService } from 'src/app/services/bd.service';
-import Swal from 'sweetalert2';
-import * as normalize from 'normalize-strings';
 import { tap } from 'rxjs';
-import { HttpParams } from '@angular/common/http';
 import * as XLSX from 'xlsx';
 
 
@@ -259,24 +259,48 @@ export class WebComponent implements OnInit {
     });
   }
 
+  eliminarPubli(id) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Quiere eliminar la publicacion?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Ok',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.datosSis.eliminarPubli(id).pipe(
+          tap(() => { }, error => { console.log(error) })
+        ).subscribe();
+      } else {
+        Swal.fire('No se borro la publicacion', '', 'info')
+      }
+    });
+
+  }
+
   export(data) {
     let encontrado: boolean;
     let cont: number = 0;
-    let stock: any = [] ;
+    let stock: any = [];
     let id: number = 0;
     for (let i = 0; i < data.length; i++) {
       encontrado = false;
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
-          if (!(data[i]['Precio promocional'])) {
+          if (!(this.web[j].precioProm)) {
             if (data[i]['Marca'] !== "Stihl") {
               data[i].Precio = this.web[j].precio;
             } else {
               data[i].Precio = 0;
             }
+          } else {
+            data[i]['Precio promocional'] = this.web[j].precioProm;
           }
           data[i]['Envío sin cargo'] = (this.web[j].envio) ? "SI" : "NO";
+          data[i]['Mostrar en tienda'] = (this.web[j].mostrar) ? "SI" : "NO";
           data[i]['Código de barras'] = this.web[j].ean;
+
           encontrado = true;
           id = this.web[j].id;
         }
@@ -285,11 +309,13 @@ export class WebComponent implements OnInit {
         this.estandarizador(data[i]);
         cont++;
       } else {
-        stock.push({'id':id, 'stock':data[i]['Stock']});
+        stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
       }
     }
     console.log(stock);
-    
+    /* this.datosSis.actuStocksWeb(stock).pipe(
+      tap(() => { }, error => { console.log(error) })
+    ).subscribe(); */
     /* const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet);

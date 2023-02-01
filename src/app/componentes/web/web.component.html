@@ -25,14 +25,7 @@
       Actualizar web
     </button>
   </div>
-
-  <div style="margin-left: 360px; display: flex; align-items: center;">
-    <label>
-      envios?
-    </label>
-    <input class="form-check-input input form-control" type="checkbox" name="envios" [(ngModel)]="modificaEnvio">
-  </div>
-
+  
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
     <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
@@ -243,6 +236,7 @@
 
       <div class="modal-footer input-group">
         <button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
+        <button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i class="fa-solid fa-trash"></i></button>
       </div>
     </form>
   </div>

@@ -74,6 +74,14 @@ editarPubli(id,params): Observable<any>{
   return this.http.put<any>(this.API+'/web/editar/' +id , params);
 }
 
+eliminarPubli(id): Observable<any> {
+  return this.http.delete<any>(this.API+'/web/borrar/' + id);
+}
+
+actuStocksWeb(body): Observable<any>{
+  return this.http.post<any>(this.API+'productos/actualizar/stock',body);
+}
+
 guardar(body:any){
   //this.http.post('http://localhost:8080/productos.json',body)
   //fs.writeFileSync('http://localhost:8080/productos.json', JSON.stringify(body))
