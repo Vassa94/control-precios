@@ -84,8 +84,6 @@ export class WebComponent implements OnInit {
       this.cargando = false;
 
     });
-
-
   }
 
   view(cont, row) {
