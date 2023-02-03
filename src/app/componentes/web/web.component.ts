@@ -19,9 +19,10 @@ import * as XLSX from 'xlsx';
 })
 export class WebComponent implements OnInit {
   web: any;
+  webBackup: any;
   headers: any;
   headers2: any;
-  search: string = '';
+  filtro: string = '';
   cargando: boolean = true;
   reader = new FileReader();
   selector: string = '';
@@ -56,6 +57,7 @@ export class WebComponent implements OnInit {
   getProductos(): void {
     this.datosSis.obtenerWeb().toPromise().then((data) => {
       this.web = data;
+      this.webBackup = data;
       this.headers = ["Nombre",
         "Precio",
         "Oferta",
@@ -255,6 +257,7 @@ export class WebComponent implements OnInit {
       ).subscribe();
 
     });
+    
   }
 
   eliminarPubli(id) {
@@ -338,7 +341,18 @@ export class WebComponent implements OnInit {
     });
   }
 
-
+  filtrarTabla() {
+    let filtroMinusculas = this.filtro.toLowerCase(); 
+    this.web = this.webBackup.filter(row => { 
+    let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : ''; 
+    let marcaMinusculas = row.marca ? row.marca.toLowerCase() : ''; 
+    let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase(): ''; 
+    return nombreMinusculas.includes(filtroMinusculas) ||
+    marcaMinusculas.includes(filtroMinusculas) ||
+    codigoMinusculas.includes(filtroMinusculas); 
+    });
+    console.log(this.web);
+    }
 
 
 }

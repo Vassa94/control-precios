@@ -25,10 +25,11 @@
       Actualizar web
     </button>
   </div>
-  
+
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
-    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
+    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+      [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
   </div>
 </section>
 
@@ -97,7 +98,7 @@
 <ng-template #editar let-modal> <!-- Modal para productos nuevos y ediciones -->
   <div class="modal-header">
     <h4 class="modal-title">{{publicacion.value.nombre}}</h4>
-    <button type="button"  aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <i class="fa-solid fa-x"></i>
     </button>
   </div>
@@ -121,7 +122,7 @@
             <label class="mb-2">
               Categoria
             </label>
-            <input class="input form-control" type="text" formControlName="categoria" >
+            <input class="input form-control" type="text" formControlName="categoria">
           </div>
         </div>
       </div>
@@ -138,7 +139,7 @@
           </label>
           <div class="input-group">
             <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precio" >
+            <input class="input form-control" type="text" formControlName="precio">
           </div>
         </div>
         <div style="display: inline-block;margin-right: 15px;">
@@ -147,7 +148,7 @@
           </label>
           <div class="input-group">
             <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precioProm" >
+            <input class="input form-control" type="text" formControlName="precioProm">
           </div>
         </div>
       </div>
@@ -157,7 +158,7 @@
             Peso
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="peso" >
+            <input class="input form-control" type="text" formControlName="peso">
             <span class="input input-group-text" id="basic-addon1">Kg.</span>
           </div>
         </div>
@@ -166,7 +167,7 @@
             alto
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="alto" >
+            <input class="input form-control" type="text" formControlName="alto">
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>
@@ -175,7 +176,7 @@
             Ancho
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="ancho" >
+            <input class="input form-control" type="text" formControlName="ancho">
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>
@@ -184,7 +185,7 @@
             Profundidad
           </label>
           <div class="input-group">
-            <input class="input form-control" type="text" formControlName="profundidad" >
+            <input class="input form-control" type="text" formControlName="profundidad">
             <span class="input input-group-text" id="basic-addon1">Cm.</span>
           </div>
         </div>
@@ -229,14 +230,16 @@
         </div>
         <div style="display: inline-block; margin-left: 50px;">
           <p class="mb-2 btn">
-            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}"><i class="fa-solid fa-eye"></i> Ver en la web</a>
+            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}"><i
+                class="fa-solid fa-eye"></i> Ver en la web</a>
           </p>
         </div>
       </div>
 
       <div class="modal-footer input-group">
         <button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
-        <button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i
+            class="fa-solid fa-trash"></i></button>
       </div>
     </form>
   </div>
