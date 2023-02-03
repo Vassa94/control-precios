@@ -192,3 +192,16 @@ button:hover::before {
     background-color: #3f3f40;
     border-color: #4a4c4e;
 }
+
+.editar{
+    background-color: #b4b4b4;
+    padding: 2px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 2x 2px 2px black;
+}
+
+.editar:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
