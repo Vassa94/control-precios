@@ -194,7 +194,7 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
-  lista(actualizar) {
+  lista(actualizar) {     //desarrollo. no uso
     this.selector = "publicaciones";
     this.modalService.open(actualizar, { centered: true })
   }
@@ -314,9 +314,10 @@ export class WebComponent implements OnInit {
       }
     }
     console.log(stock);
-    /* this.datosSis.actuStocksWeb(stock).pipe(
+    this.datosSis.actuStocksWeb(stock).pipe(
       tap(() => { }, error => { console.log(error) })
-    ).subscribe(); */
+    ).subscribe();
+
     /* const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet);

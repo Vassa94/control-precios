@@ -1,293 +1,294 @@
 <section style="display: flex; margin:5px 5px "> <!-- Botones -->
-  <div style="margin-right: 5px;">
-    <button (click)="descargarCSV()">
-      <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
-      <label> Descargar CSV</label>
-    </button>
-  </div>
+	<div style="margin-right: 5px;">
+		<button (click)="descargarCSV()">
+			<i class="fa-solid fa-download" style="padding-right: 3px;"></i>
+			<label> Descargar CSV</label>
+		</button>
+	</div>
 
-  <div style="margin-right: 5px; align-items: center; ">
-    <button (click)="stock(actualizar)">
-      <i class="fa-solid fa-box" style="padding-right: 3px;"></i>
+	<div style="margin-right: 5px; align-items: center; ">
+		<button (click)="stock(actualizar)">
+			<i class="fa-solid fa-box" style="padding-right: 3px;"></i>
 
-    </button>
-  </div>
+		</button>
+	</div>
 
-  <div style="margin-right: 5px; align-items: center; ">
-    <button (click)="lista(actualizar)">
-      <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
+	<div style="display: none;  margin-right: 5px; align-items: center; ">
+		<button (click)="lista(actualizar)">
+			<i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
 
-    </button>
-  </div>
+		</button>
+	</div>
 
-  <div style="margin-right: 5px; align-items: center; ">
-    <button (click)="exp(actualizar)">
-      Actualizar web
-    </button>
-  </div>
+	<div style="margin-right: 5px; align-items: center; ">
+		<button (click)="exp(actualizar)">	
+			<i class="fa-solid fa-arrow-rotate-right"></i>
+			Actualizar web
+		</button>
+	</div>
 
-  <!-- Una barra de búsqueda que filtra la tabla. -->
-  <div style="margin-left: auto;align-items: center">
-    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
-      [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
-  </div>
+	<!-- Una barra de búsqueda que filtra la tabla. -->
+	<div style="margin-left: auto;align-items: center">
+		<input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+			[(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
+	</div>
 </section>
 
 <div class="Tabla " data-toggle="table" *ngIf="!cargando"> <!-- Tabla -->
-  <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
-    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-      <thead>
+	<div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
+		<table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+			<thead>
 
-        <tr style="height:20px ;">
-          <th class="opciones">
-            Accion
-          </th>
-          <th class="headers" scope="col" *ngFor="let header of headers;let i = index">
-            {{ header }}
-          </th>
-        </tr>
+				<tr style="height:20px ;">
+					<th class="opciones">
+						Accion
+					</th>
+					<th class="headers" scope="col" *ngFor="let header of headers;let i = index">
+						{{ header }}
+					</th>
+				</tr>
 
-      </thead>
-      <tbody class="table-group-divider">
-        <tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0}">
-          <td class="opciones" style="cursor: pointer">
-            <p (click)="editarPublicacion(editar,row)" target="_blank">
-              Editar
-            </p>
-          </td>
-          <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
-            <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-            <span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
-              {{ cell === 'peso' ? row[cell] + ' Kg' :
-              (cell === 'precio' || cell === 'precioProm' ? (row[cell] ? '$' + row[cell] : '') :
-              (cell === 'alto' || cell === 'ancho' || cell === 'profundidad' ? row[cell] + ' cm' :
-              row[cell])) }}
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+			</thead>
+			<tbody class="table-group-divider">
+				<tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0}">
+					<td class="opciones" style="cursor: pointer">
+						<p class="editar" (click)="editarPublicacion(editar,row)" target="_blank">
+							Editar
+						</p>
+					</td>
+					<td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
+						<app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
+						<span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+							{{ cell === 'peso' ? row[cell] + ' Kg' :
+							(cell === 'precio' || cell === 'precioProm' ? (row[cell] ? '$' + row[cell] : '') :
+							(cell === 'alto' || cell === 'ancho' || cell === 'profundidad' ? row[cell] + ' cm' :
+							row[cell])) }}
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <div class="spinner-container" *ngIf="cargando"> <!-- Spiner de carga -->
-  <div class="loader">
-    <span style="--i:1"></span>
-    <span style="--i:2"></span>
-    <span style="--i:3"></span>
-    <span style="--i:4"></span>
-    <span style="--i:5"></span>
-    <span style="--i:6"></span>
-    <span style="--i:7"></span>
-    <span style="--i:8"></span>
-    <span style="--i:9"></span>
-    <span style="--i:10"></span>
-    <span style="--i:11"></span>
-    <span style="--i:12"></span>
-    <span style="--i:13"></span>
-    <span style="--i:14"></span>
-    <span style="--i:15"></span>
-    <span style="--i:16"></span>
-    <span style="--i:17"></span>
-    <span style="--i:18"></span>
-    <span style="--i:19"></span>
-    <span style="--i:20"></span>
-  </div>
+	<div class="loader">
+		<span style="--i:1"></span>
+		<span style="--i:2"></span>
+		<span style="--i:3"></span>
+		<span style="--i:4"></span>
+		<span style="--i:5"></span>
+		<span style="--i:6"></span>
+		<span style="--i:7"></span>
+		<span style="--i:8"></span>
+		<span style="--i:9"></span>
+		<span style="--i:10"></span>
+		<span style="--i:11"></span>
+		<span style="--i:12"></span>
+		<span style="--i:13"></span>
+		<span style="--i:14"></span>
+		<span style="--i:15"></span>
+		<span style="--i:16"></span>
+		<span style="--i:17"></span>
+		<span style="--i:18"></span>
+		<span style="--i:19"></span>
+		<span style="--i:20"></span>
+	</div>
 </div>
 
 <ng-template #editar let-modal> <!-- Modal para productos nuevos y ediciones -->
-  <div class="modal-header">
-    <h4 class="modal-title">{{publicacion.value.nombre}}</h4>
-    <button type="button" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <i class="fa-solid fa-x"></i>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="publicacion">
-      <div>
-        <div class="mb-2" style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Codigo (SKU)
-          </label>
-          <input class="input form-control" type="text" formControlName="codigo" readonly>
-        </div>
-        <div class="mb-2" style="display: inline-block; margin-right: 15px; width: 400px;">
-          <label class="mb-2">
-            nombre
-          </label>
-          <input class="inputs form-control" type="text" formControlName="nombre">
-        </div>
-        <div class="mb-2" style="display: inline-block; margin-right: 15px;">
-          <div style="display: inline-block; margin-right: 15px;">
-            <label class="mb-2">
-              Categoria
-            </label>
-            <input class="input form-control" type="text" formControlName="categoria">
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Unidades por publicación
-          </label>
-          <input class="input form-control" type="text" formControlName="pack">
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Precio
-          </label>
-          <div class="input-group">
-            <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precio">
-          </div>
-        </div>
-        <div style="display: inline-block;margin-right: 15px;">
-          <label class="mb-2">
-            Precio Oferta
-          </label>
-          <div class="input-group">
-            <span class="input input-group-text" id="basic-addon1">$</span>
-            <input class="input form-control" type="text" formControlName="precioProm">
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Peso
-          </label>
-          <div class="input-group">
-            <input class="input form-control" type="text" formControlName="peso">
-            <span class="input input-group-text" id="basic-addon1">Kg.</span>
-          </div>
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            alto
-          </label>
-          <div class="input-group">
-            <input class="input form-control" type="text" formControlName="alto">
-            <span class="input input-group-text" id="basic-addon1">Cm.</span>
-          </div>
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Ancho
-          </label>
-          <div class="input-group">
-            <input class="input form-control" type="text" formControlName="ancho">
-            <span class="input input-group-text" id="basic-addon1">Cm.</span>
-          </div>
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Profundidad
-          </label>
-          <div class="input-group">
-            <input class="input form-control" type="text" formControlName="profundidad">
-            <span class="input input-group-text" id="basic-addon1">Cm.</span>
-          </div>
-        </div>
-      </div>
-      <div style="display: flex;">
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Stock
-          </label>
-          <input class="input form-control" type="text" formControlName="stock">
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Mostrar
-          </label>
-          <input class="form-check-input input form-control" type="checkbox" formControlName="mostrar">
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Envio
-          </label>
-          <input class="form-check-input input form-control" type="checkbox" formControlName="envio">
-        </div>
-      </div>
-      <div style="position: relative; margin: 20px;">
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Marca
-          </label>
-          <input class="input form-control" type="text" formControlName="marca">
-        </div>
-        <div style="display: inline-block; margin-right: 15px;">
-          <label class="mb-2">
-            Codigo de barra
-          </label>
-          <input class="input form-control" type="text" formControlName="ean">
-        </div>
-        <div style="position: absolute;right: 176px;bottom: -59px;">
-          <label class="mb-2 barcode">
-            {{publicacion.value.ean}}
-          </label>
-        </div>
-        <div style="display: inline-block; margin-left: 50px;">
-          <p class="mb-2 btn">
-            <a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}"><i
-                class="fa-solid fa-eye"></i> Ver en la web</a>
-          </p>
-        </div>
-      </div>
+	<div class="modal-header">
+		<h4 class="modal-title">{{publicacion.value.nombre}}</h4>
+		<button type="button" aria-label="Close" (click)="modal.dismiss('Cross click')">
+			<i class="fa-solid fa-x"></i>
+		</button>
+	</div>
+	<div class="modal-body">
+		<form [formGroup]="publicacion">
+			<div>
+				<div class="mb-2" style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Codigo (SKU)
+					</label>
+					<input class="input form-control" type="text" formControlName="codigo" readonly>
+				</div>
+				<div class="mb-2" style="display: inline-block; margin-right: 15px; width: 400px;">
+					<label class="mb-2">
+						nombre
+					</label>
+					<input class="inputs form-control" type="text" formControlName="nombre">
+				</div>
+				<div class="mb-2" style="display: inline-block; margin-right: 15px;">
+					<div style="display: inline-block; margin-right: 15px;">
+						<label class="mb-2">
+							Categoria
+						</label>
+						<input class="input form-control" type="text" formControlName="categoria">
+					</div>
+				</div>
+			</div>
+			<div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Unidades por publicación
+					</label>
+					<input class="input form-control" type="text" formControlName="pack">
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Precio
+					</label>
+					<div class="input-group">
+						<span class="input input-group-text" id="basic-addon1">$</span>
+						<input class="input form-control" type="text" formControlName="precio">
+					</div>
+				</div>
+				<div style="display: inline-block;margin-right: 15px;">
+					<label class="mb-2">
+						Precio Oferta
+					</label>
+					<div class="input-group">
+						<span class="input input-group-text" id="basic-addon1">$</span>
+						<input class="input form-control" type="text" formControlName="precioProm">
+					</div>
+				</div>
+			</div>
+			<div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Peso
+					</label>
+					<div class="input-group">
+						<input class="input form-control" type="text" formControlName="peso">
+						<span class="input input-group-text" id="basic-addon1">Kg.</span>
+					</div>
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						alto
+					</label>
+					<div class="input-group">
+						<input class="input form-control" type="text" formControlName="alto">
+						<span class="input input-group-text" id="basic-addon1">Cm.</span>
+					</div>
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Ancho
+					</label>
+					<div class="input-group">
+						<input class="input form-control" type="text" formControlName="ancho">
+						<span class="input input-group-text" id="basic-addon1">Cm.</span>
+					</div>
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Profundidad
+					</label>
+					<div class="input-group">
+						<input class="input form-control" type="text" formControlName="profundidad">
+						<span class="input input-group-text" id="basic-addon1">Cm.</span>
+					</div>
+				</div>
+			</div>
+			<div style="display: flex;">
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Stock
+					</label>
+					<input class="input form-control" type="text" formControlName="stock">
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Mostrar
+					</label>
+					<input class="form-check-input input form-control" type="checkbox" formControlName="mostrar">
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Envio
+					</label>
+					<input class="form-check-input input form-control" type="checkbox" formControlName="envio">
+				</div>
+			</div>
+			<div style="position: relative; margin: 20px;">
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Marca
+					</label>
+					<input class="input form-control" type="text" formControlName="marca">
+				</div>
+				<div style="display: inline-block; margin-right: 15px;">
+					<label class="mb-2">
+						Codigo de barra
+					</label>
+					<input class="input form-control" type="text" formControlName="ean">
+				</div>
+				<div style="position: absolute;right: 176px;bottom: -59px;">
+					<label class="mb-2 barcode">
+						{{publicacion.value.ean}}
+					</label>
+				</div>
+				<div style="display: inline-block; margin-left: 50px;">
+					<p class="mb-2 btn">
+						<a target="_blank" href="https://oximercedes.com.ar/productos/{{publicacion.value.url}}"><i
+								class="fa-solid fa-eye"></i> Ver en la web</a>
+					</p>
+				</div>
+			</div>
 
-      <div class="modal-footer input-group">
-        <button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
-        <button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i
-            class="fa-solid fa-trash"></i></button>
-      </div>
-    </form>
-  </div>
+			<div class="modal-footer input-group">
+				<button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
+				<button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i
+						class="fa-solid fa-trash"></i></button>
+			</div>
+		</form>
+	</div>
 
 </ng-template>
 
 <ng-template #content let-modal> <!-- Modal para visualizar producto -->
-  <div class="card">
-    <div class="card-img">
-      <a href="../assets/img/prod/'codigo'.jpg" target="_blank">
-        <img class="modalImg" src="../assets/img/prod/'codigo'.jpg" alt="codigo fab">
-      </a>
-    </div>
-    <div class="card-info">
-      <p class="text-title">nombre</p>
-      <p class="text-body">Marca: marca</p>
-      <p class="text-body">Codigo de Oxi: codigo </p>
-      <p class="text-body">Codigo de Fabrica: cod fabrica</p>
-      <p class="text-body">Precio actual: $precio</p>
-      <p class="text-body">Stock publicado: stock</p>
-    </div>
-    <div class="card-footer">
-      <div>
-        <button class="btn btn-primary ">
-          <i class="fa-solid fa-pen-to-square"></i> Editar ficha
-        </button>
-      </div>
-    </div>
-  </div>
+	<div class="card">
+		<div class="card-img">
+			<a href="../assets/img/prod/'codigo'.jpg" target="_blank">
+				<img class="modalImg" src="../assets/img/prod/'codigo'.jpg" alt="codigo fab">
+			</a>
+		</div>
+		<div class="card-info">
+			<p class="text-title">nombre</p>
+			<p class="text-body">Marca: marca</p>
+			<p class="text-body">Codigo de Oxi: codigo </p>
+			<p class="text-body">Codigo de Fabrica: cod fabrica</p>
+			<p class="text-body">Precio actual: $precio</p>
+			<p class="text-body">Stock publicado: stock</p>
+		</div>
+		<div class="card-footer">
+			<div>
+				<button class="btn btn-primary ">
+					<i class="fa-solid fa-pen-to-square"></i> Editar ficha
+				</button>
+			</div>
+		</div>
+	</div>
 </ng-template>
 
 <ng-template #actualizar let-modal> <!-- Modal para cargar actualizaciones -->
-  <div class="modal-header">
-    <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{selector}}</h4>
+	<div class="modal-header">
+		<h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{selector}}</h4>
 
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group" style="display: flex;">
-        <input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
-          #fileInput>
-        <label for="csvFile">
-          <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
-          Subir CSV
-        </label>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-  </div>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="form-group" style="display: flex;">
+				<input type="file" class="inputfile" id="csvFile" accept=".csv" (change)="parser($event);modal.close()"
+					#fileInput>
+				<label for="csvFile">
+					<i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
+					Subir CSV
+				</label>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+	</div>
 </ng-template>
