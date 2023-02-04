@@ -25,8 +25,7 @@ export class MercadolibreComponent implements OnInit {
     this.datosSis.obtenerMl().subscribe((data) =>{
       this.ml = data;
       this.headers = ["ML Id",
-                      "Codigo oxi",
-                      "Id Categoria",
+                      "Codigo oxi",                      
                       "Tipo pub",
                       "Titulo",
                       "Stock",

@@ -1,0 +1,22 @@
+{
+    "productName": "Control de precios",
+    "directories": {
+        "output": "builds"
+    },
+    "files": [
+        "dist/**/*",
+        "node_modules/**/*",
+        "package.json",
+        "main.js"
+    ],
+    "win": {
+        "target": [
+            "nsis"
+        ]
+    },
+    "nsis": {
+        "oneClick": false,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true
+    }
+}
