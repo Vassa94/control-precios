@@ -45,7 +45,7 @@
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center">
     <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
-      [(ngModel)]="search" [ngbTypeahead]="searchProduct" typeaheadOptionsLimit="0">
+    [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
   </div>
 </div>
 
@@ -56,7 +56,7 @@
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
-          <th class="headers" scope="col" *ngFor="let header of headers;let i = index" (sort)="sort($event)">
+          <th class="headers" scope="col" *ngFor="let header of headers;let i = index">
             {{ header }}
           </th>
           <th class="opciones">
@@ -65,7 +65,7 @@
 
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of productos| filter: search; let i = index">
+        <tr *ngFor="let row of productos; let i = index">
           <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2">
             {{ cell === 'precioPublico' ? '$' + row[cell] : row[cell] }}
           </td>

@@ -21,9 +21,10 @@ import { HttpParams } from '@angular/common/http';
 export class ProductosComponent implements OnInit {
 
 	productos: any;
+	ProdBackup: any;
 	headers: any;
 	headers2: any;
-	search: string;
+	filtro: string = '';
 	filteredProductos: Record<string, any>[] = [];
 	cargando: boolean = true;
 	edt: boolean = false;
@@ -35,7 +36,7 @@ export class ProductosComponent implements OnInit {
 
 
 	constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
-		this.search = '';
+		
 	}
 
 
@@ -56,7 +57,7 @@ export class ProductosComponent implements OnInit {
 	ngOnInit(): void {
 		const search$ = new Subject<string>();
 		this.getProductos();
-		this.searchProduct(search$).subscribe(productos => this.filteredProductos = productos);
+		
 
 	}
 
@@ -64,6 +65,7 @@ export class ProductosComponent implements OnInit {
 	getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
 			this.productos = data;
+			this.ProdBackup = data;
 			this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
 			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
 			this.cargando = false;
@@ -368,16 +370,18 @@ export class ProductosComponent implements OnInit {
 					.slice(0, 10))
 		)
 
-	sort(event) {
-		this.productos.sort((a, b) => {
-			if (a[event.column] < b[event.column]) {
-				return event.order === 'asc' ? -1 : 1;
-			} else if (a[event.column] > b[event.column]) {
-				return event.order === 'asc' ? 1 : -1;
+		filtrarTabla() {
+			let filtroMinusculas = this.filtro.toLowerCase(); 
+			this.productos = this.ProdBackup.filter(row => { 
+			let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : ''; 
+			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : ''; 
+			let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase(): ''; 
+			return nombreMinusculas.includes(filtroMinusculas) ||
+			marcaMinusculas.includes(filtroMinusculas) ||
+			codigoMinusculas.includes(filtroMinusculas); 
+			});
+			console.log(this.productos);
 			}
-			return 0;
-		});
-	}
 
 
 }
