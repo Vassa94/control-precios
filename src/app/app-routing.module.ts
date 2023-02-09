@@ -5,27 +5,32 @@ import { ProductosComponent } from './componentes/productos/productos.component'
 import { LoginComponent } from './componentes/login/login.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { ControlComponent } from './componentes/control/control.component';
-import { ExpImpComponent } from './componentes/exp-imp/exp-imp.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { WebComponent } from './componentes/web/web.component';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
+import { GuiaComponent } from './componentes/guia/guia.component';
 
 const routes: Routes = [
   { path: "productos", component: ProductosComponent },
   { path: "web", component: WebComponent },
   { path: "mercadolibre", component: MercadolibreComponent },
-  { path: "login", component: LoginComponent },  
+  { path: "guia", component: GuiaComponent },
+  { path: "login", component: LoginComponent },
   { path: "control", component: ControlComponent },
-  { path: "import", component: ExpImpComponent },
-  { path: "reclamos", component: ReclamosComponent},
-  { path: "#",   redirectTo: 'productos', pathMatch: 'full' },
+  { path: "reclamos", component: ReclamosComponent },
+  { path: "#", redirectTo: 'productos', pathMatch: 'full' },
   { path: "**", component: NotFoundComponent },
-  
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: "ignore",
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
+  })
+],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

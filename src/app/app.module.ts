@@ -15,15 +15,13 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { ControlComponent } from './componentes/control/control.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
-import { ExpImpComponent } from './componentes/exp-imp/exp-imp.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
-import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
-import { ProgresoComponent } from './componentes/file-upload/progreso/progreso.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { WebComponent } from './componentes/web/web.component';
 import { TruefalseComponent } from './componentes/truefalse/truefalse.component';
 import { CommonModule } from '@angular/common';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
+import { GuiaComponent } from './componentes/guia/guia.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +31,12 @@ import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.c
     LoginComponent,
     ControlComponent,
     NotFoundComponent,
-    ExpImpComponent,
     ReclamosComponent,
-    FileUploadComponent,
-    ProgresoComponent,
     FilterPipe,
     WebComponent,
     TruefalseComponent,
-    MercadolibreComponent
+    MercadolibreComponent,
+    GuiaComponent
   ],
   imports: [
     BrowserModule,
