@@ -1,0 +1,66 @@
+<div class="mx-3">
+    <div class="h-30 border-bottom border-top p-2 d-flex align-items-center gap-4 color-black fw-semibold ">
+        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion1">Productos</a>
+        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion2">Web</a>
+        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion3">Mercadolibre</a>
+    </div>
+
+    <div>
+        <h3>Consideraciones iniciales</h3>
+        <ul>
+            <li>Todos los archivos de excel usados por la app son CSV. no admite xls o xlsx</li>
+            <li>Los CSV de salida son UTF-8. Esto dignifica que estan codificados para nuestro teclado. Si se desea abrir en excel aqui puede <a [routerLink]="['/guia']" fragment="UTF-8">ver como</a></li>
+            <li>Si las tablas no cargan, es posible que no se este ejecutando el archivo JAVA. puede corregirlo  <a [routerLink]="['/guia']" fragment="jar" >asi</a> </li>
+            <li>Si la tablas de productos no cargan, es probable que la computadora de Ignacio este apagada o sin red. Verificar</li>
+            <li>Si los codigos de barra se ven rotos, es porque no tienen los 13 digitos. corregir por el correcto o agregar 0 para que se corrija</li>
+        </ul>
+    </div>
+
+    <div class="d-flex flex-column" >
+        <h3 class="border-bottom border-top" id="seccion1" >Productos</h3>
+        <h5 id="UTF-8">Codificacion del CSV</h5>
+        <p>Si se quiere abrir el archivo de salida en excel se encontrara que se importa mal, los caracteres especiales (acentos, dieresis, etc.) se ven rotos, con la codificacion html.
+            Para corregir eso, en vez de abrir el archivo directamente, procederemos a abrir un archivo en blanco (recomiendo dejar uno de "verificación").
+            Una vez dentro, vamos a datos;
+        </p>
+        <figure class="d-flex justify-content-center py-5">
+            <img src="\assets\img\guias\img1.png" alt="boton importar datos" class="w-80 align-self-center">
+        </figure>
+        <p>Una ves seleccionado, se abrira una ventana nueva para configurar la importacion. es la misma que la ventana para poner el CSV en filas, pero tendremos un selector nuevo, para elegir que codificacion tiene el archivo.
+            Abrimos y elegimos <b>Unicode UTF-8</b>. Tambien podemos seleccionar la opcion de los encabezados, pero no es necesario.
+            A partir de ahi, el resto es normal para un CSV, se elige metodo de separacion por comas y deberia quedar bien. 
+        </p>
+        <figure class="d-flex justify-content-center py-5">
+            <img src="\assets\img\guias\UnicodeUTF-8.png" alt="Codificacion" class="w-30" >
+        </figure>
+    </div>
+    <div  class="h-60">
+        <h3 class="border-bottom border-top" id="seccion2" >Web</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec euismod ipsum. Aliquam commodo,
+            sapien vitae scelerisque scelerisque, tellus neque placerat enim, eu congue orci sem in neque. Maecenas et
+            pharetra nisl. Vestibulum bibendum elementum ultricies. Mauris sodales fringilla eros ut porttitor. Nullam
+            scelerisque, dolor at viverra porttitor, neque nulla condimentum ante, vitae vehicula magna ipsum
+            pellentesque augue. In at mi lacus. Curabitur consequat molestie diam ac interdum. Curabitur blandit leo id
+            neque ultrices faucibus. Nulla sit amet lorem justo. Mauris ut tincidunt mauris. In hac habitasse platea
+            dictumst. Ut elementum justo odio, ac consequat magna pellentesque dictum. Nam pharetra orci nec gravida
+            cursus. Vestibulum ut nunc eleifend, lacinia turpis dignissim, finibus ligula.
+        </p>
+    </div>
+    <div  class="h-60">
+        <h3 class="border-bottom border-top" id="seccion3" >Mercadolibre</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec euismod ipsum. Aliquam commodo,
+            sapien vitae scelerisque scelerisque, tellus neque placerat enim, eu congue orci sem in neque. Maecenas et
+            pharetra nisl. Vestibulum bibendum elementum ultricies. Mauris sodales fringilla eros ut porttitor. Nullam
+            scelerisque, dolor at viverra porttitor, neque nulla condimentum ante, vitae vehicula magna ipsum
+            pellentesque augue. In at mi lacus. Curabitur consequat molestie diam ac interdum. Curabitur blandit leo id
+            neque ultrices faucibus. Nulla sit amet lorem justo. Mauris ut tincidunt mauris. In hac habitasse platea
+            dictumst. Ut elementum justo odio, ac consequat magna pellentesque dictum. Nam pharetra orci nec gravida
+            cursus. Vestibulum ut nunc eleifend, lacinia turpis dignissim, finibus ligula.
+        </p>
+    </div>
+
+
+
+</div>
