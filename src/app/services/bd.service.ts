@@ -11,7 +11,7 @@ import { Observable, Subject, tap } from 'rxjs';
 export class BDService {
 
   constructor(private http: HttpClient) { }
-API='http://localhost:8080'
+API='http://192.168.0.78:8080'
 
 obtenerDatos(): Observable<any> {
 
