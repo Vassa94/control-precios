@@ -1,66 +1,111 @@
-<div class="mx-3">
-    <div class="h-30 border-bottom border-top p-2 d-flex align-items-center gap-4 color-black fw-semibold ">
-        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion1">Productos</a>
+<body class="px-3">
+    <nav class="h-30 border-bottom border-top p-2 d-flex align-items-center gap-4 color-black fw-semibold ">
+        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion1">Excel y CSV</a>
         <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion2">Web</a>
         <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion3">Mercadolibre</a>
-    </div>
-
-    <div>
+    </nav>
+    <h1 class="text-center">Preguntas frecuentes</h1>
+    <section>
         <h3>Consideraciones iniciales</h3>
         <ul>
             <li>Todos los archivos de excel usados por la app son CSV. no admite xls o xlsx</li>
-            <li>Los CSV de salida son UTF-8. Esto dignifica que estan codificados para nuestro teclado. Si se desea abrir en excel aqui puede <a [routerLink]="['/guia']" fragment="UTF-8">ver como</a></li>
-            <li>Si las tablas no cargan, es posible que no se este ejecutando el archivo JAVA. puede corregirlo  <a [routerLink]="['/guia']" fragment="jar" >asi</a> </li>
-            <li>Si la tablas de productos no cargan, es probable que la computadora de Ignacio este apagada o sin red. Verificar</li>
-            <li>Si los codigos de barra se ven rotos, es porque no tienen los 13 digitos. corregir por el correcto o agregar 0 para que se corrija</li>
+            <li>Los CSV de salida son UTF-8. Esto dignifica que estan codificados para nuestro teclado. Si se desea
+                abrir en excel aqui puede <a [routerLink]="['/guia']" fragment="UTF-8">ver como</a></li>
+            <li>Los excel que salen del sistema local deben ser revalidados o daran error. <a [routerLink]="['/guia']"
+                    fragment="validar">ver aqui</a></li>
+            <li>Si las tablas no cargan, es posible que no se este ejecutando el archivo JAVA. puede corregirlo <a
+                    [routerLink]="['/guia']" fragment="jar">asi</a> </li>
+            <li>Si la tablas de productos no cargan, es probable que la computadora de Ignacio este apagada o sin red.
+                Verificar</li>
+            <li>Si los codigos de barra se ven rotos, es porque no tienen los 13 digitos. corregir por el correcto o
+                agregar 0 para que se corrija</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="d-flex flex-column" >
-        <h3 class="border-bottom border-top" id="seccion1" >Productos</h3>
-        <h5 id="UTF-8">Codificacion del CSV</h5>
-        <p>Si se quiere abrir el archivo de salida en excel se encontrara que se importa mal, los caracteres especiales (acentos, dieresis, etc.) se ven rotos, con la codificacion html.
-            Para corregir eso, en vez de abrir el archivo directamente, procederemos a abrir un archivo en blanco (recomiendo dejar uno de "verificación").
-            Una vez dentro, vamos a datos;
+    <section class="d-flex flex-column">
+        <h3 class="border-bottom border-top" id="seccion1">Excel y CSV</h3>
+        <article>
+            <h5 id="UTF-8">Codificacion del CSV</h5>
+            <p>Si se quiere abrir el archivo de salida en excel se encontrara que se importa mal, los caracteres
+                especiales (acentos, dieresis, etc.) se ven rotos, con la codificacion html.
+                Para corregir eso, en vez de abrir el archivo directamente, procederemos a abrir un archivo en blanco
+                (recomiendo dejar uno de "verificación").
+                Una vez dentro, vamos a datos;
+            </p>
+            <figure class="d-flex justify-content-center py-5 ">
+                <img src="\assets\img\guias\img1.png" alt="boton importar datos" class="w-80 shadow rounded">
+            </figure>
+            <p>Una ves seleccionado, se abrira una ventana nueva para configurar la importacion. es la misma que la
+                ventana para poner el CSV en filas, pero tendremos un selector nuevo, para elegir que codificacion tiene
+                el archivo.
+                Abrimos y elegimos <b>Unicode UTF-8</b>. Tambien podemos seleccionar la opcion de los encabezados, pero
+                no es necesario.
+                A partir de ahi, el resto es normal para un CSV, se elige metodo de separacion por comas y deberia
+                quedar bien.
+            </p>
+            <figure class="d-flex justify-content-center py-5 ">
+                <img src="\assets\img\guias\UnicodeUTF-8.png" alt="Codificacion" class="w-30 shadow rounded">
+            </figure>
+        </article>
+        <article>
+            <h5 id="validar">Validacion XLS</h5>
+            <p>Cuando queremos exportar informacion del sistema a la app, siempre conviene hacerlo como XLS, para poder
+                validar mas facil. Validar seria verificar que el formato este correcto, esto seria, sacarle el
+                encabezado y la linea final. de ser necesario, tambien los separadores o lineas vacias. Cuanto menos
+                datos redundantes tenga el archivo mejor. Ejemplo;
+            </p>
+            <figure>
+                <img src="" alt="exportando de sistema">
+            </figure>
+            <figure>
+                <img src="" alt="encabezado">
+            </figure>
+        </article>
+
+
+    </section>
+    <section class="h-60">
+        <h3 class="border-bottom border-top" id="seccion2">Web</h3>
+        <p>Esta seccion maneja las publicaciones de la pagina Web. actualmente no hay conexion con la API de TiendaNube, por lo que se maneja con CSV.
+            La app permite reflejar en los CVS de actualizacion:           
         </p>
-        <figure class="d-flex justify-content-center py-5">
-            <img src="\assets\img\guias\img1.png" alt="boton importar datos" class="w-80 align-self-center">
-        </figure>
-        <p>Una ves seleccionado, se abrira una ventana nueva para configurar la importacion. es la misma que la ventana para poner el CSV en filas, pero tendremos un selector nuevo, para elegir que codificacion tiene el archivo.
-            Abrimos y elegimos <b>Unicode UTF-8</b>. Tambien podemos seleccionar la opcion de los encabezados, pero no es necesario.
-            A partir de ahi, el resto es normal para un CSV, se elige metodo de separacion por comas y deberia quedar bien. 
-        </p>
-        <figure class="d-flex justify-content-center py-5">
-            <img src="\assets\img\guias\UnicodeUTF-8.png" alt="Codificacion" class="w-30" >
-        </figure>
-    </div>
-    <div  class="h-60">
-        <h3 class="border-bottom border-top" id="seccion2" >Web</h3>
+        <ul>
+            <li>Precio</li>
+            <li>Precio de oferta</li>
+            <li>Envio gratis o no</li>
+            <li>Visualizacion en plataforma</li>
+            <li>Codigo de barras</li>
+        </ul>
+        <p>La app no modifica:</p>
+        <ul>
+            <li>Stock. estos se arrastran de la web a la app cuando se carga el csv de tiendanube</li>
+            <li>Cambios en nombre. Se deben realizar dentro de la web. Si la URL cambia, la app generara otro publicacion nueva, quedando la anterior obsoleta (recordar borrar)</li>
+            <li>cambios en Codigo de Oxi. se deben ahcer manualmente en ambas plataformas</li>
+        </ul>
+        <p> <strong>IMPORTANTE</strong> si se realizan modificaciones en la plataforma web, recordar reflejarlas en la app, o se desincronizaran y traera problemas a futuro al exportar (ofertas diferentes, etc)</p>
+    </section>
+
+    <section class="h-60">
+        <h3 class="border-bottom border-top" id="seccion3">Mercadolibre</h3>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec euismod ipsum. Aliquam commodo,
-            sapien vitae scelerisque scelerisque, tellus neque placerat enim, eu congue orci sem in neque. Maecenas et
-            pharetra nisl. Vestibulum bibendum elementum ultricies. Mauris sodales fringilla eros ut porttitor. Nullam
-            scelerisque, dolor at viverra porttitor, neque nulla condimentum ante, vitae vehicula magna ipsum
-            pellentesque augue. In at mi lacus. Curabitur consequat molestie diam ac interdum. Curabitur blandit leo id
-            neque ultrices faucibus. Nulla sit amet lorem justo. Mauris ut tincidunt mauris. In hac habitasse platea
-            dictumst. Ut elementum justo odio, ac consequat magna pellentesque dictum. Nam pharetra orci nec gravida
-            cursus. Vestibulum ut nunc eleifend, lacinia turpis dignissim, finibus ligula.
+            Actualmente esta seccion esta inactiva. Se pueden ver productos de prueba. Esta seccion estara conectada a
+            la API de mercadolibre, por lo que arrastrara datos en tiempo real de publicaciones. A futuro esta pensado
+            manejar tambien los envios.            
         </p>
-    </div>
-    <div  class="h-60">
-        <h3 class="border-bottom border-top" id="seccion3" >Mercadolibre</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec euismod ipsum. Aliquam commodo,
-            sapien vitae scelerisque scelerisque, tellus neque placerat enim, eu congue orci sem in neque. Maecenas et
-            pharetra nisl. Vestibulum bibendum elementum ultricies. Mauris sodales fringilla eros ut porttitor. Nullam
-            scelerisque, dolor at viverra porttitor, neque nulla condimentum ante, vitae vehicula magna ipsum
-            pellentesque augue. In at mi lacus. Curabitur consequat molestie diam ac interdum. Curabitur blandit leo id
-            neque ultrices faucibus. Nulla sit amet lorem justo. Mauris ut tincidunt mauris. In hac habitasse platea
-            dictumst. Ut elementum justo odio, ac consequat magna pellentesque dictum. Nam pharetra orci nec gravida
-            cursus. Vestibulum ut nunc eleifend, lacinia turpis dignissim, finibus ligula.
-        </p>
-    </div>
+        <h6>Funcionalidades activas;</h6>
+        <ul>
+            <li>Carga de reclamos</li>
+            <li>Excel de reclamos</li>
+            <li>Reclamos activos en mercadolibre</li>
+        </ul>
+        <h6>Funcionalidades pendientes</h6>
+        <ul>
+            <li>Actualizacion de productos</li>
+            <li>Stock de productos manejada automaticamente</li>
+            <li>Manejo de seguimientos</li>
+        </ul>
+    </section>
 
 
 
-</div>
+</body>
