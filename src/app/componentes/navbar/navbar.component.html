@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/productos">
+      <a class="navbar-brand" [routerLink]="'productos'">
         <img class="navbar-brand" src="./assets/img/logo.png" alt="logo" width="250rem">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,17 +10,17 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/productos">Productos</a>
+            <a class="nav-link " aria-current="page" [routerLink]="'productos'">Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/web">Web</a>
+            <a class="nav-link" [routerLink]="'web'">Web</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mercadolibre" >Mercadolibre</a>
+            <a class="nav-link" [routerLink]="'mercadolibre'" >Mercadolibre</a>
           </li>               
         </ul>
         <div class="guides">
-          <a href="/guia" style="text-decoration:none; color: white;"><i class="fa-solid fa-book"></i></a>
+          <a [routerLink]="'guia'" style="text-decoration:none; color: white;" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left"><i class="fa-solid fa-book" ></i></a>
         </div>
         <!-- 
         <div class="toggler">

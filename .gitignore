@@ -38,6 +38,7 @@ testem.log
 /typings
 /src/assets/img/prod
 /Control de precios-win32-x64
+/releases
 
 # System files
 .DS_Store

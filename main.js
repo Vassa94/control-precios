@@ -1,27 +1,30 @@
-const { exec } = require('child_process');
+const { app, BrowserWindow } = require('electron');
 
-// Ejecutar ng serve en segundo plano
-exec('ng serve', (err, stdout, stderr) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    console.log(stdout);
-});
-const { app, BrowserWindow } = require('electron')
-const createWindow = () => {
-    const win = new BrowserWindow({
-        width: 1366,
-        height: 768,
-        maximized: true,
+let appWin;
+
+createWindow = () => {
+    appWin = new BrowserWindow({
+        width: 800,
+        height: 600,
+        title: "Control de precios",
+        webPreferences: {
+            preload: `${app.getAppPath()}/preload.js`,
+            webSecurity: false
+        }
+    });
+
+    appWin.loadURL(`file://${__dirname}/dist/index.html`);
+
+    //appWin.setMenu(null);
+
+    appWin.on('closed', () => {
+        appWin = null;
     })
 
-    win.loadURL('http://localhost:4200/productos')
 }
-app.whenReady().then(() => {
-    createWindow()
-})
 
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
-})
+app.on('ready' , createWindow);
+
+app.on('window-all-closed', () => appWin.quit());
+
+
