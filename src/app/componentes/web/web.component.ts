@@ -8,9 +8,6 @@ import Swal from 'sweetalert2';
 import *  as Papa from 'papaparse';
 import * as FileSaver from 'file-saver';
 import { tap } from 'rxjs';
-import * as XLSX from 'xlsx';
-
-
 
 @Component({
   selector: 'app-web',
@@ -224,7 +221,6 @@ export class WebComponent implements OnInit {
       ean: fila.ean,
       url: fila.url,
     })
-    console.log(fila);
 
 
     this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
@@ -251,7 +247,6 @@ export class WebComponent implements OnInit {
 
       const id = this.publicacion.value.id;
 
-      console.log(params);
       this.datosSis.editarPubli(id, params).pipe(
         tap(() => { }, error => { console.log(error) })
       ).subscribe();
@@ -296,7 +291,7 @@ export class WebComponent implements OnInit {
               data[i].Precio = 0;
             }
           } else {
-            data[i]['Precio promocional'] = this.web[j].precioProm;
+            //data[i]['Precio promocional'] = this.web[j].precioProm;
           }
           data[i]['Envío sin cargo'] = (this.web[j].envio) ? "SI" : "NO";
           data[i]['Mostrar en tienda'] = (this.web[j].mostrar) ? "SI" : "NO";
@@ -313,20 +308,9 @@ export class WebComponent implements OnInit {
         stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
       }
     }
-    console.log(stock);
     this.datosSis.actuStocksWeb(stock).pipe(
       tap(() => { }, error => { console.log(error) })
     ).subscribe();
-
-    /* const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet);
-    const wopts = { bookType: 'xlsx' as XLSX.BookType, type: 'binary' };
-    const wbout = XLSX.write(workbook, wopts);
-    let date = new Date().toLocaleString();
-    let fileName = 'Subir-' + date + '.xlsx';
-    let blob = new Blob([wbout], { type: 'application/octet-stream' });
-    FileSaver.saveAs(blob, fileName); */
 
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
@@ -352,7 +336,6 @@ export class WebComponent implements OnInit {
     marcaMinusculas.includes(filtroMinusculas) ||
     codigoMinusculas.includes(filtroMinusculas); 
     });
-    console.log(this.web);
     }
 
 
