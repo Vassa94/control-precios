@@ -380,7 +380,7 @@ export class ProductosComponent implements OnInit {
 			marcaMinusculas.includes(filtroMinusculas) ||
 			codigoMinusculas.includes(filtroMinusculas); 
 			});
-			console.log(this.productos);
+			
 			}
 
 
