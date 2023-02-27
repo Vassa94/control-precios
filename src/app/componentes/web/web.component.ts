@@ -82,7 +82,18 @@ export class WebComponent implements OnInit {
 
       this.cargando = false;
 
-    });
+    },
+      (error) => {
+        this.cargando = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No esta habilitado el backend!',
+          footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
+        })
+        console.log("Ha ocurrido un error al obtener los productos:", error);
+      }
+    );
   }
 
   view(cont, row) {
@@ -252,7 +263,7 @@ export class WebComponent implements OnInit {
       ).subscribe();
 
     });
-    
+
   }
 
   eliminarPubli(id) {
@@ -327,16 +338,16 @@ export class WebComponent implements OnInit {
   }
 
   filtrarTabla() {
-    let filtroMinusculas = this.filtro.toLowerCase(); 
-    this.web = this.webBackup.filter(row => { 
-    let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : ''; 
-    let marcaMinusculas = row.marca ? row.marca.toLowerCase() : ''; 
-    let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase(): ''; 
-    return nombreMinusculas.includes(filtroMinusculas) ||
-    marcaMinusculas.includes(filtroMinusculas) ||
-    codigoMinusculas.includes(filtroMinusculas); 
+    let filtroMinusculas = this.filtro.toLowerCase();
+    this.web = this.webBackup.filter(row => {
+      let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
+      let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
+      let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase() : '';
+      return nombreMinusculas.includes(filtroMinusculas) ||
+        marcaMinusculas.includes(filtroMinusculas) ||
+        codigoMinusculas.includes(filtroMinusculas);
     });
-    }
+  }
 
 
 }

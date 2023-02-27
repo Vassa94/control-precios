@@ -76,7 +76,7 @@ export class ProductosComponent implements OnInit {
 				icon: 'error',
 				title: 'Oops...',
 				text: 'No esta habilitado el backend!',
-				footer: `<a routerLink="'guia'">¿Por qué tengo este problema?</a>`
+				footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
 			})
             console.log("Ha ocurrido un error al obtener los productos:", error);
         }
