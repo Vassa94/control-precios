@@ -15,7 +15,7 @@ createWindow = () => {
 
     appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
-    //appWin.setMenu(null);
+    appWin.setMenu(null);
 
     appWin.on('closed', () => {
         if (process.platform !== 'darwin') {
