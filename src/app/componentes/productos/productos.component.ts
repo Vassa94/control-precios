@@ -57,7 +57,7 @@ export class ProductosComponent implements OnInit {
 	ngOnInit(): void {
 		const search$ = new Subject<string>();
 		this.getProductos();
-		
+			
 
 	}
 
@@ -69,7 +69,18 @@ export class ProductosComponent implements OnInit {
 			this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
 			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
 			this.cargando = false;
-		});
+		},
+		(error) => {
+            this.cargando = false;
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'No esta habilitado el backend!',
+				footer: `<a routerLink="'guia'">¿Por qué tengo este problema?</a>`
+			})
+            console.log("Ha ocurrido un error al obtener los productos:", error);
+        }
+    );
 	}
 
 	view(cont, row) {
