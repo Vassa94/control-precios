@@ -4,8 +4,8 @@ let appWin;
 
 createWindow = () => {
     appWin = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1366,
+        height: 768,
         title: "Control de precios",
         webPreferences: {
             preload: `${app.getAppPath()}/preload.js`,
@@ -18,12 +18,14 @@ createWindow = () => {
     //appWin.setMenu(null);
 
     appWin.on('closed', () => {
-        appWin = null;
+        if (process.platform !== 'darwin') {
+            app.quit();
+        }
     })
 
 }
 
-app.on('ready' , createWindow);
+app.on('ready', createWindow);
 
 app.on('window-all-closed', () => appWin.quit());
 
