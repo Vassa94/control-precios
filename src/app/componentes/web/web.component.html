@@ -21,7 +21,7 @@
 	</div>
 
 	<div style="margin-right: 5px; align-items: center; ">
-		<button (click)="exp(actualizar)">	
+		<button (click)="exp(actualizar)">
 			<i class="fa-solid fa-arrow-rotate-right"></i>
 			Actualizar web
 		</button>
@@ -45,6 +45,12 @@
 					</th>
 					<th class="headers" scope="col" *ngFor="let header of headers;let i = index">
 						{{ header }}
+						<div style="display: inline-block; vertical-align: sub;">
+							<span (click)="ordenar(headers2[i],false)"><i
+									class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
+							<span (click)="ordenar(headers2[i],true)"><i
+									class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
+						</div>
 					</th>
 				</tr>
 

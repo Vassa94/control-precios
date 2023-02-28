@@ -160,6 +160,18 @@ export class WebComponent implements OnInit {
     FileSaver.saveAs(blob, fileName);
   }
 
+  ordenar(valor, ordenInverso: boolean) {
+    this.web.sort((productoA, productoB) => {
+      if (productoA[valor] < productoB[valor]) {
+        return ordenInverso ? 1 : -1;
+      } else if (productoA[valor] > productoB[valor]) {
+        return ordenInverso ? -1 : 1;
+      } else {
+        return 0;
+      }
+    }, valor);
+  }
+
   parser(event: any) {
     let file: File = event.target.files[0];
     if (file) {
@@ -257,9 +269,44 @@ export class WebComponent implements OnInit {
         .set("identificador", this.publicacion.value.url)
 
       const id = this.publicacion.value.id;
-
       this.datosSis.editarPubli(id, params).pipe(
-        tap(() => { }, error => { console.log(error) })
+        tap(() => {
+          const objetoActualizado = {
+            id: id,
+            nombre: this.publicacion.value.nombre,
+            categorias: this.publicacion.value.categoria,
+            pack: parseInt(this.publicacion.value.pack),
+            precio: parseInt(this.publicacion.value.precio),
+            precioProm: parseInt(this.publicacion.value.precioProm),
+            peso: parseFloat(this.publicacion.value.peso),
+            alto: parseFloat(this.publicacion.value.alto),
+            ancho: parseFloat(this.publicacion.value.ancho),
+            profundidad: parseFloat(this.publicacion.value.profundidad),
+            stock: parseInt(this.publicacion.value.stock),
+            codigo: [this.publicacion.value.codigo],
+            mostrar: this.publicacion.value.mostrar,
+            envio: this.publicacion.value.envio,
+            tags: '',
+            marca: this.publicacion.value.marca,
+            url: this.publicacion.value.url,
+            ean: this.publicacion.value.ean,
+          };
+
+          // Buscar índice del objeto en el array que se está visualizando en pantalla
+          const indice = this.web.findIndex(obj => obj.id === id);
+
+          if (indice >= 0) {
+            // Si el objeto existe en el array, actualizar valores del objeto
+            this.web[indice] = objetoActualizado;
+          } else {
+            // Si el objeto no existe en el array, agregar el objeto al array
+            this.web.push(objetoActualizado);
+          }
+
+          // Actualizar la variable del array con el nuevo array actualizado
+          this.web = [...this.web];
+
+        }, error => { console.log(error) })
       ).subscribe();
 
     });
