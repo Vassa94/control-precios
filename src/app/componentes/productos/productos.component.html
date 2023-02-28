@@ -57,7 +57,11 @@
       <thead>
         <tr style="height:20px ;overflow: hidden;">
           <th class="headers" scope="col" *ngFor="let header of headers;let i = index">
-            {{ header }}
+            {{ header }} 
+            <div  style="display: inline-block; vertical-align: sub;">
+              <span (click)="ordenar(headers2[i],false)"><i  class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
+              <span (click)="ordenar(headers2[i],true)"><i  class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
+            </div>
           </th>
           <th class="opciones">
           </th>

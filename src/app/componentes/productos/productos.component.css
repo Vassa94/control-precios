@@ -7,6 +7,13 @@
 
 .headers {
   text-align: center;
+  
+}
+
+.filtro{
+  width: 7px;
+  height: 11px;
+  margin: 0px;
 }
 
 .precioPublico {

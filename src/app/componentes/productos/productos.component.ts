@@ -36,7 +36,7 @@ export class ProductosComponent implements OnInit {
 
 
 	constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
-		
+
 	}
 
 
@@ -57,7 +57,7 @@ export class ProductosComponent implements OnInit {
 	ngOnInit(): void {
 		const search$ = new Subject<string>();
 		this.getProductos();
-			
+
 
 	}
 
@@ -70,17 +70,29 @@ export class ProductosComponent implements OnInit {
 			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
 			this.cargando = false;
 		},
-		(error) => {
-            this.cargando = false;
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'No esta habilitado el backend!',
-				footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
-			})
-            console.log("Ha ocurrido un error al obtener los productos:", error);
-        }
-    );
+			(error) => {
+				this.cargando = false;
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'No esta habilitado el backend!',
+					footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
+				})
+				console.log("Ha ocurrido un error al obtener los productos:", error);
+			}
+		);
+	}
+
+	ordenar(valor, ordenInverso: boolean) {
+		this.productos.sort((productoA, productoB) => {
+			if (productoA[valor] < productoB[valor]) {
+				return ordenInverso ? 1 : -1;
+			} else if (productoA[valor] > productoB[valor]) {
+				return ordenInverso ? -1 : 1;
+			} else {
+				return 0;
+			}
+		}, valor);
 	}
 
 	view(cont, row) {
@@ -170,7 +182,17 @@ export class ProductosComponent implements OnInit {
 		console.log(params);
 		console.log(id);
 
-		this.datosSis.actualizarProducto(id, params).subscribe((data) => { });
+		this.datosSis.actualizarProducto(id, params).subscribe((data) => {
+			const index = this.productos.findIndex((p) => p.codigo === id);
+			this.datosSis.actualizarProducto(id, params).subscribe((data) => {
+				const index = this.productos.findIndex((p) => p.codigo === id);
+				this.productos[index].cod_Fabrica = this.producto.value.cod_Fabrica;
+				this.productos[index].descripcion = this.producto.value.descripcion;
+				this.productos[index].marca = this.producto.value.marca;
+				this.productos[index].precioPublico = this.producto.value.precioPublico;
+				this.productos[index].stock = this.producto.value.stock;
+			});
+		});
 	}
 
 	agregarProducto() {
@@ -346,12 +368,12 @@ export class ProductosComponent implements OnInit {
 			body.push(aux);
 
 		}
-		
+
 		if (destino === "precio") {
 			this.actualizarPrecios(body);
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
-			
+
 		}
 
 
@@ -369,6 +391,8 @@ export class ProductosComponent implements OnInit {
 
 	}
 
+
+
 	searchProduct = (text$: Observable<string>) =>
 		text$.pipe(
 
@@ -381,18 +405,18 @@ export class ProductosComponent implements OnInit {
 					.slice(0, 10))
 		)
 
-		filtrarTabla() {
-			let filtroMinusculas = this.filtro.toLowerCase(); 
-			this.productos = this.ProdBackup.filter(row => { 
-			let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : ''; 
-			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : ''; 
-			let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase(): ''; 
+	filtrarTabla() {
+		let filtroMinusculas = this.filtro.toLowerCase();
+		this.productos = this.ProdBackup.filter(row => {
+			let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
+			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
+			let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase() : '';
 			return nombreMinusculas.includes(filtroMinusculas) ||
-			marcaMinusculas.includes(filtroMinusculas) ||
-			codigoMinusculas.includes(filtroMinusculas); 
-			});
-			
-			}
+				marcaMinusculas.includes(filtroMinusculas) ||
+				codigoMinusculas.includes(filtroMinusculas);
+		});
+
+	}
 
 
 }
