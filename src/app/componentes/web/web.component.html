@@ -1,35 +1,28 @@
-<section style="display: flex; margin:5px 5px "> <!-- Botones -->
+<section class="d-flex m-2" > <!-- Botones -->
 	<div style="margin-right: 5px;">
-		<button (click)="descargarCSV()">
-			<i class="fa-solid fa-download" style="padding-right: 3px;"></i>
-			<label> Descargar CSV</label>
+		<button (click)="descargarCSV()" class="d-flex gap-2 align-items-center">
+			<i class="fa-solid fa-download"></i>
+			<label class=" d-none d-md-block m-0"> Descargar CSV</label>
 		</button>
 	</div>
 
 	<div style="margin-right: 5px; align-items: center; ">
-		<button (click)="stock(actualizar)">
+		<button (click)="stock(actualizar)" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-box" style="padding-right: 3px;"></i>
-
+			<label class=" d-none d-md-block m-0">Stock</label>
 		</button>
 	</div>
-
-	<div style="display: none;  margin-right: 5px; align-items: center; ">
-		<button (click)="lista(actualizar)">
-			<i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
-
-		</button>
-	</div>
-
+	
 	<div style="margin-right: 5px; align-items: center; ">
-		<button (click)="exp(actualizar)">
+		<button (click)="exp(actualizar)" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-arrow-rotate-right"></i>
-			Actualizar web
+			<label class=" d-none d-md-block m-0">Actualizar web</label> 
 		</button>
 	</div>
 
 	<!-- Una barra de búsqueda que filtra la tabla. -->
 	<div style="margin-left: auto;align-items: center">
-		<input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+		<input style="margin: 0px 5px;max-width:700px" placeholder="Buscar" type="text" class="form-control"
 			[(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
 	</div>
 </section>
