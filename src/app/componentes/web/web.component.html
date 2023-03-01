@@ -1,4 +1,4 @@
-<section class="d-flex m-2" > <!-- Botones -->
+<section class="d-flex m-2"> <!-- Botones -->
 	<div style="margin-right: 5px;">
 		<button (click)="descargarCSV()" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-download"></i>
@@ -12,17 +12,17 @@
 			<label class=" d-none d-md-block m-0">Stock</label>
 		</button>
 	</div>
-	
+
 	<div style="margin-right: 5px; align-items: center; ">
 		<button (click)="exp(actualizar)" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-arrow-rotate-right"></i>
-			<label class=" d-none d-md-block m-0">Actualizar web</label> 
+			<label class=" d-none d-md-block m-0">Actualizar web</label>
 		</button>
 	</div>
 
 	<!-- Una barra de búsqueda que filtra la tabla. -->
-	<div style="margin-left: auto;align-items: center">
-		<input style="margin: 0px 5px;max-width:700px" placeholder="Buscar" type="text" class="form-control"
+	<div style="margin-left: auto;align-items: center;padding-right: 10px">
+		<input style="margin: 0px 5px;max-width:700px; " placeholder="Buscar" type="text" class="form-control"
 			[(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
 	</div>
 </section>
@@ -51,18 +51,18 @@
 			<tbody class="table-group-divider">
 				<tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0}">
 					<td class="opciones" style="cursor: pointer">
-						<p class="editar" (click)="editarPublicacion(editar,row)" target="_blank">
+						<p class="editar m-0" (click)="editarPublicacion(editar,row)" target="_blank">
 							Editar
 						</p>
 					</td>
-					<td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
+					<td class="{{cell}}" style="overflow-x: hidden;height: min-content;" *ngFor="let cell of headers2">
 						<app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
 						<span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
 							{{ cell === 'peso' ? row[cell] + ' Kg' :
 							(cell === 'precio' || cell === 'precioProm' ? (row[cell] ? '$' + row[cell] : '') :
 							(cell === 'alto' || cell === 'ancho' || cell === 'profundidad' ? row[cell] + ' cm' :
 							row[cell])) }}
-						</span>
+						</span>						
 					</td>
 				</tr>
 			</tbody>
