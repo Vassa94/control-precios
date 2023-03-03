@@ -17,15 +17,18 @@ import { tap } from 'rxjs';
 export class WebComponent implements OnInit {
   web: any;
   webBackup: any;
-  stockCodigos:any;
+  stockCodigos: Array<any> = [];
   headers: any;
   headers2: any;
   filtro: string = '';
   cargando: boolean = true;
   reader = new FileReader();
   selector: string = '';
+  warning: Array<boolean> = [];
 
-  constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
+  constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
+    
+  }
 
   publicacion = new FormGroup({
     id: new FormControl(),
@@ -49,7 +52,7 @@ export class WebComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
-    this.getStockLocal();
+
   }
 
   getProductos(): void {
@@ -82,8 +85,7 @@ export class WebComponent implements OnInit {
         "marca"];
 
       this.cargando = false;
-      console.log(this.web);
-
+      this.getStockLocal();
     },
       (error) => {
         this.cargando = false;
@@ -96,46 +98,44 @@ export class WebComponent implements OnInit {
         console.log("Ha ocurrido un error al obtener los productos:", error);
       }
     );
-    
-    
+
+
   }
 
-  getStockLocal():void{
+  getStockLocal(): void {
     this.datosSis.obtenerDatos().toPromise().then((data) => {
       this.stockCodigos = this.dataReductor(data)
+      for (let i = 0; i < this.web.length; i++) {
+        let valor: boolean = this.stockWarning(this.web[i])
+        this.warning.push(valor);
+      }
     })    
   }
 
-  stockWarning(product){
+  stockWarning(product) {
     let codigos = product.codigo;
-    let stockSistema = this.stockCodigos.find((s) => s.codigo === codigos[0]); // Busca el stock correspondiente al primer código de product en stockCodigo
     
-    for(let i=0; i<codigos.length; i++){
-      let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[i]).stock; // Busca el stock correspondiente al código actual de product en stockCodigo
-      console.log(stockProducto);
-      console.log(codigos[i]);
-      
-      
-      if(stockProducto < stockSistema.stock){
-        return true; // Si encuentra al menos un código con stock menor que el correspondiente en stockCodigo, retorna true
-      }
+    let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[0])?.localStock;
+     // Busca el stock correspondiente al código actual de product en stockCodigo
+    if (stockProducto < product.stock) {
+      return true; // Si encuentra al menos un código con stock menor que el correspondiente en stockCodigo, retorna true
     }
-    
     return false; // Si llega aquí, es porque todos los códigos tienen stock igual o mayor que el correspondiente en stockCodigo
   }
-  
 
 
-  dataReductor(array:Array<any>):Array<any> {
-		let stock : Array<any> = [];
-		array.forEach ((a) => {
-			let codigo = a.codigo;
-			let localStock = a.stock;
-			let producto =  {codigo,localStock};		
-			stock.push(producto);
-		})
-		return stock;
-	}
+
+  dataReductor(array: Array<any>): Array<any> {
+    let stock: Array<any> = [];
+    array.forEach((a) => {
+      let codigo = a.codigo;
+      let localStock = a.stock;
+      let producto = { codigo, localStock };
+      stock.push(producto);
+    })
+
+    return stock;
+  }
 
   /* viewProduct(cont, row) {
     this.modalService.open(cont, { centered: true });
@@ -254,11 +254,11 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
- /*  lista(actualizar) {     //desarrollo. no uso
-    this.selector = "publicaciones";
-    this.modalService.open(actualizar, { centered: true })
-  }
- */
+  /*  lista(actualizar) {     //desarrollo. no uso
+     this.selector = "publicaciones";
+     this.modalService.open(actualizar, { centered: true })
+   }
+  */
   exportToWeb(actualizar) {
     this.selector = "exportar";
     this.modalService.open(actualizar, { centered: true })
@@ -284,6 +284,7 @@ export class WebComponent implements OnInit {
       ean: fila.ean,
       url: fila.url,
     })
+
 
 
     this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
@@ -437,7 +438,7 @@ export class WebComponent implements OnInit {
   }
 
 
-  
+
 
 
 }

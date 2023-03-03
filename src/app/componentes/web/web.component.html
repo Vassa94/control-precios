@@ -49,7 +49,9 @@
 
 			</thead>
 			<tbody class="table-group-divider">
-				<tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0, 'color-amarillo' : stockWarning(row)}">
+				<tr *ngFor="let row of web; let i = index" [ngClass]="{
+                    'color-rojo': row.stock === 0,
+                    'color-amarillo': warning[i]}">
 					<td class="opciones" style="cursor: pointer">
 						<p class="editar m-0" (click)="editPublication(editar,row)" target="_blank">
 							Editar

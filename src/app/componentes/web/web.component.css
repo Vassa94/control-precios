@@ -159,7 +159,9 @@ button:hover::before {
     width: 100%;
 }
 
-.color-amarillo { background-color: rgba(245, 230, 18, 0.753);}
+.color-amarillo { 
+    background-color: rgba(245, 230, 18, 0.753);    
+}
 
 .color-rojo {
     background-color: rgba(194, 92, 92, 0.753);
