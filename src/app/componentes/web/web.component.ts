@@ -52,7 +52,6 @@ export class WebComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
-
   }
 
   getProductos(): void {
@@ -83,7 +82,6 @@ export class WebComponent implements OnInit {
         "mostrar",
         "envio",
         "marca"];
-
       this.cargando = false;
       this.getStockLocal();
     },
@@ -114,13 +112,11 @@ export class WebComponent implements OnInit {
 
   stockWarning(product) {
     let codigos = product.codigo;
-    
     let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[0])?.localStock;
-     // Busca el stock correspondiente al código actual de product en stockCodigo
     if (stockProducto < product.stock) {
-      return true; // Si encuentra al menos un código con stock menor que el correspondiente en stockCodigo, retorna true
+      return true; 
     }
-    return false; // Si llega aquí, es porque todos los códigos tienen stock igual o mayor que el correspondiente en stockCodigo
+    return false; 
   }
 
 
@@ -158,9 +154,7 @@ export class WebComponent implements OnInit {
       precio = parseFloat(precio);
       precio = Math.floor(precio);
       data.Precio = precio;
-
     }
-
     const body = {
       "nombre": data.Nombre,
       "categorias": data["Categorías"],

@@ -2,8 +2,9 @@
   <!-- Un botón que permite al usuario cargar un archivo CSV. -->
 
   <div class="dropdown" style="margin: 0px 5px;">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="dropdown-toggle d-flex gap-2 align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
+      <label class=" d-none d-md-block m-0"></label>
     </button>
     <ul class="dropdown-menu" style="width: 250px;">
       <li>
@@ -28,31 +29,31 @@
 
   <!-- Un botón que permite al usuario descargar un archivo CSV. -->
   <div style="margin-right: 5px;">
-    <button (click)="descargarCSV()">
+    <button (click)="descargarCSV()" class="d-flex gap-2 align-items-center">
       <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
-      <label> Descargar CSV</label>
+      <label class=" d-none d-md-block m-0"> Descargar CSV</label>
     </button>
   </div>
 
   <!-- Un botón que abre un modal para crear un Producto. -->
   <div style="margin-right: 5px;">
-    <button (click)="form(productNew)">
+    <button (click)="form(productNew)" class="d-flex gap-2 align-items-center">
       <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
-      <label>Crear</label>
+      <label class=" d-none d-md-block m-0">Crear</label>
     </button>
   </div>
 
   <!-- Un botón para pruebas. -->
   <div style="margin-right: 5px;">
-    <button (click)="backupStock()">
+    <button (click)="backupStock()" class="d-flex gap-2 align-items-center">
       <i class="fa-solid fa-gears" style="padding-right: 3px;"></i>
-      <label>Crear</label>
+      <label class=" d-none d-md-block m-0">Crear</label>
     </button>
   </div>
 
   <!-- Una barra de búsqueda que filtra la tabla. -->
-  <div style="margin-left: auto;align-items: center">
-    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control"
+  <div style="margin-left: auto;align-items: center;padding-right: 10px">
+    <input style="margin: 0px 5px;max-width:700px" placeholder="Buscar" type="text" class="form-control"
     [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
   </div>
 </div>
@@ -60,7 +61,7 @@
 
 <!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-  <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px;">
+  <div class="table-responsive" style=" margin: 8px; height: 77vh; border-radius: 15px;">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
