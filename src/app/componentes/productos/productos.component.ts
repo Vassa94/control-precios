@@ -5,11 +5,11 @@ import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/fo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { debounceTime, map, Observable, Subject, Subscription } from 'rxjs';
-import { FilterPipe } from 'src/app/pipe/filter.pipe';
 import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
+
 
 
 
@@ -418,5 +418,22 @@ export class ProductosComponent implements OnInit {
 
 	}
 
+	prueba(array:Array<any>):Array<any> {
+		let stock : Array<any> = [];
+		array.forEach ((a) => {
+			let codigo = a.codigo;
+			let stockActual = a.stock;
+			let producto =  {codigo,stockActual};		
+			stock.push(producto);
+		})
+		return stock;
+	}
+
+	backupStock (){
+		console.log("paso");
+		
+		let nuevoStock = this.prueba(this.productos);
+		//fs.writeFileSync("src/assets/productos.json", JSON.stringify(nuevoStock));
+	}
 
 }
