@@ -16,7 +16,6 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ControlComponent } from './componentes/control/control.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
-import { FilterPipe } from './pipe/filter.pipe';
 import { WebComponent } from './componentes/web/web.component';
 import { TruefalseComponent } from './componentes/truefalse/truefalse.component';
 import { CommonModule } from '@angular/common';
@@ -32,7 +31,6 @@ import { GuiaComponent } from './componentes/guia/guia.component';
     ControlComponent,
     NotFoundComponent,
     ReclamosComponent,
-    FilterPipe,
     WebComponent,
     TruefalseComponent,
     MercadolibreComponent,
