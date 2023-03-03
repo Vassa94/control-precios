@@ -17,13 +17,13 @@ import { tap } from 'rxjs';
 export class WebComponent implements OnInit {
   web: any;
   webBackup: any;
+  stockCodigos:any;
   headers: any;
   headers2: any;
   filtro: string = '';
   cargando: boolean = true;
   reader = new FileReader();
   selector: string = '';
-  modificaEnvio: boolean = false;
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -49,6 +49,7 @@ export class WebComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
+    this.getStockLocal();
   }
 
   getProductos(): void {
@@ -81,6 +82,7 @@ export class WebComponent implements OnInit {
         "marca"];
 
       this.cargando = false;
+      console.log(this.web);
 
     },
       (error) => {
@@ -94,15 +96,53 @@ export class WebComponent implements OnInit {
         console.log("Ha ocurrido un error al obtener los productos:", error);
       }
     );
+    
+    
   }
 
-  view(cont, row) {
+  getStockLocal():void{
+    this.datosSis.obtenerDatos().toPromise().then((data) => {
+      this.stockCodigos = this.dataReductor(data)
+    })    
+  }
+
+  stockWarning(product){
+    let codigos = product.codigo;
+    let stockSistema = this.stockCodigos.find((s) => s.codigo === codigos[0]); // Busca el stock correspondiente al primer código de product en stockCodigo
+    
+    for(let i=0; i<codigos.length; i++){
+      let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[i]).stock; // Busca el stock correspondiente al código actual de product en stockCodigo
+      console.log(stockProducto);
+      console.log(codigos[i]);
+      
+      
+      if(stockProducto < stockSistema.stock){
+        return true; // Si encuentra al menos un código con stock menor que el correspondiente en stockCodigo, retorna true
+      }
+    }
+    
+    return false; // Si llega aquí, es porque todos los códigos tienen stock igual o mayor que el correspondiente en stockCodigo
+  }
+  
+
+
+  dataReductor(array:Array<any>):Array<any> {
+		let stock : Array<any> = [];
+		array.forEach ((a) => {
+			let codigo = a.codigo;
+			let localStock = a.stock;
+			let producto =  {codigo,localStock};		
+			stock.push(producto);
+		})
+		return stock;
+	}
+
+  /* viewProduct(cont, row) {
     this.modalService.open(cont, { centered: true });
-  }
+  } */
 
-  estandarizador(data) {
+  dataStandardizer(data) {
     let cod: number[] = [];
-
 
     if (data.SKU) {
       let sku = data.SKU.split(',');
@@ -151,7 +191,7 @@ export class WebComponent implements OnInit {
     ).subscribe();
   }
 
-  descargarCSV() {
+  csvDownload() {
     let data = this.web;
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
@@ -160,7 +200,7 @@ export class WebComponent implements OnInit {
     FileSaver.saveAs(blob, fileName);
   }
 
-  ordenar(valor, ordenInverso: boolean) {
+  sort(valor, ordenInverso: boolean) {
     this.web.sort((productoA, productoB) => {
       if (productoA[valor] < productoB[valor]) {
         return ordenInverso ? 1 : -1;
@@ -194,7 +234,7 @@ export class WebComponent implements OnInit {
               }
               this.datosSis.listaWeb(data);
             } else {
-              this.export(data);
+              this.exportToTiendaNube(data);
             }
           }
         });
@@ -209,22 +249,22 @@ export class WebComponent implements OnInit {
     }
   }
 
-  stock(actualizar) {
+  modalStock(actualizar) {
     this.selector = "stock"
     this.modalService.open(actualizar, { centered: true })
   }
 
-  lista(actualizar) {     //desarrollo. no uso
+ /*  lista(actualizar) {     //desarrollo. no uso
     this.selector = "publicaciones";
     this.modalService.open(actualizar, { centered: true })
   }
-
-  exp(actualizar) {
+ */
+  exportToWeb(actualizar) {
     this.selector = "exportar";
     this.modalService.open(actualizar, { centered: true })
   }
 
-  editarPublicacion(editar, fila) {
+  editPublication(editar, fila) {
     this.publicacion.setValue({
       id: fila.id,
       codigo: fila.codigo,
@@ -313,7 +353,7 @@ export class WebComponent implements OnInit {
 
   }
 
-  eliminarPubli(id) {
+  deletePublication(id) {
     Swal.fire({
       icon: 'error',
       title: 'Quiere eliminar la publicacion?',
@@ -333,7 +373,7 @@ export class WebComponent implements OnInit {
 
   }
 
-  export(data) {
+  exportToTiendaNube(data) {
     let encontrado: boolean;
     let cont: number = 0;
     let stock: any = [];
@@ -360,7 +400,7 @@ export class WebComponent implements OnInit {
         }
       }
       if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
-        this.estandarizador(data[i]);
+        this.dataStandardizer(data[i]);
         cont++;
       } else {
         stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
@@ -384,7 +424,7 @@ export class WebComponent implements OnInit {
     });
   }
 
-  filtrarTabla() {
+  tableSearchFilter() {
     let filtroMinusculas = this.filtro.toLowerCase();
     this.web = this.webBackup.filter(row => {
       let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
@@ -395,6 +435,9 @@ export class WebComponent implements OnInit {
         codigoMinusculas.includes(filtroMinusculas);
     });
   }
+
+
+  
 
 
 }

@@ -1,20 +1,20 @@
 <section class="d-flex m-2"> <!-- Botones -->
 	<div style="margin-right: 5px;">
-		<button (click)="descargarCSV()" class="d-flex gap-2 align-items-center">
+		<button (click)="csvDownload()" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-download"></i>
 			<label class=" d-none d-md-block m-0"> Descargar CSV</label>
 		</button>
 	</div>
 
 	<div style="margin-right: 5px; align-items: center; ">
-		<button (click)="stock(actualizar)" class="d-flex gap-2 align-items-center">
+		<button (click)="modalStock(actualizar)" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-box" style="padding-right: 3px;"></i>
 			<label class=" d-none d-md-block m-0">Stock</label>
 		</button>
 	</div>
 
 	<div style="margin-right: 5px; align-items: center; ">
-		<button (click)="exp(actualizar)" class="d-flex gap-2 align-items-center">
+		<button (click)="exportToWeb(actualizar)" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-arrow-rotate-right"></i>
 			<label class=" d-none d-md-block m-0">Actualizar web</label>
 		</button>
@@ -23,7 +23,7 @@
 	<!-- Una barra de búsqueda que filtra la tabla. -->
 	<div style="margin-left: auto;align-items: center;padding-right: 10px">
 		<input style="margin: 0px 5px;max-width:700px; " placeholder="Buscar" type="text" class="form-control"
-			[(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
+			[(ngModel)]="filtro" (ngModelChange)="tableSearchFilter()">
 	</div>
 </section>
 
@@ -39,9 +39,9 @@
 					<th class="headers" scope="col" *ngFor="let header of headers;let i = index">
 						{{ header }}
 						<div style="display: inline-block; vertical-align: sub;">
-							<span (click)="ordenar(headers2[i],false)"><i
+							<span (click)="sort(headers2[i],false)"><i
 									class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
-							<span (click)="ordenar(headers2[i],true)"><i
+							<span (click)="sort(headers2[i],true)"><i
 									class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
 						</div>
 					</th>
@@ -49,9 +49,9 @@
 
 			</thead>
 			<tbody class="table-group-divider">
-				<tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0}">
+				<tr *ngFor="let row of web; let i = index" [ngClass]="{'color-rojo': row['stock'] === 0, 'color-amarillo' : stockWarning(row)}">
 					<td class="opciones" style="cursor: pointer">
-						<p class="editar m-0" (click)="editarPublicacion(editar,row)" target="_blank">
+						<p class="editar m-0" (click)="editPublication(editar,row)" target="_blank">
 							Editar
 						</p>
 					</td>
@@ -238,7 +238,7 @@
 
 			<div class="modal-footer input-group">
 				<button type="submit" class="btn btn-light" (click)="modal.close('Close click')">Guardar</button>
-				<button class="btn btn-light" (click)="eliminarPubli(publicacion.value.id)"><i
+				<button class="btn btn-light" (click)="deletePublication(publicacion.value.id)"><i
 						class="fa-solid fa-trash"></i></button>
 			</div>
 		</form>
