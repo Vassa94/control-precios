@@ -22,13 +22,13 @@
 
 	<!-- Una barra de búsqueda que filtra la tabla. -->
 	<div style="margin-left: auto;align-items: center;padding-right: 10px">
-		<input style="margin: 0px 5px;max-width:700px; " placeholder="Buscar" type="text" class="form-control"
+		<input style="margin: 0px 5px;max-width:400px; " placeholder="Buscar" type="text" class="form-control"
 			[(ngModel)]="filtro" (ngModelChange)="tableSearchFilter()">
 	</div>
 </section>
 
 <div class="Tabla " data-toggle="table" *ngIf="!cargando"> <!-- Tabla -->
-	<div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
+	<div class="table-responsive" style=" margin: 8px; min-height: 77vh; border-radius: 15px; ">
 		<table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
 			<thead>
 
