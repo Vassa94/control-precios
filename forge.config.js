@@ -1,6 +1,6 @@
 module.exports = {
   packagerConfig: {
-    dir: "./dist"
+    
   },
   rebuildConfig: {},
   makers: [
