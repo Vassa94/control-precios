@@ -10,9 +10,6 @@ import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
 
-
-
-
 @Component({
 	selector: 'app-productos',
 	templateUrl: './productos.component.html',
@@ -25,11 +22,8 @@ export class ProductosComponent implements OnInit {
 	headers: any;
 	headers2: any;
 	filtro: string = '';
-	filteredProductos: Record<string, any>[] = [];
 	cargando: boolean = true;
 	edt: boolean = false;
-	actualizador: any;
-	csvFile: any;
 	reader = new FileReader();
 	selector: string = '';
 
@@ -41,6 +35,7 @@ export class ProductosComponent implements OnInit {
 
 
 
+	/* Creando un nuevo FormGroup con el nombre producto. */
 	producto = new FormGroup({
 		codigo: new FormControl(),
 		cod_Fabrica: new FormControl(),
@@ -50,15 +45,17 @@ export class ProductosComponent implements OnInit {
 		stock: new FormControl()
 	})
 
+	/* Creando un nuevo FormGroup llamado archivo. También está creando un nuevo FormControl llamado csv. */
 	file = new FormGroup({
 		csv: new FormControl('')
 	})
 
+	/**
+	 * La función se llama cuando se inicializa el componente.Llama a la
+	 * función getProductos().
+	 */
 	ngOnInit(): void {
-		const search$ = new Subject<string>();
 		this.getProductos();
-
-
 	}
 
 	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
@@ -83,6 +80,12 @@ export class ProductosComponent implements OnInit {
 		);
 	}
 
+	/**
+	 * Si el primer valor es menor que el segundo valor, devuelve -1, si el primer valor es mayor que el
+	 * segundo valor, devuelve 1, de lo contrario, devuelve 0.
+	 * @param valor - el valor a ordenar por
+	 * @param {boolean} ordenInverso - booleano
+	 */
 	ordenar(valor, ordenInverso: boolean) {
 		this.productos.sort((productoA, productoB) => {
 			if (productoA[valor] < productoB[valor]) {
@@ -95,6 +98,13 @@ export class ProductosComponent implements OnInit {
 		}, valor);
 	}
 
+	/**
+	 * "This function is called when the user clicks on the 'view' button in the table. It opens a modal
+	 * window with the data of the selected row."
+	 * </code>
+	 * @param cont - is the modal content
+	 * @param row - is the row that I'm passing to the modal
+	 */
 	view(cont, row) {
 		this.producto.setValue({
 			codigo: row.codigo,
@@ -107,6 +117,9 @@ export class ProductosComponent implements OnInit {
 		this.modalService.open(cont, { centered: true });
 	}
 
+	/**
+	 * This function is used to clear the form fields
+	 */
 	newF() {
 		this.producto.setValue({
 			codigo: " ",
@@ -118,6 +131,10 @@ export class ProductosComponent implements OnInit {
 		})
 	}
 
+	/**
+	 * It takes a file, reads it, parses it, and then sends it to another function.
+	 * @param {any} event - any =&gt; The event that triggers the function.
+	 */
 	parser(event: any) {
 		let file: File = event.target.files[0];
 		if (file) {
@@ -142,21 +159,37 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
+	/* Opening a modal for update products. */
 	act(actualizar) {
 		this.selector = "precio";
 		this.modalService.open(actualizar, { centered: true })
 	};
 
+	/**
+	 * "This function opens a modal window when the user clicks on a button."
+	 * </code>
+	 * @param actualizar - is the id of the modal
+	 */
 	actStock(actualizar) {
 		this.selector = "stock";
 		this.modalService.open(actualizar, { centered: true })
 	}
 
+	/**
+	 * The function opens a modal window and calls the newF() function and let the modal ready for create a new product
+	 * @param productNew - is the modal id
+	 */
 	form(productNew) {
 		this.newF();
 		this.modalService.open(productNew, { centered: true });
 	}
 
+	/**
+	 * "When the user clicks on the edit button, the modal opens and the form is populated with the data
+	 * of the product that the user wants to edit."
+	 * </code>
+	 * @param product - is the modal that I want to open
+	 */
 	edit(product) {
 		this.edt = true;
 		this.producto.setValue({
@@ -170,7 +203,10 @@ export class ProductosComponent implements OnInit {
 		this.modalService.open(product, { centered: true });
 	}
 
-
+	/**
+	 * Update a product in database.
+	 * </code>
+	 */
 	actualizarProducto() {
 		const id = this.producto.value.codigo;
 		const params = new HttpParams()
@@ -195,6 +231,10 @@ export class ProductosComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Add a product to the database.
+	 * </code>
+	 */
 	agregarProducto() {
 		console.log("paso 1");
 
@@ -217,6 +257,20 @@ export class ProductosComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * It takes an array of objects, and pushes them into another array. this is for bulk operations
+	 * </code>
+	 * @param data - any[] = [];
+	 * @returns <code>{
+	 *     "codigo": "1",
+	 *     "precioPublico": "1",
+	 *     "cod_Fabrica": "1",
+	 *     "descripcion": "1",
+	 *     "marca": "1",
+	 *     "stock": "1"
+	 * }
+	 * </code>
+	 */
 	agregarProductos(data) {
 		let encontrado: boolean;
 		let cont: number = 0;
@@ -271,6 +325,11 @@ export class ProductosComponent implements OnInit {
 
 	}
 
+	/**
+	 * If the variable edt is true, then the function actualizarProducto() is called, otherwise the
+	 * function agregarProducto() is called.
+	 * </code>
+	 */
 	select() {
 		if (this.edt) {
 			this.actualizarProducto();
@@ -279,6 +338,10 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
+	/**
+	 * It deletes a product from the database and then deletes it from the array of products
+	 * @param id - the id of the product to be deleted
+	 */
 	borrarProducto(id) {
 		this.datosSis.borrarProducto(id).subscribe((data) => { })
 		for (let i = 0; i < this.productos.length; i++) {
@@ -288,8 +351,11 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-
-
+	/**
+	 * It takes a CSV file, parses it, and then sends the data to a database.
+	 * </code>
+	 * @param body - the data from the CSV file
+	 */
 	actualizarPrecios(body) {
 		if (!body[0].codigo || !body[0].precio) {
 			Swal.fire({
@@ -311,6 +377,12 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
+	/**
+	 * If the first element of the array is not defined, or the first element's codigo property is not a
+	 * number, or the first element's stock property is not a number, then show an error message.
+	 * Otherwise, call the actuStock function and pass in the array, and then show a success message.
+	 * @param body - the data from the CSV file
+	 */
 	actualizarStock(body) {
 		if (!body[0] || typeof body[0].codigo !== "number" || typeof body[0].stock !== "number") {
 			Swal.fire({
@@ -331,7 +403,14 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	estandarizador(data, destino) {
+	/**
+ * It takes an array of objects, and returns an array of objects with the same keys, but with the
+ * values converted to integers.
+ * @param data - is the data that I get from the file
+ * @param destino - is the name of the table in the database where the data will be stored
+ */
+
+estandarizador(data, destino) {
 		const body: any[] = [];
 		let aux = {};
 		let col = (destino === 'precio') ? "PUBLICO" : "Total";
@@ -381,6 +460,10 @@ export class ProductosComponent implements OnInit {
 
 	}
 
+	/**
+	 * It takes an array of objects, converts it to a CSV string, creates a blob, and then uses
+	 * FileSaver.js to save the blob as a file.
+	 */
 	descargarCSV() {
 		let data = this.productos;
 		const csvData = Papa.unparse(data);
@@ -391,20 +474,9 @@ export class ProductosComponent implements OnInit {
 
 	}
 
-
-
-	searchProduct = (text$: Observable<string>) =>
-		text$.pipe(
-
-			debounceTime(200),
-			map((term: string) => term === '' ? []
-				: this.productos.filter(v => v.descripcion.toLowerCase().includes(term.toLowerCase()) ||
-					v.marca.toLowerCase().includes(term.toLowerCase()) ||
-					v.codigo.toString().toLowerCase().includes(term.toLowerCase()) ||
-					v.cod_Fabrica.toString().toLowerCase().includes(term.toLowerCase()))
-					.slice(0, 10))
-		)
-
+	/**
+	 * It filters the table by comparing the input value with the values of the table.
+	 */
 	filtrarTabla() {
 		let filtroMinusculas = this.filtro.toLowerCase();
 		this.productos = this.ProdBackup.filter(row => {
@@ -415,23 +487,52 @@ export class ProductosComponent implements OnInit {
 				marcaMinusculas.includes(filtroMinusculas) ||
 				codigoMinusculas.includes(filtroMinusculas);
 		});
-
 	}
 
-	prueba(array:Array<any>):Array<any> {
-		let stock : Array<any> = [];
-		array.forEach ((a) => {
+	/**
+	 * It takes an array of objects, and returns an array of objects with only the `codigo` and
+	 * `stockActual` properties
+	 * @param array - Array<any> = [{codigo: '1', stock: '10'}, {codigo: '2', stock: '20'}]
+	 * @returns An array of objects.
+	 */
+	prueba(array: Array<any>): Array<any> {
+		let stock: Array<any> = [];
+		array.forEach((a) => {
 			let codigo = a.codigo;
 			let stockActual = a.stock;
-			let producto =  {codigo,stockActual};		
+			let producto = { codigo, stockActual };
 			stock.push(producto);
 		})
 		return stock;
 	}
 
-	backupStock (){
+	/**
+	 * It takes an array of objects, and returns a new array of objects with the same properties, but with
+	 * the values of the properties changed.
+	 * 
+	 * The function is called with this.prueba(this.productos)
+	 * 
+	 * The function is called with an array of objects.
+	 * 
+	 * The function returns a new array of objects.
+	 * 
+	 * The function returns an array of objects with the same properties as the original array of objects.
+	 * 
+	 * 
+	 * The function returns an array of objects with the same properties as the original array of objects,
+	 * but with the values of the properties changed.
+	 * 
+	 * The function returns an array of objects with the same properties as the original array of objects,
+	 * but with the values of the properties changed.
+	 * 
+	 * The function returns an array of objects with the same properties as the original array of objects,
+	 * but with the values of the properties changed.
+	 * 
+	 * The
+	 */
+	backupStock() {
 		console.log("paso");
-		
+
 		let nuevoStock = this.prueba(this.productos);
 		//fs.writeFileSync("src/assets/productos.json", JSON.stringify(nuevoStock));
 	}
