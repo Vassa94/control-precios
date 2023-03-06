@@ -4,7 +4,7 @@
   <div class="dropdown" style="margin: 0px 5px;">
     <button class="dropdown-toggle d-flex gap-2 align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
-      <label class=" d-none d-md-block m-0"></label>
+      <label class=" d-none d-md-block m-0">Subir</label>
     </button>
     <ul class="dropdown-menu" style="width: 250px;">
       <li>
@@ -45,9 +45,9 @@
 
   <!-- Un botón para pruebas. -->
   <div style="margin-right: 5px;">
-    <button (click)="backupStock()" class="d-flex gap-2 align-items-center">
+    <button (click)="prueba()" class="d-flex gap-2 align-items-center">
       <i class="fa-solid fa-gears" style="padding-right: 3px;"></i>
-      <label class=" d-none d-md-block m-0">Crear</label>
+      <label class=" d-none d-md-block m-0">Test</label>
     </button>
   </div>
 
@@ -61,7 +61,7 @@
 
 <!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-  <div class="table-responsive" style=" margin: 8px; height: 77vh; border-radius: 15px;">
+  <div class="table-responsive" style=" margin: 8px;max-height: 77vh; border-radius: 15px;">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
       <thead>
         <tr style="height:20px ;overflow: hidden;">
