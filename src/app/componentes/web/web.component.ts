@@ -15,6 +15,7 @@ import { tap } from 'rxjs';
   styleUrls: ['./web.component.css']
 })
 export class WebComponent implements OnInit {
+  /* Declaración de variables. */
   web: any;
   webBackup: any;
   stockCodigos: Array<any> = [];
@@ -26,10 +27,20 @@ export class WebComponent implements OnInit {
   selector: string = '';
   warning: Array<boolean> = [];
 
-  constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
-    
+  /**
+   * La función constructora se utiliza para inicializar la clase y se llama cuando se crea una
+   * instancia de la clase.
+   * @param {BDService} datosSis - BDServicio
+   * @param {NgbModal} modalService - NgbModal,
+   * @param {NgbModule} formModule - Módulo Ngb
+   */
+  constructor(private datosSis: BDService, 
+              private modalService: NgbModal, 
+              private formModule: NgbModule) {
+
   }
 
+  /* Creando un FormGroup con FormControls. */
   publicacion = new FormGroup({
     id: new FormControl(),
     codigo: new FormControl(),
@@ -50,10 +61,17 @@ export class WebComponent implements OnInit {
     url: new FormControl(),
   })
 
+  /**
+   * La función ngOnInit() es un enlace de ciclo de vida que se llama después de que Angular haya
+   * inicializado todas las propiedades vinculadas a datos de una directiva.
+   */
   ngOnInit(): void {
     this.getProductos();
   }
 
+  /**
+   * Obtiene los productos de la base de datos y los guarda en la variable "web" y "webBackup"
+   */
   getProductos(): void {
     this.datosSis.obtenerWeb().toPromise().then((data) => {
       this.web = data;
@@ -100,27 +118,35 @@ export class WebComponent implements OnInit {
 
   }
 
-  getStockLocal(): void {
+  /**
+   * "Obtener datos de un archivo json local y luego usar esos
+   * datos para compararlos con otra matriz de datos. Luego envio el resultado de
+   * esa comparación a otra matriz".
+   */
+  getStockLocal() {
     this.datosSis.obtenerDatos().toPromise().then((data) => {
       this.stockCodigos = this.dataReductor(data)
       for (let i = 0; i < this.web.length; i++) {
         let valor: boolean = this.stockWarning(this.web[i])
         this.warning.push(valor);
       }
-    })    
+    })
   }
 
-  stockWarning(product) {
+ /**
+  * Si el stock del producto de sistema es menor que el stock del producto web , devuelve verdadero, de lo contrario,
+  * devuelve falso.
+  */
+  stockWarning(product):boolean {
     let codigos = product.codigo;
     let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[0])?.localStock;
     if (stockProducto < product.stock) {
-      return true; 
+      return true;
     }
-    return false; 
+    return false;
   }
 
-
-
+  /* Creando una nueva matriz de objetos con las propiedades codigo y localStock. */
   dataReductor(array: Array<any>): Array<any> {
     let stock: Array<any> = [];
     array.forEach((a) => {
@@ -137,7 +163,10 @@ export class WebComponent implements OnInit {
     this.modalService.open(cont, { centered: true });
   } */
 
-  dataStandardizer(data) {
+  /**
+   * Toma un objeto JSON, modifica algunas de sus propiedades para amoldarlo y luego lo envía a un servidor.
+   */
+  dataStandardizer(data): void {
     let cod: number[] = [];
 
     if (data.SKU) {
@@ -185,6 +214,10 @@ export class WebComponent implements OnInit {
     ).subscribe();
   }
 
+  /**
+   * Toma los datos de la variable web, los convierte en un archivo csv y luego los guarda en la
+   * computadora del usuario.
+   */
   csvDownload() {
     let data = this.web;
     const csvData = Papa.unparse(data);
@@ -194,6 +227,12 @@ export class WebComponent implements OnInit {
     FileSaver.saveAs(blob, fileName);
   }
 
+  /**
+   * Se llama a la función de clasificación con el valor de la propiedad por la que se va a clasificar
+   * y un valor booleano que determina si el orden de clasificación es ascendente o descendente.
+   * @param valor - el valor a ordenar por
+   * @param {boolean} ordenInverso - booleano
+   */
   sort(valor, ordenInverso: boolean) {
     this.web.sort((productoA, productoB) => {
       if (productoA[valor] < productoB[valor]) {
@@ -206,8 +245,12 @@ export class WebComponent implements OnInit {
     }, valor);
   }
 
+  /**
+   * Lee un archivo CSV, lo analiza y luego lo envía a una función que lo enviará a un servidor.
+   */
   parser(event: any) {
     let file: File = event.target.files[0];
+    /* Leer un archivo CSV y analizarlo. */
     if (file) {
       this.reader.readAsText(file, 'ISO-8859-3');
       this.reader.onload = (event: any) => {
@@ -243,6 +286,10 @@ export class WebComponent implements OnInit {
     }
   }
 
+  /**
+   * Abre una ventana modal cuando el usuario hace clic en un botón.
+   * @param actualizar - es el id del modal
+   */
   modalStock(actualizar) {
     this.selector = "stock"
     this.modalService.open(actualizar, { centered: true })
@@ -258,7 +305,16 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
+  
+  /**
+   * Actualizar los datos en la base de datos y luego actualizar los datos en la
+   * tabla.
+   * </código>
+   * @param editar - es el modal que se abre.
+   * @param fila - Es un objeto que contiene los datos de la fila que quiero editar.
+   */
   editPublication(editar, fila) {
+    /* Configuración del valor del formulario. */
     this.publicacion.setValue({
       id: fila.id,
       codigo: fila.codigo,
@@ -279,12 +335,13 @@ export class WebComponent implements OnInit {
       url: fila.url,
     })
 
-
-
+    /* Abriendo un modal y luego enviando una solicitud al servidor. */
     this.modalService.open(editar, { centered: true, size: 'xl', backdrop: 'static' }).result.then(() => {
+      /* Comprobando si el valor de la variable precioProm es nulo o indefinido. Si es así, lo pone a 0. */
       if (!(this.publicacion.value.precioProm)) {
         this.publicacion.value.precioProm = 0;
       }
+      /* Crear un nuevo objeto HttpParams y luego establecer los valores de las propiedades. */
       const params = new HttpParams()
         .set("SKU", this.publicacion.value.codigo)
         .set("nombre", this.publicacion.value.nombre)
@@ -304,6 +361,7 @@ export class WebComponent implements OnInit {
         .set("identificador", this.publicacion.value.url)
 
       const id = this.publicacion.value.id;
+      /* Actualización de los datos en la base de datos. */
       this.datosSis.editarPubli(id, params).pipe(
         tap(() => {
           const objetoActualizado = {
@@ -326,29 +384,24 @@ export class WebComponent implements OnInit {
             url: this.publicacion.value.url,
             ean: this.publicacion.value.ean,
           };
-
-          // Buscar índice del objeto en el array que se está visualizando en pantalla
           const indice = this.web.findIndex(obj => obj.id === id);
-
           if (indice >= 0) {
-            // Si el objeto existe en el array, actualizar valores del objeto
             this.web[indice] = objetoActualizado;
           } else {
-            // Si el objeto no existe en el array, agregar el objeto al array
             this.web.push(objetoActualizado);
           }
-
-          // Actualizar la variable del array con el nuevo array actualizado
           this.web = [...this.web];
-
         }, error => { console.log(error) })
       ).subscribe();
-
     });
-
   }
 
+  /**
+   * Quiero eliminar una publicación, pero primero quiero confirmarla.
+   * @param id - identificación de la publicación
+   */
   deletePublication(id) {
+    /* Una alerta que le pregunta al usuario si desea eliminar una publicación. */
     Swal.fire({
       icon: 'error',
       title: 'Quiere eliminar la publicacion?',
@@ -368,6 +421,10 @@ export class WebComponent implements OnInit {
 
   }
 
+  /**
+   * Toma un archivo CSV, lo analiza y luego lo guarda como un nuevo archivo CSV.
+   * @param data - es la matriz de objetos que quiero exportar a CSV
+   */
   exportToTiendaNube(data) {
     let encontrado: boolean;
     let cont: number = 0;
@@ -375,6 +432,8 @@ export class WebComponent implements OnInit {
     let id: number = 0;
     for (let i = 0; i < data.length; i++) {
       encontrado = false;
+      /* Comprobando si la url no es indefinida o nula y si es igual a los datos[i]["Identificador de
+      URL"] */
       for (let j = 0; j < this.web.length; j++) {
         if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
           if (!(this.web[j].precioProm)) {
@@ -394,17 +453,22 @@ export class WebComponent implements OnInit {
           id = this.web[j].id;
         }
       }
+      /* Comprobando si no se encuentran los datos y si la URL no está vacía. Si ambas condiciones son
+      verdaderas, llamará a la función dataStandardizer. */
       if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
         this.dataStandardizer(data[i]);
         cont++;
+      /* Agregando los datos en la matriz. */
       } else {
         stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
       }
     }
+    /* actualizar los stocks en BD. */
     this.datosSis.actuStocksWeb(stock).pipe(
       tap(() => { }, error => { console.log(error) })
     ).subscribe();
 
+    /* Convertir los datos en un archivo CSV y descargarlo. */
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
     let fileName = 'Subir-' + date + '.csv';
@@ -419,6 +483,9 @@ export class WebComponent implements OnInit {
     });
   }
 
+  /**
+   * Filtra la matriz web por la cadena de filtro y devuelve la matriz filtrada.
+   */
   tableSearchFilter() {
     let filtroMinusculas = this.filtro.toLowerCase();
     this.web = this.webBackup.filter(row => {

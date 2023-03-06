@@ -2,16 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { debounceTime, map, Observable, Subject, Subscription } from 'rxjs';
 import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
-
-
-
 
 @Component({
 	selector: 'app-productos',
@@ -21,26 +16,24 @@ import { HttpParams } from '@angular/common/http';
 export class ProductosComponent implements OnInit {
 
 	productos: any;
-	ProdBackup: any;
+	prodBackup: any;
 	headers: any;
 	headers2: any;
 	filtro: string = '';
-	filteredProductos: Record<string, any>[] = [];
 	cargando: boolean = true;
 	edt: boolean = false;
-	actualizador: any;
-	csvFile: any;
 	reader = new FileReader();
 	selector: string = '';
 
 
 
-	constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
+	constructor(private datosSis: BDService, private modalService: NgbModal) {
 
 	}
 
 
 
+	/* Creando un nuevo FormGroup con el nombre producto. */
 	producto = new FormGroup({
 		codigo: new FormControl(),
 		cod_Fabrica: new FormControl(),
@@ -50,22 +43,24 @@ export class ProductosComponent implements OnInit {
 		stock: new FormControl()
 	})
 
+	/* Creando un nuevo FormGroup llamado archivo. También está creando un nuevo FormControl llamado csv. */
 	file = new FormGroup({
 		csv: new FormControl('')
 	})
 
+	/**
+	 * La función se llama cuando se inicializa el componente.Llama a la
+	 * función getProductos().
+	 */
 	ngOnInit(): void {
-		const search$ = new Subject<string>();
 		this.getProductos();
-
-
 	}
 
 	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
 	getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
 			this.productos = data;
-			this.ProdBackup = data;
+			this.prodBackup = data;
 			this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
 			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
 			this.cargando = false;
@@ -83,19 +78,26 @@ export class ProductosComponent implements OnInit {
 		);
 	}
 
+	/**
+	 * Si el primer valor es menor que el segundo valor, devuelve -1, si el primer valor es mayor que el
+	 * segundo valor, devuelve 1, de lo contrario, devuelve 0.
+	 * @param valor - el valor a ordenar por
+	 * @param {boolean} ordenInverso - booleano
+	 */
 	ordenar(valor, ordenInverso: boolean) {
 		this.productos.sort((productoA, productoB) => {
-			if (productoA[valor] < productoB[valor]) {
-				return ordenInverso ? 1 : -1;
-			} else if (productoA[valor] > productoB[valor]) {
-				return ordenInverso ? -1 : 1;
-			} else {
-				return 0;
-			}
+			return ordenInverso ? (productoA[valor] < productoB[valor] ? 1 : -1) : (productoA[valor] > productoB[valor] ? 1 : -1);
 		}, valor);
 	}
 
-	view(cont, row) {
+	/**
+	 * "This function is called when the user clicks on the 'view' button in the table. It opens a modal
+	 * window with the data of the selected row."
+	 * </code>
+	 * @param cont - is the modal content
+	 * @param row - is the row that I'm passing to the modal
+	 */
+	view(cont, row): void {
 		this.producto.setValue({
 			codigo: row.codigo,
 			marca: row.marca,
@@ -107,18 +109,18 @@ export class ProductosComponent implements OnInit {
 		this.modalService.open(cont, { centered: true });
 	}
 
-	newF() {
-		this.producto.setValue({
-			codigo: " ",
-			marca: " ",
-			cod_Fabrica: " ",
-			descripcion: " ",
-			stock: " ",
-			precioPublico: " ",
-		})
+	/**
+	 * This function is used to clear the form fields
+	 */
+	newF(): void {
+		this.producto.reset();
 	}
 
-	parser(event: any) {
+	/**
+	 * It takes a file, reads it, parses it, and then sends it to another function.
+	 * @param {any} event - any =&gt; The event that triggers the function.
+	 */
+	parser(event: any): void {
 		let file: File = event.target.files[0];
 		if (file) {
 			this.reader.readAsText(file, 'ISO-8859-3');
@@ -142,22 +144,38 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	act(actualizar) {
+	/* Opening a modal for update products. */
+	act(actualizar): void {
 		this.selector = "precio";
 		this.modalService.open(actualizar, { centered: true })
 	};
 
-	actStock(actualizar) {
+	/**
+	 * "This function opens a modal window when the user clicks on a button."
+	 * </code>
+	 * @param actualizar - is the id of the modal
+	 */
+	actStock(actualizar): void {
 		this.selector = "stock";
 		this.modalService.open(actualizar, { centered: true })
 	}
 
-	form(productNew) {
+	/**
+	 * The function opens a modal window and calls the newF() function and let the modal ready for create a new product
+	 * @param productNew - is the modal id
+	 */
+	form(productNew): void {
 		this.newF();
 		this.modalService.open(productNew, { centered: true });
 	}
 
-	edit(product) {
+	/**
+	 * "When the user clicks on the edit button, the modal opens and the form is populated with the data
+	 * of the product that the user wants to edit."
+	 * </code>
+	 * @param product - is the modal that I want to open
+	 */
+	edit(product): void {
 		this.edt = true;
 		this.producto.setValue({
 			codigo: this.producto.value.codigo,
@@ -170,8 +188,11 @@ export class ProductosComponent implements OnInit {
 		this.modalService.open(product, { centered: true });
 	}
 
-
-	actualizarProducto() {
+	/**
+	 * Update a product in database.
+	 * </code>
+	 */
+	actualizarProducto(): void {
 		const id = this.producto.value.codigo;
 		const params = new HttpParams()
 			.set('codFabrica', this.producto.value.cod_Fabrica)
@@ -195,7 +216,11 @@ export class ProductosComponent implements OnInit {
 		});
 	}
 
-	agregarProducto() {
+	/**
+	 * Add a product to the database.
+	 * </code>
+	 */
+	agregarProducto(): void {
 		console.log("paso 1");
 
 		const body = {
@@ -217,7 +242,21 @@ export class ProductosComponent implements OnInit {
 		});
 	}
 
-	agregarProductos(data) {
+	/**
+	 * It takes an array of objects, and pushes them into another array. this is for bulk operations
+	 * </code>
+	 * @param data - any[] = [];
+	 * @returns <code>{
+	 *     "codigo": "1",
+	 *     "precioPublico": "1",
+	 *     "cod_Fabrica": "1",
+	 *     "descripcion": "1",
+	 *     "marca": "1",
+	 *     "stock": "1"
+	 * }
+	 * </code>
+	 */
+	agregarProductos(data): void {
 		let encontrado: boolean;
 		let cont: number = 0;
 		const body: any[] = [];
@@ -271,7 +310,12 @@ export class ProductosComponent implements OnInit {
 
 	}
 
-	select() {
+	/**
+	 * If the variable edt is true, then the function actualizarProducto() is called, otherwise the
+	 * function agregarProducto() is called.
+	 * </code>
+	 */
+	select(): void {
 		if (this.edt) {
 			this.actualizarProducto();
 		} else {
@@ -279,7 +323,11 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	borrarProducto(id) {
+	/**
+	 * It deletes a product from the database and then deletes it from the array of products
+	 * @param id - the id of the product to be deleted
+	 */
+	borrarProducto(id): void {
 		this.datosSis.borrarProducto(id).subscribe((data) => { })
 		for (let i = 0; i < this.productos.length; i++) {
 			if (this.productos[i].codigo === id) {
@@ -288,9 +336,12 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-
-
-	actualizarPrecios(body) {
+	/**
+	 * It takes a CSV file, parses it, and then sends the data to a database.
+	 * </code>
+	 * @param body - the data from the CSV file
+	 */
+	actualizarPrecios(body): void {
 		if (!body[0].codigo || !body[0].precio) {
 			Swal.fire({
 				title: 'Oops...',
@@ -311,7 +362,13 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	actualizarStock(body) {
+	/**
+	 * If the first element of the array is not defined, or the first element's codigo property is not a
+	 * number, or the first element's stock property is not a number, then show an error message.
+	 * Otherwise, call the actuStock function and pass in the array, and then show a success message.
+	 * @param body - the data from the CSV file
+	 */
+	actualizarStock(body): void {
 		if (!body[0] || typeof body[0].codigo !== "number" || typeof body[0].stock !== "number") {
 			Swal.fire({
 				title: 'Oops...',
@@ -331,7 +388,13 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	estandarizador(data, destino) {
+	/**
+ * It takes an array of objects, and returns an array of objects with the same keys, but with the
+ * values converted to integers.
+ * @param data - is the data that I get from the file
+ * @param destino - is the name of the table in the database where the data will be stored
+ */
+	estandarizador(data, destino): void {
 		const body: any[] = [];
 		let aux = {};
 		let col = (destino === 'precio') ? "PUBLICO" : "Total";
@@ -381,7 +444,11 @@ export class ProductosComponent implements OnInit {
 
 	}
 
-	descargarCSV() {
+	/**
+	 * It takes an array of objects, converts it to a CSV string, creates a blob, and then uses
+	 * FileSaver.js to save the blob as a file.
+	 */
+	descargarCSV(): void {
 		let data = this.productos;
 		const csvData = Papa.unparse(data);
 		let date = new Date().toLocaleString();
@@ -391,49 +458,39 @@ export class ProductosComponent implements OnInit {
 
 	}
 
-
-
-	searchProduct = (text$: Observable<string>) =>
-		text$.pipe(
-
-			debounceTime(200),
-			map((term: string) => term === '' ? []
-				: this.productos.filter(v => v.descripcion.toLowerCase().includes(term.toLowerCase()) ||
-					v.marca.toLowerCase().includes(term.toLowerCase()) ||
-					v.codigo.toString().toLowerCase().includes(term.toLowerCase()) ||
-					v.cod_Fabrica.toString().toLowerCase().includes(term.toLowerCase()))
-					.slice(0, 10))
-		)
-
-	filtrarTabla() {
+	/**
+	 * It filters the table by comparing the input value with the values of the table.
+	 */
+	filtrarTabla(): void {
 		let filtroMinusculas = this.filtro.toLowerCase();
-		this.productos = this.ProdBackup.filter(row => {
-			let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
+		this.productos = this.prodBackup.filter(row => {
+			let nombreMinusculas = row.descripcion ? row.descripcion.toLowerCase() : '';
 			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
 			let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase() : '';
 			return nombreMinusculas.includes(filtroMinusculas) ||
 				marcaMinusculas.includes(filtroMinusculas) ||
 				codigoMinusculas.includes(filtroMinusculas);
 		});
-
 	}
 
-	prueba(array:Array<any>):Array<any> {
-		let stock : Array<any> = [];
-		array.forEach ((a) => {
-			let codigo = a.codigo;
-			let stockActual = a.stock;
-			let producto =  {codigo,stockActual};		
-			stock.push(producto);
+	/**
+	 * It takes an array of objects, and returns an array of objects with only the `codigo` and
+	 * `stockActual` properties
+	 * @param array - Array<any> = [{codigo: '1', stock: '10'}, {codigo: '2', stock: '20'}]
+	 * @returns An array of objects.
+	 */
+	prueba(): void {
+		Swal.fire({
+			icon: 'success',
+			title: 'Apretaste un boton!',
+			text:'Si, es un chiste. es un boton de pruebas',
+			showConfirmButton: false,
+			timer: 2000
 		})
-		return stock;
 	}
 
-	backupStock (){
+	backupStock(): void {
 		console.log("paso");
-		
-		let nuevoStock = this.prueba(this.productos);
-		//fs.writeFileSync("src/assets/productos.json", JSON.stringify(nuevoStock));
 	}
 
 }
