@@ -47,6 +47,10 @@
   width: 30px;
 }
 
+.precioPublico {
+  text-align: center;
+}
+
 .stock{
   text-align: center;
   width: 50px;
