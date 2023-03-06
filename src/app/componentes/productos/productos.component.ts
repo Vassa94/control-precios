@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { debounceTime, map, Observable, Subject, Subscription } from 'rxjs';
 import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
@@ -18,7 +16,7 @@ import { HttpParams } from '@angular/common/http';
 export class ProductosComponent implements OnInit {
 
 	productos: any;
-	ProdBackup: any;
+	prodBackup: any;
 	headers: any;
 	headers2: any;
 	filtro: string = '';
@@ -29,7 +27,7 @@ export class ProductosComponent implements OnInit {
 
 
 
-	constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) {
+	constructor(private datosSis: BDService, private modalService: NgbModal) {
 
 	}
 
@@ -62,7 +60,7 @@ export class ProductosComponent implements OnInit {
 	getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
 			this.productos = data;
-			this.ProdBackup = data;
+			this.prodBackup = data;
 			this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
 			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
 			this.cargando = false;
@@ -88,13 +86,7 @@ export class ProductosComponent implements OnInit {
 	 */
 	ordenar(valor, ordenInverso: boolean) {
 		this.productos.sort((productoA, productoB) => {
-			if (productoA[valor] < productoB[valor]) {
-				return ordenInverso ? 1 : -1;
-			} else if (productoA[valor] > productoB[valor]) {
-				return ordenInverso ? -1 : 1;
-			} else {
-				return 0;
-			}
+			return ordenInverso ? (productoA[valor] < productoB[valor] ? 1 : -1) : (productoA[valor] > productoB[valor] ? 1 : -1);
 		}, valor);
 	}
 
@@ -105,7 +97,7 @@ export class ProductosComponent implements OnInit {
 	 * @param cont - is the modal content
 	 * @param row - is the row that I'm passing to the modal
 	 */
-	view(cont, row) {
+	view(cont, row): void {
 		this.producto.setValue({
 			codigo: row.codigo,
 			marca: row.marca,
@@ -120,22 +112,15 @@ export class ProductosComponent implements OnInit {
 	/**
 	 * This function is used to clear the form fields
 	 */
-	newF() {
-		this.producto.setValue({
-			codigo: " ",
-			marca: " ",
-			cod_Fabrica: " ",
-			descripcion: " ",
-			stock: " ",
-			precioPublico: " ",
-		})
+	newF(): void {
+		this.producto.reset();
 	}
 
 	/**
 	 * It takes a file, reads it, parses it, and then sends it to another function.
 	 * @param {any} event - any =&gt; The event that triggers the function.
 	 */
-	parser(event: any) {
+	parser(event: any): void {
 		let file: File = event.target.files[0];
 		if (file) {
 			this.reader.readAsText(file, 'ISO-8859-3');
@@ -160,7 +145,7 @@ export class ProductosComponent implements OnInit {
 	}
 
 	/* Opening a modal for update products. */
-	act(actualizar) {
+	act(actualizar): void {
 		this.selector = "precio";
 		this.modalService.open(actualizar, { centered: true })
 	};
@@ -170,7 +155,7 @@ export class ProductosComponent implements OnInit {
 	 * </code>
 	 * @param actualizar - is the id of the modal
 	 */
-	actStock(actualizar) {
+	actStock(actualizar): void {
 		this.selector = "stock";
 		this.modalService.open(actualizar, { centered: true })
 	}
@@ -179,7 +164,7 @@ export class ProductosComponent implements OnInit {
 	 * The function opens a modal window and calls the newF() function and let the modal ready for create a new product
 	 * @param productNew - is the modal id
 	 */
-	form(productNew) {
+	form(productNew): void {
 		this.newF();
 		this.modalService.open(productNew, { centered: true });
 	}
@@ -190,7 +175,7 @@ export class ProductosComponent implements OnInit {
 	 * </code>
 	 * @param product - is the modal that I want to open
 	 */
-	edit(product) {
+	edit(product): void {
 		this.edt = true;
 		this.producto.setValue({
 			codigo: this.producto.value.codigo,
@@ -207,7 +192,7 @@ export class ProductosComponent implements OnInit {
 	 * Update a product in database.
 	 * </code>
 	 */
-	actualizarProducto() {
+	actualizarProducto(): void {
 		const id = this.producto.value.codigo;
 		const params = new HttpParams()
 			.set('codFabrica', this.producto.value.cod_Fabrica)
@@ -235,7 +220,7 @@ export class ProductosComponent implements OnInit {
 	 * Add a product to the database.
 	 * </code>
 	 */
-	agregarProducto() {
+	agregarProducto(): void {
 		console.log("paso 1");
 
 		const body = {
@@ -271,7 +256,7 @@ export class ProductosComponent implements OnInit {
 	 * }
 	 * </code>
 	 */
-	agregarProductos(data) {
+	agregarProductos(data): void {
 		let encontrado: boolean;
 		let cont: number = 0;
 		const body: any[] = [];
@@ -330,7 +315,7 @@ export class ProductosComponent implements OnInit {
 	 * function agregarProducto() is called.
 	 * </code>
 	 */
-	select() {
+	select(): void {
 		if (this.edt) {
 			this.actualizarProducto();
 		} else {
@@ -342,7 +327,7 @@ export class ProductosComponent implements OnInit {
 	 * It deletes a product from the database and then deletes it from the array of products
 	 * @param id - the id of the product to be deleted
 	 */
-	borrarProducto(id) {
+	borrarProducto(id): void {
 		this.datosSis.borrarProducto(id).subscribe((data) => { })
 		for (let i = 0; i < this.productos.length; i++) {
 			if (this.productos[i].codigo === id) {
@@ -356,7 +341,7 @@ export class ProductosComponent implements OnInit {
 	 * </code>
 	 * @param body - the data from the CSV file
 	 */
-	actualizarPrecios(body) {
+	actualizarPrecios(body): void {
 		if (!body[0].codigo || !body[0].precio) {
 			Swal.fire({
 				title: 'Oops...',
@@ -383,7 +368,7 @@ export class ProductosComponent implements OnInit {
 	 * Otherwise, call the actuStock function and pass in the array, and then show a success message.
 	 * @param body - the data from the CSV file
 	 */
-	actualizarStock(body) {
+	actualizarStock(body): void {
 		if (!body[0] || typeof body[0].codigo !== "number" || typeof body[0].stock !== "number") {
 			Swal.fire({
 				title: 'Oops...',
@@ -409,8 +394,7 @@ export class ProductosComponent implements OnInit {
  * @param data - is the data that I get from the file
  * @param destino - is the name of the table in the database where the data will be stored
  */
-
-estandarizador(data, destino) {
+	estandarizador(data, destino): void {
 		const body: any[] = [];
 		let aux = {};
 		let col = (destino === 'precio') ? "PUBLICO" : "Total";
@@ -464,7 +448,7 @@ estandarizador(data, destino) {
 	 * It takes an array of objects, converts it to a CSV string, creates a blob, and then uses
 	 * FileSaver.js to save the blob as a file.
 	 */
-	descargarCSV() {
+	descargarCSV(): void {
 		let data = this.productos;
 		const csvData = Papa.unparse(data);
 		let date = new Date().toLocaleString();
@@ -477,10 +461,10 @@ estandarizador(data, destino) {
 	/**
 	 * It filters the table by comparing the input value with the values of the table.
 	 */
-	filtrarTabla() {
+	filtrarTabla(): void {
 		let filtroMinusculas = this.filtro.toLowerCase();
-		this.productos = this.ProdBackup.filter(row => {
-			let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
+		this.productos = this.prodBackup.filter(row => {
+			let nombreMinusculas = row.descripcion ? row.descripcion.toLowerCase() : '';
 			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
 			let codigoMinusculas = row.codigo ? row.codigo.toString().toLowerCase() : '';
 			return nombreMinusculas.includes(filtroMinusculas) ||
@@ -495,46 +479,18 @@ estandarizador(data, destino) {
 	 * @param array - Array<any> = [{codigo: '1', stock: '10'}, {codigo: '2', stock: '20'}]
 	 * @returns An array of objects.
 	 */
-	prueba(array: Array<any>): Array<any> {
-		let stock: Array<any> = [];
-		array.forEach((a) => {
-			let codigo = a.codigo;
-			let stockActual = a.stock;
-			let producto = { codigo, stockActual };
-			stock.push(producto);
+	prueba(): void {
+		Swal.fire({
+			icon: 'success',
+			title: 'Apretaste un boton!',
+			text:'Si, es un chiste. es un boton de pruebas',
+			showConfirmButton: false,
+			timer: 2000
 		})
-		return stock;
 	}
 
-	/**
-	 * It takes an array of objects, and returns a new array of objects with the same properties, but with
-	 * the values of the properties changed.
-	 * 
-	 * The function is called with this.prueba(this.productos)
-	 * 
-	 * The function is called with an array of objects.
-	 * 
-	 * The function returns a new array of objects.
-	 * 
-	 * The function returns an array of objects with the same properties as the original array of objects.
-	 * 
-	 * 
-	 * The function returns an array of objects with the same properties as the original array of objects,
-	 * but with the values of the properties changed.
-	 * 
-	 * The function returns an array of objects with the same properties as the original array of objects,
-	 * but with the values of the properties changed.
-	 * 
-	 * The function returns an array of objects with the same properties as the original array of objects,
-	 * but with the values of the properties changed.
-	 * 
-	 * The
-	 */
-	backupStock() {
+	backupStock(): void {
 		console.log("paso");
-
-		let nuevoStock = this.prueba(this.productos);
-		//fs.writeFileSync("src/assets/productos.json", JSON.stringify(nuevoStock));
 	}
 
 }
