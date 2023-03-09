@@ -5,7 +5,8 @@
         <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion3">Mercadolibre</a>
     </nav>
     <h1 class="text-center">Preguntas frecuentes</h1>
-    <section>
+
+    <section> <!-- Consideraciones iniciales -->
         <h3>Consideraciones iniciales</h3>
         <ul>
             <li>Todos los archivos de excel usados por la app son CSV. no admite xls o xlsx</li>
@@ -22,7 +23,7 @@
         </ul>
     </section>
 
-    <section class="d-flex flex-column">
+    <section class="d-flex flex-column"><!-- Excel y CSV -->
         <h3 class="border-bottom border-top" id="seccion1">Excel y CSV</h3>
         <article>
             <h5 id="UTF-8">Codificacion del CSV</h5>
@@ -54,17 +55,20 @@
                 encabezado y la linea final. de ser necesario, tambien los separadores o lineas vacias. Cuanto menos
                 datos redundantes tenga el archivo mejor. Ejemplo;
             </p>
-            <figure>
-                <img src="" alt="exportando de sistema">
+            <figure class="d-flex justify-content-center py-5">
+                <img src="./assets/img/guias/encabezado.png" alt="exportando de sistema" class="w-30 shadow rounded">
             </figure>
-            <figure>
-                <img src="" alt="encabezado">
+            <figure class="d-flex justify-content-center py-5">
+                <img src="./assets/img/guias/sinencabezado.png" alt="encabezado" class="w-30 shadow rounded">
+            </figure>
+            <p>Lo mismo realizamos con el footer de la tabla, para evitar errores de lectura;</p>
+            <figure class="d-flex justify-content-center py-5">
+                <img src="./assets/img/guias/confooter.png" alt="borrar el footer" class="w-30 shadow rounded">
             </figure>
         </article>
-
-
     </section>
-    <section class="h-60">
+
+    <section class="h-60"><!-- web -->
         <h3 class="border-bottom border-top" id="seccion2">Web</h3>
         <p>Esta seccion maneja las publicaciones de la pagina Web. actualmente no hay conexion con la API de TiendaNube, por lo que se maneja con CSV.
             La app permite reflejar en los CVS de actualizacion:           
@@ -80,12 +84,12 @@
         <ul>
             <li>Stock. estos se arrastran de la web a la app cuando se carga el csv de tiendanube</li>
             <li>Cambios en nombre. Se deben realizar dentro de la web. Si la URL cambia, la app generara otro publicacion nueva, quedando la anterior obsoleta (recordar borrar)</li>
-            <li>cambios en Codigo de Oxi. se deben ahcer manualmente en ambas plataformas</li>
+            <li>cambios en Codigo de Oxi. se deben hacer manualmente en ambas plataformas</li>
         </ul>
         <p> <strong>IMPORTANTE</strong> si se realizan modificaciones en la plataforma web, recordar reflejarlas en la app, o se desincronizaran y traera problemas a futuro al exportar (ofertas diferentes, etc)</p>
     </section>
 
-    <section class="h-60">
+    <section class="h-60"><!-- mercadolibre -->
         <h3 class="border-bottom border-top" id="seccion3">Mercadolibre</h3>
         <p>
             Actualmente esta seccion esta inactiva. Se pueden ver productos de prueba. Esta seccion estara conectada a
