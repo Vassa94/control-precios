@@ -330,7 +330,7 @@ export class WebComponent implements OnInit {
       stock: fila.stock,
       mostrar: fila.mostrar,
       envio: fila.envio,
-      marca: fila.marca,
+      marca: fila.marca.trim(),
       ean: fila.ean,
       url: fila.url,
     })
@@ -487,7 +487,7 @@ export class WebComponent implements OnInit {
    * Filtra la matriz web por la cadena de filtro y devuelve la matriz filtrada.
    */
   tableSearchFilter() {
-    let filtroMinusculas = this.filtro.toLowerCase();
+    let filtroMinusculas = this.filtro.toLowerCase().trim();
     this.web = this.webBackup.filter(row => {
       let nombreMinusculas = row.nombre ? row.nombre.toLowerCase() : '';
       let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
