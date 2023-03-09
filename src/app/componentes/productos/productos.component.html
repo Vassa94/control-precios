@@ -78,7 +78,7 @@
 
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of productos; let i = index">
+        <tr *ngFor="let row of productos| paginate: { itemsPerPage: 10, currentPage: p }; let i = index ">
           <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2">
             {{ cell === 'precioPublico' ? '$' + row[cell] : row[cell] }}
           </td>
@@ -88,6 +88,9 @@
         </tr>
       </tbody>
     </table>
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
   </div>
 </div>
 

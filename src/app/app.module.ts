@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -22,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 import { GuiaComponent } from './componentes/guia/guia.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { GuiaComponent } from './componentes/guia/guia.component';
     WebComponent,
     TruefalseComponent,
     MercadolibreComponent,
-    GuiaComponent
+    GuiaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { GuiaComponent } from './componentes/guia/guia.component';
     FormsModule,
     NgbModule,
     CommonModule,
-    
+    NgxPaginationModule
     
   ],
   providers: [],

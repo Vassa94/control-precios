@@ -7,6 +7,7 @@ import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
 	selector: 'app-productos',
@@ -24,6 +25,7 @@ export class ProductosComponent implements OnInit {
 	edt: boolean = false;
 	reader = new FileReader();
 	selector: string = '';
+	p: number = 1;
 
 	constructor(private datosSis: BDService, private modalService: NgbModal) {
 	}
