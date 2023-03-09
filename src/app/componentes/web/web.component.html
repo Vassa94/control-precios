@@ -227,7 +227,7 @@
 				</div>
 				<div style="position: absolute;right: 176px;bottom: -59px;">
 					<label class="mb-2 barcode">
-						{{publicacion.value.ean}}
+						{{publicacion.value.ean.length >= 12 ? publicacion.value.ean : ''}}
 					</label>
 				</div>
 				<div style="display: inline-block; margin-left: 50px;">

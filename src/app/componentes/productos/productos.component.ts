@@ -25,13 +25,8 @@ export class ProductosComponent implements OnInit {
 	reader = new FileReader();
 	selector: string = '';
 
-
-
 	constructor(private datosSis: BDService, private modalService: NgbModal) {
-
 	}
-
-
 
 	/* Creando un nuevo FormGroup con el nombre producto. */
 	producto = new FormGroup({
@@ -197,7 +192,7 @@ export class ProductosComponent implements OnInit {
 		const params = new HttpParams()
 			.set('codFabrica', this.producto.value.cod_Fabrica)
 			.set('descripcion', this.producto.value.descripcion)
-			.set('marca', this.producto.value.marca)
+			.set('marca', this.producto.value.marca.trim())
 			.set('precioPub', this.producto.value.precioPublico)
 			.set('stock', this.producto.value.stock)
 		console.log(params);
@@ -462,7 +457,7 @@ export class ProductosComponent implements OnInit {
 	 * It filters the table by comparing the input value with the values of the table.
 	 */
 	filtrarTabla(): void {
-		let filtroMinusculas = this.filtro.toLowerCase();
+		let filtroMinusculas = this.filtro.toLowerCase().trim();
 		this.productos = this.prodBackup.filter(row => {
 			let nombreMinusculas = row.descripcion ? row.descripcion.toLowerCase() : '';
 			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
