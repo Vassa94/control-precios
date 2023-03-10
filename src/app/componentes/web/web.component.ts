@@ -7,7 +7,7 @@ import * as normalize from 'normalize-strings';
 import Swal from 'sweetalert2';
 import *  as Papa from 'papaparse';
 import * as FileSaver from 'file-saver';
-import { tap } from 'rxjs';
+import { concat, Observable, shareReplay, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-web',
@@ -26,6 +26,8 @@ export class WebComponent implements OnInit {
   reader = new FileReader();
   selector: string = '';
   warning: Array<boolean> = [];
+  editando = null;
+  p: number = 1;
 
   /**
    * La función constructora se utiliza para inicializar la clase y se llama cuando se crea una
@@ -34,9 +36,9 @@ export class WebComponent implements OnInit {
    * @param {NgbModal} modalService - NgbModal,
    * @param {NgbModule} formModule - Módulo Ngb
    */
-  constructor(private datosSis: BDService, 
-              private modalService: NgbModal, 
-              private formModule: NgbModule) {
+  constructor(private datosSis: BDService,
+    private modalService: NgbModal,
+    private formModule: NgbModule) {
 
   }
 
@@ -69,10 +71,69 @@ export class WebComponent implements OnInit {
     this.getProductos();
   }
 
+  getProductos(): void {
+    const cache$: Observable<any> = this.datosSis.obtenerWeb().pipe(
+      // Caché de la respuesta
+      shareReplay({ bufferSize: 1, refCount: true, windowTime: 300000 })
+    );
+    const http$: Observable<any> = this.datosSis.obtenerWeb().pipe(
+      // Deshabilita la caché para esta petición
+      tap(() => console.log('Petición HTTP en segundo plano...')),
+      switchMap(() => this.datosSis.obtenerWeb()),
+      // Actualiza la caché con la nueva respuesta
+      tap((data) => console.log('Actualizando caché...', data)),
+      shareReplay({ bufferSize: 1, refCount: true, windowTime: 300000 })
+    );
+    const web$: Observable<any> = concat(cache$, http$);
+
+    web$.subscribe(
+      (data) => {
+        this.web = data;
+        this.webBackup = data;
+        this.headers = ["Nombre",
+          "Precio",
+          "Oferta",
+          "Peso",
+          "Alto",
+          "Ancho",
+          "Prof.",
+          "Stock",
+          "Codigo",
+          "Mostrar",
+          "Envio g.",
+          "Marca"];
+        this.headers2 = ["nombre",
+          "precio",
+          "precioProm",
+          "peso",
+          "alto",
+          "ancho",
+          "profundidad",
+          "stock",
+          "codigo",
+          "mostrar",
+          "envio",
+          "marca"];
+        this.cargando = false;
+        this.getStockLocal();
+      },
+      (error) => {
+        this.cargando = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No esta habilitado el backend!',
+          footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
+        })
+        console.log("Ha ocurrido un error al obtener los productos:", error);
+      }
+    );
+  }
+
   /**
    * Obtiene los productos de la base de datos y los guarda en la variable "web" y "webBackup"
    */
-  getProductos(): void {
+  /* getProductos(): void {
     this.datosSis.obtenerWeb().toPromise().then((data) => {
       this.web = data;
       this.webBackup = data;
@@ -113,10 +174,10 @@ export class WebComponent implements OnInit {
         })
         console.log("Ha ocurrido un error al obtener los productos:", error);
       }
-    );
+    ); 
 
 
-  }
+  }*/
 
   /**
    * "Obtener datos de un archivo json local y luego usar esos
@@ -133,11 +194,11 @@ export class WebComponent implements OnInit {
     })
   }
 
- /**
-  * Si el stock del producto de sistema es menor que el stock del producto web , devuelve verdadero, de lo contrario,
-  * devuelve falso.
-  */
-  stockWarning(product):boolean {
+  /**
+   * Si el stock del producto de sistema es menor que el stock del producto web , devuelve verdadero, de lo contrario,
+   * devuelve falso.
+   */
+  stockWarning(product): boolean {
     let codigos = product.codigo;
     let stockProducto = this.stockCodigos.find((s) => s.codigo === codigos[0])?.localStock;
     if (stockProducto < product.stock) {
@@ -305,7 +366,7 @@ export class WebComponent implements OnInit {
     this.modalService.open(actualizar, { centered: true })
   }
 
-  
+
   /**
    * Actualizar los datos en la base de datos y luego actualizar los datos en la
    * tabla.
@@ -458,7 +519,7 @@ export class WebComponent implements OnInit {
       if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
         this.dataStandardizer(data[i]);
         cont++;
-      /* Agregando los datos en la matriz. */
+        /* Agregando los datos en la matriz. */
       } else {
         stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
       }
@@ -496,6 +557,82 @@ export class WebComponent implements OnInit {
         marcaMinusculas.includes(filtroMinusculas) ||
         codigoMinusculas.includes(filtroMinusculas);
     });
+  }
+
+  editEnvio(data) {
+    this.editando = data;
+    data.envio = !data.envio;
+    this.publicacion.setValue({
+      id: data.id,
+      codigo: data.codigo,
+      nombre: data.nombre,
+      categoria: data.categorias,
+      pack: data.pack,
+      precio: data.precio,
+      precioProm: data.precioProm,
+      peso: data.peso,
+      alto: data.alto,
+      ancho: data.ancho,
+      profundidad: data.profundidad,
+      stock: data.stock,
+      mostrar: data.mostrar,
+      envio: data.envio,
+      marca: data.marca.trim(),
+      ean: data.ean,
+      url: data.url,
+    })
+
+    const params = new HttpParams()
+      .set("SKU", this.publicacion.value.codigo)
+      .set("nombre", this.publicacion.value.nombre)
+      .set("categoria", this.publicacion.value.categoria)
+      .set("pack", parseInt(this.publicacion.value.pack))
+      .set("precio", parseInt(this.publicacion.value.precio))
+      .set("precioProm", parseInt(this.publicacion.value.precioProm))
+      .set("peso", parseFloat(this.publicacion.value.peso))
+      .set("alto", parseFloat(this.publicacion.value.alto))
+      .set("ancho", parseFloat(this.publicacion.value.ancho))
+      .set("profundidad", parseFloat(this.publicacion.value.profundidad))
+      .set("stock", parseInt(this.publicacion.value.stock))
+      .set("mostrar", this.publicacion.value.mostrar)
+      .set("envio", this.publicacion.value.envio)
+      .set("marca", this.publicacion.value.marca)
+      .set("ean", this.publicacion.value.ean)
+      .set("identificador", this.publicacion.value.url)
+
+    const id = this.publicacion.value.id;
+    /* Actualización de los datos en la base de datos. */
+    this.datosSis.editarPubli(id, params).pipe(
+      tap(() => {
+        const objetoActualizado = {
+          id: id,
+          nombre: this.publicacion.value.nombre,
+          categorias: this.publicacion.value.categoria,
+          pack: parseInt(this.publicacion.value.pack),
+          precio: parseInt(this.publicacion.value.precio),
+          precioProm: parseInt(this.publicacion.value.precioProm),
+          peso: parseFloat(this.publicacion.value.peso),
+          alto: parseFloat(this.publicacion.value.alto),
+          ancho: parseFloat(this.publicacion.value.ancho),
+          profundidad: parseFloat(this.publicacion.value.profundidad),
+          stock: parseInt(this.publicacion.value.stock),
+          codigo: [this.publicacion.value.codigo],
+          mostrar: this.publicacion.value.mostrar,
+          envio: this.publicacion.value.envio,
+          tags: '',
+          marca: this.publicacion.value.marca,
+          url: this.publicacion.value.url,
+          ean: this.publicacion.value.ean,
+        };
+        const indice = this.web.findIndex(obj => obj.id === id);
+        if (indice >= 0) {
+          this.web[indice] = objetoActualizado;
+        } else {
+          this.web.push(objetoActualizado);
+        }
+        this.web = [...this.web];
+      }, error => { console.log(error) })
+    ).subscribe();
   }
 
 
