@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BDService } from 'src/app/services/bd.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, NgForm, Validators, NgModel } from '@angular/forms';
-import { debounceTime, map, Observable, Subject, Subscription } from 'rxjs';
+import { concat, debounceTime, map, Observable, Subject, Subscription, tap } from 'rxjs';
 import * as Papa from 'papaparse';
 import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { shareReplay,switchMap } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-productos',
@@ -53,8 +54,52 @@ export class ProductosComponent implements OnInit {
 		this.getProductos();
 	}
 
-	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
 	getProductos(): void {
+		// Crea un Observable que emite la respuesta caché
+		const cache$: Observable<any> = this.datosSis.obtenerDatos().pipe(
+			// Caché de la respuesta
+			shareReplay({ bufferSize: 1, refCount: true, windowTime: 300000 })
+		);
+
+		// Crea un Observable que emite la respuesta actualizada desde el servidor
+		const http$: Observable<any> = this.datosSis.obtenerDatos().pipe(
+			// Deshabilita la caché para esta petición
+			tap(() => console.log('Petición HTTP en segundo plano...')),
+			switchMap(() => this.datosSis.obtenerDatos()),
+			// Actualiza la caché con la nueva respuesta
+			tap((data) => console.log('Actualizando caché...', data)),
+			shareReplay({ bufferSize: 1, refCount: true, windowTime: 300000 })
+		);
+
+		// Combina los dos Observables usando concat
+		const productos$: Observable<any> = concat(cache$, http$);
+
+		// Suscribe a los datos
+		productos$.subscribe(
+			(data) => {
+				this.productos = data;
+				this.prodBackup = data;
+				this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
+				this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
+				this.cargando = false;
+			},
+			(error) => {
+				this.cargando = false;
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'No está habilitado el backend!',
+					footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
+				});
+				console.log("Ha ocurrido un error al obtener los productos:", error);
+			}
+		);
+	}
+
+
+
+	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
+	/* getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
 			this.productos = data;
 			this.prodBackup = data;
@@ -73,7 +118,7 @@ export class ProductosComponent implements OnInit {
 				console.log("Ha ocurrido un error al obtener los productos:", error);
 			}
 		);
-	}
+	} */
 
 	/**
 	 * Si el primer valor es menor que el segundo valor, devuelve -1, si el primer valor es mayor que el
@@ -480,7 +525,7 @@ export class ProductosComponent implements OnInit {
 		Swal.fire({
 			icon: 'success',
 			title: 'Apretaste un boton!',
-			text:'Si, es un chiste. es un boton de pruebas',
+			text: 'Si, es un chiste. es un boton de pruebas',
 			showConfirmButton: false,
 			timer: 2000
 		})
