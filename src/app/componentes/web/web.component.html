@@ -49,7 +49,7 @@
 
 			</thead>
 			<tbody class="table-group-divider">
-				<tr *ngFor="let row of web; let i = index" [ngClass]="{
+				<tr *ngFor="let row of web | paginate: { itemsPerPage: 10, currentPage: p }; let i = index" [ngClass]="{
                     'color-rojo': row.stock === 0,
                     'color-amarillo': warning[i]}">
 					<td class="opciones" style="cursor: pointer">
@@ -57,18 +57,26 @@
 							Editar
 						</p>
 					</td>
-					<td class="{{cell}}" style="overflow-x: hidden;height: min-content;" *ngFor="let cell of headers2">
-						<app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-						<span *ngIf="cell !== 'mostrar' && cell !== 'envio'">
-							{{ cell === 'peso' ? row[cell] + ' Kg' :
+					<td class="{{cell}}" style="overflow-x: hidden;height: min-content;"
+						*ngFor="let cell of headers2">
+						<app-circulo *ngIf="cell === 'mostrar' " [verde]="row[cell]"></app-circulo>
+						<span *ngIf="cell !== 'mostrar'">
+							{{ cell === 'envio' ? '' :
+							(cell === 'peso' ? row[cell] + ' Kg' :
 							(cell === 'precio' || cell === 'precioProm' ? (row[cell] ? '$' + row[cell] : '') :
 							(cell === 'alto' || cell === 'ancho' || cell === 'profundidad' ? row[cell] + ' cm' :
-							row[cell])) }}
-						</span>						
+							row[cell]))) }}
+						</span>
+						<span *ngIf="cell === 'envio'" (click)="editEnvio(row)">
+							<app-circulo [verde]="row[cell]" [class.editando]="editando === row"></app-circulo>
+						</span>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<div class="pagination">
+			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+		</div>
 	</div>
 </div>
 
