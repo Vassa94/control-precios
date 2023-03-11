@@ -27,7 +27,10 @@ export class ProductosComponent implements OnInit {
 	reader = new FileReader();
 	selector: string = '';
 	p: number = 1;
-	productosPorPagina = 12;
+	windowHeight = window.innerHeight;
+	tableHeight = 0.69 * this.windowHeight;
+	rowHeight = 42;
+	productosPorPagina = Math.ceil(this.tableHeight / this.rowHeight);;
 
 	constructor(private datosSis: BDService, private modalService: NgbModal) {
 	}
