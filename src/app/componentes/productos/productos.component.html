@@ -2,7 +2,8 @@
   <!-- Un botón que permite al usuario cargar un archivo CSV. -->
 
   <div class="dropdown" style="margin: 0px 5px;">
-    <button class="dropdown-toggle d-flex gap-2 align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="dropdown-toggle d-flex gap-2 align-items-center" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
       <i class="fa-solid fa-upload" style="padding-right: 3px;"></i>
       <label class=" d-none d-md-block m-0">Subir</label>
     </button>
@@ -54,31 +55,34 @@
   <!-- Una barra de búsqueda que filtra la tabla. -->
   <div style="margin-left: auto;align-items: center;padding-right: 10px">
     <input style="margin: 0px 5px;max-width:700px" placeholder="Buscar" type="text" class="form-control"
-    [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
+      [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
   </div>
 </div>
 
 <!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-  <div class="table-responsive" style=" margin: 8px;max-height: 77vh; border-radius: 15px;">
-    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-      <thead>
-        <tr style="height:20px ;overflow: hidden;">
+  <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+    <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; " >
+      <thead class="sticky-top" style="z-index: 1; background-color: white;">
+        <tr  style="height:20px;overflow: hidden;">
           <th class="headers" scope="col" *ngFor="let header of headers;let i = index">
-            {{ header }} 
-            <div  style="display: inline-block; vertical-align: sub;">
-              <span (click)="ordenar(headers2[i],false)"><i  class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
-              <span (click)="ordenar(headers2[i],true)"><i  class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
+            {{ header }}
+            <div style="display: inline-block; vertical-align: sub;">
+              <span (click)="ordenar(headers2[i],false)" style="cursor:pointer"><i
+                  class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
+              <span (click)="ordenar(headers2[i],true)" style="cursor:pointer"><i
+                  class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
             </div>
           </th>
           <th class="opciones">
           </th>
         </tr>
-
       </thead>
-      <tbody class="table-group-divider">
-        <tr *ngFor="let row of productos| paginate: { itemsPerPage: 10, currentPage: p }; let i = index ">
-          <td class="{{cell}}" style="overflow-x: hidden; " *ngFor="let cell of headers2">
+
+      <tbody class="table-group-divider" style="height: 200px; overflow-y: auto; overflow-x: hidden;">
+        <tr
+          *ngFor="let row of productos| paginate: { itemsPerPage: productosPorPagina, currentPage: p }; let i = index ">
+          <td class="{{cell}}"  *ngFor="let cell of headers2">
             {{ cell === 'precioPublico' ? '$' + row[cell] : row[cell] }}
           </td>
           <td class="opciones" style="cursor: pointer" (click)="view(content,row)">
@@ -86,9 +90,15 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table>    
+  </div>
+  <div class="d-flex justify-content-between" style=" position: sticky; z-index: 1; background-color: white; margin: 8px; padding:2px">
     <div class="pagination">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <div class="d-flex justify-content-end mb-3">
+      <label for="productos-por-pagina" class="mr-2 px-1">Productos por página:</label>
+      <input class="rounded" style="width: 50px;" type="number" id="productos-por-pagina" [(ngModel)]="productosPorPagina" min="1" max="100">
     </div>
   </div>
 </div>
@@ -126,8 +136,8 @@
   <div class="card">
     <div class="card-img">
       <!-- <a href="\\192.168.0.100\Img\{{producto.value.marca}}\" target="_blank"> -->
-        <img class="modalImg" src="\\192.168.0.100\Img\{{producto.value.marca}}\{{producto.value.codigo}}.jpg"
-          alt="{{producto.value.cod_Fabrica}}" style="margin: 0 auto">
+      <img class="modalImg" src="\\192.168.0.100\Img\{{producto.value.marca}}\{{producto.value.codigo}}.jpg"
+        alt="{{producto.value.cod_Fabrica}}" style="margin: 0 auto">
       <!-- </a> -->
     </div>
     <div class="card-info">
@@ -194,12 +204,12 @@
 
         <div class="mb-2" style="display: flex;">
           <div style="display: inline-block;margin-right: 15px;">
-            <label class="mb-2" >
+            <label class="mb-2">
               Precio al publico
             </label>
-            <div class="input-group" >
+            <div class="input-group">
               <span class="input input-group-text" id="basic-addon1">$</span>
-              <input class="input form-control"  type="text" formControlName="precioPublico">
+              <input class="input form-control" type="text" formControlName="precioPublico">
             </div>
           </div>
           <div>
@@ -238,7 +248,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <p style="text-align: center;"><b>¡IMPORTANTE!</b>: Asegurate de que el CSV no 
-        tenga filas sobre los encabezados</p>
+    <p style="text-align: center;"><b>¡IMPORTANTE!</b>: Asegurate de que el CSV no
+      tenga filas sobre los encabezados</p>
   </div>
 </ng-template>

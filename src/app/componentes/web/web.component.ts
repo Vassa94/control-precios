@@ -28,6 +28,7 @@ export class WebComponent implements OnInit {
   warning: Array<boolean> = [];
   editando = null;
   p: number = 1;
+  productosPorPagina = 12;
 
   /**
    * La función constructora se utiliza para inicializar la clase y se llama cuando se crea una
@@ -69,6 +70,12 @@ export class WebComponent implements OnInit {
    */
   ngOnInit(): void {
     this.getProductos();
+    this.productosPorPagina = 12; // Asigna el valor predeterminado
+		const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
+		inputProductosPorPagina.addEventListener('change', () => {
+			this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
+			this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
+		});
   }
 
   getProductos(): void {
@@ -394,6 +401,7 @@ export class WebComponent implements OnInit {
       marca: fila.marca.trim(),
       ean: fila.ean,
       url: fila.url,
+      
     })
 
     /* Abriendo un modal y luego enviando una solicitud al servidor. */

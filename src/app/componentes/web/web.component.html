@@ -28,10 +28,9 @@
 </section>
 
 <div class="Tabla " data-toggle="table" *ngIf="!cargando"> <!-- Tabla -->
-	<div class="table-responsive" style=" margin: 8px; max-height: 77vh; border-radius: 15px; ">
+	<div class="table-responsive" style=" margin: 8px; max-height: 68vh; border-radius: 15px; ">
 		<table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-			<thead>
-
+			<thead class="sticky-top" style="z-index: 1; background-color: white;">
 				<tr style="height:20px ;">
 					<th class="opciones">
 						Accion
@@ -39,9 +38,9 @@
 					<th class="headers" scope="col" *ngFor="let header of headers;let i = index">
 						{{ header }}
 						<div style="display: inline-block; vertical-align: sub;">
-							<span (click)="sort(headers2[i],false)"><i
+							<span (click)="sort(headers2[i],false)" style="cursor:pointer"><i
 									class="fa-solid fa-caret-up d-flex flex-column filtro"></i></span>
-							<span (click)="sort(headers2[i],true)"><i
+							<span (click)="sort(headers2[i],true)" style="cursor:pointer"><i
 									class="fa-solid fa-caret-down d-flex flex-column filtro"></i></span>
 						</div>
 					</th>
@@ -49,7 +48,7 @@
 
 			</thead>
 			<tbody class="table-group-divider">
-				<tr *ngFor="let row of web | paginate: { itemsPerPage: 10, currentPage: p }; let i = index" [ngClass]="{
+				<tr *ngFor="let row of web | paginate: { itemsPerPage: productosPorPagina, currentPage: p }; let i = index" [ngClass]="{
                     'color-rojo': row.stock === 0,
                     'color-amarillo': warning[i]}">
 					<td class="opciones" style="cursor: pointer">
@@ -57,8 +56,7 @@
 							Editar
 						</p>
 					</td>
-					<td class="{{cell}}" style="overflow-x: hidden;height: min-content;"
-						*ngFor="let cell of headers2">
+					<td class="{{cell}}" style="overflow-x: hidden;height: min-content;" *ngFor="let cell of headers2">
 						<app-circulo *ngIf="cell === 'mostrar' " [verde]="row[cell]"></app-circulo>
 						<span *ngIf="cell !== 'mostrar'">
 							{{ cell === 'envio' ? '' :
@@ -74,8 +72,16 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	<div class="d-flex justify-content-between"
+		style=" position: sticky; z-index: 1; background-color: white; margin: 8px; padding:2px">
 		<div class="pagination">
 			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+		</div>
+		<div class="d-flex justify-content-end mb-3">
+			<label for="productos-por-pagina" class="mr-2 px-1">Productos por página:</label>
+			<input class="rounded" style="width: 50px;" type="number" id="productos-por-pagina"
+				[(ngModel)]="productosPorPagina" min="1" max="100">
 		</div>
 	</div>
 </div>

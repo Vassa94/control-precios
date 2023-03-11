@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import * as FileSaver from 'file-saver';
 import { HttpParams } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { shareReplay,switchMap } from 'rxjs/operators';
+import { shareReplay, switchMap } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-productos',
@@ -27,6 +27,7 @@ export class ProductosComponent implements OnInit {
 	reader = new FileReader();
 	selector: string = '';
 	p: number = 1;
+	productosPorPagina = 12;
 
 	constructor(private datosSis: BDService, private modalService: NgbModal) {
 	}
@@ -52,6 +53,12 @@ export class ProductosComponent implements OnInit {
 	 */
 	ngOnInit(): void {
 		this.getProductos();
+		this.productosPorPagina = 12; // Asigna el valor predeterminado
+		const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
+		inputProductosPorPagina.addEventListener('change', () => {
+			this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
+			this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
+		});
 	}
 
 	getProductos(): void {

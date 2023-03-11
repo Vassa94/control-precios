@@ -93,17 +93,14 @@
 }
 
 .mostrar {
-    white-space: nowrap;
-    overflow-x: auto;
-    align-items: center;
+    
     min-width: 90px;
+    vertical-align: middle;
 }
 
 .envio {
-    white-space: nowrap;
-    overflow-x: auto;
-    text-align: center;
     min-width: 90px;
+    vertical-align: middle;
 }
 
 a {
