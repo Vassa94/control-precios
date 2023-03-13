@@ -193,6 +193,8 @@ export class WebComponent implements OnInit {
    * datos para compararlos con otra matriz de datos. Luego envio el resultado de
    * esa comparación a otra matriz".
    */
+
+
   getStockLocal() {
     this.datosSis.obtenerDatos().toPromise().then((data) => {
       this.stockCodigos = this.dataReductor(data)
@@ -228,10 +230,6 @@ export class WebComponent implements OnInit {
 
     return stock;
   }
-
-  /* viewProduct(cont, row) {
-    this.modalService.open(cont, { centered: true });
-  } */
 
   /**
    * Toma un objeto JSON, modifica algunas de sus propiedades para amoldarlo y luego lo envía a un servidor.
@@ -548,7 +546,7 @@ export class WebComponent implements OnInit {
 
     Swal.fire({
       title: '¡Archivo generado!',
-      text: 'se cargaron ' + cont + ' publicaciones',
+      text: 'se encontraron ' + cont + ' nuevas publicaciones',
       icon: 'success',
       showConfirmButton: true,
     });
