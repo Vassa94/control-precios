@@ -183,6 +183,7 @@ export class ProductosComponent implements OnInit {
 					complete: (results) => {
 						let data = results.data;
 						this.estandarizador(data, this.selector);
+						//this.detectarNuevos(data);
 					}
 				});
 			}
@@ -194,6 +195,17 @@ export class ProductosComponent implements OnInit {
 				footer: '<a href="">Why do I have this issue?</a>'
 			})
 		}
+	}
+
+	detectarNuevos(array){
+		let nuevos : Array<any> = []
+		console.log(this.productos);
+		
+		array.forEach((element) => {
+			if (!this.productos.map(producto => producto.codigo.toString()).includes(element['Código'])){			
+				nuevos.push(element);
+			}});
+		return nuevos;
 	}
 
 	/* Opening a modal for update products. */
@@ -334,16 +346,18 @@ export class ProductosComponent implements OnInit {
 					return letter.toUpperCase();
 				});
 				let marca = data[i]['Fábrica'];
-				marca = marca.toLowerCase();
+				if (marca !== undefined) {
+					marca = marca.toLowerCase();
 				marca = marca.replace(/\b[a-z]/g, function (letter) {
 					return letter.toUpperCase();
 				});
+				}
 				aux = {
 					'codigo': parseInt(data[i]['Código']),
 					'precioPublico': data[i]['PUBLICO'],
 					'cod_Fabrica': data[i]['Cód.Fabricante'],
 					'descripcion': descripcion,
-					'marca': marca.replace("(Usd)", ''),
+					'marca': marca?.replace("(Usd)", '').trim(),
 					'stock': 0
 				}
 				body.push(aux);
@@ -447,6 +461,9 @@ export class ProductosComponent implements OnInit {
  * @param destino - is the name of the table in the database where the data will be stored
  */
 	estandarizador(data, destino): void {
+		console.log("ingrese a estandarizador");
+		console.log(destino);
+		
 		const body: any[] = [];
 		let aux = {};
 		let col = (destino === 'precio') ? "PUBLICO" : "Total";
@@ -468,6 +485,8 @@ export class ProductosComponent implements OnInit {
 				}
 			})
 		}
+		console.log("pase el selector");
+		
 		for (let i = 0; i < data.length; i++) {
 			let valor = data[i][col];
 			if (valor) {
@@ -490,10 +509,6 @@ export class ProductosComponent implements OnInit {
 			this.actualizarStock(body);
 
 		}
-
-
-
-
 	}
 
 	/**
