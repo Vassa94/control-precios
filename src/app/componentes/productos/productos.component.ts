@@ -197,14 +197,22 @@ export class ProductosComponent implements OnInit {
 		}
 	}
 
-	detectarNuevos(array){
-		let nuevos : Array<any> = []
+	/**
+	 * Toma una matriz de objetos y devuelve una matriz de objetos que no están en la matriz original
+	 * @param array - Matriz de objetos
+	 * @returns una matriz de objetos.
+	 */
+	detectarNuevos(array) {
+		let nuevos: Array<any> = []
 		console.log(this.productos);
-		
+
 		array.forEach((element) => {
-			if (!this.productos.map(producto => producto.codigo.toString()).includes(element['Código'])){			
+			if (!this.productos.map(producto => producto.codigo).includes(parseInt(element['Código']))) {
 				nuevos.push(element);
-			}});
+			}
+		});
+		console.log(nuevos);
+		
 		return nuevos;
 	}
 
@@ -323,15 +331,19 @@ export class ProductosComponent implements OnInit {
 	agregarProductos(data): void {
 		let encontrado: boolean;
 		let cont: number = 0;
-		const body: any[] = [];
-		let aux = {};
+		const body: Array<any> = [];
+		let aux: Object = {};
 		for (let i = 0; i < data.length; i++) {
 			encontrado = false;
-			for (let j = 0; j < this.productos.length; j++) {
+			encontrado = this.productos.some((producto) => {
+				return producto.codigo === parseInt(data[i]["Código"]);
+			});
+
+			/* for (let j = 0; j < this.productos.length; j++) {
 				if (this.productos[j].codigo !== undefined && this.productos[j].codigo !== null && this.productos[j].codigo === parseInt(data[i]["Código"])) {
 					encontrado = true;
 				}
-			}
+			} */
 			if (!encontrado && data[i]["Código"].trim() !== "") {
 				cont++;
 				let valor = data[i]['PUBLICO'];
@@ -348,9 +360,9 @@ export class ProductosComponent implements OnInit {
 				let marca = data[i]['Fábrica'];
 				if (marca !== undefined) {
 					marca = marca.toLowerCase();
-				marca = marca.replace(/\b[a-z]/g, function (letter) {
-					return letter.toUpperCase();
-				});
+					marca = marca.replace(/\b[a-z]/g, function (letter) {
+						return letter.toUpperCase();
+					});
 				}
 				aux = {
 					'codigo': parseInt(data[i]['Código']),
@@ -361,6 +373,7 @@ export class ProductosComponent implements OnInit {
 					'stock': 0
 				}
 				body.push(aux);
+				this.productos.push(aux)
 			}
 		}
 		this.datosSis.crearProductos(body).subscribe((data) => { });
@@ -460,55 +473,85 @@ export class ProductosComponent implements OnInit {
  * @param data - is the data that I get from the file
  * @param destino - is the name of the table in the database where the data will be stored
  */
-	estandarizador(data, destino): void {
-		console.log("ingrese a estandarizador");
-		console.log(destino);
-		
-		const body: any[] = [];
-		let aux = {};
-		let col = (destino === 'precio') ? "PUBLICO" : "Total";
+	async estandarizador(data, destino): Promise<void> {
 		if (destino === 'precio') {
-			Swal.fire({
+			const result = await Swal.fire({
 				title: 'Quiere agregar los productos faltantes al sistema?',
 				footer: '<a href="">como debe ser mi archivo?</a>',
 				showDenyButton: true,
 				showCancelButton: false,
 				confirmButtonText: 'Ok',
 				denyButtonText: `No`,
+			});
 
-			}).then((result) => {
-				/* Read more about isConfirmed, isDenied below */
-				if (result.isConfirmed) {
+			if (result.isConfirmed) {
+				const requiredKeys = ['Código', 'Descripción', 'Fábrica', 'Cód Fabricante', 'PUBLICO'];
+				const hasAllKeys = requiredKeys.every(key => data[key] !== undefined);
+				if (hasAllKeys) {
 					this.agregarProductos(data);
-				} else if (result.isDenied) {
-					Swal.fire('Actualizando solo precios', '', 'info')
+				} else {
+					try {
+						await Swal.fire({
+							title: 'Oops!',
+							text: 'El csv no tiene el formato correcto',
+							icon: 'error',
+							footer: '<a href="">como debe ser mi archivo?</a>',
+						});
+					} catch (error) {
+						console.log(error);
+					}
 				}
-			})
-		}
-		console.log("pase el selector");
-		
-		for (let i = 0; i < data.length; i++) {
-			let valor = data[i][col];
-			if (valor) {
-				valor = parseFloat(valor);
-				valor = Math.floor(valor);
-				data[i][col] = valor;
+			} else if (result.isDenied) {
+				Swal.fire('Actualizando solo precios', '', 'info')
 			}
-			if (destino === "precio" && data[i]['Código']) {
-				aux = { 'codigo': parseInt(data[i]['Código']), 'precio': data[i][col] };
-			} else if (destino === "stock" && data[i]['Código']) {
-				aux = { 'codigo': parseInt(data[i]['Código']), 'stock': data[i][col] };
-			}
-			body.push(aux);
+		};
 
-		}
+		const body = this.crearArrayActualizacion(data, destino);
 
 		if (destino === "precio") {
 			this.actualizarPrecios(body);
+			const nuevos = this.detectarNuevos(data)
+			setTimeout(function () {
+				Swal.fire({
+					title: 'Hay que actualizar!',
+					text: 'Se encontraron ' + nuevos.length + ' que no existen',
+					icon: 'info',
+					showConfirmButton: true,
+				});
+			}, 2000);
+	
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
+		};
+	}
 
-		}
+	/**
+	 * Toma una matriz de objetos y devuelve una matriz de objetos con las mismas claves, pero con los
+	 * valores de las claves redondeados al entero más cercano.
+	 * @param array - la matriz de objetos que quiero actualizar
+	 * @param destino - es el nombre de la tabla donde se insertarán los datos
+	 * @returns Una matriz de objetos.
+	 */
+	crearArrayActualizacion(array, destino) {
+		const valores: Array<any> = [];
+		let aux: Object = {};
+		let col = (destino === 'precio') ? "PUBLICO" : "Total";
+		for (let i = 0; i < array.length; i++) {
+			let valor = array[i][col];
+			if (valor) {
+				valor = parseFloat(valor);
+				valor = Math.floor(valor);
+				array[i][col] = valor;
+			}
+			if (destino === "precio" && array[i]['Código']) {
+				aux = { 'codigo': parseInt(array[i]['Código']), 'precio': array[i][col] };
+			} else if (destino === "stock" && array[i]['Código']) {
+				aux = { 'codigo': parseInt(array[i]['Código']), 'stock': array[i][col] };
+			}
+			valores.push(aux);
+
+		};
+		return valores
 	}
 
 	/**
