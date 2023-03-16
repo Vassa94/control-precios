@@ -73,11 +73,11 @@ export class WebComponent implements OnInit {
    */
   ngOnInit(): void {
     this.getProductos();
-		const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
-		inputProductosPorPagina.addEventListener('change', () => {
-			this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
-			this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
-		});
+    const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
+    inputProductosPorPagina.addEventListener('change', () => {
+      this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
+      this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
+    });
   }
 
   getProductos(): void {
@@ -401,7 +401,7 @@ export class WebComponent implements OnInit {
       marca: fila.marca.trim(),
       ean: fila.ean,
       url: fila.url,
-      
+
     })
 
     /* Abriendo un modal y luego enviando una solicitud al servidor. */
@@ -480,6 +480,14 @@ export class WebComponent implements OnInit {
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
+        const indiceAEliminar = this.web.findIndex(producto => producto.id === id);
+        // Si el objeto existe, elimínalo del array utilizando splice()
+        if (indiceAEliminar !== -1) {
+          this.web.splice(indiceAEliminar, 1);
+          console.log(this.web); // muestra el array sin el objeto eliminado
+        } else {
+          console.log(`El objeto con ID ${id} no existe en el array`);
+        }
         this.datosSis.eliminarPubli(id).pipe(
           tap(() => { }, error => { console.log(error) })
         ).subscribe();
