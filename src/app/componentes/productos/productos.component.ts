@@ -431,13 +431,7 @@ export class ProductosComponent implements OnInit {
 		} else {
 			this.datosSis.actuProductos(body).subscribe((data) => { });
 			this.datosSis.actuWeb(body).subscribe((data) => { });
-			Swal.fire({
-				title: '¡Genial!',
-				text: 'Precios actualizados',
-				icon: 'success',
-				showConfirmButton: false,
-				timer: 2500,
-			});
+			
 		}
 	}
 
@@ -514,7 +508,7 @@ export class ProductosComponent implements OnInit {
 			setTimeout(function () {
 				Swal.fire({
 					title: 'Hay que actualizar!',
-					text: 'Se encontraron ' + nuevos.length + ' que no existen',
+					text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
 					icon: 'info',
 					showConfirmButton: true,
 				});
