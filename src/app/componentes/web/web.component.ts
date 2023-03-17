@@ -398,7 +398,7 @@ export class WebComponent implements OnInit {
       stock: fila.stock,
       mostrar: fila.mostrar,
       envio: fila.envio,
-      marca: fila.marca.trim(),
+      marca: fila.marca,
       ean: fila.ean,
       url: fila.url,
 

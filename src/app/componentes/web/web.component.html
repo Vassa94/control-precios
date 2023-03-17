@@ -79,6 +79,7 @@
 			<pagination-controls (pageChange)="p = $event"></pagination-controls>
 		</div>
 		<div class="d-flex justify-content-end mb-3">
+			<span>Cantidad de publicaciones: {{this.web.length}}</span>
 			<label for="productos-por-pagina" class="mr-2 px-1">Productos por página:</label>
 			<input class="rounded" style="width: 50px;" type="number" id="productos-por-pagina"
 				[(ngModel)]="productosPorPagina" min="1" max="100">
