@@ -477,12 +477,18 @@ export class ProductosComponent implements OnInit {
 				confirmButtonText: 'Ok',
 				denyButtonText: `No`,
 			});
+			
+			
 
 			if (result.isConfirmed) {
-				const requiredKeys = ['Código', 'Descripción', 'Fábrica', 'Cód Fabricante', 'PUBLICO'];
-				const hasAllKeys = requiredKeys.every(key => data[key] !== undefined);
+				this.agregarProductos(data);
+				/* const requiredKeys = ['Código', 'Descripción', 'Fábrica', 'Cód Fabricante', 'PUBLICO'];
+				const hasAllKeys = requiredKeys.every(key => {
+					console.log(data['Código']);
+					return data[key] !== undefined});
+				console.log(hasAllKeys);
 				if (hasAllKeys) {
-					this.agregarProductos(data);
+					
 				} else {
 					try {
 						await Swal.fire({
@@ -494,7 +500,7 @@ export class ProductosComponent implements OnInit {
 					} catch (error) {
 						console.log(error);
 					}
-				}
+				} */
 			} else if (result.isDenied) {
 				Swal.fire('Actualizando solo precios', '', 'info')
 			}
