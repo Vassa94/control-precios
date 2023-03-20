@@ -246,11 +246,18 @@ export class WebComponent implements OnInit {
     data["Mostrar en tienda"] = (data["Mostrar en tienda"] === 'SI') ? true : false;
     data["Envío sin cargo"] = (data["Envío sin cargo"] === 'SI') ? true : false;
     let precio = data.Precio;
+    let precioProm = data['Precio promocional']
     if (precio) {
       precio = precio.replace(',', '');
       precio = parseFloat(precio);
       precio = Math.floor(precio);
       data.Precio = precio;
+    }
+    if (precioProm){
+      precioProm = precioProm.replace(',', '');
+      precioProm = parseFloat(precioProm);
+      precioProm = Math.floor(precioProm);
+      data['Precio promocional'] = precioProm;
     }
     const body = {
       "nombre": data.Nombre,
@@ -511,23 +518,24 @@ export class WebComponent implements OnInit {
       encontrado = false;
       /* Comprobando si la url no es indefinida o nula y si es igual a los datos[i]["Identificador de
       URL"] */
-      for (let j = 0; j < this.web.length; j++) {
-        if (this.web[j].url !== undefined && this.web[j].url !== null && this.web[j].url === data[i]["Identificador de URL"]) {
-          if (!(this.web[j].precioProm)) {
+      for (let j = 0; j < this.webBackup.length; j++) {
+
+        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"]) {
+          if (!(this.webBackup[j].precioProm)) {
             if (data[i]['Marca'] !== "Stihl") {
-              data[i].Precio = this.web[j].precio;
+              data[i].Precio = this.webBackup[j].precio;
             } else {
               data[i].Precio = 0;
             }
           } else {
-            //data[i]['Precio promocional'] = this.web[j].precioProm;
+            //data[i]['Precio promocional'] = this.webBackup[j].precioProm;
           }
-          data[i]['Envío sin cargo'] = (this.web[j].envio) ? "SI" : "NO";
-          data[i]['Mostrar en tienda'] = (this.web[j].mostrar) ? "SI" : "NO";
-          data[i]['Código de barras'] = this.web[j].ean;
+          data[i]['Envío sin cargo'] = (this.webBackup[j].envio) ? "SI" : "NO";
+          data[i]['Mostrar en tienda'] = (this.webBackup[j].mostrar) ? "SI" : "NO";
+          data[i]['Código de barras'] = this.webBackup[j].ean;
 
           encontrado = true;
-          id = this.web[j].id;
+          id = this.webBackup[j].id;
         }
       }
       /* Comprobando si no se encuentran los datos y si la URL no está vacía. Si ambas condiciones son
