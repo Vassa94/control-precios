@@ -19,6 +19,12 @@ createWindow = () => {
         }
     });
 
+    appWin.once('ready-to-show', () => {
+        appWin.maximize() // maximiza la ventana principal
+        appWin.show()
+      })
+    
+
     appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
     appWin.setMenu(null);
