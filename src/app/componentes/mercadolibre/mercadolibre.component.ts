@@ -8,12 +8,18 @@ import { BDService } from 'src/app/services/bd.service';
   styleUrls: ['./mercadolibre.component.css']
 })
 export class MercadolibreComponent implements OnInit {
-  ml: any;
-  headers: any;
-  headers2: any;
-  search: string = '';
+  ml: Array<any> = [];
+  mlBackup: Array<any> = []; 
+  headers: Array<string> = [];
+  headers2: Array<string> = [];
+  filtro: string = '';
   cargando: boolean = true;
-  imagen: any;
+  imagen: string = '';
+  p: number = 1;
+	windowHeight = window.innerHeight;
+	tableHeight = 0.69 * this.windowHeight;
+	rowHeight = 42;
+	productosPorPagina = Math.ceil(this.tableHeight / this.rowHeight);
 
   constructor(private datosSis: BDService, private modalService: NgbModal, private formModule: NgbModule) { }
 
@@ -24,15 +30,15 @@ export class MercadolibreComponent implements OnInit {
   obtenerDatos(){
     this.datosSis.obtenerMl().subscribe((data) =>{
       this.ml = data;
+      this.mlBackup = data;
       this.headers = ["ML Id",
                       "Codigo oxi",                      
                       "Tipo pub",
                       "Titulo",
                       "Stock",
                       "Precio",
-                      "Condición",
                       "Status",
-                      "Envio gratis",
+                      "Envio",
                       "Full",
                       "Retiro",
                       "Garantia",
@@ -46,7 +52,6 @@ export class MercadolibreComponent implements OnInit {
                       "title",
                       "availablequantity",
                       "price",
-                      "condition",
                       "status",
                       "freeshipping",
                       "full",
@@ -65,6 +70,18 @@ export class MercadolibreComponent implements OnInit {
     this.imagen = "https://http2.mlstatic.com/D_NQ_NP_" + img + "-O.jpg";
     this.modalService.open(preview, { centered: true });
   }
+
+  filtrarTabla(): void {
+		let filtroMinusculas = this.filtro.toLowerCase().trim();
+		this.ml = this.mlBackup.filter(row => {
+			let nombreMinusculas = row.title ? row.title.toLowerCase() : '';
+			let marcaMinusculas = row.marca ? row.marca.toLowerCase() : '';
+			let codigoMinusculas = row.itemsku ? row.itemsku.toString().toLowerCase() : '';
+			return nombreMinusculas.includes(filtroMinusculas) ||
+				marcaMinusculas.includes(filtroMinusculas) ||
+				codigoMinusculas.includes(filtroMinusculas);
+		});
+	}
 
 
 }

@@ -7,7 +7,7 @@ createWindow = () => {
         width: 1366,
         height: 768,
         title: "Control de precios",
-        titleBarStyle: 'hidden',
+        //titleBarStyle: 'hidden',
         titleBarOverlay: {
             color: '#212529',
             symbolColor: '#ffff',
@@ -27,7 +27,7 @@ createWindow = () => {
 
     appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
-    appWin.setMenu(null);
+    //appWin.setMenu(null);
 
     appWin.on('closed', () => {
         if (process.platform !== 'darwin') {
