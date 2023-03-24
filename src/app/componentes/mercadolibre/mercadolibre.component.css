@@ -1,4 +1,4 @@
-.header{
+.header {
     text-align: center;
 }
 
@@ -12,13 +12,13 @@ button {
     position: relative;
     font-weight: 900;
     font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-boFx-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
-   }
-   
-   button::before {
+}
+
+button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -28,101 +28,125 @@ button {
     border-radius: 15px;
     background-color: #212121;
     z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms
-   }
-   
-   button:hover {
+}
+
+button:hover {
     color: #e8e8e8;
-   }
-   
-   button:hover::before {
+}
+
+button:hover::before {
     width: 100%;
-   }
+}
 
 
 
-   .itemid{
-       text-align: left;
-       white-space: nowrap;
-       overflow-x: auto;
-       max-width: 130px
-   }
+.itemid {
+    text-align: left;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 130px
+}
 
-   .itemsku{
-        text-align: center;
-        white-space: nowrap;
-        overflow-x: auto;
-        max-width: 100px
-   }
+.itemsku {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100px
+}
 
-   .categoryid{
-        text-align: center;
-        white-space: nowrap;
-        overflow-x: auto;
-        min-width: 140px
-   }
+.categoryid {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 140px
+}
 
-   .title{
+.title {
     text-align: left;
     white-space: nowrap;
     overflow-x: auto;
     max-width: 380px
 }
 
-.warrantytime{
+.warrantytime {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     max-width: 120px
 }
 
-.peso{
+.peso {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     max-width: 120px
 }
 
-.price{
+.price {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     max-width: 100px
 }
 
-.availablequantity{
+.availablequantity {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     max-width: 100px
 }
 
-.freeshipping{
+.freeshipping {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 90px;
+    vertical-align: middle
+}
+
+.cataloglisting {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     min-width: 120px
 }
 
-.cataloglisting{
+.listingtypeid {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     min-width: 120px
 }
 
-.listingtypeid{
+.marca {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
     min-width: 120px
+}
+
+.modelo {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    min-width: 120px
+}
+
+.premium {
+    background-color: rgba(243, 239, 18, 0.938);
+}
+
+.clasica {
+    background-color: rgba(115, 223, 121, 0.938);
+}
+
+.color-gris {
+    background-color: rgba(128, 128, 128, 0.726);
 }
 
 .color-rojo {
     background-color: rgba(194, 92, 92, 0.753);
-}
-.color-gris {
-    color: rgba(124, 124, 124, 0.133);
 }

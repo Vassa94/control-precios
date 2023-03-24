@@ -1,10 +1,14 @@
 <div style="display: flex; margin:5px 0px ">
+
+  <!-- Un botón que crea una nueva fila en la tabla. -->
   <div style="margin-right: 5px;">
     <button>
       <i class="fa-solid fa-plus" style="padding-right: 3px;"></i>
       <label style="cursor: pointer;">Crear</label>
     </button>
   </div>
+
+  <!-- Un botón que abre una nueva página. -->
   <div style="margin-right: 5px;">
     <a href="https://www.mercadolibre.com.ar/ventas/listado?actions&encryptSelect&filters=CLAIMS_OPEN|MEDIATION_OPEN&fromCurrent=&page=1&search=&sort=DATE_CLOSED_DESC&startPeriod=&toCurrent="
       target="_blank">
@@ -14,6 +18,8 @@
       </button>
     </a>
   </div>
+
+  <!-- Un botón que abre una nueva página. -->
   <div style="margin-right: 5px;">
     <a href="/reclamos">
       <button>
@@ -24,16 +30,18 @@
   </div>
 
   <!-- Una barra de búsqueda que filtra la tabla. -->
-  <div style="margin-left: auto;align-items: center">
-    <input style="margin: 0px 5px;width:400px" placeholder="Buscar" type="text" class="form-control">
+  <div style="margin-left: auto;align-items: center;padding-right: 10px">
+    <input style="margin: 0px 5px;max-width:700px" placeholder="Buscar" type="text" class="form-control"
+      [(ngModel)]="filtro" (ngModelChange)="filtrarTabla()">
   </div>
 </div>
 
+<!-- Una tabla que muestra los productos. -->
 <div class="Tabla " data-toggle="table" *ngIf="!cargando">
-  <div class="table-responsive" style=" margin: 8px; height: 509px; border-radius: 15px; ">
+  <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
     <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
-      <thead>
-        <tr style="height:20px ;">
+      <thead class="sticky-top" style="z-index: 1; background-color: white;">
+        <tr style="height:20px;overflow: hidden;">
           <th class="opciones">
             URL
           </th>
@@ -43,13 +51,17 @@
         </tr>
       </thead>      
       <tbody class="table-group-divider">
-        <tr *ngFor="let row of ml; let i = index" [ngClass]="{'color-rojo': row['availablequantity'] === 0,'color-gris': row['status'] === 'paused'}">
+        <tr *ngFor="let row of ml| paginate: { itemsPerPage: productosPorPagina, currentPage: p }; let i = index" 
+            [ngClass]="{'color-rojo': row['availablequantity'] === 0, 
+                        'premium': row['listingtypeid'] === 'gold_pro',
+                        'clasica': row['listingtypeid'] === 'gold_special',
+                        'color-gris' : row['status'] === 'paused' }">
           <td class="opciones" style="cursor: pointer">
-            <p (click)="abrirPreview(preview, row['picture1'])">Ver</p>
+            <span (click)="abrirPreview(preview, row['picture1'])">Ver</span>
           </td>
           <td class="{{cell}}" style="overflow-x: hidden;" *ngFor="let cell of headers2">
-            <app-circulo *ngIf="cell === 'mostrar' || cell === 'envio'" [verde]="row[cell]"></app-circulo>
-            <span class="{{cell}}" *ngIf="cell !== 'mostrar' && cell !== 'envio'">
+            <app-circulo *ngIf="cell === 'mostrar' || cell === 'freeshipping'" [verde]="row[cell]"></app-circulo>
+            <span class="{{cell}}" *ngIf="cell !== 'mostrar' && cell !== 'freeshipping'">
               {{ cell === 'peso' ? row[cell] + ' Kg' : (cell === 'price' ? '$' + row[cell] : (row[cell] ===
               'gold_special' ? 'Clasica' :(row[cell] === 'gold_pro' ? 'Premium' :row[cell]))) }}
             </span>
@@ -58,8 +70,20 @@
       </tbody>
     </table>
   </div>
+  <div class="d-flex justify-content-between" style=" position: sticky; z-index: 1; background-color: white; margin: 8px; padding:2px">
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <div class="d-flex justify-content-end mb-3">
+      <span class="px-3">Filtradas: <b>{{this.ml.length}}</b></span>
+      <span class="px-3">Total: <b>{{this.mlBackup.length}}</b></span>
+      <label for="productos-por-pagina" class="mr-2 px-1">Productos por página:</label>
+      <input class="rounded" style="width: 50px;" type="number" id="productos-por-pagina" [(ngModel)]="productosPorPagina" min="1" max="100">
+    </div>
+  </div>
 </div>
 
+<!--Loader-->
 <div class="spinner-container" *ngIf="cargando">
   <div class="loader">
     <span style="--i:1"></span>
@@ -86,8 +110,8 @@
 </div>
 
 <ng-template #preview let-modal>
-  <div class="card">
-    <img [src]="imagen" alt="" style="height:400px ;">
+  <div>
+    <img [src]="imagen" alt="" style="max-width: 100px;object-fit: contain;">
   </div>
 </ng-template>
 
