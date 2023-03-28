@@ -533,6 +533,10 @@ export class WebComponent implements OnInit {
           data[i]['Envío sin cargo'] = (this.webBackup[j].envio) ? "SI" : "NO";
           data[i]['Mostrar en tienda'] = (this.webBackup[j].mostrar) ? "SI" : "NO";
           data[i]['Código de barras'] = this.webBackup[j].ean;
+          data[i]['Peso (kg)'] = this.webBackup[j].peso.toFixed(2);
+          data[i]['Alto (cm)'] = this.webBackup[j].alto.toFixed(2);
+          data[i]['Ancho (cm)'] = this.webBackup[j].ancho.toFixed(2);
+          data[i]['Profundidad (cm)'] = this.webBackup[j].profundidad.toFixed(2);
 
           encontrado = true;
           id = this.webBackup[j].id;
@@ -606,6 +610,10 @@ export class WebComponent implements OnInit {
       url: data.url,
     })
 
+    if (!(this.publicacion.value.precioProm)) {
+      this.publicacion.value.precioProm = 0;
+    }
+
     const params = new HttpParams()
       .set("SKU", this.publicacion.value.codigo)
       .set("nombre", this.publicacion.value.nombre)
@@ -655,7 +663,15 @@ export class WebComponent implements OnInit {
           this.web.push(objetoActualizado);
         }
         this.web = [...this.web];
-      }, error => { console.log(error) })
+      }, error => { 
+        console.log(error)
+        Swal.fire({
+          title: 'Hubo un error!',
+          text: 'No se modifico el envio',
+          icon: 'error',
+          showConfirmButton: true,
+        });  
+      })
     ).subscribe();
   }
 
