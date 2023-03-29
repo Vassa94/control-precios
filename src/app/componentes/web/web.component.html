@@ -1,6 +1,6 @@
 <section class="d-flex m-2"> <!-- Botones -->
 	<div style="margin-right: 5px;">
-		<button (click)="csvDownload()" class="d-flex gap-2 align-items-center">
+		<button (click)="csvDownload(this.web, 'web_')" class="d-flex gap-2 align-items-center">
 			<i class="fa-solid fa-download"></i>
 			<label class=" d-none d-md-block m-0"> Descargar CSV</label>
 		</button>

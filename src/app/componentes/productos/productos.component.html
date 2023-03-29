@@ -30,7 +30,7 @@
 
   <!-- Un botón que permite al usuario descargar un archivo CSV. -->
   <div style="margin-right: 5px;">
-    <button (click)="descargarCSV()" class="d-flex gap-2 align-items-center">
+    <button (click)="descargarCSV(this.productos,'productos_')" class="d-flex gap-2 align-items-center">
       <i class="fa-solid fa-download" style="padding-right: 3px;"></i>
       <label class=" d-none d-md-block m-0"> Descargar CSV</label>
     </button>
