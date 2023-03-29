@@ -73,11 +73,7 @@ export class WebComponent implements OnInit {
    */
   ngOnInit(): void {
     this.getProductos();
-    const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
-    inputProductosPorPagina.addEventListener('change', () => {
-      this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
-      this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
-    });
+    
   }
 
   getProductos(): void {
@@ -253,7 +249,7 @@ export class WebComponent implements OnInit {
       precio = Math.floor(precio);
       data.Precio = precio;
     }
-    if (precioProm){
+    if (precioProm) {
       precioProm = precioProm.replace(',', '');
       precioProm = parseFloat(precioProm);
       precioProm = Math.floor(precioProm);
@@ -293,11 +289,11 @@ export class WebComponent implements OnInit {
    * Toma los datos de la variable web, los convierte en un archivo csv y luego los guarda en la
    * computadora del usuario.
    */
-  csvDownload() {
-    let data = this.web;
+  csvDownload(target, nombre) {
+    let data = target;
     const csvData = Papa.unparse(data);
     let date = new Date().toLocaleString();
-    let fileName = 'web_' + date + '.csv';
+    let fileName = nombre + date + '.csv';
     let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
     FileSaver.saveAs(blob, fileName);
   }
@@ -491,7 +487,6 @@ export class WebComponent implements OnInit {
         // Si el objeto existe, elimínalo del array utilizando splice()
         if (indiceAEliminar !== -1) {
           this.web.splice(indiceAEliminar, 1);
-          console.log(this.web); // muestra el array sin el objeto eliminado
         } else {
           console.log(`El objeto con ID ${id} no existe en el array`);
         }
@@ -513,6 +508,7 @@ export class WebComponent implements OnInit {
     let encontrado: boolean;
     let cont: number = 0;
     let stock: any = [];
+    let nuevos: any = [];
     let id: number = 0;
     for (let i = 0; i < data.length; i++) {
       encontrado = false;
@@ -520,7 +516,7 @@ export class WebComponent implements OnInit {
       URL"] */
       for (let j = 0; j < this.webBackup.length; j++) {
 
-        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"]) {
+        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"] &&  this.webBackup[j-1].url !== data[i]["Identificador de URL"]) {
           if (!(this.webBackup[j].precioProm)) {
             if (data[i]['Marca'] !== "Stihl") {
               data[i].Precio = this.webBackup[j].precio;
@@ -530,8 +526,12 @@ export class WebComponent implements OnInit {
           } else {
             //data[i]['Precio promocional'] = this.webBackup[j].precioProm;
           }
-          data[i]['Envío sin cargo'] = (this.webBackup[j].envio) ? "SI" : "NO";
-          data[i]['Mostrar en tienda'] = (this.webBackup[j].mostrar) ? "SI" : "NO";
+          
+          if (data[i]['Nombre'].length > 0) {
+            data[i]['Envío sin cargo'] = (this.webBackup[j].envio) ? "SI" : "NO";
+            data[i]['Mostrar en tienda'] = (this.webBackup[j].mostrar) ? "SI" : "NO";
+          }
+
           data[i]['Código de barras'] = this.webBackup[j].ean;
           data[i]['Peso (kg)'] = this.webBackup[j].peso.toFixed(2);
           data[i]['Alto (cm)'] = this.webBackup[j].alto.toFixed(2);
@@ -540,13 +540,16 @@ export class WebComponent implements OnInit {
 
           encontrado = true;
           id = this.webBackup[j].id;
+
         }
       }
       /* Comprobando si no se encuentran los datos y si la URL no está vacía. Si ambas condiciones son
       verdaderas, llamará a la función dataStandardizer. */
       if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
         this.dataStandardizer(data[i]);
+
         cont++;
+        nuevos.push({ 'Codigo': data[i].SKU, 'Nombre': data[i].Nombre, 'marca': data[i].Marca })
         /* Agregando los datos en la matriz. */
       } else {
         stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
@@ -569,6 +572,11 @@ export class WebComponent implements OnInit {
       text: 'se encontraron ' + cont + ' nuevas publicaciones',
       icon: 'success',
       showConfirmButton: true,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed && cont > 0) {
+        this.csvDownload(nuevos, 'nuevos_');
+      }
     });
   }
 
@@ -663,14 +671,14 @@ export class WebComponent implements OnInit {
           this.web.push(objetoActualizado);
         }
         this.web = [...this.web];
-      }, error => { 
+      }, error => {
         console.log(error)
         Swal.fire({
           title: 'Hubo un error!',
           text: 'No se modifico el envio',
           icon: 'error',
           showConfirmButton: true,
-        });  
+        });
       })
     ).subscribe();
   }

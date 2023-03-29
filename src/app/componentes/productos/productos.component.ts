@@ -56,12 +56,7 @@ export class ProductosComponent implements OnInit {
 	 */
 	ngOnInit(): void {
 		this.getProductos();
-		this.productosPorPagina = 12; // Asigna el valor predeterminado
-		const inputProductosPorPagina = document.getElementById('productos-por-pagina') as HTMLInputElement;
-		inputProductosPorPagina.addEventListener('change', () => {
-			this.p = 1; // Vuelve a la primera página cuando cambia la cantidad de productos por página
-			this.productosPorPagina = parseInt(inputProductosPorPagina.value, 10);
-		});
+		
 	}
 
 	getProductos(): void {
@@ -208,11 +203,14 @@ export class ProductosComponent implements OnInit {
 
 		array.forEach((element) => {
 			if (!this.productos.map(producto => producto.codigo).includes(parseInt(element['Código']))) {
-				nuevos.push(element);
+				if (element['Código'] !== ''){
+					nuevos.push({'codigo': element['Código'], 'descripcion': element['Descripción'], 'precio': element['PUBLICO']});
+				}
+				
 			}
 		});
 		console.log(nuevos);
-		
+
 		return nuevos;
 	}
 
@@ -431,7 +429,7 @@ export class ProductosComponent implements OnInit {
 		} else {
 			this.datosSis.actuProductos(body).subscribe((data) => { });
 			this.datosSis.actuWeb(body).subscribe((data) => { });
-			
+
 		}
 	}
 
@@ -477,8 +475,8 @@ export class ProductosComponent implements OnInit {
 				confirmButtonText: 'Ok',
 				denyButtonText: `No`,
 			});
-			
-			
+
+
 
 			if (result.isConfirmed) {
 				this.agregarProductos(data);
@@ -517,9 +515,11 @@ export class ProductosComponent implements OnInit {
 					text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
 					icon: 'info',
 					showConfirmButton: true,
-				});
+				})
 			}, 2000);
-	
+			if (nuevos.length>0) {
+				this.descargarCSV(nuevos,'Nuevos_');
+			}
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
 		};
@@ -558,11 +558,13 @@ export class ProductosComponent implements OnInit {
 	 * It takes an array of objects, converts it to a CSV string, creates a blob, and then uses
 	 * FileSaver.js to save the blob as a file.
 	 */
-	descargarCSV(): void {
-		let data = this.productos;
+	descargarCSV(target, nombre): void {
+		let data = target;
 		const csvData = Papa.unparse(data);
+		console.log(csvData);
+		
 		let date = new Date().toLocaleString();
-		let fileName = 'productos_' + date + '.csv';
+		let fileName = nombre + date + '.csv';
 		let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
 		FileSaver.saveAs(blob, fileName);
 
