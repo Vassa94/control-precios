@@ -56,7 +56,7 @@ export class ProductosComponent implements OnInit {
 	 */
 	ngOnInit(): void {
 		this.getProductos();
-		
+
 	}
 
 	getProductos(): void {
@@ -173,10 +173,19 @@ export class ProductosComponent implements OnInit {
 			this.reader.readAsText(file, 'ISO-8859-3');
 			this.reader.onload = (event: any) => {
 				let content = event.target.result;
+				if (content.indexOf("Código") !== 0) {
+					let lines = content.split('\n');
+					lines.splice(0, 2); 
+					lines.splice(-2, 2); 
+					content = lines.join('\n');
+				}
+
 				Papa.parse(content, {
 					header: true,
 					complete: (results) => {
 						let data = results.data;
+						console.log(data);
+
 						this.estandarizador(data, this.selector);
 						//this.detectarNuevos(data);
 					}
@@ -203,10 +212,10 @@ export class ProductosComponent implements OnInit {
 
 		array.forEach((element) => {
 			if (!this.productos.map(producto => producto.codigo).includes(parseInt(element['Código']))) {
-				if (element['Código'] !== ''){
-					nuevos.push({'codigo': element['Código'], 'descripcion': element['Descripción'], 'precio': element['PUBLICO']});
+				if (element['Código'] !== '') {
+					nuevos.push({ 'codigo': element['Código'], 'descripcion': element['Descripción'], 'precio': element['PUBLICO'] });
 				}
-				
+
 			}
 		});
 		console.log(nuevos);
@@ -479,14 +488,14 @@ export class ProductosComponent implements OnInit {
 
 
 			if (result.isConfirmed) {
-				this.agregarProductos(data);
+				
 				/* const requiredKeys = ['Código', 'Descripción', 'Fábrica', 'Cód Fabricante', 'PUBLICO'];
 				const hasAllKeys = requiredKeys.every(key => {
 					console.log(data['Código']);
 					return data[key] !== undefined});
 				console.log(hasAllKeys);
 				if (hasAllKeys) {
-					
+					this.agregarProductos(data);
 				} else {
 					try {
 						await Swal.fire({
@@ -510,15 +519,17 @@ export class ProductosComponent implements OnInit {
 			this.actualizarPrecios(body);
 			const nuevos = this.detectarNuevos(data)
 			setTimeout(function () {
-				Swal.fire({
-					title: 'Hay que actualizar!',
-					text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
-					icon: 'info',
-					showConfirmButton: true,
-				})
+				if (nuevos.length >0){
+					Swal.fire({
+						title: 'Hay que actualizar!',
+						text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
+						icon: 'info',
+						showConfirmButton: true,
+					})
+				}				
 			}, 2000);
-			if (nuevos.length>0) {
-				this.descargarCSV(nuevos,'Nuevos_');
+			if (nuevos.length > 0) {
+				this.descargarCSV(nuevos, 'Nuevos_');
 			}
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
@@ -562,7 +573,7 @@ export class ProductosComponent implements OnInit {
 		let data = target;
 		const csvData = Papa.unparse(data);
 		console.log(csvData);
-		
+
 		let date = new Date().toLocaleString();
 		let fileName = nombre + date + '.csv';
 		let blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
