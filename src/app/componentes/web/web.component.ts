@@ -516,7 +516,7 @@ export class WebComponent implements OnInit {
       URL"] */
       for (let j = 0; j < this.webBackup.length; j++) {
 
-        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"] &&  this.webBackup[j-1].url !== data[i]["Identificador de URL"]) {
+        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"] && (j > 0 && this.webBackup[j-1].url !== data[i]["Identificador de URL"])) {
           if (!(this.webBackup[j].precioProm)) {
             if (data[i]['Marca'] !== "Stihl") {
               data[i].Precio = this.webBackup[j].precio;
