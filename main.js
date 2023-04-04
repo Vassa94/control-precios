@@ -40,10 +40,6 @@ createWindow = () => {
 
 
 
-const menu = Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);
-app.on('ready', createWindow);
 
-app.on('window-all-closed', () => appWin.quit());
 
 
