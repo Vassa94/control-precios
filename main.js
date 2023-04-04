@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app,BrowserWindow } = require('electron');
+
 
 let appWin;
 
@@ -7,7 +8,7 @@ createWindow = () => {
         width: 1366,
         height: 768,
         title: "Control de precios",
-        titleBarStyle: 'hidden',
+        //titleBarStyle: 'hidden',
         titleBarOverlay: {
             color: '#212529',
             symbolColor: '#ffff',
@@ -22,8 +23,8 @@ createWindow = () => {
     appWin.once('ready-to-show', () => {
         appWin.maximize() // maximiza la ventana principal
         appWin.show()
-      })
-    
+    })
+
 
     appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
@@ -37,6 +38,10 @@ createWindow = () => {
 
 }
 
+
+
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => appWin.quit());
