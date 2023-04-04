@@ -70,15 +70,18 @@ export class ReputacionComponent implements OnInit {
 
   downloadPDF(): void {
     const elementToPrint = document.getElementById('pdf');
-    console.log(elementToPrint);
-    
+    const hoy = new Date();
+    const dia = hoy.getDate();
+    const mes = hoy.toLocaleString('default', { month: 'short' });
+    const anio = hoy.getFullYear();
+    let filename = 'informe-reputación-' + dia + '-' + mes + '-' + anio + '.pdf';
     if (elementToPrint !== null) {
       const pdfWidth: number = 297;
       const pdfHeight: number = elementToPrint.clientHeight * pdfWidth / elementToPrint.clientWidth;
       const pdf = new jsPDF('l', 'mm', [297, 210]);
       pdf.html(elementToPrint, {
         callback: (doc) => {
-          pdf.save('filename.pdf');
+          pdf.save(filename);
         },
         html2canvas: {
           scale: pdfWidth / elementToPrint.clientWidth,
@@ -90,19 +93,19 @@ export class ReputacionComponent implements OnInit {
     }
   }
 
-   reputationDayRange(): string {
+  reputationDayRange(): string {
     const hoy = new Date();
     const fechaRestada = new Date(hoy.getTime() - 60 * 24 * 60 * 60 * 1000);
-    
+
     const dia = fechaRestada.getDate();
     const mes = fechaRestada.toLocaleString('default', { month: 'short' });
     const anio = fechaRestada.getFullYear();
-    
+
     return `${dia} de ${mes} ${anio}`;
   }
-  
-  
-  
+
+
+
 
 
 }
