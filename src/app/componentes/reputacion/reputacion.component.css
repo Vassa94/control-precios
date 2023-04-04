@@ -2,6 +2,10 @@ aside {
     page-break-inside: avoid;
 }
 
+main{
+    max-height: 85vh;
+}
+
 .good {
     color: green !important;
 }
