@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,9 +21,9 @@ import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { WebComponent } from './componentes/web/web.component';
 import { TruefalseComponent } from './componentes/truefalse/truefalse.component';
-import { CommonModule } from '@angular/common';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 import { GuiaComponent } from './componentes/guia/guia.component';
+import { ReputacionComponent } from './componentes/reputacion/reputacion.component';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { GuiaComponent } from './componentes/guia/guia.component';
     TruefalseComponent,
     MercadolibreComponent,
     GuiaComponent,
+    ReputacionComponent
     
   ],
   imports: [
@@ -47,8 +50,9 @@ import { GuiaComponent } from './componentes/guia/guia.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    NgxPaginationModule,
     CommonModule,
-    NgxPaginationModule
+    BrowserAnimationsModule,
     
   ],
   providers: [],
