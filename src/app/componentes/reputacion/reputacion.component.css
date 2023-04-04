@@ -1,0 +1,16 @@
+aside {
+    page-break-inside: avoid;
+}
+
+.good{
+    color: green !important;
+}
+
+.bad{
+    color:red !important;
+}
+
+.card:hover{
+    transition: 1s;
+    transform: scale(101%);
+}
