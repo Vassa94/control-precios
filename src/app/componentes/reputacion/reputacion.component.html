@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div id="pdf" class="d-flex flex-column">
+    <div id="pdf" class="d-flex flex-column " style="overflow-y: hidden;">
         <aside class="d-flex p-3">
             <div class="shadow card w-100 ">
                 <div class="card-body d-flex">
@@ -116,7 +116,7 @@
                             esos dias el {{((this.cantMasDemoradas * 100)/this.reclamo.demoras.length).toFixed(2)}}% de
                             las
                             ventas con Mercadoenvios</li>
-                        <li></li>
+                        <li>Ventas necesarias para recuperar: <b>{{((this.reclamo.reclamos.length/0.015)-this.reclamo.ultimos60Dias).toFixed(0)}}</b></li>
                     </ul>
                 </div>
 
