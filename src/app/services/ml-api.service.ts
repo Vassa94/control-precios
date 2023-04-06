@@ -11,7 +11,7 @@ export class MlApiService {
   token = '';
   expires_in = 21600;
   sheet: string = '../assets/var.json';
-  
+  sheet2: string = 'C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assets/var.json'
   constructor(private http: HttpClient) { }
 
   getNewToken() {
@@ -33,10 +33,19 @@ export class MlApiService {
   }
 
   obtenerDatosReclamos(): Observable<any> {
-
-    return this.http.get('../assets/var.json');
+    
+    return this.http.get(this.sheet2);
 
   }
+
+  obtenerMl(): Observable<any> {
+    
+    
+    return this.http.get('C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assetspubMl.json');
+    //return this.http.get('http://localhost:8080/producto/traer')
+  }
+
+
 
   obtenerTxt():Observable<any> {
     return this.http.get('https://drive.google.com/file/d/16xp5K_XZUsOEX8EjdI4-MjufUFucb04Z/view')
