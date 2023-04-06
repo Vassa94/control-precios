@@ -17,6 +17,7 @@ export class ReputacionComponent implements OnInit {
   detalleReclamo: any
   masDemoradas: any
   cantMasDemoradas: any
+  cargando: boolean = true
   constructor(private datos: MlApiService) { }
 
   ngOnInit(): void {
@@ -27,8 +28,12 @@ export class ReputacionComponent implements OnInit {
       this.detalleReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Detalle del reclamo"])
       this.masDemoradas = this.mostFrequentValue(this.reclamo.demoras, ["Tiempo indicado para despachar"], true)
       this.cantMasDemoradas = this.delayDayCount(this.masDemoradas)
+      this.cargando = false
 
-
+    },
+    (error)=>{
+      console.log(error);
+      
     });
   }
 
