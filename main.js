@@ -7,7 +7,7 @@ createWindow = () => {
         width: 1366,
         height: 768,
         title: "Control de precios",
-        titleBarStyle: 'hidden',
+        //titleBarStyle: 'hidden',
         titleBarOverlay: {
             color: '#212529',
             symbolColor: '#ffff',
