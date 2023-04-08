@@ -1,7 +1,7 @@
 {
-    "ultimos60Dias": 393,
-    "mercadoenvios": 327,
-    "color": "verdeOscuro",
+    "ultimos60Dias": 388,
+    "mercadoenvios": 317,
+    "color": "verdeOscuro",    
     "reclamos": [
         {
             "Fecha del reclamo": "lunes 27 feb 2023 - 14:51 hs",
@@ -12,16 +12,6 @@
             "Usuario comprador": "PLAYACONSTRUCCIONESSRL",
             "Tipo de reclamo": "El producto es defectuoso",
             "Detalle del reclamo": "El embalaje llegó bien"
-        },
-        {
-            "Fecha del reclamo": "viernes 3 feb 2023 - 13:24 hs",
-            "Número de reclamo": "5173434698",
-            "# de la venta": "'2000005049012808",
-            "Fecha de la venta": "viernes 3 feb 2023 - 09:43 hs",
-            "Título de la publicación": "Cortadora De Pasto Eléctrica Lüsqtoff Lco-1640b Con Bolsa Recolectora De 1600w Y 230v - 240v",
-            "Usuario comprador": "LUIJA2854",
-            "Tipo de reclamo": "No recibí el producto",
-            "Detalle del reclamo": "Me dijo que no tiene stock"
         },
         {
             "Fecha del reclamo": "domingo 19 feb 2023 - 19:40 hs",
@@ -87,12 +77,6 @@
             "# de la venta": "'2000005117084348",
             "Título de la publicación": "Amoladora Angular Makita Ga9040s De 50 hz/60 hz Turquesa 2600 w 220 v - 230 v + Accesorio",
             "Usuario comprador": "RAMILO.DIEGO"
-        },
-        {
-            "Fecha de la venta": "lunes 6 feb 2023 - 13:01 hs",
-            "# de la venta": "'2000005065761948",
-            "Título de la publicación": "Compresor De Aire Eléctrico Black Panther Bp-c40100b 100l 4hp 220v",
-            "Usuario comprador": "BAJE5652453"
         }
     ],
     "demoras": [
@@ -473,60 +457,6 @@
             "Forma de envío": "Entrega en correo",
             "Tiempo indicado para despachar": "martes 7 feb 2023 - 23:59 hs",
             "Tiempo en el que despachaste": "miércoles 8 feb 2023 - 15:53 hs"
-        },
-        {
-            "Fecha de la venta": "lunes 6 feb 2023 - 10:16 hs",
-            "# de la venta": "'2000005064229538",
-            "Título de la publicación": "Aspiradora Industrial Black Panther 30lts",
-            "Usuario comprador": "CYR66",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060430900",
-            "Título de la publicación": "Morsa De Banco Giratoria N6 Yunque Lusqtoff",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433304",
-            "Título de la publicación": "Set Juego De Hojas Sierra Caladora 10 Pzs Bosch Vastago T",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433302",
-            "Título de la publicación": "Kit 6 Cepillos Circulares Y Copa Con Vástago",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060430902",
-            "Título de la publicación": "Manguera Para Aire Alta Presion Roja 8mm Rollo X25mts 300psi",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433300",
-            "Título de la publicación": "Electrodo Para Soldar Conarco Conarcrom 350 3.25mm Por 1kg",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
         }
     ]
 }
