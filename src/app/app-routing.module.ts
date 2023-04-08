@@ -9,12 +9,14 @@ import { ReclamosComponent } from './componentes/reclamos/reclamos.component';
 import { WebComponent } from './componentes/web/web.component';
 import { MercadolibreComponent } from './componentes/mercadolibre/mercadolibre.component';
 import { GuiaComponent } from './componentes/guia/guia.component';
+import { ReputacionComponent } from './componentes/reputacion/reputacion.component';
 
 const routes: Routes = [
   { path: "productos", component: ProductosComponent },
   { path: "web", component: WebComponent },
   { path: "mercadolibre", component: MercadolibreComponent },
   { path: "guia", component: GuiaComponent },
+  { path: "reputacion", component: ReputacionComponent },
   { path: "login", component: LoginComponent },
   { path: "control", component: ControlComponent },
   { path: "reclamos", component: ReclamosComponent },

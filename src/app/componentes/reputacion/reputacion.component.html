@@ -1,0 +1,147 @@
+<main class="d-flex justify-content-center flex-column ">
+    <div class="rounded d-flex my-1 mx-3" *ngIf="!cargando" >
+        <div class="rounded">
+            <button class="rounded-5" (click)="downloadPDF()">
+                <i class="fa-solid fa-file-pdf" style="padding-right: 3px;"></i>
+                <label style="cursor: pointer;">Descargar PDF</label>
+            </button>
+        </div>
+    </div>
+
+    <div id="pdf" class="d-flex flex-column " style="overflow-y: hidden;" *ngIf="!cargando">
+        <aside class="d-flex p-3">
+            <div class="shadow card w-100 ">
+                <div class="card-body d-flex">
+                    <div class=" pe-5 border-end">
+                        <h5 style="color:green"><!-- <i class="fa-solid fa-medal p-1"></i> -->Mercadolider Platinum</h5>
+                        <div [ngSwitch]="this.reclamo.color">
+                            <div *ngSwitchCase="'verdeOscuro'">
+                                <img src=".\assets\img\rep\repVerde.png" alt="">
+                            </div>
+                            <div *ngSwitchCase="'verde'">
+                                <img src=".\assets\img\rep\repVerdeClaro.png" alt="">
+                            </div>
+                            <div *ngSwitchCase="'amarillo'">
+                                <img src=".\assets\img\rep\repAmarilla.png" alt="">
+                            </div>
+                            <div *ngSwitchCase="'naranja'">
+                                <img src=".\assets\img\rep\repNaranja.png" alt="">
+                            </div>
+                            <div *ngSwitchCase="'rojo'">
+                                <img src=".\assets\img\rep\repRoja.png" alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="w-100 d-flex flex-column justify-content-center align-items-center" >
+                        <p class="px-4"> <b>Medimos tus ventas de los últimos 60 días</b> Desde el {{reputationDayRange()}} hasta hoy</p>
+                        <div class="w-100 d-flex justify-content-around">
+                            <p class="px-4">Total de ventas: {{this.reclamo.ultimos60Dias}}</p>
+                            <p class="px-4">Total con mercadoenvios: {{this.reclamo.mercadoenvios}}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </aside>
+        <aside class=" d-flex px-3 gap-3 m-2 justify-content-around">
+            <div class="shadow card rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Reclamos</h5>
+                    <h5 [ngClass]="((this.reclamo.reclamos.length * 100) /
+                    this.reclamo.ultimos60Dias) < 1 ? 'good': 'bad'" class="mb-2 text-muted">
+                        {{((this.reclamo.reclamos.length * 100) /
+                        this.reclamo.ultimos60Dias).toFixed(2)}}% </h5>
+                    <p class="card-text">Son {{this.reclamo.reclamos.length}} de tus ventas</p>
+                    <p class="card-text">Minimo permitido: {{((1 *
+                        this.reclamo.ultimos60Dias)/100).toFixed(0)}}</p>
+                </div>
+            </div>
+
+            <div class="shadow card rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Mediaciones</h5>
+                    <h5 [ngClass]="((this.reclamo.mediaciones.length * 100) /
+                    this.reclamo.ultimos60Dias) < 0.5 ? 'good': 'bad'" class="mb-2 text-muted">
+                        {{((this.reclamo.mediaciones.length * 100) /
+                        this.reclamo.ultimos60Dias).toFixed(2)}}%</h5>
+                    <p class="card-text">Son {{this.reclamo.mediaciones.length}} de tus ventas</p>
+                    <p class="card-text">Minimo permitido: {{((0.5 * this.reclamo.ultimos60Dias)/100).toFixed(0)}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="shadow card rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Cancelaciones</h5>
+                    <h5 [ngClass]="((this.reclamo.cancelaciones.length * 100) /
+                    this.reclamo.ultimos60Dias) < 0.5 ? 'good': 'bad'" class="mb-2 text-muted">
+                        {{((this.reclamo.cancelaciones.length * 100) /
+                        this.reclamo.ultimos60Dias).toFixed(2)}}%</h5>
+                    <p class="card-text">Son {{this.reclamo.cancelaciones.length}} de tus ventas</p>
+                    <p class="card-text">Minimo permitido: {{((0.5 * this.reclamo.ultimos60Dias)/100).toFixed(0)}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="shadow card rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Demoras</h5>
+                    <h5 [ngClass]="((this.reclamo.demoras.length * 100) /
+                    this.reclamo.mercadoenvios) < 8 ? 'good': 'bad'" class="mb-2 text-muted">
+                        {{((this.reclamo.demoras.length * 100) /
+                        this.reclamo.mercadoenvios).toFixed(2)}}%</h5>
+                    <p class="card-text">Son {{this.reclamo.demoras.length}} de tus ventas</p>
+                    <p class="card-text">Minimo permitido: {{((8 * this.reclamo.mercadoenvios)/100).toFixed(0)}}
+                    </p>
+                </div>
+            </div>
+        </aside>
+        <aside class=" p-3 ">
+            <div class="shadow card rouded ">
+                <div class="card-body">
+                    <h5 class="card-title">Detalles</h5>
+                    <ul>
+                        <li class="card-text">Motivo mas recurrente de reclamo fue <b>"{{this.tipoReclamo}}"</b> y el
+                            motivo
+                            fue <b>"{{this.detalleReclamo}}"</b></li>
+                        <li class="card-text">La franja más afectada por despachos demorados son los <b>{{masDemoradas}}
+                                de 8 a 14hs</b>, Se demoraron
+                            esos dias el {{((this.cantMasDemoradas * 100)/this.reclamo.demoras.length).toFixed(2)}}% de
+                            las
+                            ventas con Mercadoenvios</li>
+                        <li>Ventas necesarias para recuperar: <b>{{((this.reclamo.reclamos.length/0.015)-this.reclamo.ultimos60Dias).toFixed(0)}}</b></li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+    </div>
+
+    <div class="spinner-container" *ngIf="cargando"> <!-- Spiner de carga -->
+        <div class="loader">
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <span style="--i:4"></span>
+            <span style="--i:5"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+            <span style="--i:9"></span>
+            <span style="--i:10"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:13"></span>
+            <span style="--i:14"></span>
+            <span style="--i:15"></span>
+            <span style="--i:16"></span>
+            <span style="--i:17"></span>
+            <span style="--i:18"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+        </div>
+    </div>
+
+</main>

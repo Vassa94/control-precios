@@ -6,12 +6,13 @@ import { Observable, Subject, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class MlApiService {
-
-  constructor(private http: HttpClient) { }
   API = 'https://api.mercadolibre.com';
   seller_id = '33953861';
   token = '';
   expires_in = 21600;
+  sheet: string = '../assets/var.json';
+  sheet2: string = 'C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assets/var.json'
+  constructor(private http: HttpClient) { }
 
   getNewToken() {
     const headers = new HttpHeaders({
@@ -29,6 +30,25 @@ export class MlApiService {
         const new_refresh_token = response['refresh_token'];
         // Guarde el nuevo token, su tiempo de expiración y el nuevo refresh token en su aplicación
       });
+  }
+
+  obtenerDatosReclamos(): Observable<any> {
+    
+    return this.http.get(this.sheet2);
+
+  }
+
+  obtenerMl(): Observable<any> {
+    
+    
+    return this.http.get('C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assetspubMl.json');
+    //return this.http.get('http://localhost:8080/producto/traer')
+  }
+
+
+
+  obtenerTxt():Observable<any> {
+    return this.http.get('https://drive.google.com/file/d/16xp5K_XZUsOEX8EjdI4-MjufUFucb04Z/view')
   }
 
 

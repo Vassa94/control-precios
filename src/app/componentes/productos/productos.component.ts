@@ -102,7 +102,6 @@ export class ProductosComponent implements OnInit {
 	}
 
 
-
 	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
 	/* getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
@@ -175,8 +174,8 @@ export class ProductosComponent implements OnInit {
 				let content = event.target.result;
 				if (content.indexOf("Código") !== 0) {
 					let lines = content.split('\n');
-					lines.splice(0, 2); 
-					lines.splice(-2, 2); 
+					lines.splice(0, 2);
+					lines.splice(-2, 2);
 					content = lines.join('\n');
 				}
 
@@ -184,8 +183,6 @@ export class ProductosComponent implements OnInit {
 					header: true,
 					complete: (results) => {
 						let data = results.data;
-						console.log(data);
-
 						this.estandarizador(data, this.selector);
 						//this.detectarNuevos(data);
 					}
@@ -208,8 +205,6 @@ export class ProductosComponent implements OnInit {
 	 */
 	detectarNuevos(array) {
 		let nuevos: Array<any> = []
-		console.log(this.productos);
-
 		array.forEach((element) => {
 			if (!this.productos.map(producto => producto.codigo).includes(parseInt(element['Código']))) {
 				if (element['Código'] !== '') {
@@ -218,8 +213,6 @@ export class ProductosComponent implements OnInit {
 
 			}
 		});
-		console.log(nuevos);
-
 		return nuevos;
 	}
 
@@ -279,8 +272,6 @@ export class ProductosComponent implements OnInit {
 			.set('marca', this.producto.value.marca.trim())
 			.set('precioPub', this.producto.value.precioPublico)
 			.set('stock', this.producto.value.stock)
-		console.log(params);
-		console.log(id);
 
 		this.datosSis.actualizarProducto(id, params).subscribe((data) => {
 			const index = this.productos.findIndex((p) => p.codigo === id);
@@ -335,7 +326,7 @@ export class ProductosComponent implements OnInit {
 	 * }
 	 * </code>
 	 */
-	agregarProductos(data): void {
+	agregarProductos(data): number {
 		let encontrado: boolean;
 		let cont: number = 0;
 		const body: Array<any> = [];
@@ -359,12 +350,12 @@ export class ProductosComponent implements OnInit {
 					valor = Math.floor(valor);
 					data[i]['PUBLICO'] = valor;
 				}
-				let descripcion = data[i]['Descripción'];
+				let descripcion = data[i]['Descripción'] ? data[i]['Descripción'] : '';
 				descripcion = descripcion.toLowerCase();
 				descripcion = descripcion.replace(/\b[a-z]/g, function (letter) {
 					return letter.toUpperCase();
 				});
-				let marca = data[i]['Fábrica'];
+				let marca = data[i]['Fábrica'] ? data[i]['Fábrica'] : '';
 				if (marca !== undefined) {
 					marca = marca.toLowerCase();
 					marca = marca.replace(/\b[a-z]/g, function (letter) {
@@ -374,7 +365,7 @@ export class ProductosComponent implements OnInit {
 				aux = {
 					'codigo': parseInt(data[i]['Código']),
 					'precioPublico': data[i]['PUBLICO'],
-					'cod_Fabrica': data[i]['Cód.Fabricante'],
+					'cod_Fabrica': data[i]['Cód.Fabricante'] ? data[i]['Cód.Fabricante'] : '',
 					'descripcion': descripcion,
 					'marca': marca?.replace("(Usd)", '').trim(),
 					'stock': 0
@@ -383,15 +374,11 @@ export class ProductosComponent implements OnInit {
 				this.productos.push(aux)
 			}
 		}
-		this.datosSis.crearProductos(body).subscribe((data) => { });
-		setTimeout(function () {
-			Swal.fire({
-				title: 'Productos agregados!',
-				text: 'se cargaron ' + cont + ' productos nuevos',
-				icon: 'success',
-				showConfirmButton: true,
-			});
-		}, 4000);
+		this.datosSis.crearProductos(body).subscribe((data) => { }, (error) => {
+			console.log(error)
+		});
+		return cont;
+
 
 
 	}
@@ -436,9 +423,14 @@ export class ProductosComponent implements OnInit {
 				footer: 'Revisa que el archivo subido sea el correcto'
 			});
 		} else {
-			this.datosSis.actuProductos(body).subscribe((data) => { });
-			this.datosSis.actuWeb(body).subscribe((data) => { });
-
+			this.datosSis.actuProductos(body).subscribe((data) => {
+				console.log("Precios productos actualizados");
+			}, (error) => {
+				console.log(error.error.text);
+			});
+			this.datosSis.actuWeb(body).subscribe((data) => {
+				console.log("Precios web actualizados")
+			}, (error) => { console.log(error.error.text); });
 		}
 	}
 
@@ -457,14 +449,20 @@ export class ProductosComponent implements OnInit {
 				footer: 'Revisa que el archivo subido sea el correcto'
 			});
 		} else {
-			this.datosSis.actuStock(body).subscribe((data) => { });
+			this.datosSis.actuStock(body).subscribe((data) => { },
+				(error) => { console.log("Hay un error!!", error) });
+			this.productos.forEach((producto) => {
+				let data = body.find((bod) => bod.codigo === producto.codigo);
+				if (data) {
+					producto.stock = data.stock;
+				}
+			});
 			Swal.fire({
-				title: '¡Genial!',
+				title: 'Genial',
 				text: 'Stock actualizado',
 				icon: 'success',
-				showConfirmButton: false,
-				timer: 2500,
-			});
+				timer: 2000
+			})
 		}
 	}
 
@@ -475,65 +473,37 @@ export class ProductosComponent implements OnInit {
  * @param destino - is the name of the table in the database where the data will be stored
  */
 	async estandarizador(data, destino): Promise<void> {
-		if (destino === 'precio') {
-			const result = await Swal.fire({
-				title: 'Quiere agregar los productos faltantes al sistema?',
-				footer: '<a href="">como debe ser mi archivo?</a>',
-				showDenyButton: true,
-				showCancelButton: false,
-				confirmButtonText: 'Ok',
-				denyButtonText: `No`,
-			});
-
-
-
-			if (result.isConfirmed) {
-				
-				/* const requiredKeys = ['Código', 'Descripción', 'Fábrica', 'Cód Fabricante', 'PUBLICO'];
-				const hasAllKeys = requiredKeys.every(key => {
-					console.log(data['Código']);
-					return data[key] !== undefined});
-				console.log(hasAllKeys);
-				if (hasAllKeys) {
-					this.agregarProductos(data);
-				} else {
-					try {
-						await Swal.fire({
-							title: 'Oops!',
-							text: 'El csv no tiene el formato correcto',
-							icon: 'error',
-							footer: '<a href="">como debe ser mi archivo?</a>',
-						});
-					} catch (error) {
-						console.log(error);
-					}
-				} */
-			} else if (result.isDenied) {
-				Swal.fire('Actualizando solo precios', '', 'info')
-			}
-		};
-
+		let nuevos: any = [];
 		const body = this.crearArrayActualizacion(data, destino);
-
 		if (destino === "precio") {
 			this.actualizarPrecios(body);
-			const nuevos = this.detectarNuevos(data)
-			setTimeout(function () {
-				if (nuevos.length >0){
-					Swal.fire({
-						title: 'Hay que actualizar!',
-						text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
-						icon: 'info',
-						showConfirmButton: true,
-					})
-				}				
-			}, 2000);
-			if (nuevos.length > 0) {
-				this.descargarCSV(nuevos, 'Nuevos_');
-			}
+			nuevos = this.detectarNuevos(data)
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
 		};
+		console.log(nuevos);
+		
+		if (nuevos.length > 0) {
+			Swal.fire({
+				title: 'Hay que actualizar!',
+				text: 'Se encontraron ' + nuevos.length + ' productos que no estan cargados',
+				icon: 'info',
+				showConfirmButton: false,
+				timer: 2500
+			})
+			const cont = this.agregarProductos(data)
+			setTimeout(() => {
+				if (cont > 0) {
+					Swal.fire({
+						title: 'Productos agregados!',
+						text: 'se cargaron ' + cont + ' productos nuevos',
+						icon: 'success',
+						showConfirmButton: true,
+					});
+				}
+			}, 3000)
+			this.descargarCSV(nuevos, 'Nuevos_');
+		}
 	}
 
 	/**
