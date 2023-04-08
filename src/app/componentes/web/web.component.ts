@@ -73,7 +73,7 @@ export class WebComponent implements OnInit {
    */
   ngOnInit(): void {
     this.getProductos();
-    
+
   }
 
   getProductos(): void {
@@ -497,7 +497,15 @@ export class WebComponent implements OnInit {
         Swal.fire('No se borro la publicacion', '', 'info')
       }
     });
+  }
 
+  encontrarNuevos(Arr: any[]) {
+    const nuevos = Arr.filter((obj) => {
+      return !this.webBackup.some((webObj) => {
+        return (webObj.url === obj['Identificador de URL'] && obj['Identificador de URL'] !== "");
+      });
+    });
+    return nuevos;
   }
 
   /**
@@ -505,18 +513,15 @@ export class WebComponent implements OnInit {
    * @param data - es la matriz de objetos que quiero exportar a CSV
    */
   exportToTiendaNube(data) {
-    let encontrado: boolean;
-    let cont: number = 0;
     let stock: any = [];
-    let nuevos: any = [];
+    let nuevos: Array<any>;
     let id: number = 0;
     for (let i = 0; i < data.length; i++) {
-      encontrado = false;
       /* Comprobando si la url no es indefinida o nula y si es igual a los datos[i]["Identificador de
       URL"] */
       for (let j = 0; j < this.webBackup.length; j++) {
 
-        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"] && (j > 0 && this.webBackup[j-1].url !== data[i]["Identificador de URL"])) {
+        if (this.webBackup[j].url !== undefined && this.webBackup[j].url !== null && this.webBackup[j].url === data[i]["Identificador de URL"] && (j > 0 && this.webBackup[j - 1].url !== data[i]["Identificador de URL"])) {
           if (!(this.webBackup[j].precioProm)) {
             if (data[i]['Marca'] !== "Stihl") {
               data[i].Precio = this.webBackup[j].precio;
@@ -526,7 +531,6 @@ export class WebComponent implements OnInit {
           } else {
             //data[i]['Precio promocional'] = this.webBackup[j].precioProm;
           }
-          
           if (data[i]['Nombre'].length > 0) {
             data[i]['Envío sin cargo'] = (this.webBackup[j].envio) ? "SI" : "NO";
             data[i]['Mostrar en tienda'] = (this.webBackup[j].mostrar) ? "SI" : "NO";
@@ -538,27 +542,22 @@ export class WebComponent implements OnInit {
           data[i]['Ancho (cm)'] = this.webBackup[j].ancho.toFixed(2);
           data[i]['Profundidad (cm)'] = this.webBackup[j].profundidad.toFixed(2);
 
-          encontrado = true;
           id = this.webBackup[j].id;
-
         }
       }
-      /* Comprobando si no se encuentran los datos y si la URL no está vacía. Si ambas condiciones son
-      verdaderas, llamará a la función dataStandardizer. */
-      if (!encontrado && data[i]["Identificador de URL"].trim() !== "") {
-        this.dataStandardizer(data[i]);
+      stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
 
-        cont++;
-        nuevos.push({ 'Codigo': data[i].SKU, 'Nombre': data[i].Nombre, 'marca': data[i].Marca })
-        /* Agregando los datos en la matriz. */
-      } else {
-        stock.push({ 'codigo': id, 'stock': parseInt(data[i]['Stock']) });
-      }
     }
+    nuevos = this.encontrarNuevos(data);
+    console.log(nuevos);
+    nuevos.forEach((item) => {
+      if (item['Identificador de URL']) {
+        this.dataStandardizer(item);
+      }
+    })
     /* actualizar los stocks en BD. */
-    this.datosSis.actuStocksWeb(stock).pipe(
-      tap(() => { }, error => { console.log(error) })
-    ).subscribe();
+    this.datosSis.actuStocksWeb(stock).subscribe((data) => { },
+      (error) => { error.error.text })
 
     /* Convertir los datos en un archivo CSV y descargarlo. */
     const csvData = Papa.unparse(data);
@@ -569,12 +568,12 @@ export class WebComponent implements OnInit {
 
     Swal.fire({
       title: '¡Archivo generado!',
-      text: 'se encontraron ' + cont + ' nuevas publicaciones',
+      text: 'se encontraron ' + (nuevos.length - 1) + ' nuevas publicaciones',
       icon: 'success',
       showConfirmButton: true,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed && cont > 0) {
+      if (result.isConfirmed && nuevos.length > 1) {
         this.csvDownload(nuevos, 'nuevos_');
       }
     });
