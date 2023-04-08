@@ -102,7 +102,6 @@ export class ProductosComponent implements OnInit {
 	}
 
 
-
 	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
 	/* getProductos(): void {
 		this.datosSis.obtenerDatos().subscribe((data) => {
@@ -184,8 +183,6 @@ export class ProductosComponent implements OnInit {
 					header: true,
 					complete: (results) => {
 						let data = results.data;
-						console.log(data);
-
 						this.estandarizador(data, this.selector);
 						//this.detectarNuevos(data);
 					}
@@ -208,8 +205,6 @@ export class ProductosComponent implements OnInit {
 	 */
 	detectarNuevos(array) {
 		let nuevos: Array<any> = []
-		console.log(this.productos);
-
 		array.forEach((element) => {
 			if (!this.productos.map(producto => producto.codigo).includes(parseInt(element['Código']))) {
 				if (element['Código'] !== '') {
@@ -218,8 +213,6 @@ export class ProductosComponent implements OnInit {
 
 			}
 		});
-		console.log(nuevos);
-
 		return nuevos;
 	}
 
@@ -279,8 +272,6 @@ export class ProductosComponent implements OnInit {
 			.set('marca', this.producto.value.marca.trim())
 			.set('precioPub', this.producto.value.precioPublico)
 			.set('stock', this.producto.value.stock)
-		console.log(params);
-		console.log(id);
 
 		this.datosSis.actualizarProducto(id, params).subscribe((data) => {
 			const index = this.productos.findIndex((p) => p.codigo === id);
@@ -434,12 +425,12 @@ export class ProductosComponent implements OnInit {
 		} else {
 			this.datosSis.actuProductos(body).subscribe((data) => {
 				console.log("Precios productos actualizados");
-			}, (err) => {
-				console.log(err);
+			}, (error) => {
+				console.log(error.error.text);
 			});
 			this.datosSis.actuWeb(body).subscribe((data) => {
 				console.log("Precios web actualizados")
-			}, (err) => { console.log(err); });
+			}, (error) => { console.log(error.error.text); });
 		}
 	}
 
@@ -459,7 +450,19 @@ export class ProductosComponent implements OnInit {
 			});
 		} else {
 			this.datosSis.actuStock(body).subscribe((data) => { },
-				(error) => { console.log(error) });
+				(error) => { console.log("Hay un error!!", error) });
+			this.productos.forEach((producto) => {
+				let data = body.find((bod) => bod.codigo === producto.codigo);
+				if (data) {
+					producto.stock = data.stock;
+				}
+			});
+			Swal.fire({
+				title: 'Genial',
+				text: 'Stock actualizado',
+				icon: 'success',
+				timer: 2000
+			})
 		}
 	}
 
@@ -477,8 +480,9 @@ export class ProductosComponent implements OnInit {
 			nuevos = this.detectarNuevos(data)
 		} else if (destino === "stock") {
 			this.actualizarStock(body);
-			nuevos = this.detectarNuevos(data)
 		};
+		console.log(nuevos);
+		
 		if (nuevos.length > 0) {
 			Swal.fire({
 				title: 'Hay que actualizar!',
