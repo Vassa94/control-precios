@@ -503,6 +503,12 @@ export class ProductosComponent implements OnInit {
 				}
 			}, 3000)
 			this.descargarCSV(nuevos, 'Nuevos_');
+		} else {
+			Swal.fire({
+				title: 'Productos actualizados!',
+				icon: 'success',
+				showConfirmButton: true,
+			});
 		}
 	}
 
