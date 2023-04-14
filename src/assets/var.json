@@ -1,11 +1,31 @@
 {
-    "ultimos60Dias": 393,
-    "mercadoenvios": 327,
+    "ultimos60Dias": 389,
+    "mercadoenvios": 312,
     "color": "verdeOscuro",
     "reclamos": [
         {
+            "Fecha del reclamo": "miércoles 12 abr 2023 - 10:28 hs",
+            "Número de reclamo": 5185961008,
+            "# de la venta": "'2000005446815810",
+            "Fecha de la venta": "martes 11 abr 2023 - 15:33 hs",
+            "Título de la publicación": "Aspiradora Industrial De Tacho Lüsqtoff La-8003m 80l  Plateada  Naranja Y Negra 220v 50hz",
+            "Usuario comprador": "LUCA_14",
+            "Tipo de reclamo": "No recibí el producto",
+            "Detalle del reclamo": "Me dijo que no tiene stock"
+        },
+        {
+            "Fecha del reclamo": "miércoles 12 abr 2023 - 10:48 hs",
+            "Número de reclamo": 5185965432,
+            "# de la venta": "'2000005439673620",
+            "Fecha de la venta": "lunes 10 abr 2023 - 15:22 hs",
+            "Título de la publicación": "Mecha De Hoyadora De 200 Mm Marca Niwa",
+            "Usuario comprador": "DARIOINESTORLUISZECHIN",
+            "Tipo de reclamo": "No recibí el producto",
+            "Detalle del reclamo": "El vendedor no tiene stock"
+        },
+        {
             "Fecha del reclamo": "lunes 27 feb 2023 - 14:51 hs",
-            "Número de reclamo": "5177794665",
+            "Número de reclamo": 5177794665,
             "# de la venta": "'2000005108814794",
             "Fecha de la venta": "lunes 13 feb 2023 - 10:36 hs",
             "Título de la publicación": "Compresor Niwa 2.5hp 50 Litros Anw2.5/50",
@@ -14,18 +34,8 @@
             "Detalle del reclamo": "El embalaje llegó bien"
         },
         {
-            "Fecha del reclamo": "viernes 3 feb 2023 - 13:24 hs",
-            "Número de reclamo": "5173434698",
-            "# de la venta": "'2000005049012808",
-            "Fecha de la venta": "viernes 3 feb 2023 - 09:43 hs",
-            "Título de la publicación": "Cortadora De Pasto Eléctrica Lüsqtoff Lco-1640b Con Bolsa Recolectora De 1600w Y 230v - 240v",
-            "Usuario comprador": "LUIJA2854",
-            "Tipo de reclamo": "No recibí el producto",
-            "Detalle del reclamo": "Me dijo que no tiene stock"
-        },
-        {
             "Fecha del reclamo": "domingo 19 feb 2023 - 19:40 hs",
-            "Número de reclamo": "5176472003",
+            "Número de reclamo": 5176472003,
             "# de la venta": "'2000005117052336",
             "Fecha de la venta": "martes 14 feb 2023 - 13:15 hs",
             "Título de la publicación": "Escalera De Aluminio Plegable Tijera 4 Escalones Lusqtoff",
@@ -34,18 +44,8 @@
             "Detalle del reclamo": "Contacté al vendedor y no me respondió"
         },
         {
-            "Fecha del reclamo": "miércoles 8 feb 2023 - 14:04 hs",
-            "Número de reclamo": "5174345396",
-            "# de la venta": "'2000005079418136",
-            "Fecha de la venta": "miércoles 8 feb 2023 - 10:56 hs",
-            "Título de la publicación": "Cortadora De Pasto Eléctrica Lüsqtoff Lco-1640b Con Bolsa Recolectora De 1600w Y 230v - 240v",
-            "Usuario comprador": "LUMA2493909",
-            "Tipo de reclamo": "No recibí el producto",
-            "Detalle del reclamo": "Me dijo que no tiene stock"
-        },
-        {
             "Fecha del reclamo": "miércoles 15 mar 2023 - 07:53 hs",
-            "Número de reclamo": "5180843021",
+            "Número de reclamo": 5180843021,
             "# de la venta": "'2000005265491384",
             "Fecha de la venta": "sábado 11 mar 2023 - 12:13 hs",
             "Título de la publicación": "Llave Impacto Inalambr Einhell Torque 215nm Te-cw 18li Solo",
@@ -55,7 +55,7 @@
         },
         {
             "Fecha del reclamo": "viernes 17 feb 2023 - 14:57 hs",
-            "Número de reclamo": "5176176437",
+            "Número de reclamo": 5176176437,
             "# de la venta": "'2000005117304306",
             "Fecha de la venta": "martes 14 feb 2023 - 13:50 hs",
             "Título de la publicación": "Lampazo Escurridor Balde Limpiador Mopa Lusqtoff Con Ruedas",
@@ -64,8 +64,18 @@
             "Detalle del reclamo": "Aparecieron defectos después del uso"
         },
         {
+            "Fecha del reclamo": "martes 11 abr 2023 - 20:38 hs",
+            "Número de reclamo": 5185881489,
+            "# de la venta": "'2000005403465042",
+            "Fecha de la venta": "lunes 3 abr 2023 - 20:04 hs",
+            "Título de la publicación": "Mascara Careta Fotosensible Esab Savage A40 Amarillo Mig Tig",
+            "Usuario comprador": "DECA1345333",
+            "Tipo de reclamo": "El producto es defectuoso",
+            "Detalle del reclamo": "No es el color / tamaño / modelo que elegí"
+        },
+        {
             "Fecha del reclamo": "lunes 27 feb 2023 - 09:57 hs",
-            "Número de reclamo": "5177723827",
+            "Número de reclamo": 5177723827,
             "# de la venta": "'2000005177323342",
             "Fecha de la venta": "sábado 25 feb 2023 - 11:53 hs",
             "Título de la publicación": "Soldadora Esab Buddy Tig 160 Aleaciones Acero Soldadura Mma",
@@ -85,17 +95,21 @@
         {
             "Fecha de la venta": "martes 14 feb 2023 - 13:20 hs",
             "# de la venta": "'2000005117084348",
-            "Título de la publicación": "Amoladora Angular Makita Ga9040s De 50 hz/60 hz Turquesa 2600 w 220 v - 230 v + Accesorio",
+            "Título de la publicación": "Amoladora Angular Makita Ga9040s De 50 hz/60 hz Turquesa 2600 w 220 v - 230 v + Accesorio",
             "Usuario comprador": "RAMILO.DIEGO"
-        },
-        {
-            "Fecha de la venta": "lunes 6 feb 2023 - 13:01 hs",
-            "# de la venta": "'2000005065761948",
-            "Título de la publicación": "Compresor De Aire Eléctrico Black Panther Bp-c40100b 100l 4hp 220v",
-            "Usuario comprador": "BAJE5652453"
         }
-    ],
-    "demoras": [
+    ]
+    ,
+    "demoras":[
+        {
+            "Fecha de la venta": "miércoles 12 abr 2023 - 09:50 hs",
+            "# de la venta": "'2000005451071366",
+            "Título de la publicación": "Amoladora Angular Makita Ga5021c De 50 hz/60 hz Turquesa 1450 w 220 v + Accesorio",
+            "Usuario comprador": "ECQ SRL",
+            "Forma de envío": "Entrega en correo",
+            "Tiempo indicado para despachar": "miércoles 12 abr 2023 - 23:59 hs",
+            "Tiempo en el que despachaste": "jueves 13 abr 2023 - 12:03 hs"
+        },
         {
             "Fecha de la venta": "martes 7 mar 2023 - 19:42 hs",
             "# de la venta": "'2000005234931606",
@@ -153,7 +167,7 @@
         {
             "Fecha de la venta": "lunes 6 mar 2023 - 14:23 hs",
             "# de la venta": "'2000005232310860",
-            "Título de la publicación": "Inalámbrica Einhell Ge-ct 18 Li Solo Color Rojo",
+            "Título de la publicación": " Inalámbrica Einhell Ge-ct 18 Li Solo Color Rojo",
             "Usuario comprador": "ROJU6709898",
             "Forma de envío": "Entrega en correo",
             "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
@@ -338,195 +352,7 @@
             "Forma de envío": "Entrega en correo",
             "Tiempo indicado para despachar": "lunes 13 feb 2023 - 23:59 hs",
             "Tiempo en el que despachaste": "miércoles 15 feb 2023 - 15:58 hs"
-        },
-        {
-            "Fecha de la venta": "jueves 9 feb 2023 - 12:59 hs",
-            "# de la venta": "'2000005087023248",
-            "Título de la publicación": "Inalámbrico Black+decker Pivotdriver Fdx100 3.6v Naranja",
-            "Usuario comprador": "DICRISTOFANOCRISTIAN",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "jueves 9 feb 2023 - 09:25 hs",
-            "# de la venta": "'2000005085638364",
-            "Título de la publicación": "Taladro Percutor Atornillador Eléctrico De 13mm Skil 6060 700w 220v",
-            "Usuario comprador": "JUAN_ANDRES_I",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "jueves 9 feb 2023 - 09:02 hs",
-            "# de la venta": "'2000005085532180",
-            "Título de la publicación": "Sierra Circular Eléctrica Stanley Sc16 190mm 1600w Amarilla 50hz/60hz 220v-240v",
-            "Usuario comprador": "LAPEJRUSK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "jueves 9 feb 2023 - 07:22 hs",
-            "# de la venta": "'2000005085211416",
-            "Título de la publicación": "Aerografo Fmt K-3b",
-            "Usuario comprador": "PABLOMARTINCUDEMO",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 21:05 hs",
-            "# de la venta": "'2000005083354180",
-            "Título de la publicación": "Cortacerco A Explosión Niwa 2 Tiempos 23cc Espada 60cm Hnw23",
-            "Usuario comprador": "FLAVIAESTEFANABERGESE",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 19:50 hs",
-            "# de la venta": "'2000005082822204",
-            "Título de la publicación": "Mascara Fotosensible Lusqtoff Para Soldar St-1l Luz Led",
-            "Usuario comprador": "LUIS FERNANDOV215",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 19:44 hs",
-            "# de la venta": "'2000005082778362",
-            "Título de la publicación": "Motosierra A Nafta Niwa 50cc Cnw-50 2.2kw",
-            "Usuario comprador": "CASA9108325",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 17:48 hs",
-            "# de la venta": "'2000005081992894",
-            "Título de la publicación": "Manguera Riego Freeplas Trenzada Azul 3/4 X 25",
-            "Usuario comprador": "ADDA5238368",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 17:11 hs",
-            "# de la venta": "'2000005081740058",
-            "Título de la publicación": "Atornillador Inalámbrico C/torque Bosch 2 Velocid 14.4v 10mm",
-            "Usuario comprador": "DINGUALA",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 15:52 hs",
-            "# de la venta": "'2000005081168570",
-            "Título de la publicación": "Caja Maletin Einhell E-box S 35/33 Porta Herramientas",
-            "Usuario comprador": "FLUXSUS",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 14:54 hs",
-            "# de la venta": "'2000005080741694",
-            "Título de la publicación": "Mascara Careta Fotosensible Esab A20 Para Soldar Soldadura",
-            "Usuario comprador": "NIKO2003",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 9 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 11:28 hs",
-            "# de la venta": "'2000005079207290",
-            "Título de la publicación": "Electrodo Esab Conarco Ok 2 5 Mm X Caja 20 Kg 13a Punta Azul",
-            "Usuario comprador": "HIDROSPA",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 8 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 15 feb 2023 - 15:58 hs"
-        },
-        {
-            "Fecha de la venta": "miércoles 8 feb 2023 - 09:26 hs",
-            "# de la venta": "'2000005078443966",
-            "Título de la publicación": "Aspiradora Black Panther 30lts",
-            "Usuario comprador": "PALE8634194",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 8 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "martes 7 feb 2023 - 17:44 hs",
-            "# de la venta": "'2000005074721592",
-            "Título de la publicación": "Pulverizador  Fumigador Niwa Fnw 33 11 Lts 33 Cc",
-            "Usuario comprador": "DEMA8446913",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 8 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 10 feb 2023 - 09:16 hs"
-        },
-        {
-            "Fecha de la venta": "martes 7 feb 2023 - 10:36 hs",
-            "# de la venta": "'2000005071622230",
-            "Título de la publicación": "Cepillo Amoladora De Banco Alambre Rizado 175 Mm Pack X5 Un.",
-            "Usuario comprador": "PAJARO LOCO100",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 feb 2023 - 15:53 hs"
-        },
-        {
-            "Fecha de la venta": "lunes 6 feb 2023 - 10:16 hs",
-            "# de la venta": "'2000005064229538",
-            "Título de la publicación": "Aspiradora Industrial Black Panther 30lts",
-            "Usuario comprador": "CYR66",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060430900",
-            "Título de la publicación": "Morsa De Banco Giratoria N6 Yunque Lusqtoff",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433304",
-            "Título de la publicación": "Set Juego De Hojas Sierra Caladora 10 Pzs Bosch Vastago T",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433302",
-            "Título de la publicación": "Kit 6 Cepillos Circulares Y Copa Con Vástago",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060430902",
-            "Título de la publicación": "Manguera Para Aire Alta Presion Roja 8mm Rollo X25mts 300psi",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
-        },
-        {
-            "Fecha de la venta": "domingo 5 feb 2023 - 15:54 hs",
-            "# de la venta": "'2000005060433300",
-            "Título de la publicación": "Electrodo Para Soldar Conarco Conarcrom 350 3.25mm Por 1kg",
-            "Usuario comprador": "MMDOCK",
-            "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 7 feb 2023 - 15:46 hs"
         }
     ]
+    
 }
