@@ -1,19 +1,211 @@
 <main class="d-flex justify-content-center flex-column ">
-    <div class="rounded d-flex my-1 mx-3" *ngIf="!cargando" >
-        <div class="rounded">
-            <button class="rounded-5" (click)="downloadPDF()">
-                <i class="fa-solid fa-file-pdf" style="padding-right: 3px;"></i>
-                <label style="cursor: pointer;">Descargar PDF</label>
-            </button>
+    <div class="rounded d-flex my-1 mx-3 flex-row-reverse" *ngIf="!cargando">
+
+    </div>
+
+    <div id="pdf" class="d-flex flex-column" style="overflow-y: hidden;" *ngIf="!cargando">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="reputation-tab" data-bs-toggle="tab" data-bs-target="#reputation"
+                    type="button" role="tab" aria-controls="reputation" aria-selected="true">Resumen</button>
+                <button class="nav-link" id="reclamos-tab" data-bs-toggle="tab" data-bs-target="#reclamos" type="button"
+                    role="tab" aria-controls="reclamos" aria-selected="false">Reclamos</button>
+                <button class="nav-link" id="mediaciones-tab" data-bs-toggle="tab" data-bs-target="#mediaciones"
+                    type="button" role="tab" aria-controls="mediaciones" aria-selected="false">Mediaciones</button>
+                <button class="nav-link" id="cancelaciones-tab" data-bs-toggle="tab" data-bs-target="#cancelaciones"
+                    type="button" role="tab" aria-controls="cancelaciones" aria-selected="false">Cancelaciones</button>
+                <button class="nav-link" id="demoras-tab" data-bs-toggle="tab" data-bs-target="#demoras" type="button"
+                    role="tab" aria-controls="demoras" aria-selected="false">Demoras</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="reputation" role="tabpanel" aria-labelledby="reputation-tab">
+                <aside class="d-flex p-3 flex-column">
+                    <div class="rounded">
+                        <button class="rounded-5" (click)="downloadPDF()">
+                            <i class="fa-solid fa-file-pdf" style="padding-right: 3px;"></i>
+                            <label style="cursor: pointer;">Descargar PDF</label>
+                        </button>
+                    </div>
+                    <div id="pdf" class="d-flex flex-column " style="overflow-y: hidden;" *ngIf="!cargando">
+                        <aside class="d-flex p-3">
+                            <div class="shadow card w-100 ">
+                                <div class="card-body d-flex">
+                                    <div class=" pe-5 border-end">
+                                        <h5 style="color:green">Mercadolider Platinum</h5>
+                                        <div [ngSwitch]="this.reclamo.color">
+                                            <div *ngSwitchCase="'verdeOscuro'">
+                                                <img src=".\assets\img\rep\repVerde.png" alt="">
+                                            </div>
+                                            <div *ngSwitchCase="'verde'">
+                                                <img src=".\assets\img\rep\repVerdeClaro.png" alt="">
+                                            </div>
+                                            <div *ngSwitchCase="'amarillo'">
+                                                <img src=".\assets\img\rep\repAmarilla.png" alt="">
+                                            </div>
+                                            <div *ngSwitchCase="'naranja'">
+                                                <img src=".\assets\img\rep\repNaranja.png" alt="">
+                                            </div>
+                                            <div *ngSwitchCase="'rojo'">
+                                                <img src=".\assets\img\rep\repRoja.png" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+                                        <p class="px-4"> <b>Medimos tus ventas de los últimos 60 días</b> Desde el
+                                            {{reputationDayRange()}} hasta hoy</p>
+                                        <div class="w-100 d-flex justify-content-around">
+                                            <p class="px-4">Total de ventas: {{this.reclamo.ultimos60Dias}}</p>
+                                            <p class="px-4">Total con mercadoenvios: {{this.reclamo.mercadoenvios}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </aside>
+                        <aside class=" d-flex px-3 gap-3 m-2 justify-content-around">
+                            <div class="shadow card rounded" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Reclamos</h5>
+                                    <h5 [ngClass]="((this.reclamo.reclamos.length * 100) /
+                                this.reclamo.ultimos60Dias) < 1 ? 'good': 'bad'" class="mb-2 text-muted">
+                                        {{((this.reclamo.reclamos.length * 100) /
+                                        this.reclamo.ultimos60Dias).toFixed(2)}}% </h5>
+                                    <p class="card-text">Son {{this.reclamo.reclamos.length}} de tus ventas</p>
+                                    <p class="card-text">Minimo permitido: {{((1 *
+                                        this.reclamo.ultimos60Dias)/100).toFixed(0)}}</p>
+                                </div>
+                            </div>
+
+                            <div class="shadow card rounded" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mediaciones</h5>
+                                    <h5 [ngClass]="((this.reclamo.mediaciones.length * 100) /
+                                this.reclamo.ultimos60Dias) < 0.5 ? 'good': 'bad'" class="mb-2 text-muted">
+                                        {{((this.reclamo.mediaciones.length * 100) /
+                                        this.reclamo.ultimos60Dias).toFixed(2)}}%</h5>
+                                    <p class="card-text">Son {{this.reclamo.mediaciones.length}} de tus ventas</p>
+                                    <p class="card-text">Minimo permitido: {{((0.5 *
+                                        this.reclamo.ultimos60Dias)/100).toFixed(0)}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="shadow card rounded" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cancelaciones</h5>
+                                    <h5 [ngClass]="((this.reclamo.cancelaciones.length * 100) /
+                                this.reclamo.ultimos60Dias) < 0.5 ? 'good': 'bad'" class="mb-2 text-muted">
+                                        {{((this.reclamo.cancelaciones.length * 100) /
+                                        this.reclamo.ultimos60Dias).toFixed(2)}}%</h5>
+                                    <p class="card-text">Son {{this.reclamo.cancelaciones.length}} de tus ventas</p>
+                                    <p class="card-text">Minimo permitido: {{((0.5 *
+                                        this.reclamo.ultimos60Dias)/100).toFixed(0)}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="shadow card rounded" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Demoras</h5>
+                                    <h5 [ngClass]="((this.reclamo.demoras.length * 100) /
+                                this.reclamo.mercadoenvios) < 8 ? 'good': 'bad'" class="mb-2 text-muted">
+                                        {{((this.reclamo.demoras.length * 100) /
+                                        this.reclamo.mercadoenvios).toFixed(2)}}%</h5>
+                                    <p class="card-text">Son {{this.reclamo.demoras.length}} de tus ventas</p>
+                                    <p class="card-text">Minimo permitido: {{((8 *
+                                        this.reclamo.mercadoenvios)/100).toFixed(0)}}
+                                    </p>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class=" p-3 ">
+                            <div class="shadow card rouded ">
+                                <div class="card-body">
+                                    <h5 class="card-title">Detalles</h5>
+                                    <ul>
+                                        <li class="card-text">Motivo mas recurrente de reclamo fue
+                                            <b>"{{this.tipoReclamo}}"</b> y el
+                                            motivo
+                                            fue <b>"{{this.detalleReclamo}}"</b>
+                                        </li>
+                                        <li class="card-text">La franja más afectada por despachos demorados son los
+                                            <b>{{masDemoradas}}
+                                                de 8 a 14hs</b>, Se demoraron
+                                            esos dias el {{((this.cantMasDemoradas *
+                                            100)/this.reclamo.demoras.length).toFixed(2)}}% de
+                                            las
+                                            ventas con Mercadoenvios
+                                        </li>
+                                        <li>Ventas necesarias para recuperar:
+                                            <b>{{((this.reclamo.reclamos.length/0.015)-this.reclamo.ultimos60Dias).toFixed(0)}}</b>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </aside>
+                    </div>
+                </aside>
+            </div>
+            <div class="tab-pane fade" id="reclamos" role="tabpanel" aria-labelledby="reclamos-tab">
+                <div class="d-flex px-3 gap-3 m-2 justify-content-around">
+
+                    <div class="Tabla " data-toggle="table" *ngIf="!cargando">
+                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                            <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+                                <thead class="sticky-top" style="z-index: 1; background-color: white;">
+                                    <tr style="height:20px;overflow: hidden;">
+                                        <th class="headers" scope="col" *ngFor="let header of headers1;let i = index">
+                                            {{ header }}
+                                        </th>
+                                        <th class="opciones">
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="table-group-divider"
+                                    style="height: 200px; overflow-y: auto; overflow-x: hidden;">
+                                    <tr *ngFor="let row of reclamo.reclamos; let i = index ">
+                                        <td class="{{cell}}" *ngFor="let cell of headers1_2">
+                                            {{ row[cell] }}
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="mediaciones" role="tabpanel" aria-labelledby="mediaciones-tab">
+                <div class="d-flex px-3 gap-3 m-2 justify-content-around">
+                    <!-- contenido de la pestaña de mediaciones -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="cancelaciones" role="tabpanel" aria-labelledby="cancelaciones-tab">
+                <div class="d-flex px-3 gap-3 m-2 justify-content-around">
+                    <!-- contenido de la pestaña de cancelaciones -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="demoras" role="tabpanel" aria-labelledby="demoras-tab">
+                <div class="d-flex px-3 gap-3 m-2 justify-content-around">
+                    <!-- contenido de la pestaña de demoras -->
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="pdf" class="d-flex flex-column " style="overflow-y: hidden;" *ngIf="!cargando">
+
+    <!-- <div id="pdf" class="d-flex flex-column " style="overflow-y: hidden;" *ngIf="!cargando">
         <aside class="d-flex p-3">
             <div class="shadow card w-100 ">
                 <div class="card-body d-flex">
                     <div class=" pe-5 border-end">
-                        <h5 style="color:green"><!-- <i class="fa-solid fa-medal p-1"></i> -->Mercadolider Platinum</h5>
+                        <h5 style="color:green">Mercadolider Platinum</h5>
                         <div [ngSwitch]="this.reclamo.color">
                             <div *ngSwitchCase="'verdeOscuro'">
                                 <img src=".\assets\img\rep\repVerde.png" alt="">
@@ -117,7 +309,7 @@
 
             </div>
         </aside>
-    </div>
+    </div> -->
 
     <div class="spinner-container" *ngIf="cargando"> <!-- Spiner de carga -->
         <div class="loader">

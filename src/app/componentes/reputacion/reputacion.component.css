@@ -2,8 +2,14 @@ aside {
     page-break-inside: avoid;
 }
 
-main{
+main {
     max-height: 85vh;
+}
+
+.Titulo {
+    width: 240px;
+    overflow: hidden;
+    max-width: 200px;
 }
 
 .good {

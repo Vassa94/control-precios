@@ -3,6 +3,10 @@ import { Observable } from 'rxjs/internal/Observable';
 import { MlApiService } from 'src/app/services/ml-api.service';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; //Importa el módulo de ng-bootstrap
+
 
 
 
@@ -18,6 +22,8 @@ export class ReputacionComponent implements OnInit {
   masDemoradas: any
   cantMasDemoradas: any
   cargando: boolean = true
+  headers1: Array<string> = ["Fecha","Nº Reclamo","Nº Venta","Fecha venta","Publicacion","Usuario","Detalle"]
+  headers1_2: Array<string> = ["Fecha_reclamo","Número_reclamo","venta","Fecha_venta","Titulo","Usuario","Detalle"]
   constructor(private datos: MlApiService) { }
 
   ngOnInit(): void {
@@ -25,7 +31,7 @@ export class ReputacionComponent implements OnInit {
       this.reclamo = data
       console.log("datos; ", this.reclamo);
       this.tipoReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Tipo de reclamo"])
-      this.detalleReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Detalle del reclamo"])
+      this.detalleReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Detalle"])
       this.masDemoradas = this.mostFrequentValue(this.reclamo.demoras, ["Tiempo indicado para despachar"], true)
       this.cantMasDemoradas = this.delayDayCount(this.masDemoradas)
       this.cargando = false
