@@ -1,21 +1,19 @@
 <main class="d-flex justify-content-center flex-column ">
-    <div class="rounded d-flex my-1 mx-3 flex-row-reverse" *ngIf="!cargando">
-
-    </div>
+   
 
     <div id="pdf" class="d-flex flex-column" style="overflow-y: hidden;" *ngIf="!cargando">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="reputation-tab" data-bs-toggle="tab" data-bs-target="#reputation"
-                    type="button" role="tab" aria-controls="reputation" aria-selected="true">Resumen</button>
-                <button class="nav-link" id="reclamos-tab" data-bs-toggle="tab" data-bs-target="#reclamos" type="button"
-                    role="tab" aria-controls="reclamos" aria-selected="false">Reclamos</button>
-                <button class="nav-link" id="mediaciones-tab" data-bs-toggle="tab" data-bs-target="#mediaciones"
-                    type="button" role="tab" aria-controls="mediaciones" aria-selected="false">Mediaciones</button>
-                <button class="nav-link" id="cancelaciones-tab" data-bs-toggle="tab" data-bs-target="#cancelaciones"
-                    type="button" role="tab" aria-controls="cancelaciones" aria-selected="false">Cancelaciones</button>
-                <button class="nav-link" id="demoras-tab" data-bs-toggle="tab" data-bs-target="#demoras" type="button"
-                    role="tab" aria-controls="demoras" aria-selected="false">Demoras</button>
+                <span class="nav-link active" id="reputation-tab" data-bs-toggle="tab" data-bs-target="#reputation"
+                    type="button" role="tab" aria-controls="reputation" aria-selected="true">Resumen</span>
+                <span class="nav-link" id="reclamos-tab" data-bs-toggle="tab" data-bs-target="#reclamos" type="button"
+                    role="tab" aria-controls="reclamos" aria-selected="false">Reclamos</span>
+                <span class="nav-link" id="mediaciones-tab" data-bs-toggle="tab" data-bs-target="#mediaciones"
+                    type="button" role="tab" aria-controls="mediaciones" aria-selected="false">Mediaciones</span>
+                <span class="nav-link" id="cancelaciones-tab" data-bs-toggle="tab" data-bs-target="#cancelaciones"
+                    type="button" role="tab" aria-controls="cancelaciones" aria-selected="false">Cancelaciones</span>
+                <span class="nav-link" id="demoras-tab" data-bs-toggle="tab" data-bs-target="#demoras" type="button"
+                    role="tab" aria-controls="demoras" aria-selected="false">Demoras</span>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -153,26 +151,22 @@
             <div class="tab-pane fade" id="reclamos" role="tabpanel" aria-labelledby="reclamos-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
 
-                    <div class="Tabla " data-toggle="table" *ngIf="!cargando">
+                    <div class="Tabla " data-toggle="table" >
                         <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
                                         <th class="headers" scope="col" *ngFor="let header of headers1;let i = index">
                                             {{ header }}
-                                        </th>
-                                        <th class="opciones">
-                                        </th>
+                                        </th>                                        
                                     </tr>
                                 </thead>
-
                                 <tbody class="table-group-divider"
                                     style="height: 200px; overflow-y: auto; overflow-x: hidden;">
                                     <tr *ngFor="let row of reclamo.reclamos; let i = index ">
                                         <td class="{{cell}}" *ngFor="let cell of headers1_2">
                                             {{ row[cell] }}
                                         </td>
-
                                     </tr>
                                 </tbody>
                             </table>
@@ -183,17 +177,83 @@
             </div>
             <div class="tab-pane fade" id="mediaciones" role="tabpanel" aria-labelledby="mediaciones-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
-                    <!-- contenido de la pestaña de mediaciones -->
+                    
+                    <div class="Tabla " data-toggle="table" >
+                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                            <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+                                <thead class="sticky-top" style="z-index: 1; background-color: white;">
+                                    <tr style="height:20px;overflow: hidden;">
+                                        <th class="headers" scope="col" *ngFor="let header of headers2;let i = index">
+                                            {{ header }}
+                                        </th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider"
+                                    style="height: 200px; overflow-y: auto; overflow-x: hidden;">
+                                    <tr *ngFor="let row of reclamo.cancelaciones; let i = index ">
+                                        <td class="{{cell}}" *ngFor="let cell of headers2_2">
+                                            {{ row[cell] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="tab-pane fade" id="cancelaciones" role="tabpanel" aria-labelledby="cancelaciones-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
-                    <!-- contenido de la pestaña de cancelaciones -->
+                    
+                    <div class="Tabla " data-toggle="table" >
+                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                            <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+                                <thead class="sticky-top" style="z-index: 1; background-color: white;">
+                                    <tr style="height:20px;overflow: hidden;">
+                                        <th class="headers" scope="col" *ngFor="let header of headers2;let i = index">
+                                            {{ header }}
+                                        </th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider"
+                                    style="height: 200px; overflow-y: auto; overflow-x: hidden;">
+                                    <tr *ngFor="let row of reclamo.cancelaciones; let i = index ">
+                                        <td class="aux" *ngFor="let cell of headers2_2">
+                                            {{ row[cell] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="tab-pane fade" id="demoras" role="tabpanel" aria-labelledby="demoras-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
-                    <!-- contenido de la pestaña de demoras -->
+                    
+                    <div class="Tabla " data-toggle="table" >
+                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                            <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
+                                <thead class="sticky-top" style="z-index: 1; background-color: white;">
+                                    <tr style="height:20px;overflow: hidden;">
+                                        <th class="headers" scope="col" *ngFor="let header of headers1;let i = index">
+                                            {{ header }}
+                                        </th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider"
+                                    style="height: 200px; overflow-y: auto; overflow-x: hidden;">
+                                    <tr *ngFor="let row of reclamo.reclamos; let i = index ">
+                                        <td class="{{cell}}" *ngFor="let cell of headers1_2">
+                                            {{ row[cell] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

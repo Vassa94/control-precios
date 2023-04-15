@@ -23,7 +23,13 @@ export class ReputacionComponent implements OnInit {
   cantMasDemoradas: any
   cargando: boolean = true
   headers1: Array<string> = ["Fecha","Nº Reclamo","Nº Venta","Fecha venta","Publicacion","Usuario","Detalle"]
-  headers1_2: Array<string> = ["Fecha_reclamo","Número_reclamo","venta","Fecha_venta","Titulo","Usuario","Detalle"]
+  headers1_2: Array<string> = ["Fecha_reclamo","Nmero_reclamo","venta","Fecha_venta","Titulo","Usuario","Detalle"]
+  headers2: Array<string> = ["Fecha","Nº de la venta","Publicación","Usuario"]
+  headers2_2:Array<string> = ["Fecha_venta","venta","Titulo","Usuario"]
+  headers3:Array<string> = []
+  headers3_2:Array<string> = []
+  headers4:Array<string> = []
+  headers4_2:Array<string> = []
   constructor(private datos: MlApiService) { }
 
   ngOnInit(): void {
@@ -32,7 +38,7 @@ export class ReputacionComponent implements OnInit {
       console.log("datos; ", this.reclamo);
       this.tipoReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Tipo de reclamo"])
       this.detalleReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["Detalle"])
-      this.masDemoradas = this.mostFrequentValue(this.reclamo.demoras, ["Tiempo indicado para despachar"], true)
+      this.masDemoradas = this.mostFrequentValue(this.reclamo.demoras, ["Tiempo_despachar"], true)
       this.cantMasDemoradas = this.delayDayCount(this.masDemoradas)
       this.cargando = false
 
