@@ -5,7 +5,7 @@
     "reclamos": [
         {
             "Fecha_reclamo": "miércoles 12 abr 2023 - 10:28 hs",
-            "Nmero_reclamo": 5185961008,
+            "Numero_reclamo": 5185961008,
             "venta": "'2000005446815810",
             "Fecha_venta": "martes 11 abr 2023 - 15:33 hs",
             "Titulo": "Aspiradora Industrial De Tacho Lüsqtoff La-8003m 80l  Plateada  Naranja Y Negra 220v 50hz",
@@ -15,7 +15,7 @@
         },
         {
             "Fecha_reclamo": "miércoles 12 abr 2023 - 10:48 hs",
-            "Nmero_reclamo": 5185965432,
+            "Numero_reclamo": 5185965432,
             "venta": "'2000005439673620",
             "Fecha_venta": "lunes 10 abr 2023 - 15:22 hs",
             "Titulo": "Mecha De Hoyadora De 200 Mm Marca Niwa",
@@ -25,7 +25,7 @@
         },
         {
             "Fecha_reclamo": "lunes 27 feb 2023 - 14:51 hs",
-            "Nmero_reclamo": 5177794665,
+            "Numero_reclamo": 5177794665,
             "venta": "'2000005108814794",
             "Fecha_venta": "lunes 13 feb 2023 - 10:36 hs",
             "Titulo": "Compresor Niwa 2.5hp 50 Litros Anw2.5/50",
@@ -35,7 +35,7 @@
         },
         {
             "Fecha_reclamo": "domingo 19 feb 2023 - 19:40 hs",
-            "Nmero_reclamo": 5176472003,
+            "Numero_reclamo": 5176472003,
             "venta": "'2000005117052336",
             "Fecha_venta": "martes 14 feb 2023 - 13:15 hs",
             "Titulo": "Escalera De Aluminio Plegable Tijera 4 Escalones Lusqtoff",
@@ -45,7 +45,7 @@
         },
         {
             "Fecha_reclamo": "miércoles 15 mar 2023 - 07:53 hs",
-            "Nmero_reclamo": 5180843021,
+            "Numero_reclamo": 5180843021,
             "venta": "'2000005265491384",
             "Fecha_venta": "sábado 11 mar 2023 - 12:13 hs",
             "Titulo": "Llave Impacto Inalambr Einhell Torque 215nm Te-cw 18li Solo",
@@ -55,7 +55,7 @@
         },
         {
             "Fecha_reclamo": "viernes 17 feb 2023 - 14:57 hs",
-            "Nmero_reclamo": 5176176437,
+            "Numero_reclamo": 5176176437,
             "venta": "'2000005117304306",
             "Fecha_venta": "martes 14 feb 2023 - 13:50 hs",
             "Titulo": "Lampazo Escurridor Balde Limpiador Mopa Lusqtoff Con Ruedas",
@@ -65,7 +65,7 @@
         },
         {
             "Fecha_reclamo": "martes 11 abr 2023 - 20:38 hs",
-            "Nmero_reclamo": 5185881489,
+            "Numero_reclamo": 5185881489,
             "venta": "'2000005403465042",
             "Fecha_venta": "lunes 3 abr 2023 - 20:04 hs",
             "Titulo": "Mascara Careta Fotosensible Esab Savage A40 Amarillo Mig Tig",
@@ -75,7 +75,7 @@
         },
         {
             "Fecha_reclamo": "lunes 27 feb 2023 - 09:57 hs",
-            "Nmero_reclamo": 5177723827,
+            "Numero_reclamo": 5177723827,
             "venta": "'2000005177323342",
             "Fecha_venta": "sábado 25 feb 2023 - 11:53 hs",
             "Titulo": "Soldadora Esab Buddy Tig 160 Aleaciones Acero Soldadura Mma",
@@ -109,8 +109,8 @@
             "Titulo": "Amoladora Angular Makita Ga5021c De 50 hz/60 hz Turquesa 1450 w 220 v + Accesorio",
             "Usuario": "ECQ SRL",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 12 abr 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "jueves 13 abr 2023 - 12:03 hs"
+            "Tiempo_despachar": "miércoles 12 abr 2023 - 23:59 hs",
+            "Tiempo_despachado": "jueves 13 abr 2023 - 12:03 hs"
         },
         {
             "Fecha_venta": "martes 7 mar 2023 - 19:42 hs",
@@ -118,8 +118,8 @@
             "Titulo": "Soldadora Inverter Lüsqtoff Evo Mig-220 50hz 220v",
             "Usuario": "GASCASTILLO99",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 8 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "jueves 9 mar 2023 - 15:50 hs"
+            "Tiempo_despachar": "miércoles 8 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "jueves 9 mar 2023 - 15:50 hs"
         },
         {
             "Fecha_venta": "martes 7 mar 2023 - 12:58 hs",
@@ -127,8 +127,8 @@
             "Titulo": "Lijadora   De Pared Y De Techo Lüsqtoff Lqap-220 Con Sistema Velcro  Naranja 50hz 750w 220v",
             "Usuario": "JOANASENELATTI",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "martes 7 mar 2023 - 12:33 hs",
@@ -136,8 +136,8 @@
             "Titulo": "Sopla Aspiradora A Explosion Niwa Snw26",
             "Usuario": "GASSCATULARO",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "jueves 9 mar 2023 - 15:50 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "jueves 9 mar 2023 - 15:50 hs"
         },
         {
             "Fecha_venta": "martes 7 mar 2023 - 10:49 hs",
@@ -145,8 +145,8 @@
             "Titulo": "Manguera Riego Freeplas Trenzada Azul 3/4 X 25",
             "Usuario": "MARIOCORONEL682",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "lunes 6 mar 2023 - 22:37 hs",
@@ -154,8 +154,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 162i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "JPKOZ",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "lunes 6 mar 2023 - 17:42 hs",
@@ -163,8 +163,8 @@
             "Titulo": "Hacha Grande De Corte Tumba 2kg Cabo De Madera Black Panther",
             "Usuario": "PEDROIJURCO",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "lunes 6 mar 2023 - 14:23 hs",
@@ -172,8 +172,8 @@
             "Titulo": " Inalámbrica Einhell Ge-ct 18 Li Solo Color Rojo",
             "Usuario": "ROJU6709898",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 7 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "martes 7 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "viernes 3 mar 2023 - 22:11 hs",
@@ -181,8 +181,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 162i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "FHANDRADA",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "lunes 6 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "viernes 3 mar 2023 - 18:52 hs",
@@ -190,8 +190,8 @@
             "Titulo": "Motobomba Lusqtoff Explosion Naftera 5.5hp 2'' 163cc 4t",
             "Usuario": "CGAITAN2019",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 6 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 8 mar 2023 - 09:16 hs"
+            "Tiempo_despachar": "lunes 6 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 8 mar 2023 - 09:16 hs"
         },
         {
             "Fecha_venta": "viernes 3 mar 2023 - 10:34 hs",
@@ -199,8 +199,8 @@
             "Titulo": "Compresor Niwa 2.5hp 50 Litros Anw2.5/50",
             "Usuario": "PLAYACONSTRUCCIONESSRL",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "viernes 3 mar 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "jueves 9 mar 2023 - 15:50 hs"
+            "Tiempo_despachar": "viernes 3 mar 2023 - 23:59 hs",
+            "Tiempo_despachado": "jueves 9 mar 2023 - 15:50 hs"
         },
         {
             "Fecha_venta": "lunes 27 feb 2023 - 09:45 hs",
@@ -208,8 +208,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 162i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "OALFONSO2014",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "domingo 26 feb 2023 - 22:20 hs",
@@ -217,8 +217,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 162i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "OLJO8524377",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "sábado 25 feb 2023 - 17:22 hs",
@@ -226,8 +226,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 142i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "BETANCURMARCELO",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "sábado 25 feb 2023 - 13:28 hs",
@@ -235,8 +235,8 @@
             "Titulo": "Pulverizador  Fumigador Niwa Fnw 33 11 Lts 33 Cc",
             "Usuario": "MARCELO FXR",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "sábado 25 feb 2023 - 11:54 hs",
@@ -244,8 +244,8 @@
             "Titulo": "Soldadora Inverter Esab Handyarc 142i Amarilla Y Negra 50hz/60hz 220v",
             "Usuario": "BRACHOADRIAN",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 23:27 hs",
@@ -253,8 +253,8 @@
             "Titulo": "Kit Compresor 6 Piezas Black Panther",
             "Usuario": "WALTERDAMIANNANFARO",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 23:27 hs",
@@ -262,8 +262,8 @@
             "Titulo": "Compresor 50lts Black Panther Envio Gratis!",
             "Usuario": "WALTERDAMIANNANFARO",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 19:02 hs",
@@ -271,8 +271,8 @@
             "Titulo": "Guantes Para Soldar Esab Heavy Duty Black Soldador",
             "Usuario": "SIXTO0614",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 1 mar 2023 - 15:48 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 1 mar 2023 - 15:48 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 18:36 hs",
@@ -280,8 +280,8 @@
             "Titulo": "Motobomba Niwa Wnw 55-2 5 5 Hp 2 Pulgadas",
             "Usuario": "MAJESTIC CARP",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 18:35 hs",
@@ -289,8 +289,8 @@
             "Titulo": "Motobomba Niwa Wnw 55-2 5 5 Hp 2 Pulgadas",
             "Usuario": "MAJESTIC CARP",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 27 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "martes 28 feb 2023 - 16:00 hs"
+            "Tiempo_despachar": "lunes 27 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "martes 28 feb 2023 - 16:00 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 12:49 hs",
@@ -298,8 +298,8 @@
             "Titulo": "Hoyadora Perforadora A Explosion 2 Tiempos 58cc Lusqtoff",
             "Usuario": "TIRITA 1",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "viernes 24 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "sábado 25 feb 2023 - 11:35 hs"
+            "Tiempo_despachar": "viernes 24 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "sábado 25 feb 2023 - 11:35 hs"
         },
         {
             "Fecha_venta": "viernes 24 feb 2023 - 10:55 hs",
@@ -307,8 +307,8 @@
             "Titulo": "Hoyadora Perforadora A Explosion 2 Tiempos 58cc Lusqtoff",
             "Usuario": "YOARI82",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "viernes 24 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "sábado 25 feb 2023 - 11:35 hs"
+            "Tiempo_despachar": "viernes 24 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "sábado 25 feb 2023 - 11:35 hs"
         },
         {
             "Fecha_venta": "jueves 23 feb 2023 - 14:58 hs",
@@ -316,8 +316,8 @@
             "Titulo": "Electrodo Para Soldar Esab Conarcrom 600 2.50mm X Kg",
             "Usuario": "RUBENVEZZOSI",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "viernes 24 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "lunes 27 feb 2023 - 16:01 hs"
+            "Tiempo_despachar": "viernes 24 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "lunes 27 feb 2023 - 16:01 hs"
         },
         {
             "Fecha_venta": "viernes 17 feb 2023 - 18:16 hs",
@@ -325,8 +325,8 @@
             "Titulo": "Compresor Niwa 2.5hp 50 Litros Anw2.5/50",
             "Usuario": "JOSEHERNANDEZ20211221225158",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "miércoles 22 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "jueves 23 feb 2023 - 15:52 hs"
+            "Tiempo_despachar": "miércoles 22 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "jueves 23 feb 2023 - 15:52 hs"
         },
         {
             "Fecha_venta": "jueves 16 feb 2023 - 11:12 hs",
@@ -334,8 +334,8 @@
             "Titulo": "Lijadora   De Banda Stanley Sb90  Amarilla 900w 220v",
             "Usuario": "MARTINATILIOBAY",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "jueves 16 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "viernes 17 feb 2023 - 15:47 hs"
+            "Tiempo_despachar": "jueves 16 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "viernes 17 feb 2023 - 15:47 hs"
         },
         {
             "Fecha_venta": "lunes 13 feb 2023 - 17:16 hs",
@@ -343,8 +343,8 @@
             "Titulo": "Caja Maletin Einhell E-box S 35/33 Porta Herramientas",
             "Usuario": "FGARAYGORTA",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "martes 14 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 15 feb 2023 - 15:58 hs"
+            "Tiempo_despachar": "martes 14 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 15 feb 2023 - 15:58 hs"
         },
         {
             "Fecha_venta": "lunes 13 feb 2023 - 11:36 hs",
@@ -352,8 +352,8 @@
             "Titulo": "Compresor Niwa 2.5hp 50 Litros Anw2.5/50",
             "Usuario": "PLAYACONSTRUCCIONESSRL",
             "Forma de envío": "Entrega en correo",
-            "Tiempo indicado para despachar": "lunes 13 feb 2023 - 23:59 hs",
-            "Tiempo en el que despachaste": "miércoles 15 feb 2023 - 15:58 hs"
+            "Tiempo_despachar": "lunes 13 feb 2023 - 23:59 hs",
+            "Tiempo_despachado": "miércoles 15 feb 2023 - 15:58 hs"
         }
     ]
     
