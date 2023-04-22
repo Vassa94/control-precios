@@ -6,7 +6,7 @@ main {
     max-height: 85vh;
 }
 
-.Titulo {
+.titulo {
     text-align: left;
     white-space: nowrap;
     overflow-x: auto;
@@ -18,7 +18,7 @@ main {
     overflow-x: hidden;
 }
 
-.Fecha_reclamo{
+.fecha_reclamo{
     text-align: left;
     white-space: nowrap;
     overflow-x: hidden;
@@ -32,7 +32,7 @@ main {
     max-width: 135px
 }
 
-.Detalle {
+.detalle {
     text-align: left;
     white-space: nowrap;
     

@@ -135,60 +135,7 @@ export class WebComponent implements OnInit {
     );
   }
 
-  /**
-   * Obtiene los productos de la base de datos y los guarda en la variable "web" y "webBackup"
-   */
-  /* getProductos(): void {
-    this.datosSis.obtenerWeb().toPromise().then((data) => {
-      this.web = data;
-      this.webBackup = data;
-      this.headers = ["Nombre",
-        "Precio",
-        "Oferta",
-        "Peso",
-        "Alto",
-        "Ancho",
-        "Prof.",
-        "Stock",
-        "Codigo",
-        "Mostrar",
-        "Envio g.",
-        "Marca"];
-      this.headers2 = ["nombre",
-        "precio",
-        "precioProm",
-        "peso",
-        "alto",
-        "ancho",
-        "profundidad",
-        "stock",
-        "codigo",
-        "mostrar",
-        "envio",
-        "marca"];
-      this.cargando = false;
-      this.getStockLocal();
-    },
-      (error) => {
-        this.cargando = false;
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'No esta habilitado el backend!',
-          footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
-        })
-        console.log("Ha ocurrido un error al obtener los productos:", error);
-      }
-    ); 
-
-
-  }*/
-
-  /**
-   * "Obtener datos de un archivo json local y luego usar esos
-   * datos para compararlos con otra matriz de datos. Luego envio el resultado de
-   * esa comparación a otra matriz".
-   */
+ 
 
 
   getStockLocal() {
