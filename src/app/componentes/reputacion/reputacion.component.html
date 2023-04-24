@@ -222,7 +222,7 @@
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
-                                        <th class="headers" scope="col" *ngFor="let header of headers2;let i = index">
+                                        <th class="headers" scope="col" *ngFor="let header of headers3;let i = index">
                                             {{ header }}
                                         </th>
                                     </tr>
@@ -230,7 +230,7 @@
                                 <tbody class="table-group-divider"
                                     style="height: 200px; overflow-y: auto; overflow-x: hidden;">
                                     <tr *ngFor="let row of reclamo.cancelaciones; let i = index ">
-                                        <td class="aux" *ngFor="let cell of headers2_2">
+                                        <td class="aux" *ngFor="let cell of headers3_2">
                                             {{ row[cell] }}
                                         </td>
                                     </tr>
@@ -251,15 +251,15 @@
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
-                                        <th class="headers" scope="col" *ngFor="let header of headers1;let i = index">
+                                        <th class="headers" scope="col" *ngFor="let header of headers4;let i = index">
                                             {{ header }}
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-group-divider"
                                     style="height: 200px; overflow-y: auto; overflow-x: hidden;">
-                                    <tr *ngFor="let row of reclamo.reclamos; let i = index ">
-                                        <td class="{{cell}}" *ngFor="let cell of headers1_2">
+                                    <tr *ngFor="let row of reclamo.demoras; let i = index ">
+                                        <td class="{{cell}}" *ngFor="let cell of headers4_2">
                                             {{ row[cell] }}
                                         </td>
                                     </tr>
