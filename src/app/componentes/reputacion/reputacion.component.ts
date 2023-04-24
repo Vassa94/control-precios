@@ -26,6 +26,7 @@ export class ReputacionComponent implements OnInit {
   detalleReclamo: any
   masDemoradas: any
   cantMasDemoradas: any
+  porcenDem: any  
   destino: String = ""
   cargando: boolean = true
   headers1: Array<string> = ["Fecha", "Nº Reclamo", "Nº Venta", "Fecha venta", "Publicacion", "Usuario", "Detalle"]
@@ -51,11 +52,11 @@ export class ReputacionComponent implements OnInit {
   ngOnInit(): void {
     this.datos.obtenerDatosReclamos().subscribe((data) => {
       this.reclamo = data[0]
-      console.log("datos; ", this.reclamo);
       this.tipoReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["tipo_de_reclamo"])
       this.detalleReclamo = this.mostFrequentValue(this.reclamo.reclamos, ["detalle"])
       this.masDemoradas = this.mostFrequentValue(this.reclamo.demoras, ["tiempo_despachar"], true)
       this.cantMasDemoradas = this.delayDayCount(this.masDemoradas)
+      this.porcenDem = this.porcentajeDemoradas();
       this.cargando = false
 
     },
@@ -67,25 +68,29 @@ export class ReputacionComponent implements OnInit {
 
 
   mostFrequentValue(arr, field, splitField = false) {
-    const count = {};
+    const counts = {};
     let mostFrequentValue = null;
     let highestCount = 0;
-
+  
     arr.forEach(obj => {
       let value = obj[field];
       if (splitField) {
         value = value.split(' ')[0];
       }
-      count[value] = (count[value] || 0) + 1;
-
-      if (count[value] > highestCount) {
-        highestCount = count[value];
+      if (value in counts) {
+        counts[value] += 1;
+      } else {
+        counts[value] = 1;
+      }
+      if (counts[value] > highestCount) {
+        highestCount = counts[value];
         mostFrequentValue = value;
       }
     });
-
+    
     return mostFrequentValue;
   }
+  
 
   delayDayCount(day) {
     let count = 0;
@@ -99,6 +104,14 @@ export class ReputacionComponent implements OnInit {
     });
 
     return count;
+  }
+
+  porcentajeDemoradas(){
+    const demorasEnDia = this.reclamo.demoras.filter((demora) => demora.tiempo_despachar.includes(this.masDemoradas)).length;
+    const porcentajeVentasDemoradasEnDia = ((demorasEnDia / this.reclamo.demoras.length) * 100).toFixed(2);
+    console.log(porcentajeVentasDemoradasEnDia);
+    
+    return porcentajeVentasDemoradasEnDia;
   }
 
   downloadPDF(): void {
@@ -148,7 +161,9 @@ export class ReputacionComponent implements OnInit {
       mercadoenvios: this.repForm.value.mercadoenvios,
       color: this.repForm.value.color,
     }
-
+    this.reclamo.ultimos60Dias=this.repForm.value.ultimos60Dias;
+    this.reclamo.mercadoenvios=this.repForm.value.mercadoenvios;
+    this.reclamo.color=this.repForm.value.color;
     this.datos.cargarDatosVentas(body).subscribe((data) => { },
       (error) => { error.error.text })
 
