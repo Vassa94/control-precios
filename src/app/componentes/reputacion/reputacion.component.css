@@ -6,11 +6,13 @@ main {
     max-height: 85vh;
 }
 
+
+
 .titulo {
     text-align: left;
     white-space: nowrap;
-    overflow-x: auto;
-    max-width: 215px
+    overflow-x: hidden;
+    max-width: 300px
 }
 
 .aux{
@@ -25,7 +27,7 @@ main {
     max-width: 135px
 }
 
-.Fecha_venta {
+.fecha_venta {
     text-align: left;
     white-space: nowrap;
     overflow-x: hidden;
@@ -35,7 +37,8 @@ main {
 .detalle {
     text-align: left;
     white-space: nowrap;
-    
+    overflow-x: hidden;
+    max-width: 180px
 }
 
 .good {
@@ -61,3 +64,4 @@ main {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #555;
 }
+
