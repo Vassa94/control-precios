@@ -32,10 +32,10 @@ export class ReputacionComponent implements OnInit {
   headers1_2: Array<string> = ["fecha_reclamo", "numero_reclamo", "venta", "fecha_venta", "titulo", "usuario", "detalle"]
   headers2: Array<string> = ["Fecha", "Nº de la venta", "Publicación", "Usuario"]
   headers2_2: Array<string> = ["fecha_venta", "venta", "titulo", "usuario"]
-  headers3: Array<string> = []
-  headers3_2: Array<string> = []
-  headers4: Array<string> = []
-  headers4_2: Array<string> = []
+  headers3: Array<string> = [ "Nº de la venta", "Usuario", "Fecha de la venta", "Publicación"]
+  headers3_2: Array<string> = ["venta","usuario","fecha_venta", "titulo"]
+  headers4: Array<string> = ["Nº Venta","Limite para despachar","Día despachado","Publicación", "Usuario" ]
+  headers4_2: Array<string> = ["venta","tiempo_despachar","tiempo_despachado","titulo","usuario"]
   reader = new FileReader();
 
   constructor(private datos: MlApiService, private modalService: NgbModal) { }
@@ -232,7 +232,7 @@ export class ReputacionComponent implements OnInit {
       case "cancelaciones":
         arr.forEach((obj) => {
           nuevoArr.push({
-            fecha_reclamo: obj["Fecha del reclamo"],
+            fecha_venta: obj["Fecha de la venta"],
             venta: obj["# de la venta"],
             titulo: obj["Título de la publicación"],
             usuario: obj["Usuario comprador"],
@@ -242,7 +242,7 @@ export class ReputacionComponent implements OnInit {
       case "demoras":
         arr.forEach((obj) => {
           nuevoArr.push({
-            fecha_reclamo: obj["Fecha del reclamo"],
+            fecha_venta: obj["Fecha de la venta"],
             venta: obj["# de la venta"],
             titulo: obj["Título de la publicación"],
             usuario: obj["Usuario comprador"],
