@@ -100,7 +100,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Cancelaciones</h5>
                                     <h5 [ngClass]="((this.reclamo.cancelaciones.length * 100) /
-                                this.reclamo.ultimos60Dias) < 0.5 ? 'good': 'bad'" class="mb-2 text-muted">
+                                this.reclamo.ultimos60Dias) < 1 ? 'good': 'bad'" class="mb-2 text-muted">
                                         {{((this.reclamo.cancelaciones.length * 100) /
                                         this.reclamo.ultimos60Dias).toFixed(2)}}%</h5>
                                     <p class="card-text">Son {{this.reclamo.cancelaciones.length}} de tus ventas</p>
@@ -198,7 +198,7 @@
                                 </thead>
                                 <tbody class="table-group-divider"
                                     style="height: 200px; overflow-y: auto; overflow-x: hidden;">
-                                    <tr *ngFor="let row of reclamo.cancelaciones; let i = index ">
+                                    <tr *ngFor="let row of reclamo.mediaciones; let i = index ">
                                         <td class="{{cell}}" *ngFor="let cell of headers2_2">
                                             {{ row[cell] }}
                                         </td>
@@ -317,7 +317,7 @@
 
     <ng-template #csv let-modal> <!-- Modal para cargar actualizaciones -->
         <div class="modal-header">
-            <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar</h4>
+            <h4 class="modal-title" style="text-align:center ;" id="modal-basic-title">Actualizar {{destino}}</h4>
         </div>
         <div class="modal-body">
             <form>
@@ -329,6 +329,10 @@
                         Subir CSV
                     </label>
                 </div>
+                <footer *ngIf="this.destino === 'mediaciones'" class="d-flex flex-column align-items-center pt-3">
+                    <p>Utilizar un csv con 4 columnas;</p>
+                    <p>Fecha del reclamo, # de la venta, Título de la publicación, Usuario comprador</p>
+                </footer>
             </form>
         </div>
         <div class="modal-footer">
