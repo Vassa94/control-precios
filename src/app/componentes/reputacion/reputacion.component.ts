@@ -240,7 +240,10 @@ export class ReputacionComponent implements OnInit {
       case "mediaciones":
         arr.forEach((obj) => {
           nuevoArr.push({
-            obj
+            fecha_venta: obj["Fecha de la venta"],
+            venta: obj["# de la venta"],
+            título: obj["Título de la publicación"],
+            usuario: obj["Usuario comprador"]
           });
         });
         break;
