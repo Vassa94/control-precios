@@ -15,13 +15,11 @@ API='http://192.168.0.78:8080'
 
 obtenerDatos(): Observable<any> {
 
-  return this.http.get(this.API+'/producto/traer');
-  //return this.http.get('../assets/productos.json');
+  return this.http.get(this.API+'/productos/traer');
 }
 
 obtenerWeb(): Observable<any> {
   return this.http.get(this.API+'/web/traer');
-  //return this.http.get('../assets/pubWeb.json');
 }
 
 obtenerMl(): Observable<any> {

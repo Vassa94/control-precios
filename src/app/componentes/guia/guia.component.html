@@ -2,7 +2,7 @@
     <nav class="h-30 border-bottom border-top p-2 d-flex align-items-center gap-4 color-black fw-semibold  ">
         <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion1">Excel y CSV</a>
         <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion2">Web</a>
-        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion3">Mercadolibre</a>
+        <a class="text-decoration-none text-dark" [routerLink]="['/guia']" fragment="seccion3">Reputación</a>
     </nav>
     <h1 class="text-center">Preguntas frecuentes</h1>
 
@@ -12,14 +12,10 @@
             <li>Todos los archivos de excel usados por la app son CSV. no admite xls o xlsx</li>
             <li>Los CSV de salida son UTF-8. Esto dignifica que estan codificados para nuestro teclado. Si se desea
                 abrir en excel aqui puede <a [routerLink]="['/guia']" fragment="UTF-8">ver como</a></li>
-            <li>Los excel que salen del sistema local deben ser revalidados o daran error. <a [routerLink]="['/guia']"
-                    fragment="validar">ver aqui</a></li>
-            <li>Si las tablas no cargan, es posible que no se este ejecutando el archivo JAVA. puede corregirlo <a
-                    [routerLink]="['/guia']" fragment="jar">asi</a> </li>
             <li>Si la tablas de productos no cargan, es probable que la computadora de Ignacio este apagada o sin red.
                 Verificar</li>
-            <li>Si los codigos de barra se ven rotos, es porque no tienen los 13 digitos. corregir por el correcto o
-                agregar 0 para que se corrija</li>
+            <li>Si las tablas no cargan, y no es lo anterior, es posible que no se este ejecutando el archivo JAVA.
+                puede corregirlo <a [routerLink]="['/guia']" fragment="jar">asi</a> </li>
         </ul>
     </section>
 
@@ -48,7 +44,7 @@
                 <img src=".\assets\img\guias\UnicodeUTF-8.png" alt="Codificacion" class="w-30 shadow rounded">
             </figure>
         </article>
-        <article>
+        <!-- <article>
             <h5 id="validar">Validacion XLS</h5>
             <p>Cuando queremos exportar informacion del sistema a la app, siempre conviene hacerlo como XLS, para poder
                 validar mas facil. Validar seria verificar que el formato este correcto, esto seria, sacarle el
@@ -65,13 +61,14 @@
             <figure class="d-flex justify-content-center py-5">
                 <img src="./assets/img/guias/confooter.png" alt="borrar el footer" class="w-30 shadow rounded">
             </figure>
-        </article>
+        </article> -->
     </section>
 
     <section class="h-60"><!-- web -->
         <h3 class="border-bottom border-top" id="seccion2">Web</h3>
-        <p>Esta seccion maneja las publicaciones de la pagina Web. actualmente no hay conexion con la API de TiendaNube, por lo que se maneja con CSV.
-            La app permite reflejar en los CVS de actualizacion:           
+        <p>Esta seccion maneja las publicaciones de la pagina Web. actualmente no hay conexion con la API de TiendaNube,
+            por lo que se maneja con CSV.
+            La app permite reflejar en los CVS de actualizacion:
         </p>
         <ul>
             <li>Precio</li>
@@ -83,18 +80,41 @@
         <p>La app no modifica:</p>
         <ul>
             <li>Stock. estos se arrastran de la web a la app cuando se carga el csv de tiendanube</li>
-            <li>Cambios en nombre. Se deben realizar dentro de la web. Si la URL cambia, la app generara otro publicacion nueva, quedando la anterior obsoleta (recordar borrar)</li>
+            <li>Cambios en nombre. Se deben realizar dentro de la web. Si la URL cambia, la app generara otro
+                publicacion nueva, quedando la anterior obsoleta (recordar borrar)</li>
             <li>cambios en Codigo de Oxi. se deben hacer manualmente en ambas plataformas</li>
         </ul>
-        <p> <strong>IMPORTANTE</strong> si se realizan modificaciones en la plataforma web, recordar reflejarlas en la app, o se desincronizaran y traera problemas a futuro al exportar (ofertas diferentes, etc)</p>
+        <p> <strong>IMPORTANTE</strong> si se realizan modificaciones en la plataforma web, recordar reflejarlas en la
+            app, o se desincronizaran y traera problemas a futuro al exportar (ofertas diferentes, etc)</p>
+        <p>
+            La app automaticamente pone en 0 los valores de productos Stihl, debido a su normativa de venta digital.
+            <b>NO ES UN ERROR DE LA APP</b>
+        </p>
+        <p>
+            Los stock de las publicaciones se actualizan al pasarle el CSV de TiendaNube. Automaticamente detectara el
+            stock actual publicado y lo actualiza en los datos de la app.
+        </p>
+
     </section>
 
-    <section class="h-60"><!-- mercadolibre -->
+    <section class="h-60">
+        <h3 class="border-bottom border-top" id="seccion3">Reputacion</h3>
+        <p>
+            Esta parte tiene diferentes carga de datos. si se quiere la informacion actualizada, hay que actualizar las 4 que lo componen y los datos extra;
+        </p>
+        <ul>
+            <li></li>
+        </ul>
+    </section>
+
+
+
+    <!-- <section class="h-60">
         <h3 class="border-bottom border-top" id="seccion3">Mercadolibre</h3>
         <p>
             Actualmente esta seccion esta inactiva. Se pueden ver productos de prueba. Esta seccion estara conectada a
             la API de mercadolibre, por lo que arrastrara datos en tiempo real de publicaciones. A futuro esta pensado
-            manejar tambien los envios.            
+            manejar tambien los envios.
         </p>
         <h6>Funcionalidades activas;</h6>
         <ul>
@@ -108,7 +128,7 @@
             <li>Stock de productos manejada automaticamente</li>
             <li>Manejo de seguimientos</li>
         </ul>
-    </section>
+    </section> -->
 
 
 

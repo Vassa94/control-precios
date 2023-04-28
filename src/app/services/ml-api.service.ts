@@ -10,8 +10,7 @@ export class MlApiService {
   seller_id = '33953861';
   token = '';
   expires_in = 21600;
-  sheet: string = '../assets/var.json';
-  sheet2: string = 'C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assets/var.json'
+  sheet: string = 'http://192.168.0.78:8080'
   constructor(private http: HttpClient) { }
 
   getNewToken() {
@@ -33,24 +32,27 @@ export class MlApiService {
   }
 
   obtenerDatosReclamos(): Observable<any> {
-    
-    return this.http.get(this.sheet2);
-
+    return this.http.get(this.sheet + '/reputacion/datos');
   }
 
-  obtenerMl(): Observable<any> {
-    
-    
-    return this.http.get('C:/control_precios/control-de-precios/out/control-de-precios-win32-x64/resources/app/src/assetspubMl.json');
-    //return this.http.get('http://localhost:8080/producto/traer')
+  cargarDatosVentas(body): Observable<any> {
+    return this.http.put(this.sheet + '/reputacion/editar', body)
   }
 
-
-
-  obtenerTxt():Observable<any> {
-    return this.http.get('https://drive.google.com/file/d/16xp5K_XZUsOEX8EjdI4-MjufUFucb04Z/view')
+  cargarReclamos(body): Observable<any> {
+    return this.http.post(this.sheet + '/reputacion/reclamos', body)
   }
 
+  cargarMediaciones(body): Observable<any> {
+    return this.http.post(this.sheet + '/reputacion/mediaciones', body)
+  }
+  
+  cargarCancelaciones(body): Observable<any> {
+    return this.http.post(this.sheet + '/reputacion/cancelaciones', body)
+  }
 
+  cargarDemoras(body): Observable<any> {
+    return this.http.post(this.sheet + '/reputacion/demoras', body)
+  }
 
 }

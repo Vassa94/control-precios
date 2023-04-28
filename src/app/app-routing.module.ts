@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "control", component: ControlComponent },
   { path: "reclamos", component: ReclamosComponent },
-  { path: "#", redirectTo: 'productos', pathMatch: 'full' },
-  { path: "**", component: NotFoundComponent },
+  { path: "**", redirectTo: 'productos', pathMatch: 'full' },
+  /* { path: "**", component: NotFoundComponent }, */
 
 
 ];

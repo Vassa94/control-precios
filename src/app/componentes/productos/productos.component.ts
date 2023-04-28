@@ -99,30 +99,7 @@ export class ProductosComponent implements OnInit {
 				console.log("Ha ocurrido un error al obtener los productos:", error);
 			}
 		);
-	}
-
-
-	/* Obtener los datos de la base de datos y almacenarlos en la variable productos. */
-	/* getProductos(): void {
-		this.datosSis.obtenerDatos().subscribe((data) => {
-			this.productos = data;
-			this.prodBackup = data;
-			this.headers = ["Codigo Oxi", "Nombre", "Marca", "Cod. Fabrica", "Precio actual", "Stock"];
-			this.headers2 = ["codigo", "descripcion", "marca", "cod_Fabrica", "precioPublico", "stock"];
-			this.cargando = false;
-		},
-			(error) => {
-				this.cargando = false;
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'No esta habilitado el backend!',
-					footer: `<a href="/guia">¿Por qué tengo este problema?</a>`
-				})
-				console.log("Ha ocurrido un error al obtener los productos:", error);
-			}
-		);
-	} */
+	}	
 
 	/**
 	 * Si el primer valor es menor que el segundo valor, devuelve -1, si el primer valor es mayor que el
@@ -503,6 +480,12 @@ export class ProductosComponent implements OnInit {
 				}
 			}, 3000)
 			this.descargarCSV(nuevos, 'Nuevos_');
+		} else {
+			Swal.fire({
+				title: 'Productos actualizados!',
+				icon: 'success',
+				showConfirmButton: true,
+			});
 		}
 	}
 
