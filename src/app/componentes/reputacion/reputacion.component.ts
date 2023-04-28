@@ -32,7 +32,7 @@ export class ReputacionComponent implements OnInit {
   headers1: Array<string> = ["Fecha", "Nº Reclamo", "Nº Venta", "Fecha venta", "Publicacion", "Usuario", "Detalle"]
   headers1_2: Array<string> = ["fecha_reclamo", "numero_reclamo", "venta", "fecha_venta", "titulo", "usuario", "detalle"]
   headers2: Array<string> = ["Fecha", "Nº de la venta", "Publicación", "Usuario"]
-  headers2_2: Array<string> = ["fecha_venta", "venta", "titulo", "usuario"]
+  headers2_2: Array<string> = ["fecha_venta", "venta", "título", "usuario"]
   headers3: Array<string> = [ "Nº de la venta", "Usuario", "Fecha de la venta", "Publicación"]
   headers3_2: Array<string> = ["venta","usuario","fecha_venta", "titulo"]
   headers4: Array<string> = ["Nº Venta","Limite para despachar","Día despachado","Publicación", "Usuario" ]
@@ -222,6 +222,8 @@ export class ReputacionComponent implements OnInit {
 
   editarCampos(arr, campo): any[] {
     let nuevoArr: Array<any> = [];
+    console.log(arr[0]["Publicacion"]);
+    
     switch (campo) {
       case "reclamos":
         arr.forEach((obj) => {
@@ -242,10 +244,12 @@ export class ReputacionComponent implements OnInit {
           nuevoArr.push({
             fecha_venta: obj["Fecha de la venta"],
             venta: obj["# de la venta"],
-            título: obj["Título de la publicación"],
+            título: obj["Publicacion"],
             usuario: obj["Usuario comprador"]
           });
         });
+        console.log(nuevoArr);
+        
         break;
       case "cancelaciones":
         arr.forEach((obj) => {

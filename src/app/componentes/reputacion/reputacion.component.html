@@ -153,11 +153,11 @@
             <div class="tab-pane fade" id="reclamos" role="tabpanel" aria-labelledby="reclamos-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
 
-                    <div class="Tabla " data-toggle="table">
+                    <div class="w-100 " data-toggle="table">
                         <button class="rounded-5 px-3 mx-2" (click)="updateArrays(csv,'reclamos')">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                        <div *ngIf="reclamo.reclamos.length > 0" class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
@@ -176,6 +176,10 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div *ngIf="reclamo.reclamos.length < 1" class="d-flex flex-column align-items-center">
+                            <img src="./assets/img/404-notfound.png" alt="404" width="500px">
+                            <p style="text-align: center;"><b>No hay reclamos para mostrar! Buen trabajo!</b></p>
+                        </div>
                     </div>
 
                 </div>
@@ -183,11 +187,11 @@
             <div class="tab-pane fade" id="mediaciones" role="tabpanel" aria-labelledby="mediaciones-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
 
-                    <div class="Tabla " data-toggle="table">
-                        <button class="rounded-5 px-3 mx-2" (click)="updateArrays(csv,'mediaciones')">
+                    <div  class="d-flex flex-column w-100 justify-content-start " data-toggle="table">
+                        <button class="rounded-5 px-3 mx-2 edicion" (click)="updateArrays(csv,'mediaciones')">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                        <div *ngIf="reclamo.mediaciones.length > 0" class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
@@ -206,6 +210,10 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div *ngIf="reclamo.mediaciones.length < 1" class="d-flex h-100 flex-column align-items-center">
+                            <img class="pt-5"  src="./assets/img/404-notfound.png" alt="404" width="500px">
+                            <p style="text-align: center;"><b>No hay mediaciones para mostrar! Buen trabajo!</b></p>
+                        </div>
                     </div>
 
                 </div>
@@ -213,11 +221,11 @@
             <div class="tab-pane fade" id="cancelaciones" role="tabpanel" aria-labelledby="cancelaciones-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
 
-                    <div class="Tabla " data-toggle="table">
+                    <div class="w-100 " data-toggle="table">
                         <button class="rounded-5 px-3 mx-2" (click)="updateArrays(csv,'cancelaciones')">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                        <div *ngIf="reclamo.cancelaciones.length > 0" class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
@@ -236,17 +244,21 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div *ngIf="reclamo.cancelaciones.length < 1" class="d-flex flex-column align-items-center">
+                            <img src="./assets/img/404-notfound.png" alt="404" width="500px">
+                            <p style="text-align: center;"><b>No hay cancelaciones para mostrar! Buen trabajo!</b></p>
+                        </div>
                     </div>
 
                 </div>
             </div>
             <div class="tab-pane fade" id="demoras" role="tabpanel" aria-labelledby="demoras-tab">
                 <div class="d-flex px-3 gap-3 m-2 justify-content-around">
-                    <div class="Tabla " data-toggle="table">
+                    <div class="w-100 " data-toggle="table">
                         <button class="rounded-5 px-3 mx-2" (click)="updateArrays(csv,'demoras')">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <div class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
+                        <div *ngIf="reclamo.demoras.length > 0" class="table-responsive" style=" margin: 8px;max-height: 69vh; border-radius: 15px;">
                             <table class="table table-bordered table-striped table-hover " style="overflow-y: hidden; ">
                                 <thead class="sticky-top" style="z-index: 1; background-color: white;">
                                     <tr style="height:20px;overflow: hidden;">
@@ -264,6 +276,10 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div *ngIf="reclamo.demoras.length < 1" class="d-flex flex-column align-items-center">
+                            <img src="./assets/img/404-notfound.png" alt="404" width="500px">
+                            <p style="text-align: center;"><b>No hay demoras para mostrar! Buen trabajo!</b></p>
                         </div>
                     </div>
 
