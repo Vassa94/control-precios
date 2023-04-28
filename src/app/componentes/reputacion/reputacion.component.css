@@ -97,3 +97,7 @@ main {
 	
 	outline: -webkit-focus-ring-color auto 5px;
 }
+
+.edicion {
+    width: 50px;
+}
