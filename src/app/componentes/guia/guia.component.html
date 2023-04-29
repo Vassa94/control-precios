@@ -11,11 +11,11 @@
         <ul>
             <li>Todos los archivos de excel usados por la app son CSV. no admite xls o xlsx</li>
             <li>Los CSV de salida son UTF-8. Esto dignifica que estan codificados para nuestro teclado. Si se desea
-                abrir en excel aqui puede <a [routerLink]="['/guia']" fragment="UTF-8">ver como</a></li>
+                abrir en excel mas abajo se explica como</li>
             <li>Si la tablas de productos no cargan, es probable que la computadora de Ignacio este apagada o sin red.
                 Verificar</li>
             <li>Si las tablas no cargan, y no es lo anterior, es posible que no se este ejecutando el archivo JAVA.
-                puede corregirlo <a [routerLink]="['/guia']" fragment="jar">asi</a> </li>
+                puede corregirlo siguiendo los pasos mas abajo detallados</li>
         </ul>
     </section>
 
@@ -100,10 +100,14 @@
     <section class="h-60">
         <h3 class="border-bottom border-top" id="seccion3">Reputacion</h3>
         <p>
-            Esta parte tiene diferentes carga de datos. si se quiere la informacion actualizada, hay que actualizar las 4 que lo componen y los datos extra;
+            Esta parte tiene diferentes carga de datos. si se quiere la informacion actualizada, hay que actualizar las
+            4 que lo componen;
         </p>
         <ul>
-            <li></li>
+            <li>En el caso de Mediaciones, ML no genera un informe, asique hay que crear un CSV y poner las cuatro
+                columnas con los nombres que indica la seccion de carga, y la informacion en las filas.</li>
+            <li>Reclamos, Cancelaciones y Demoras pueden cargarse directamente como los entrega Mercadolibre, cada vez que se carguen, se actualiza la vista en resumen.</li>
+            <li>El boton de descargar PDF permite sacar una vista del resumen</li>
         </ul>
     </section>
 
